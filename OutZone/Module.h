@@ -29,7 +29,11 @@ public:
 
 	void Disable()
 	{
-		// TODO 0: Call CleanUp() for disabling a module
+		if (enabled == true)
+		{
+			enabled = false;
+			CleanUp();
+		}
 	}
 };
 

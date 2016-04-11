@@ -20,11 +20,11 @@ public:
 public:
 	
 	SDL_Texture* graphics = nullptr;
-	SDL_Rect ground;
-	SDL_Rect foreground;
-	SDL_Rect background;
-	Animation flag;
-	Animation girl;
+
+	SDL_Rect title;
+	
+	//Animation title _animation;
+	
 
 	float foreground_pos;
 	bool forward;
