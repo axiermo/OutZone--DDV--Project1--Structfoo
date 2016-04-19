@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Animation.h"
 #include "Globals.h"
+#include "ModuleAudio.h"
 
 struct SDL_Texture;
 
@@ -18,6 +19,7 @@ public:
 	bool CleanUp();
 
 public:
+	Mix_Music* soundtrack;
 	SDL_Texture* graphics = nullptr;
 	SDL_Rect World1;
 };

@@ -56,7 +56,10 @@
     <ClInclude Include="ModuleTitle.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="FinalScreen.h">
+    <ClInclude Include="ModuleAudio.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleFinalScreen.h">
       <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
@@ -94,7 +97,10 @@
     <ClCompile Include="ModuleTitle.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="FinalScreen.cpp">
+    <ClCompile Include="ModuleAudio.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFinalScreen.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>

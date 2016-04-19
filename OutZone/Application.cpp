@@ -6,8 +6,9 @@
 #include "ModuleTitle.h"
 #include "ModuleLevel1.h"
 #include "ModulePlayer.h"
+#include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
-#include "FinalScreen.h"
+#include "ModuleFinalScreen.h"
 
 Application::Application()
 {
@@ -15,11 +16,12 @@ Application::Application()
 	modules[1] = render = new ModuleRender();
 	modules[2] = input = new ModuleInput();
 	modules[3] = textures = new ModuleTextures();
-	modules[4] = scene_title = new ModuleTitle();
-	modules[5] = scene_level1 = new ModuleLevel1();
-	modules[6] = final_screen = new ModuleFinalScreen();
-	modules[7] = player = new ModulePlayer();
-	modules[8] = fade = new ModuleFadeToBlack();
+	modules[4] = audio = new ModuleAudio();
+	modules[5] = scene_title = new ModuleTitle();
+	modules[6] = scene_level1 = new ModuleLevel1();
+	modules[7] = final_screen = new ModuleFinalScreen();
+	modules[8] = player = new ModulePlayer();
+	modules[9] = fade = new ModuleFadeToBlack();
 }	
 
 Application::~Application()
