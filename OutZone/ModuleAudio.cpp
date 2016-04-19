@@ -53,6 +53,9 @@ Mix_Music* ModuleAudio::Load(const char* path)
 	}
 	else
 	{
+		while (!Mix_FadeOutMusic(700) && Mix_PlayingMusic()) {
+			SDL_Delay(0);
+		}
 		Mix_PlayMusic(music, -1);
 		return music;
 	}
