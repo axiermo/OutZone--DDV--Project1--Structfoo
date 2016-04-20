@@ -9,6 +9,7 @@
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFinalScreen.h"
+#include "ModuleCollision.h"
 
 Application::Application()
 {
@@ -22,6 +23,7 @@ Application::Application()
 	modules[7] = final_screen = new ModuleFinalScreen();
 	modules[8] = player = new ModulePlayer();
 	modules[9] = fade = new ModuleFadeToBlack();
+	modules[10] = collision = new ModuleCollision();
 }	
 
 Application::~Application()
