@@ -9,7 +9,7 @@
 
 ModuleLevel1::ModuleLevel1()
 {
-	World1 = {0, 0, 240, 3896};
+	World1 = {0, 0, 256, 4180};
 }
 
 ModuleLevel1::~ModuleLevel1()
@@ -20,7 +20,7 @@ bool ModuleLevel1::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	graphics = App->textures->Load("level1.png");
+	graphics = App->textures->Load("Images & sprites/Maps/map1_base.png");
 	soundtrack = App->audio->Load("Audio .ogg/Chapter 1.ogg");
 
 	
