@@ -16,7 +16,7 @@ class ModulePlayer;
 class ModuleFadeToBlack;
 class Module;
 class ModuleFinalScreen;
-class ModuleCollision;
+class ModuleParticles;
 
 class Application
 {
@@ -33,7 +33,7 @@ public:
 	ModulePlayer* player;
 	ModuleFadeToBlack* fade;
 	ModuleFinalScreen* final_screen;
-	ModuleCollision* collision;
+	ModuleParticles* particles;
 
 public:
 

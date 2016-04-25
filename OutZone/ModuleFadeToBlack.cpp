@@ -14,7 +14,6 @@ ModuleFadeToBlack::ModuleFadeToBlack()
 ModuleFadeToBlack::~ModuleFadeToBlack()
 {}
 
-// Load assets
 bool ModuleFadeToBlack::Start()
 {
 	LOG("Preparing Fade Screen");
@@ -22,7 +21,6 @@ bool ModuleFadeToBlack::Start()
 	return true;
 }
 
-// Update: draw background
 update_status ModuleFadeToBlack::Update()
 {
 	if(current_step == fade_step::none)
@@ -37,10 +35,8 @@ update_status ModuleFadeToBlack::Update()
 		{
 			if(now >= total_time)
 			{
-				// TODO 2: enable / disable the modules received when FadeToBlacks() gets called
 				to_disable->Disable();
 				to_enable->Enable();
-				// ---
 				total_time += total_time;
 				start_time = SDL_GetTicks();
 				current_step = fade_step::fade_from_black;
@@ -56,14 +52,13 @@ update_status ModuleFadeToBlack::Update()
 		} break;
 	}
 
-	// Finally render the black square with alpha on the screen
+	// Render the black square with alpha on the screen
 	SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, (Uint8)(normalized * 255.0f));
 	SDL_RenderFillRect(App->render->renderer, &screen);
 
 	return UPDATE_CONTINUE;
 }
 
-// Fade to black. At mid point deactivate one module, then activate the other
 bool ModuleFadeToBlack::FadeToBlack(Module* module_off, Module* module_on, float time)
 {
 	bool ret = false;

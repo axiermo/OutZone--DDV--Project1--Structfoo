@@ -1,8 +1,6 @@
 #ifndef __MODULE_H__
 #define __MODULE_H__
 
-struct Collider;
-
 class Module
 {
 private:
@@ -37,9 +35,6 @@ public:
 			CleanUp();
 		}
 	}
-
-	virtual void OnCollision(Collider* col1, Collider* col2)
-	{ }
 };
 
 #endif // __MODULE_H__

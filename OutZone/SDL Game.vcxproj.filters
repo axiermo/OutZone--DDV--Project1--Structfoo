@@ -62,10 +62,7 @@
     <ClInclude Include="ModuleFinalScreen.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleCollision.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="p2List.h">
+    <ClInclude Include="ModuleParticles.h">
       <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
@@ -109,8 +106,8 @@
     <ClCompile Include="ModuleFinalScreen.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleCollision.cpp">
-      <Filter>Core</Filter>
+    <ClCompile Include="ModuleParticles.cpp">
+      <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -18,11 +18,17 @@ public:
 
 	bool Init();
 	bool CleanUp();
-	Mix_Music* Load(const char* path);
+
+	Mix_Music* LoadMusic(const char* path);
+	Mix_Chunk* LoadFX(const char* path);
+	void ModuleAudio::PlayMusic(Mix_Music* music);
+	void ModuleAudio::PlayFX(Mix_Chunk* fx);
+	void UnloadAudio();
 
 public:
 	Mix_Music* music;
 	Mix_Chunk* fx[MAX_FX];
+	int last_fx = 0;
 };
 
 #endif // __ModuleAudio_H__

@@ -27,15 +27,7 @@ bool ModuleAudio::Init()
 
 bool ModuleAudio::CleanUp()
 {
-	LOG("Freeing sounds and Mixer library");
-
-	Mix_FreeMusic(music);
-
-	
-	for (uint i = 0; i < MAX_FX; ++i)
-		if (fx[i] != nullptr)
-			Mix_FreeChunk(fx[i]);
-	
+	LOG("Closing sounds and Mixer library");
 
 	Mix_CloseAudio();
 	Mix_Quit();
@@ -43,10 +35,45 @@ bool ModuleAudio::CleanUp()
 }
 
 
-Mix_Music* ModuleAudio::Load(const char* path)
+Mix_Music* ModuleAudio::LoadMusic(const char* path)
 {
-	Mix_Music* music = Mix_LoadMUS(path);
+	music = Mix_LoadMUS(path);
 
+	return music;
+}
+
+Mix_Chunk* ModuleAudio::LoadFX(const char* path)
+{
+	fx[last_fx] = Mix_LoadWAV(path);
+
+	return fx[last_fx];
+}
+
+void ModuleAudio::UnloadAudio()
+{
+	Mix_FreeMusic(music);
+
+	for (uint i = 0; i < MAX_FX; ++i)
+		if (fx[i] != nullptr)
+			Mix_FreeChunk(fx[i]);
+
+	last_fx = 0;
+}
+
+void ModuleAudio::PlayFX(Mix_Chunk* fx)
+{
+	if (fx == NULL)
+	{
+		LOG("Error playing the music");
+	}
+	else
+	{
+		Mix_PlayChannel(-1, fx, 0);
+	}
+}
+
+void ModuleAudio::PlayMusic(Mix_Music* music)
+{
 	if (music == NULL)
 	{
 		LOG("Error playing the music");
@@ -57,7 +84,5 @@ Mix_Music* ModuleAudio::Load(const char* path)
 			SDL_Delay(0);
 		}
 		Mix_PlayMusic(music, -1);
-		return music;
 	}
 }
-

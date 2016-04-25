@@ -6,47 +6,48 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFinalScreen.h"
+#include "ModulePlayer.h"
+#include "ModuleParticles.h"
 
 ModuleLevel1::ModuleLevel1()
 {
-	World1 = {0, 0, 256, 4180};
+	World1 = {0, 0, 240, 3896};
 }
 
 ModuleLevel1::~ModuleLevel1()
 {}
 
-// Load assets
 bool ModuleLevel1::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	graphics = App->textures->Load("Images & sprites/Maps/map1_base.png");
-	soundtrack = App->audio->Load("Audio .ogg/Chapter 1.ogg");
 
-	
-	((Module*)App->player)->Enable(); 
+	// Loading music for this specific level and the backgroud
+	graphics = App->textures->Load("Sprites/Maps/map1_base.png");
+
+	soundtrack = App->audio->LoadMusic("Audio/Music/Chapter_1.ogg");
+	App->audio->PlayMusic(soundtrack);
+	App->player->Enable(); 
+
 	return ret;
 }
 
-// Load assets
 bool ModuleLevel1::CleanUp()
 {
 	LOG("Unloading world1");
 
-	((Module*)App->player)->Disable();
+	App->player->Disable();
 	return true;
 }
 
-// Update: draw background
 update_status ModuleLevel1::Update()
-{
-	// Draw everything --------------------------------------	
+{	
 	App->render->Blit(graphics, 0, -3576, &World1);
 	
-
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_M] == 1)
 	{
 		App->fade->FadeToBlack(App->scene_level1, App->final_screen, 2.0F);
 	}
+
 	return UPDATE_CONTINUE;
 }

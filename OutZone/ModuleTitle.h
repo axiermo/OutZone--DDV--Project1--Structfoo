@@ -25,7 +25,6 @@ public:
 	
 	//Animation title _animation;
 	
-
 	float foreground_pos;
 	bool forward;
 };
