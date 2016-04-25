@@ -54,8 +54,8 @@ void ModuleAudio::UnloadAudio()
 	Mix_FreeMusic(music);
 
 	for (uint i = 0; i < MAX_FX; ++i)
-		if (fx[i] != nullptr)
-			Mix_FreeChunk(fx[i]);
+	if (fx[i] != nullptr)
+		Mix_FreeChunk(fx[i]);
 
 	last_fx = 0;
 }

@@ -3,8 +3,8 @@
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
+#include "ModuleCollision.h"
 #include "ModuleParticles.h"
-#include "Animation.h"
 
 #include "SDL/include/SDL_timer.h"
 
@@ -17,32 +17,58 @@ ModuleParticles::ModuleParticles()
 ModuleParticles::~ModuleParticles()
 {}
 
+// Load assets
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	
+
 	//Basic laser
 	graphics = App->textures->Load("Sprites/Lasers/Basic.png");
-	laser90.anim.PushBack({ 43, 100, 6, 18 });
-	laser90.life = 1000;
+	laserup.anim.PushBack({ 43, 100, 4, 16 });
+	laserup.life = 1000;
 	laser67.anim.PushBack({ 56, 100, 10, 16 });
 	laser67.life = 1000;
-	laser45.anim.PushBack({ 72, 100, 14, 15 });
-	laser45.life = 1000;
+	laserupright.anim.PushBack({ 72, 100, 14, 15 });
+	laserupright.life = 1000;
 	laser22.anim.PushBack({ 92, 112, 15, 14 });
 	laser22.life = 1000;
-	laser0.anim.PushBack({ 115, 112, 18, 8 });
-	laser0.life = 1000;
+	laserright.anim.PushBack({ 115, 112, 18, 8 });
+	laserright.life = 1000;
 	laser112.anim.PushBack({ 127, 100, 15, 14 });
 	laser112.life = 1000;
-	laser135.anim.PushBack({ 158, 100, 14, 15 });
-	laser135.life = 1000;
+	laserupleft.anim.PushBack({ 158, 100, 14, 15 });
+	laserupleft.life = 1000;
 	laser157.anim.PushBack({ 179, 100, 10, 16 });
 	laser157.life = 1000;
 
-	return true;
-}
+	explosionup.anim.PushBack({ 39, 46, 14, 16 });
+	explosionup.life = 10;
+	explosiondown.anim.PushBack({ 38, 69, 16 , 16 });
+	explosiondown.life = 10;
+	
+	
+	explosionupright.anim.PushBack({ 75, 48, 16, 14 });
+	explosionupright.life = 10;
 
+	explosionright.anim.PushBack({ 113, 48, 16, 14 });
+	explosionright.life = 10;
+
+	explosiondownright.anim.PushBack({ 152, 48, 15, 14 });
+	explosiondownright.life = 10;
+
+	explosiondownleft.anim.PushBack({ 77, 71, 14, 13 });
+	explosiondownleft.life = 10;
+
+	explosionleft.anim.PushBack({ 113, 70, 16, 15 });
+	explosionleft.life = 10;
+
+	explosionupleft.anim.PushBack({ 154, 69, 14, 16 });
+	explosionupleft.life = 10;
+	return true;
+	
+	}
+
+// Unload assets
 bool ModuleParticles::CleanUp()
 {
 	LOG("Unloading particles");
@@ -59,27 +85,8 @@ bool ModuleParticles::CleanUp()
 
 	return true;
 }
-void ModuleParticles::AddParticle(const Particle& particle, int x, int y, iPoint speed, /*COLLIDER_TYPE collider_type,*/ Uint32 delay)
-{
-	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
-	{
-		if (active[i] == nullptr)
-		{
-			Particle* p = new Particle(particle);
-			p->born = SDL_GetTicks() + delay;
-			p->position.x = x;
-			p->position.y = y;
-			p->speed = speed;
-			/*
-			if (collider_type != COLLIDER_NONE)
-				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
-			*/
-			active[i] = p;
-			break;
-		}
-	}
-}
 
+// Update: draw background
 update_status ModuleParticles::Update()
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
@@ -102,14 +109,34 @@ update_status ModuleParticles::Update()
 				p->fx_played = true;
 			}
 		}
-	}
 
+		
+	}
 	return UPDATE_CONTINUE;
 }
+	
+void ModuleParticles::AddParticle(const Particle& particle, int x, int y, iPoint speed, COLLIDER_TYPE collider_type, Uint32 delay)
+{
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
+		if (active[i] == nullptr)
+		{
+			Particle* p = new Particle(particle);
+			p->born = SDL_GetTicks() + delay;
+			p->position.x = x;
+			p->position.y = y;
+			p->speed = speed;
+			
+				
+			active[i] = p;
+			
+			break;
+		}
+	}
+}
 
+// TODO 5: Make so every time a particle hits a wall it triggers an explosion particle
 
-
-/* TODO 5: Make so every time a particle hits a wall it triggers an explosion particle
 void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
@@ -122,9 +149,12 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 			break;
 		}
 	}
-}
-*/
 
+}
+
+// -------------------------------------------------------------
+// -------------------------------------------------------------
+	
 Particle::Particle()
 {
 	position.SetToZero();
@@ -136,10 +166,11 @@ anim(p.anim), position(p.position), speed(p.speed),
 fx(p.fx), born(p.born), life(p.life)
 {}
 
+
 Particle::~Particle()
 {
-	/*if (collider != nullptr)
-		App->collision->EraseCollider(collider);*/
+	if (collider != nullptr)
+		App->collision->EraseCollider(collider);
 }
 
 bool Particle::Update()
@@ -158,9 +189,8 @@ bool Particle::Update()
 	position.x += speed.x;
 	position.y += speed.y;
 
-	/*if (collider != nullptr)
-		collider->SetPos(position.x, position.y);*/
+	if (collider != nullptr)
+		collider->SetPos(position.x, position.y);
 
 	return ret;
 }
-

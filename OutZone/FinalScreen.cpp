@@ -7,11 +7,12 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleInput.h"
 #include "FinalScreen.h"
+#include "ModulePlayer.h"
 
 ModuleFinalScreen::ModuleFinalScreen()
 {
 	// ground
-	FinalScreen = { 0, 0, 240, 320 };
+	FinalScreen = { 0, 0, 240, 5279 };
 
 
 }
@@ -24,10 +25,13 @@ bool ModuleFinalScreen::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	graphics = App->textures->Load("fake_final_screen.png");//cambiar a final screen//WE NEED TO CHANGE THIS IMAGE
-
-	// TODO 1: Enable (and properly disable) the player module
-	((Module*)App->player)->Enable();
+	
+	
+	graphics = App->textures->Load("Sprites/Level_2.png");
+	soundtrack = App->audio->LoadMusic("Audio/Music/Chapter_2.ogg");
+	App->audio->PlayMusic(soundtrack);
+	
+	App->player->Enable();
 	return ret;
 }
 
@@ -35,7 +39,8 @@ bool ModuleFinalScreen::Start()
 bool ModuleFinalScreen::CleanUp()
 {
 	LOG("Unloading Final Screen");
-	((Module*)App->player)->Disable();
+	App->player->Disable();
+	App->audio->UnloadAudio();
 	return true;
 }
 
@@ -43,11 +48,11 @@ bool ModuleFinalScreen::CleanUp()
 update_status ModuleFinalScreen::Update()
 {
 	// Draw everything --------------------------------------	
-	App->render->Blit(graphics, 0, 0, &FinalScreen);
-	//App->render->Blit(graphics, 50, -15, &background, 0.75f); // back of the room
-	//App->render->Blit(graphics, 280, 125, &foreground);
-	//App->render->Blit(graphics, 305, 136, &(water.GetCurrentFrame())); // water animation
-	//App->render->Blit(graphics, 0, -16, &roof, 0.75f);
+	App->render->Blit(graphics, 0, -4959, &FinalScreen);
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
+	{
+		App->fade->FadeToBlack(App->final_screen, App->scene_title, 2.0F);
+	}
 
 	return UPDATE_CONTINUE;
 }

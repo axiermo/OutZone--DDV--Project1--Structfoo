@@ -6,10 +6,11 @@
 #include "ModuleTitle.h"
 #include "ModuleLevel1.h"
 #include "ModulePlayer.h"
-#include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
-#include "ModuleFinalScreen.h"
+#include "FinalScreen.h"
+#include "ModuleCollision.h"
 #include "ModuleParticles.h"
+#include "ModuleAudio.h"
 
 Application::Application()
 {
@@ -22,8 +23,10 @@ Application::Application()
 	modules[6] = scene_level1 = new ModuleLevel1();
 	modules[7] = final_screen = new ModuleFinalScreen();
 	modules[8] = player = new ModulePlayer();
-	modules[9] = fade = new ModuleFadeToBlack();
-	modules[10] = particles = new ModuleParticles();
+	modules[9] = collision = new ModuleCollision();
+	//top map(3D feeling)
+	modules[10] = fade = new ModuleFadeToBlack();
+	modules[11] = particles = new ModuleParticles();
 }	
 
 Application::~Application()

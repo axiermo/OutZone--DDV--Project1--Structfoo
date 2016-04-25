@@ -5,6 +5,10 @@
 #include "Globals.h"
 #include "SDL\include\SDL_scancode.h"
 
+#include "Module.h"
+#include "Globals.h"
+#include "SDL\include\SDL_scancode.h"
+
 #define MAX_KEYS 300
 
 enum KEY_STATE

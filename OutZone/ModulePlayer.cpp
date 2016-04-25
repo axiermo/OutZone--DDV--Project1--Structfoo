@@ -1,17 +1,18 @@
 #include "Globals.h"
-#include "Animation.h"
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
-
+#include "ModuleCollision.h"
+#include "ModuleFadeToBlack.h"
+#include "Animation.h"
 #include "SDL/include/SDL_timer.h"
 
 ModulePlayer::ModulePlayer()
 {
-	// Character sprites
+	
 	up.PushBack({ 17, 273, 29, 38 });
 	up.PushBack({ 55, 274, 27, 37 });
 	up.PushBack({ 90, 274, 27, 37 });
@@ -33,11 +34,11 @@ ModulePlayer::ModulePlayer()
 	left.PushBack({ 18, 191, 27, 35 });
 	left.speed = 0.2f;
 
-	down.PushBack({ 54, 139, 31, 39 });
-	down.PushBack({ 92, 141, 28, 39 });
-	down.PushBack({ 125, 143, 27, 37 });
-	down.PushBack({ 156, 143, 28, 39 });
-	down.PushBack({ 193, 145, 28, 39 });
+	down.PushBack({ 55, 139, 31, 39 });
+	down.PushBack({ 93, 141, 28, 39 });
+	down.PushBack({ 126, 143, 27, 37 });
+	down.PushBack({ 159, 143, 28, 39 });
+	down.PushBack({ 194, 145, 28, 39 });
 	down.speed = 0.2f;
 
 	upleft.PushBack({ 57, 93, 29, 36 });
@@ -71,12 +72,13 @@ ModulePlayer::ModulePlayer()
 ModulePlayer::~ModulePlayer()
 {}
 
+// Load assets
 bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true;
+	graphics = App->textures->Load("Sprites/Character/Moves.png"); 
 
-	graphics = App->textures->Load("Sprites/Character/Moves.png"); // arcade version
 	basic_laser = App->audio->LoadFX("Audio/FX/Laser.wav");
 
 	position.x = 100;
@@ -85,10 +87,8 @@ bool ModulePlayer::Start()
 	direction = IDLE;
 
 	last_laser = SDL_GetTicks();
-
 	return ret;
 }
-
 bool ModulePlayer::CleanUp()
 {
 	LOG("Unloading player textures");
@@ -96,7 +96,7 @@ bool ModulePlayer::CleanUp()
 
 	return true;
 }
-
+// Update: draw background
 update_status ModulePlayer::Update()
 {
 	// MOVEMENT ---------------------------------------------------
@@ -131,14 +131,14 @@ update_status ModulePlayer::Update()
 
 	if (curr_laser - last_laser > 150)
 	{
-		if ((App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT) && (curr_animation == &up)) Fire(UP);
-		if ((App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT) && (curr_animation == &down)) Fire(DOWN);
-		if ((App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT) && (curr_animation == &left)) Fire(LEFT);
-		if ((App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT) && (curr_animation == &right)) Fire(RIGHT);
-		if ((App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT) && (curr_animation == &upright)) Fire(UP_RIGHT);
-		if ((App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT) && (curr_animation == &upleft)) Fire(UP_LEFT);
-		if ((App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT) && (curr_animation == &downright)) Fire(DOWN_RIGHT);
-		if ((App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT) && (curr_animation == &downleft)) Fire(DOWN_LEFT);
+		if ((App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_REPEAT) && (curr_animation == &up)) Fire(UP);
+		if ((App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_REPEAT) && (curr_animation == &down)) Fire(DOWN);
+		if ((App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_REPEAT) && (curr_animation == &left)) Fire(LEFT);
+		if ((App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_REPEAT) && (curr_animation == &right)) Fire(RIGHT);
+		if ((App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_REPEAT) && (curr_animation == &upright)) Fire(UP_RIGHT);
+		if ((App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_REPEAT) && (curr_animation == &upleft)) Fire(UP_LEFT);
+		if ((App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_REPEAT) && (curr_animation == &downright)) Fire(DOWN_RIGHT);
+		if ((App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_REPEAT) && (curr_animation == &downleft)) Fire(DOWN_LEFT);
 	}
 
 	// DRAW -------------------------------------------------------------
@@ -156,7 +156,7 @@ void ModulePlayer::SelectAnimation(Directions direction)
 	int speed = 2;
 	last_animation = curr_animation;
 
-	switch(direction)
+	switch (direction)
 	{
 	case UP:
 		curr_animation = &up;
@@ -171,7 +171,7 @@ void ModulePlayer::SelectAnimation(Directions direction)
 		position.x -= speed;
 		break;
 	case RIGHT:
-		curr_animation = &right; 
+		curr_animation = &right;
 		position.x += speed;
 		break;
 	case UP_LEFT:
@@ -194,28 +194,36 @@ void ModulePlayer::Fire(Directions direction)
 	switch (direction)
 	{
 	case UP:
-		App->particles->AddParticle(App->particles->laser90, position.x + 20, position.y - 10, { 0, -5 });
+		App->particles->AddParticle(App->particles->laserup, position.x + 18, position.y - 10, { 0, -5 });
+		App->particles->AddParticle(App->particles->explosionup, position.x +12, position.y -15, { 0, 0 });
 		break;
 	case DOWN:
-		App->particles->AddParticle(App->particles->laser90, position.x + 7, position.y + 19, { 0, +5 });
+		App->particles->AddParticle(App->particles->laserup, position.x + 5, position.y + 19, { 0, +5 });
+		App->particles->AddParticle(App->particles->explosiondown, position.x -1 , position.y + 28 , { 0, 0 });
 		break;
 	case LEFT:
-		App->particles->AddParticle(App->particles->laser0, position.x - 5, position.y + 5, { -5, 0 });
-		break;
-	case RIGHT:
-		App->particles->AddParticle(App->particles->laser0, position.x + 20, position.y + 10, { +5, 0 });
+		App->particles->AddParticle(App->particles->laserright, position.x - 8, position.y + 5, { -5, 0 });
+		App->particles->AddParticle(App->particles->explosionleft, position.x -15, position.y , { 0, 0 });
+		break;											 
+	case RIGHT:											 
+		App->particles->AddParticle(App->particles->laserright, position.x + 29, position.y + 10, { +5, 0 });
+		App->particles->AddParticle(App->particles->explosionright, position.x + 29, position.y +4 , { 0, 0 });
 		break;
 	case UP_LEFT:
-		App->particles->AddParticle(App->particles->laser135, position.x + 7, position.y - 5, { -5, -5 });
+		App->particles->AddParticle(App->particles->laserupleft, position.x + 5, position.y - 10, { -5, -5 });
+		App->particles->AddParticle(App->particles->explosionupleft, position.x  , position.y -14, { 0, 0 });
 		break;
 	case UP_RIGHT:
-		App->particles->AddParticle(App->particles->laser45, position.x + 20, position.y - 10, { +5, -5 });
+		App->particles->AddParticle(App->particles->laserupright, position.x + 20, position.y - 10, { +5, -5 });
+		App->particles->AddParticle(App->particles->explosionupright, position.x +20 , position.y-10, { 0, 0 });
 		break;
 	case DOWN_LEFT:
-		App->particles->AddParticle(App->particles->laser45, position.x - 11, position.y + 8, { -5, +5 });
+		App->particles->AddParticle(App->particles->laserupright, position.x - 11, position.y + 12, { -5, +5 });
+		App->particles->AddParticle(App->particles->explosiondownleft, position.x - 11, position.y + 16, { 0, 0 });
 		break;
 	case DOWN_RIGHT:
-		App->particles->AddParticle(App->particles->laser135, position.x + 10, position.y + 10, { +5, +5 });
+		App->particles->AddParticle(App->particles->laserupleft, position.x + 12, position.y + 12, { +5, +5 });
+		App->particles->AddParticle(App->particles->explosiondownright, position.x + 17, position.y + 20, { 0, 0 });
 		break;
 	}
 

@@ -3,19 +3,20 @@
 
 #include "Module.h"
 #include "Animation.h"
-#include "Globals.h"
 #include "p2Point.h"
-//#include "ModuleCollision.h"
+#include "Globals.h"
+#include "ModuleLevel1.h"
+#include "ModuleCollision.h"
 
 #define MAX_ACTIVE_PARTICLES 100
 
-//struct Collider;
 struct SDL_Texture;
+struct Collider;
 enum COLLIDER_TYPE;
 
 struct Particle
 {
-	//Collider* collider = nullptr;
+	Collider* collider = nullptr;
 	Animation anim;
 	uint fx = 0;
 	iPoint position;
@@ -39,9 +40,8 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
-	//void OnCollision(Collider* c1, Collider* c2);
-
-	void AddParticle(const Particle& particle, int x, int y, iPoint speed,/*COLLIDER_TYPE collider_type = COLLIDER_NONE,*/ Uint32 delay = 0);
+	void OnCollision(Collider* c1, Collider* c2);
+	void AddParticle(const Particle& particle, int x, int y, iPoint speed, COLLIDER_TYPE collider_type = COLLIDER_NONE, Uint32 delay = 0);
 
 private:
 
@@ -50,15 +50,26 @@ private:
 
 public:
 
-	//Particle explosion;
-	Particle laser90;
+	Particle laserup;
+	
 	Particle laser67;
-	Particle laser45;
+	Particle laserupright;
 	Particle laser22;
-	Particle laser0;
+	Particle laserright;
 	Particle laser112;
-	Particle laser135;
+	Particle laserupleft;
 	Particle laser157;
+
+	Particle   explosionup;
+	Particle   explosionupright;
+	Particle   explosionright;
+	Particle   explosiondownright;
+	Particle   explosiondown;
+	Particle   explosiondownleft;
+	Particle   explosionleft;
+	Particle   explosionupleft;
+	
+	
 };
 
 #endif // __MODULEPARTICLES_H__

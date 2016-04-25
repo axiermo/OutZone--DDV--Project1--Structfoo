@@ -8,6 +8,7 @@
 #include "ModuleAudio.h"
 
 struct SDL_Texture;
+struct Collider;
 
 class ModulePlayer : public Module
 {
@@ -17,6 +18,7 @@ public:
 
 	bool Start();
 	update_status Update();
+	void OnCollision(Collider* c1, Collider* c2);
 	bool CleanUp();
 
 	void SelectAnimation(Directions direction);
@@ -42,10 +44,13 @@ public:
 	Animation* curr_animation = nullptr;
 	Animation* last_animation = nullptr;
 
+	Collider* col;
+	bool destroyed = false;
 	iPoint position;
 
 	uint last_laser;
 	uint curr_laser;
+
 };
 
 #endif
