@@ -22,8 +22,8 @@ Application::Application()
 	modules[5] = scene_title = new ModuleTitle();
 	modules[6] = scene_level1 = new ModuleLevel1();
 	modules[7] = final_screen = new ModuleFinalScreen();
-	modules[8] = player = new ModulePlayer();
-	modules[9] = collision = new ModuleCollision();
+	modules[8] = collision = new ModuleCollision();
+	modules[9] = player = new ModulePlayer();
 	//top map(3D feeling)
 	modules[10] = fade = new ModuleFadeToBlack();
 	modules[11] = particles = new ModuleParticles();

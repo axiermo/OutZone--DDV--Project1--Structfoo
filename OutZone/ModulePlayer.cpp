@@ -86,6 +86,8 @@ bool ModulePlayer::Start()
 	curr_animation = &up;
 	direction = IDLE;
 
+	// TODO -> DANI (Collision)
+
 	last_laser = SDL_GetTicks();
 	return ret;
 }
