@@ -8,7 +8,7 @@
 #include "ModuleLevel2b.h"
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
-
+#include "ModuleGameOver.h"
 ModuleLevel1b::ModuleLevel1b()
 {
 	World1 = {0, 0, 256, 4180};
@@ -89,7 +89,7 @@ update_status ModuleLevel1b::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
 	{
-		App->fade->FadeToBlack(App->scene_level1b, App->scene_level2b, 2.0F);
+		App->fade->FadeToBlack(App->scene_level1b, App->gameover, 2.0F);
 	}
 	return UPDATE_CONTINUE;
 }

@@ -6,6 +6,7 @@
 #include "ModuleLevel1b.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleInput.h"
+#include "ModuleGameOver.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -27,6 +28,8 @@ ModuleTitle::~ModuleTitle()
 
 bool ModuleTitle::Start()
 {
+
+	App->gameover->Disable();
 	LOG("Loading first scene");
 	
 	graphics = App->textures->Load("Sprites/Intro.png");

@@ -12,7 +12,7 @@
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
-
+#include "ModuleGameOver.h"
 Application::Application()
 {
 	modules[0] = window = new ModuleWindow();
@@ -23,11 +23,12 @@ Application::Application()
 	modules[5] = scene_title = new ModuleTitle();
 	modules[6] = scene_level1b = new ModuleLevel1b();
 	modules[7] = scene_level2b = new ModuleLevel2b();
-	modules[8] = player = new ModulePlayer();
-	modules[9] = scene_level1f = new ModuleLevel1f();
-	modules[10] = fade = new ModuleFadeToBlack();
-	modules[11] = particles = new ModuleParticles();
-	modules[12] = collision = new ModuleCollision();
+	modules[8] = gameover = new ModuleGameOver();
+	modules[9] = player = new ModulePlayer();
+	modules[10] = scene_level1f = new ModuleLevel1f();
+	modules[11] = fade = new ModuleFadeToBlack();
+	modules[12] = particles = new ModuleParticles();
+	modules[13] = collision = new ModuleCollision();
 }
 
 Application::~Application()

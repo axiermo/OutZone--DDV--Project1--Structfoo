@@ -71,6 +71,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="ModuleGameOver.h" />
     <ClInclude Include="ModuleLevel1f.h" />
     <ClInclude Include="ModuleLevel2b.h" />
     <ClInclude Include="Globals.h" />
@@ -91,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="ModuleGameOver.cpp" />
     <ClCompile Include="ModuleLevel1f.cpp" />
     <ClCompile Include="ModuleLevel2b.cpp" />
     <ClCompile Include="Globals.cpp" />
