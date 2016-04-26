@@ -23,9 +23,6 @@ public:
 
 	SDL_Rect title;
 	
-	//Animation title _animation;
-	
-
 	float foreground_pos;
 	bool forward;
 };

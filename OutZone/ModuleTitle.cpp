@@ -3,7 +3,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleTitle.h"
-#include "ModuleLevel1.h"
+#include "ModuleLevel1b.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleInput.h"
 
@@ -25,7 +25,6 @@ ModuleTitle::ModuleTitle()
 ModuleTitle::~ModuleTitle()
 {}
 
-// Load assets
 bool ModuleTitle::Start()
 {
 	LOG("Loading first scene");
@@ -35,7 +34,6 @@ bool ModuleTitle::Start()
 	return true;
 }
 
-// UnLoad assets
 bool ModuleTitle::CleanUp()
 {
 	LOG("Unloading title scene");
@@ -43,15 +41,13 @@ bool ModuleTitle::CleanUp()
 	return true;
 }
 
-// Update: draw background
 update_status ModuleTitle::Update()
 {
-	// Draw everything --------------------------------------
 	App->render->Blit(graphics, 0, 0, &title, 0); 
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
 	{
-		App->fade->FadeToBlack(App->scene_title, App->scene_level1, 2.0F);
+		App->fade->FadeToBlack(App->scene_title, App->scene_level1b, 2.0F);
 	}
 
 	return UPDATE_CONTINUE;

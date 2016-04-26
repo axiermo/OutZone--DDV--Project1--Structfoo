@@ -5,7 +5,7 @@
 #include "Animation.h"
 #include "p2Point.h"
 #include "Globals.h"
-#include "ModuleLevel1.h"
+#include "ModuleLevel1b.h"
 #include "ModuleCollision.h"
 
 #define MAX_ACTIVE_PARTICLES 100

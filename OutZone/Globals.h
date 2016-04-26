@@ -18,11 +18,8 @@ enum update_status
 };
 enum Directions { IDLE, UP, RIGHT, LEFT, DOWN, UP_RIGHT, UP_LEFT, DOWN_RIGHT, DOWN_LEFT };
 
-
-// Useful typedefs ---------
 typedef unsigned int uint;
 
-// Configuration -----------
 #define SCREEN_SIZE 2
 #define SCREEN_WIDTH 240
 #define SCREEN_HEIGHT 320

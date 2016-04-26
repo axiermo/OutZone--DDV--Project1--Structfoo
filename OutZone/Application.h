@@ -3,19 +3,20 @@
 
 #include "Globals.h"
 
-#define NUM_MODULES 12
+#define NUM_MODULES 13
 
 class ModuleWindow;
 class ModuleInput;
 class ModuleTextures;
 class ModuleRender;
 class ModuleTitle;
-class ModuleLevel1;
+class ModuleLevel1b;
+class ModuleLevel1f;
 class ModuleAudio;
 class ModulePlayer;
 class ModuleFadeToBlack;
 class Module;
-class ModuleFinalScreen;
+class ModuleLevel2b;
 class ModuleCollision;
 class ModuleParticles;
 
@@ -30,10 +31,11 @@ public:
 	ModuleAudio* audio;
 	ModuleTextures* textures;
 	ModuleTitle* scene_title;
-	ModuleLevel1* scene_level1;
+	ModuleLevel1b* scene_level1b;
+	ModuleLevel1f* scene_level1f;
 	ModulePlayer* player;
 	ModuleFadeToBlack* fade;
-	ModuleFinalScreen* final_screen;
+	ModuleLevel2b* scene_level2b;
 	ModuleParticles* particles;
 	ModuleCollision* collision;
 
@@ -48,7 +50,7 @@ public:
 
 };
 
-// Global var made extern for Application ---
+// Global var made extern for Application
 extern Application* App;
 
 #endif // __APPLICATION_H__

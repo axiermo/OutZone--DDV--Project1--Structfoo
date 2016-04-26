@@ -4,10 +4,11 @@
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
 #include "ModuleTitle.h"
-#include "ModuleLevel1.h"
+#include "ModuleLevel1b.h"
+#include "ModuleLevel1f.h"
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
-#include "FinalScreen.h"
+#include "ModuleLevel2b.h"
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
@@ -20,14 +21,14 @@ Application::Application()
 	modules[3] = textures = new ModuleTextures();
 	modules[4] = audio = new ModuleAudio();
 	modules[5] = scene_title = new ModuleTitle();
-	modules[6] = scene_level1 = new ModuleLevel1();
-	modules[7] = final_screen = new ModuleFinalScreen();
-	modules[8] = collision = new ModuleCollision();
-	modules[9] = player = new ModulePlayer();
-	//top map(3D feeling)
+	modules[6] = scene_level1b = new ModuleLevel1b();
+	modules[7] = scene_level2b = new ModuleLevel2b();
+	modules[8] = player = new ModulePlayer();
+	modules[9] = scene_level1f = new ModuleLevel1f();
 	modules[10] = fade = new ModuleFadeToBlack();
 	modules[11] = particles = new ModuleParticles();
-}	
+	modules[12] = collision = new ModuleCollision();
+}
 
 Application::~Application()
 {
@@ -39,10 +40,9 @@ bool Application::Init()
 {
 	bool ret = true;
 
-	// Player will be disabled on the first update of a new scene
 	player->Disable();
-	scene_level1->Disable();
-	final_screen->Disable();
+	scene_level1b->Disable();
+	scene_level2b->Disable();
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

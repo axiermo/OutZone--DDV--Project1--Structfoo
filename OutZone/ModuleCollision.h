@@ -37,7 +37,6 @@ struct Collider
 
 	bool CheckCollision(const SDL_Rect& r) const;
 	void OnCollision(Collider* col1 , Collider*col2);
-
 };
 
 class ModuleCollision : public Module

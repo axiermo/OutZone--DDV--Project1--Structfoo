@@ -71,7 +71,8 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
-    <ClInclude Include="FinalScreen.h" />
+    <ClInclude Include="ModuleLevel1f.h" />
+    <ClInclude Include="ModuleLevel2b.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="ModuleCollision.h" />
@@ -82,7 +83,7 @@
     <ClInclude Include="ModuleInput.h" />
     <ClInclude Include="ModulePlayer.h" />
     <ClInclude Include="ModuleRender.h" />
-    <ClInclude Include="ModuleLevel1.h" />
+    <ClInclude Include="ModuleLevel1b.h" />
     <ClInclude Include="ModuleTitle.h" />
     <ClInclude Include="ModuleTextures.h" />
     <ClInclude Include="ModuleWindow.h" />
@@ -90,7 +91,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="FinalScreen.cpp" />
+    <ClCompile Include="ModuleLevel1f.cpp" />
+    <ClCompile Include="ModuleLevel2b.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
@@ -100,7 +102,7 @@
     <ClCompile Include="ModuleParticles.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
-    <ClCompile Include="ModuleLevel1.cpp" />
+    <ClCompile Include="ModuleLevel1b.cpp" />
     <ClCompile Include="ModuleTitle.cpp" />
     <ClCompile Include="ModuleTextures.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />

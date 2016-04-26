@@ -17,7 +17,6 @@ ModuleParticles::ModuleParticles()
 ModuleParticles::~ModuleParticles()
 {}
 
-// Load assets
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
@@ -41,34 +40,27 @@ bool ModuleParticles::Start()
 	laser157.anim.PushBack({ 179, 100, 10, 16 });
 	laser157.life = 1000;
 
+	// Explosion
 	explosionup.anim.PushBack({ 39, 46, 14, 16 });
 	explosionup.life = 10;
 	explosiondown.anim.PushBack({ 38, 69, 16 , 16 });
 	explosiondown.life = 10;
-	
-	
 	explosionupright.anim.PushBack({ 75, 48, 16, 14 });
 	explosionupright.life = 10;
-
 	explosionright.anim.PushBack({ 113, 48, 16, 14 });
 	explosionright.life = 10;
-
 	explosiondownright.anim.PushBack({ 152, 48, 15, 14 });
 	explosiondownright.life = 10;
-
 	explosiondownleft.anim.PushBack({ 77, 71, 14, 13 });
 	explosiondownleft.life = 10;
-
 	explosionleft.anim.PushBack({ 113, 70, 16, 15 });
 	explosionleft.life = 10;
-
 	explosionupleft.anim.PushBack({ 154, 69, 14, 16 });
 	explosionupleft.life = 10;
 	return true;
 	
 	}
 
-// Unload assets
 bool ModuleParticles::CleanUp()
 {
 	LOG("Unloading particles");
@@ -86,7 +78,6 @@ bool ModuleParticles::CleanUp()
 	return true;
 }
 
-// Update: draw background
 update_status ModuleParticles::Update()
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
@@ -135,13 +126,10 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, iPoint
 	}
 }
 
-// TODO 5: Make so every time a particle hits a wall it triggers an explosion particle
-
 void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
-		// Always destroy particles that collide
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
 			delete active[i];
@@ -152,9 +140,6 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 
 }
 
-// -------------------------------------------------------------
-// -------------------------------------------------------------
-	
 Particle::Particle()
 {
 	position.SetToZero();

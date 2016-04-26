@@ -11,7 +11,6 @@ ModuleAudio::ModuleAudio() : Module()
 
 }
 
-// Destructor
 ModuleAudio::~ModuleAudio()
 {}
 

@@ -41,13 +41,11 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_ENEMY_SHOT] = false;
 }
 
-// Destructor
 ModuleCollision::~ModuleCollision()
 {}
 
 update_status ModuleCollision::PreUpdate()
 {
-	// Remove all colliders scheduled for deletion
 	for (uint i = 0; i < MAX_COLLIDERS; ++i)
 	{
 		if (colliders[i] != nullptr && colliders[i]->to_delete == true)
@@ -60,8 +58,6 @@ update_status ModuleCollision::PreUpdate()
 	return UPDATE_CONTINUE;
 }
 
-// Called before render is available
-
 update_status ModuleCollision::Update()
 {
 	Collider* c1;
@@ -69,16 +65,13 @@ update_status ModuleCollision::Update()
 
 	for (uint i = 0; i < MAX_COLLIDERS; ++i)
 	{
-		// skip empty colliders
 		if (colliders[i] == nullptr)
 			continue;
 
 		c1 = colliders[i];
 
-		// avoid checking collisions already checked
 		for (uint k = i + 1; k < MAX_COLLIDERS; ++k)
 		{
-			// skip empty colliders
 			if (colliders[k] == nullptr)
 				continue;
 
@@ -138,7 +131,6 @@ void ModuleCollision::DebugDraw()
 	}
 }
 
-// Called before quitting
 bool ModuleCollision::CleanUp()
 {
 	LOG("Freeing all colliders");
@@ -185,8 +177,6 @@ bool ModuleCollision::EraseCollider(Collider* collider)
 
 	return false;
 }
-
-// -----------------------------------------------------
 
 bool Collider::CheckCollision(const SDL_Rect& r) const
 {

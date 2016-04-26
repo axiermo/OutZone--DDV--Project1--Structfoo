@@ -12,7 +12,6 @@
 
 ModulePlayer::ModulePlayer()
 {
-	
 	up.PushBack({ 17, 273, 29, 38 });
 	up.PushBack({ 55, 274, 27, 37 });
 	up.PushBack({ 90, 274, 27, 37 });
@@ -72,7 +71,6 @@ ModulePlayer::ModulePlayer()
 ModulePlayer::~ModulePlayer()
 {}
 
-// Load assets
 bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
@@ -86,7 +84,6 @@ bool ModulePlayer::Start()
 	curr_animation = &up;
 	direction = IDLE;
 
-	// TODO -> DANI (Collision)
 	self = App->collision->AddCollider({ position.x, position.y, 29, 30 }, COLLIDER_PLAYER);
 
 	last_laser = SDL_GetTicks();
@@ -99,10 +96,11 @@ bool ModulePlayer::CleanUp()
 
 	return true;
 }
-// Update: draw background
+
 update_status ModulePlayer::Update()
 {
 	// MOVEMENT ---------------------------------------------------
+
 	int speed = 4;
 	direction = IDLE;
 
@@ -163,6 +161,7 @@ update_status ModulePlayer::Update()
 		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetActualFrame(1)));
 
 	// MODIFY COLLISION -------------------------------------------------
+
 	self->SetPos(position.x, position.y);
 
 	return UPDATE_CONTINUE;
