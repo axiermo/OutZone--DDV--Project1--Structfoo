@@ -76,6 +76,7 @@ bool ModuleLevel1b::Start()
 bool ModuleLevel1b::CleanUp()
 {
 	LOG("Unloading world1");
+	App->textures->Unload(graphics);
 	App->player->Disable();
 	App->collision->Disable();
 

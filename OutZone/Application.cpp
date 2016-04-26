@@ -43,6 +43,7 @@ bool Application::Init()
 	player->Disable();
 	scene_level1b->Disable();
 	scene_level2b->Disable();
+	collision->Disable();
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

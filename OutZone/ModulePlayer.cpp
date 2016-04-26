@@ -8,6 +8,7 @@
 #include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
 #include "Animation.h"
+
 #include "SDL/include/SDL_timer.h"
 
 ModulePlayer::ModulePlayer()
@@ -84,7 +85,7 @@ bool ModulePlayer::Start()
 	curr_animation = &up;
 	direction = IDLE;
 
-	self = App->collision->AddCollider({ position.x, position.y, 29, 30 }, COLLIDER_PLAYER);
+	self = App->collision->AddCollider({position.x, position.y, 29, 30 }, COLLIDER_PLAYER, this);
 
 	last_laser = SDL_GetTicks();
 	return ret;
@@ -103,21 +104,21 @@ update_status ModulePlayer::Update()
 
 	int speed = 4;
 	direction = IDLE;
+	last_position = position;
 
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
-		if (position.x<SCREEN_WIDTH - 30)
+		if (position.x < SCREEN_WIDTH - 30)
 			SelectAnimation(direction = RIGHT);
 
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
-		if (position.x>0)
+		if (position.x > 0)
 			SelectAnimation(direction = LEFT);
 
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE))
 	{
-		if (position.y < 160 + ((-1)*App->render->camera.y / 2))
+		if (position.y < 160 + (App->render->camera.y / -2))
 		{
 			App->render->camera.y += speed;
-
 		}
 		SelectAnimation(direction = UP);
 
@@ -127,9 +128,8 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE))
 	{
-		if (position.y < ((-1)*App->render->camera.y / 2) + 280)
+		if (position.y < (App->render->camera.y / -2) + 288)
 		{
-
 			SelectAnimation(direction = DOWN);
 		}
 
@@ -210,39 +210,47 @@ void ModulePlayer::Fire(Directions direction)
 	switch (direction)
 	{
 	case UP:
-		App->particles->AddParticle(App->particles->laserup, position.x + 18, position.y - 10, { 0, -5 });
-		App->particles->AddParticle(App->particles->explosionup, position.x +12, position.y -15, { 0, 0 });
+		App->particles->AddParticle(App->particles->laserup, position.x + 18, position.y - 10, { 0, -5 }, { 0, 0, 6, 18 }, COLLIDER_PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->explosionup, position.x +12, position.y -15, { 0, 0 }, nullrect, COLLIDER_NONE);
 		break;
 	case DOWN:
-		App->particles->AddParticle(App->particles->laserup, position.x + 5, position.y + 19, { 0, +5 });
-		App->particles->AddParticle(App->particles->explosiondown, position.x -1 , position.y + 28 , { 0, 0 });
+		App->particles->AddParticle(App->particles->laserup, position.x + 5, position.y + 19, { 0, +5 }, { 0, 0, 6, 18 }, COLLIDER_PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->explosiondown, position.x -1 , position.y + 28 , { 0, 0 }, nullrect, COLLIDER_NONE);
 		break;
 	case LEFT:
-		App->particles->AddParticle(App->particles->laserright, position.x - 8, position.y + 5, { -5, 0 });
-		App->particles->AddParticle(App->particles->explosionleft, position.x -15, position.y , { 0, 0 });
+		App->particles->AddParticle(App->particles->laserright, position.x - 8, position.y + 5, { -5, 0 }, { 0, 0, 18, 6 }, COLLIDER_PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->explosionleft, position.x -15, position.y , { 0, 0 } , nullrect, COLLIDER_NONE);
 		break;											 
 	case RIGHT:											 
-		App->particles->AddParticle(App->particles->laserright, position.x + 29, position.y + 10, { +5, 0 });
-		App->particles->AddParticle(App->particles->explosionright, position.x + 29, position.y +4 , { 0, 0 });
+		App->particles->AddParticle(App->particles->laserright, position.x + 29, position.y + 10, { +5, 0 }, { 0, 0, 18, 6 }, COLLIDER_PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->explosionright, position.x + 29, position.y +4 , { 0, 0 }, nullrect, COLLIDER_NONE);
 		break;
 	case UP_LEFT:
-		App->particles->AddParticle(App->particles->laserupleft, position.x + 5, position.y - 10, { -5, -5 });
-		App->particles->AddParticle(App->particles->explosionupleft, position.x  , position.y -14, { 0, 0 });
+		App->particles->AddParticle(App->particles->laserupleft, position.x + 5, position.y - 10, { -5, -5 }, { 0, 0, 14, 14 }, COLLIDER_PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->explosionupleft, position.x  , position.y -14, { 0, 0 }, nullrect, COLLIDER_NONE);
 		break;
 	case UP_RIGHT:
-		App->particles->AddParticle(App->particles->laserupright, position.x + 20, position.y - 10, { +5, -5 });
-		App->particles->AddParticle(App->particles->explosionupright, position.x +20 , position.y-10, { 0, 0 });
+		App->particles->AddParticle(App->particles->laserupright, position.x + 20, position.y - 10, { +5, -5 }, { 0, 0, 14, 14 }, COLLIDER_PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->explosionupright, position.x +20 , position.y-10, { 0, 0 }, nullrect, COLLIDER_NONE);
 		break;
 	case DOWN_LEFT:
-		App->particles->AddParticle(App->particles->laserupright, position.x - 11, position.y + 12, { -5, +5 });
-		App->particles->AddParticle(App->particles->explosiondownleft, position.x - 11, position.y + 16, { 0, 0 });
+		App->particles->AddParticle(App->particles->laserupright, position.x - 11, position.y + 12, { -5, +5 }, { 0, 0, 14, 14 }, COLLIDER_PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->explosiondownleft, position.x - 11, position.y + 16, { 0, 0 }, nullrect, COLLIDER_NONE);
 		break;
 	case DOWN_RIGHT:
-		App->particles->AddParticle(App->particles->laserupleft, position.x + 12, position.y + 12, { +5, +5 });
-		App->particles->AddParticle(App->particles->explosiondownright, position.x + 17, position.y + 20, { 0, 0 });
+		App->particles->AddParticle(App->particles->laserupleft, position.x + 12, position.y + 12, { +5, +5 }, { 0, 0, 14, 14 }, COLLIDER_PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->explosiondownright, position.x + 17, position.y + 20, { 0, 0 }, nullrect, COLLIDER_NONE);
 		break;
 	}
 
 	last_laser = SDL_GetTicks();
 	App->audio->PlayFX(basic_laser);
+}
+
+void ModulePlayer::OnCollision(Collider* c1, Collider* c2) 
+{
+	if (self == c1 && self != nullptr && c2->type == COLLIDER_WALL)
+	{
+		position = last_position;
+	}
 }

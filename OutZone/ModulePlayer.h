@@ -23,7 +23,6 @@ public:
 
 	void SelectAnimation(Directions direction);
 	void Fire(Directions direction);
-	void Fire();
 
 public:
 	enum Directions direction;
@@ -46,7 +45,9 @@ public:
 
 	Collider* self;
 	bool destroyed = false;
+
 	iPoint position;
+	iPoint last_position;
 
 	uint last_laser;
 	uint curr_laser;

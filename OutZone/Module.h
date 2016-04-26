@@ -36,7 +36,9 @@ public:
 			CleanUp();
 		}
 	}
-	void OnCollision(Collider*, Collider*){}
+
+	virtual void OnCollision(Collider*, Collider*)
+	{}
 };
 
 #endif // __MODULE_H__

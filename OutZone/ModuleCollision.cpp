@@ -3,8 +3,6 @@
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
 
-
-
 ModuleCollision::ModuleCollision()
 {
 	for (uint i = 0; i < MAX_COLLIDERS; ++i)
@@ -55,11 +53,6 @@ update_status ModuleCollision::PreUpdate()
 		}
 	}
 
-	return UPDATE_CONTINUE;
-}
-
-update_status ModuleCollision::Update()
-{
 	Collider* c1;
 	Collider* c2;
 
@@ -79,8 +72,13 @@ update_status ModuleCollision::Update()
 
 			if (c1->CheckCollision(c2->rect) == true)
 			{
-				if (matrix[c1->type][c2->type] && c1->callback)
+				COLLIDER_TYPE c1_type = c1->type;
+				if (matrix[c1->type][c2->type] && c1->callback){
 					c1->callback->OnCollision(c1, c2);
+					if (c2->type == COLLIDER_PLAYER_SHOT)
+						c2->callback->OnCollision(c2, c1);
+				}
+				if (c1->type != c1_type) continue;
 
 				if (matrix[c2->type][c1->type] && c2->callback)
 					c2->callback->OnCollision(c2, c1);
@@ -88,6 +86,11 @@ update_status ModuleCollision::Update()
 		}
 	}
 
+	return UPDATE_CONTINUE;
+}
+
+update_status ModuleCollision::Update()
+{
 	DebugDraw();
 
 	return UPDATE_CONTINUE;

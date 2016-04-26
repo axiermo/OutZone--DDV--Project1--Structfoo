@@ -8,8 +8,8 @@
 enum COLLIDER_TYPE
 {
 	COLLIDER_NONE = -1,
-	COLLIDER_WALL,
 	COLLIDER_PLAYER,
+	COLLIDER_WALL,
 	COLLIDER_ENEMY,
 	COLLIDER_PLAYER_SHOT,
 	COLLIDER_ENEMY_SHOT,
@@ -23,10 +23,7 @@ struct Collider
 	COLLIDER_TYPE type;
 	Module* callback = nullptr;
 
-	Collider(SDL_Rect rectangle, COLLIDER_TYPE type, Module* callback = nullptr) :
-		rect(rectangle),
-		type(type),
-		callback(callback)
+	Collider(SDL_Rect rectangle, COLLIDER_TYPE type, Module* callback = nullptr) : rect(rectangle), type(type), callback(callback)
 	{}
 
 	void SetPos(int x, int y)
@@ -36,7 +33,6 @@ struct Collider
 	}
 
 	bool CheckCollision(const SDL_Rect& r) const;
-	void OnCollision(Collider* col1 , Collider*col2);
 };
 
 class ModuleCollision : public Module
@@ -48,7 +44,6 @@ public:
 
 	update_status PreUpdate();
 	update_status Update();
-	//update_status PostUpdate();
 	bool CleanUp();
 
 	Collider* AddCollider(SDL_Rect rect, COLLIDER_TYPE type, Module* callback = nullptr);
