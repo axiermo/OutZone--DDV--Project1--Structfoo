@@ -79,7 +79,7 @@ bool ModuleLevel1b::CleanUp()
 	App->textures->Unload(graphics);
 	App->player->Disable();
 	App->collision->Disable();
-
+	App->audio->UnloadAudio();
 	return true;
 }
 

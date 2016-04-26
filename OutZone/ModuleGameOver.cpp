@@ -7,6 +7,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleInput.h"
 #include "ModulePlayer.h"
+#include "ModuleLevel1f.h"
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
 ModuleGameOver::ModuleGameOver()
@@ -30,7 +31,8 @@ bool ModuleGameOver::Start()
 	LOG("Loading first scene");
 
 	graphics = App->textures->Load("Sprites/Maps/outzonegg.png");
-
+	App->scene_level1f->Disable();
+	App->audio->Disable();
 	return true;
 }
 
