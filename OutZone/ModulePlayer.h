@@ -44,7 +44,7 @@ public:
 	Animation* curr_animation = nullptr;
 	Animation* last_animation = nullptr;
 
-	Collider* col;
+	Collider* self;
 	bool destroyed = false;
 	iPoint position;
 

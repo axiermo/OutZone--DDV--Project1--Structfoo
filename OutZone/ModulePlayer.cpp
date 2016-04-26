@@ -87,6 +87,7 @@ bool ModulePlayer::Start()
 	direction = IDLE;
 
 	// TODO -> DANI (Collision)
+	self = App->collision->AddCollider({ position.x, position.y, 29, 30 }, COLLIDER_PLAYER);
 
 	last_laser = SDL_GetTicks();
 	return ret;
@@ -102,17 +103,24 @@ bool ModulePlayer::CleanUp()
 update_status ModulePlayer::Update()
 {
 	// MOVEMENT ---------------------------------------------------
-
+	int speed = 4;
 	direction = IDLE;
 
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
-		SelectAnimation(direction = RIGHT);
+		if (position.x<SCREEN_WIDTH - 30)
+			SelectAnimation(direction = RIGHT);
 
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
-		SelectAnimation(direction = LEFT);
+		if (position.x>0)
+			SelectAnimation(direction = LEFT);
 
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE))
 	{
+		if (position.y < 160 + ((-1)*App->render->camera.y / 2))
+		{
+			App->render->camera.y += speed;
+
+		}
 		SelectAnimation(direction = UP);
 
 		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) SelectAnimation(direction = UP_LEFT);
@@ -121,7 +129,11 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE))
 	{
-		SelectAnimation(direction = DOWN);
+		if (position.y < ((-1)*App->render->camera.y / 2) + 280)
+		{
+
+			SelectAnimation(direction = DOWN);
+		}
 
 		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) SelectAnimation(direction = DOWN_LEFT);
 		else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT) SelectAnimation(direction = DOWN_RIGHT);
@@ -149,6 +161,9 @@ update_status ModulePlayer::Update()
 		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetCurrentFrame()));
 	else
 		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetActualFrame(1)));
+
+	// MODIFY COLLISION -------------------------------------------------
+	self->SetPos(position.x, position.y);
 
 	return UPDATE_CONTINUE;
 }
