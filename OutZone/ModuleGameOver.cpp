@@ -10,6 +10,7 @@
 #include "ModuleLevel1f.h"
 #include "ModuleLevel1b.h"
 #include "ModuleCollision.h"
+#include "ModuleEnemies.h"
 
 ModuleGameOver::ModuleGameOver()
 {
@@ -35,10 +36,6 @@ bool ModuleGameOver::Start()
 	soundtrack = App->audio->LoadMusic("Audio/Music/Game_over.ogg");
 	App->audio->PlayMusic(soundtrack);
 
-	App->scene_level1b->Disable();
-	App->scene_level1f->Disable();
-	App->player->Disable();
-	App->collision->Disable();
 	return true;
 }
 

@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
+#include "ModulePlayer.h"
 
 #include "SDL/include/SDL_timer.h"
 
@@ -25,6 +26,8 @@ bool ModuleParticles::Start()
 
 	graphics = App->textures->Load("Sprites/Lasers/Basic.png");
 
+	greyturret = App->textures->Load("Sprites/Enemies/StaticTurret.png");
+	
 	laserup.anim.PushBack({ 43, 100, 4, 16 });
 	laserup.life = 1000;
 	laserup.end_particle = &end_laser;
@@ -209,6 +212,16 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 			active[i]->collider->to_delete = true;
 			delete active[i];
 			active[i] = nullptr;
+			break;
+		}
+		if (active[i] != nullptr && active[i]->collider == c1 && active[i]->end_particle != nullptr&&c2->type == COLLIDER_PLAYER)
+		{
+			AddParticle(*active[i]->end_particle, active[i]->position.x - 5, active[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
+			active[i]->collider->to_delete = true;
+			delete active[i];
+			active[i] = nullptr;
+			App->player->destroyed = true;
+
 			break;
 		}
 	}

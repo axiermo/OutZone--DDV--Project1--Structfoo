@@ -3,6 +3,7 @@
 
 #include "p2Point.h"
 #include "Animation.h"
+#include "ModuleParticles.h"
 
 struct SDL_Texture;
 struct Collider;
@@ -12,7 +13,8 @@ class Enemy
 protected:
 	Animation* animation;
 	Collider* collider;
-
+	SDL_Texture* sprite;
+	Particle* change_particle;
 public:
 	iPoint position;
 
@@ -23,8 +25,8 @@ public:
 	const Collider* GetCollider() const;
 
 	virtual void Move() {};
-	virtual void Rotate(int player_x, int player_y) {};
-	virtual void Draw(SDL_Texture* sprites);
+	virtual void Shoot() {};
+	virtual void Draw() ;
 };
 
 #endif // __ENEMY_H__

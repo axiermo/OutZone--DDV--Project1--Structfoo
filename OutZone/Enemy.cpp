@@ -17,10 +17,10 @@ const Collider* Enemy::GetCollider() const
 	return collider;
 }
 
-void Enemy::Draw(SDL_Texture* sprites)
+void Enemy::Draw()
 {
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
 
-	App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()));
+	App->render->Blit(sprite, position.x, position.y, &(animation->GetCurrentFrame()));
 }

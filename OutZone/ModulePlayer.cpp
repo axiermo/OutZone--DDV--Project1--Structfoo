@@ -83,7 +83,7 @@ bool ModulePlayer::Start()
 	position.x = 100;
 	position.y = 220;
 	curr_animation = &up;
-	direction = IDLE;
+	direction = DOWN;
 
 	self = App->collision->AddCollider({position.x, position.y, 29, 30 }, COLLIDER_PLAYER, this);
 
@@ -103,7 +103,7 @@ update_status ModulePlayer::Update()
 	// MOVEMENT ---------------------------------------------------
 
 	int speed = 4;
-	direction = IDLE;
+	direction = DOWN;
 	last_position = position;
 
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
@@ -155,10 +155,10 @@ update_status ModulePlayer::Update()
 
 	// DRAW -------------------------------------------------------------
 
-	if (direction != IDLE)
+	if (direction != DOWN)
 		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetCurrentFrame()));
 	else
-		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetActualFrame(1)));
+		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetActualFrame()));
 
 	// MODIFY COLLISION -------------------------------------------------
 
@@ -249,7 +249,7 @@ void ModulePlayer::Fire(Directions direction)
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2) 
 {
-	if (self == c1 && self != nullptr && c2->type == COLLIDER_WALL)
+	if (self == c1 && self != nullptr && c2->type == COLLIDER_WALL || c2->type == COLLIDER_TURRET)
 	{
 		position = last_position;
 

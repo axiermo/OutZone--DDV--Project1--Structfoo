@@ -47,13 +47,13 @@ update_status ModuleEnemies::Update()
 {
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	if (enemies[i] != nullptr) enemies[i]->Move();
-
+	
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-	if (enemies[i] != nullptr) enemies[i]->Rotate(App->player->position.x, App->player->position.y);
-
+	if (enemies[i] != nullptr) enemies[i]->Draw();
+	
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-	if (enemies[i] != nullptr) enemies[i]->Draw(sprites);
-
+	if (enemies[i] != nullptr) enemies[i]->Shoot();
+	
 	return UPDATE_CONTINUE;
 }
 
@@ -136,7 +136,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
+		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && c2->type == COLLIDER_PLAYER_SHOT)
 		{
 			//we substract 7 cause the position of the turret it's different from the base of it
 			App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x - 7, enemies[i]->position.y, { 0, 0 }, { 0, 0, 44, 43 }, COLLIDER_NONE);

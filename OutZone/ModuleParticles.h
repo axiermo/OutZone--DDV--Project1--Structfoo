@@ -47,10 +47,12 @@ public:
 private:
 
 	SDL_Texture* graphics = nullptr;
+	
 	Particle* active[MAX_ACTIVE_PARTICLES];
 
 public:
 
+	SDL_Texture* greyturret;
 	// Basic laser
 
 	Particle laserup;

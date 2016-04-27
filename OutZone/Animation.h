@@ -40,14 +40,20 @@ public:
 		return frames[(int)current_frame];
 	}
 
-	SDL_Rect& GetActualFrame(int num)
+	SDL_Rect& GetActualFrame()
 	{
-		return frames[num];
+		return frames[(int)current_frame];
 	}
 
 	bool Finished() const
 	{
 		return loops > 0;
+	}
+
+
+	void setframe(uint frame)
+	{
+		current_frame = (float)frame;
 	}
 
 	void Reset()

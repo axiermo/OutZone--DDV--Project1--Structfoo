@@ -40,6 +40,8 @@ public:
 	Animation left;
 	Animation upleft;
 
+
+
 	Animation* curr_animation = nullptr;
 	Animation* last_animation = nullptr;
 

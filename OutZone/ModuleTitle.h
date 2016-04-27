@@ -20,7 +20,6 @@ public:
 public:
 	
 	SDL_Texture* graphics = nullptr;
-
 	SDL_Rect title;
 	
 	float foreground_pos;

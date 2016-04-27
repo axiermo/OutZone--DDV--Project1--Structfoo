@@ -1,6 +1,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleLevel1b.h"
+#include "ModuleLevel1f.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleInput.h"
@@ -9,6 +10,7 @@
 #include "ModuleParticles.h"
 #include "ModuleGameOver.h"
 #include "ModuleEnemies.h"
+
 ModuleLevel1b::ModuleLevel1b()
 {
 	World1 = {0, 0, 256, 4180};
@@ -28,13 +30,15 @@ bool ModuleLevel1b::Start()
 	// Music
 	soundtrack = App->audio->LoadMusic("Audio/Music/Chapter_1.ogg");
 	App->audio->PlayMusic(soundtrack);
-	App->player->Enable();
 
-	// Collisions
 	App->collision->Enable();
+	App->player->Enable();
+	App->scene_level1f->Enable();
+	App->enemies->Enable();
 
 	//Turrets
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 3, -578);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 4, -578);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET,150, -608);
 
 	// Blue destroyed ship
 	App->collision->AddCollider({ 0, 56, 16, 15 }, COLLIDER_WALL);
@@ -80,8 +84,11 @@ bool ModuleLevel1b::CleanUp()
 {
 	LOG("Unloading world1");
 	App->textures->Unload(graphics);
+
 	App->player->Disable();
 	App->collision->Disable();
+	App->enemies->Disable();
+	App->scene_level1f->Disable();
 
 	return true;
 }
@@ -90,9 +97,9 @@ update_status ModuleLevel1b::Update()
 {
 	App->render->Blit(graphics, 0, -3850, &World1);
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || App->player->position.y<-3640 || App->player->destroyed)
 	{
-		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 2.0F);
+		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 1.0f);
 	}
 	return UPDATE_CONTINUE;
 }

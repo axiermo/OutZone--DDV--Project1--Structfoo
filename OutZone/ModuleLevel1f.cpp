@@ -29,9 +29,8 @@ bool ModuleLevel1f::Start()
 bool ModuleLevel1f::CleanUp()
 {
 	LOG("Unloading world1");
-	App->player->Disable();
-	App->collision->Disable();
 	App->textures->Unload(graphics);
+
 	return true;
 }
 

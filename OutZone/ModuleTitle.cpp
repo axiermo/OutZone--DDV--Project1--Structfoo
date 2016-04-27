@@ -3,9 +3,14 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleTitle.h"
+#include "ModulePlayer.h"
+#include "ModuleCollision.h"
 #include "ModuleLevel1b.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleInput.h"
+#include "ModuleGameOver.h"
+#include "ModuleLevel1f.h"
+#include "ModuleEnemies.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -30,6 +35,12 @@ bool ModuleTitle::Start()
 	LOG("Loading first scene");
 	
 	graphics = App->textures->Load("Sprites/Intro.png");
+	App->player->Disable();
+	App->collision->Disable();
+	App->scene_gameover->Disable();
+	App->scene_level1b->Disable();
+	App->scene_level1f->Disable();
+	App->enemies->Disable();
 
 	return true;
 }
@@ -37,7 +48,8 @@ bool ModuleTitle::Start()
 bool ModuleTitle::CleanUp()
 {
 	LOG("Unloading title scene");
-	
+	App->textures->Unload(graphics);
+
 	return true;
 }
 
@@ -47,7 +59,7 @@ update_status ModuleTitle::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
 	{
-		App->fade->FadeToBlack(App->scene_title, App->scene_level1b, 2.0F);
+		App->fade->FadeToBlack(App->scene_title, App->scene_level1b, 1.0f);
 	}
 
 	return UPDATE_CONTINUE;
