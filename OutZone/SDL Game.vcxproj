@@ -71,9 +71,11 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="GreyTurret.h" />
+    <ClInclude Include="ModuleEnemies.h" />
     <ClInclude Include="ModuleGameOver.h" />
     <ClInclude Include="ModuleLevel1f.h" />
-    <ClInclude Include="ModuleLevel2b.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="ModuleCollision.h" />
@@ -92,9 +94,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GreyTurret.cpp" />
+    <ClCompile Include="ModuleEnemies.cpp" />
     <ClCompile Include="ModuleGameOver.cpp" />
     <ClCompile Include="ModuleLevel1f.cpp" />
-    <ClCompile Include="ModuleLevel2b.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />

@@ -8,11 +8,12 @@
 #include "ModuleLevel1f.h"
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
-#include "ModuleLevel2b.h"
+#include "ModuleGameOver.h"
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
-#include "ModuleGameOver.h"
+#include "ModuleEnemies.h"
+
 Application::Application()
 {
 	modules[0] = window = new ModuleWindow();
@@ -22,13 +23,13 @@ Application::Application()
 	modules[4] = audio = new ModuleAudio();
 	modules[5] = scene_title = new ModuleTitle();
 	modules[6] = scene_level1b = new ModuleLevel1b();
-	modules[7] = scene_level2b = new ModuleLevel2b();
-	modules[8] = gameover = new ModuleGameOver();
-	modules[9] = player = new ModulePlayer();
-	modules[10] = scene_level1f = new ModuleLevel1f();
-	modules[11] = fade = new ModuleFadeToBlack();
-	modules[12] = particles = new ModuleParticles();
-	modules[13] = collision = new ModuleCollision();
+	modules[7] = scene_gameover = new ModuleGameOver();
+	modules[8] = player = new ModulePlayer();
+	modules[9] = fade = new ModuleFadeToBlack();
+	modules[10] = particles = new ModuleParticles();
+	modules[11] = collision = new ModuleCollision();
+	modules[12] = scene_level1f = new ModuleLevel1f();
+	modules[13] = enemies = new ModuleEnemies();
 }
 
 Application::~Application()
@@ -42,8 +43,9 @@ bool Application::Init()
 	bool ret = true;
 
 	player->Disable();
+
+	scene_gameover->Disable();
 	scene_level1b->Disable();
-	scene_level2b->Disable();
 	collision->Disable();
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)

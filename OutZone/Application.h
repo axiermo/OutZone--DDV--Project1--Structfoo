@@ -16,10 +16,11 @@ class ModuleAudio;
 class ModulePlayer;
 class ModuleFadeToBlack;
 class Module;
-class ModuleLevel2b;
+class ModuleGameOver;
 class ModuleCollision;
 class ModuleParticles;
-class ModuleGameOver;
+class ModuleEnemies;
+
 class Application
 {
 public:
@@ -35,10 +36,10 @@ public:
 	ModuleLevel1f* scene_level1f;
 	ModulePlayer* player;
 	ModuleFadeToBlack* fade;
-	ModuleLevel2b* scene_level2b;
-	ModuleGameOver* gameover;
+	ModuleGameOver* scene_gameover;
 	ModuleParticles* particles;
 	ModuleCollision* collision;
+	ModuleEnemies* enemies;
 
 public:
 
@@ -48,10 +49,8 @@ public:
 	bool Init();
 	update_status Update();
 	bool CleanUp();
-
 };
 
-// Global var made extern for Application
 extern Application* App;
 
 #endif // __APPLICATION_H__

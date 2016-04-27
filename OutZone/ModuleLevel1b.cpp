@@ -5,10 +5,10 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
-#include "ModuleLevel2b.h"
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
 #include "ModuleGameOver.h"
+#include "ModuleEnemies.h"
 ModuleLevel1b::ModuleLevel1b()
 {
 	World1 = {0, 0, 256, 4180};
@@ -32,6 +32,9 @@ bool ModuleLevel1b::Start()
 
 	// Collisions
 	App->collision->Enable();
+
+	//Turrets
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 3, -578);
 
 	// Blue destroyed ship
 	App->collision->AddCollider({ 0, 56, 16, 15 }, COLLIDER_WALL);
@@ -79,7 +82,7 @@ bool ModuleLevel1b::CleanUp()
 	App->textures->Unload(graphics);
 	App->player->Disable();
 	App->collision->Disable();
-	App->audio->UnloadAudio();
+
 	return true;
 }
 
@@ -89,7 +92,7 @@ update_status ModuleLevel1b::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
 	{
-		App->fade->FadeToBlack(App->scene_level1b, App->gameover, 2.0F);
+		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 2.0F);
 	}
 	return UPDATE_CONTINUE;
 }

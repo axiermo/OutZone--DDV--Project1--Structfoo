@@ -114,7 +114,7 @@ update_status ModulePlayer::Update()
 		if (position.x > 0)
 			SelectAnimation(direction = LEFT);
 
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE))
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE)
 	{
 		if (position.y < 160 + (App->render->camera.y / -2))
 		{
@@ -122,19 +122,19 @@ update_status ModulePlayer::Update()
 		}
 		SelectAnimation(direction = UP);
 
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) SelectAnimation(direction = UP_LEFT);
-		else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT) SelectAnimation(direction = UP_RIGHT);
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = UP_LEFT);
+		else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = UP_RIGHT);
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE))
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
 	{
 		if (position.y < (App->render->camera.y / -2) + 288)
 		{
 			SelectAnimation(direction = DOWN);
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) SelectAnimation(direction = DOWN_LEFT);
-		else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT) SelectAnimation(direction = DOWN_RIGHT);
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = DOWN_LEFT);
+		else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = DOWN_RIGHT);
 	}
 
 	// FIRE -------------------------------------------------------
@@ -252,5 +252,6 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (self == c1 && self != nullptr && c2->type == COLLIDER_WALL)
 	{
 		position = last_position;
+
 	}
 }

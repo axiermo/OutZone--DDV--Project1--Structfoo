@@ -70,6 +70,10 @@ public:
 	Particle explosionleft;
 	Particle explosionupleft;	
 	Particle end_laser;
+
+	// Turret
+
+	Particle Small_NPC_explosion;
 };
 
 #endif // __MODULEPARTICLES_H__

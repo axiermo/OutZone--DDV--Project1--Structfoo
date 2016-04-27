@@ -5,7 +5,6 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
-#include "ModuleLevel2b.h"
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
 
@@ -40,11 +39,6 @@ bool ModuleLevel1f::CleanUp()
 update_status ModuleLevel1f::Update()
 {
 	App->render->Blit(graphics, 0, -3850, &World1);
-	/*
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
-	{
-		App->fade->FadeToBlack(App->scene_level1f, App->scene_level2b, 2.0F);
-	}
-	*/
+
 	return UPDATE_CONTINUE;
 }

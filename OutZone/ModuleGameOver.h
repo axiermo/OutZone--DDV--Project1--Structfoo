@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Animation.h"
 #include "Globals.h"
+#include "ModuleAudio.h"
 
 struct SDL_Texture;
 
@@ -20,6 +21,7 @@ public:
 public:
 
 	SDL_Texture* graphics = nullptr;
+	Mix_Music* soundtrack;
 
 	SDL_Rect GameOverScreen;
 
@@ -27,4 +29,4 @@ public:
 	bool forward;
 };
 
-#endif // __ModuleTitle_H__
+#endif // __ModuleGameOver_H__

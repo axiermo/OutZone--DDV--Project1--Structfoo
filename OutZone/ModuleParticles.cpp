@@ -57,8 +57,12 @@ bool ModuleParticles::Start()
 	explosionupleft.anim.PushBack({ 154, 69, 14, 16 });
 	explosionupleft.life = 10;
 
-	end_laser.anim.PushBack({ 39, 46, 14, 16 });
-	end_laser.life = 10;
+	end_laser.anim.PushBack({ 82, 132, 18, 18 });
+	end_laser.anim.PushBack({ 104, 132, 18, 18 });
+	end_laser.anim.PushBack({ 124, 132, 18, 18 });
+	end_laser.anim.PushBack({ 148, 132, 18, 18 });
+	end_laser.anim.speed = 0.4;
+	end_laser.life = 100;
 
 	/* Laser sweep
 	laser67.anim.PushBack({ 56, 100, 10, 16 });
@@ -74,6 +78,16 @@ bool ModuleParticles::Start()
 	laser157.life = 1000;
 	laser157.end_particle = &end_laser;
 	*/
+
+	Small_NPC_explosion.anim.PushBack({ 31, 178, 39, 38 });
+	Small_NPC_explosion.anim.PushBack({ 86, 176, 44, 43 });
+	Small_NPC_explosion.anim.PushBack({ 146, 178, 39, 37 });
+	Small_NPC_explosion.anim.PushBack({ 36, 243, 30, 36 });
+	Small_NPC_explosion.anim.PushBack({ 96, 244, 24, 29 });
+	Small_NPC_explosion.anim.PushBack({ 141, 246, 16, 19 });
+	Small_NPC_explosion.anim.PushBack({ 177, 252, 9, 11 });
+	Small_NPC_explosion.anim.speed = 0.4;
+	Small_NPC_explosion.life = 100;
 
 	return true;
 	
