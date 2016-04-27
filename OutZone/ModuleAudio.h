@@ -21,7 +21,8 @@ public:
 
 	Mix_Music* LoadMusic(const char* path);
 	Mix_Chunk* LoadFX(const char* path);
-	void ModuleAudio::PlayMusic(Mix_Music* music);
+	void PlayMusic1(Mix_Music* music);
+	void PlayMusic0(Mix_Music* music);
 	void ModuleAudio::PlayFX(Mix_Chunk* fx);
 	void UnloadAudio();
 

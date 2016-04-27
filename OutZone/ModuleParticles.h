@@ -72,6 +72,10 @@ public:
 	Particle explosionleft;
 	Particle explosionupleft;	
 	Particle end_laser;
+	//-----------------------Turret particles--------------------
+	Particle start_bullet;
+	Particle basic_bullet;
+	Particle end_bullet;
 
 	// Turret
 

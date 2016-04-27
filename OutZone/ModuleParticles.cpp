@@ -67,6 +67,23 @@ bool ModuleParticles::Start()
 	end_laser.anim.speed = 0.4;
 	end_laser.life = 100;
 
+	//Turret Particles
+	start_bullet.anim.PushBack({ 5, 7, 18, 18 });
+	start_bullet.life = 10;
+
+	basic_bullet.anim.PushBack({ 65, 305, 6, 6 });
+	basic_bullet.anim.PushBack({ 73, 305, 6, 6 });
+	basic_bullet.end_particle = &end_bullet;
+	basic_bullet.life = 2000;
+	
+
+	end_bullet.anim.PushBack({ 52, 11, 10, 10 });
+	end_bullet.anim.PushBack({ 63, 11, 10, 10 });
+	end_bullet.anim.PushBack({ 75, 11, 10, 10 });
+	basic_bullet.end_particle = &end_bullet;
+	end_bullet.anim.speed = 0.4f;
+	end_bullet.life = 10;
+
 	/* Laser sweep
 	laser67.anim.PushBack({ 56, 100, 10, 16 });
 	laser67.life = 1000;
@@ -100,6 +117,7 @@ bool ModuleParticles::CleanUp()
 {
 	LOG("Unloading particles");
 	App->textures->Unload(graphics);
+	App->textures->Unload(greyturret);
 
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -206,7 +224,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
-		if (active[i] != nullptr && active[i]->collider == c1 && active[i]->end_particle != nullptr)
+		if (active[i] != nullptr && active[i]->collider == c1 && active[i]->end_particle != nullptr&& c2->type == COLLIDER_WALL && c1->type == COLLIDER_PLAYER_SHOT)
 		{
 			AddParticle(*active[i]->end_particle, active[i]->position.x - 5, active[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
 			active[i]->collider->to_delete = true;
@@ -214,7 +232,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 			active[i] = nullptr;
 			break;
 		}
-		if (active[i] != nullptr && active[i]->collider == c1 && active[i]->end_particle != nullptr&&c2->type == COLLIDER_PLAYER)
+		if (active[i] != nullptr && active[i]->collider == c1 && active[i]->end_particle != nullptr&&c2->type == COLLIDER_PLAYER &&c1->type == COLLIDER_ENEMY_SHOT)
 		{
 			AddParticle(*active[i]->end_particle, active[i]->position.x - 5, active[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
 			active[i]->collider->to_delete = true;

@@ -34,8 +34,7 @@ bool ModuleGameOver::Start()
 
 	graphics = App->textures->Load("Sprites/Maps/outzonegg.png");
 	soundtrack = App->audio->LoadMusic("Audio/Music/Game_over.ogg");
-	App->audio->PlayMusic(soundtrack);
-
+	App->audio->PlayMusic0(soundtrack);
 	return true;
 }
 

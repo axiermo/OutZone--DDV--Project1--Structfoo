@@ -71,7 +71,7 @@ void ModuleAudio::PlayFX(Mix_Chunk* fx)
 	}
 }
 
-void ModuleAudio::PlayMusic(Mix_Music* music)
+void ModuleAudio::PlayMusic1(Mix_Music* music)
 {
 	if (music == NULL)
 	{
@@ -83,5 +83,20 @@ void ModuleAudio::PlayMusic(Mix_Music* music)
 			SDL_Delay(0);
 		}
 		Mix_PlayMusic(music, -1);
+	}
+}
+
+void ModuleAudio::PlayMusic0(Mix_Music* music)
+{
+	if (music == NULL)
+	{
+		LOG("Error playing the music");
+	}
+	else
+	{
+		while (!Mix_FadeOutMusic(700) && Mix_PlayingMusic()) {
+			SDL_Delay(0);
+		}
+		Mix_PlayMusic(music, 0);
 	}
 }

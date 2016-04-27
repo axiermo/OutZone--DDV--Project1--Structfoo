@@ -29,7 +29,7 @@ bool ModuleLevel1b::Start()
 
 	// Music
 	soundtrack = App->audio->LoadMusic("Audio/Music/Chapter_1.ogg");
-	App->audio->PlayMusic(soundtrack);
+	App->audio->PlayMusic1(soundtrack);
 
 	App->collision->Enable();
 	App->player->Enable();
@@ -38,7 +38,7 @@ bool ModuleLevel1b::Start()
 
 	//Turrets
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 4, -578);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET,150, -608);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET,132, -610);
 
 	// Blue destroyed ship
 	App->collision->AddCollider({ 0, 56, 16, 15 }, COLLIDER_WALL);
@@ -89,6 +89,7 @@ bool ModuleLevel1b::CleanUp()
 	App->collision->Disable();
 	App->enemies->Disable();
 	App->scene_level1f->Disable();
+	
 
 	return true;
 }
