@@ -85,7 +85,7 @@ bool ModulePlayer::Start()
 	curr_animation = &up;
 	direction = DOWN;
 
-	self = App->collision->AddCollider({position.x, position.y, 29, 30 }, COLLIDER_PLAYER, this);
+	self = App->collision->AddCollider({position.x + 9, position.y + 3, 12, 30 }, COLLIDER_PLAYER, this);
 
 	last_laser = SDL_GetTicks();
 	return ret;
@@ -162,7 +162,7 @@ update_status ModulePlayer::Update()
 
 	// MODIFY COLLISION -------------------------------------------------
 
-	self->SetPos(position.x, position.y);
+	self->SetPos(position.x + 9, position.y + 3);
 
 	return UPDATE_CONTINUE;
 }
