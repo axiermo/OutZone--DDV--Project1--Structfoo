@@ -13,21 +13,9 @@ ModuleParticles::ModuleParticles()
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
-}
-
-ModuleParticles::~ModuleParticles()
-{}
-
-bool ModuleParticles::Start()
-{
-	LOG("Loading particles");
 
 	// Basic laser -------------------------------------------
 
-	graphics = App->textures->Load("Sprites/Lasers/Basic.png");
-
-	greyturret = App->textures->Load("Sprites/Enemies/StaticTurret.png");
-	
 	laserup.anim.PushBack({ 43, 100, 4, 16 });
 	laserup.life = 1000;
 	laserup.end_particle = &end_laser;
@@ -67,7 +55,8 @@ bool ModuleParticles::Start()
 	end_laser.anim.speed = 0.4;
 	end_laser.life = 100;
 
-	//Turret Particles
+	//Turret Particles --------------------------------
+
 	start_bullet.anim.PushBack({ 5, 7, 18, 18 });
 	start_bullet.life = 10;
 
@@ -75,7 +64,6 @@ bool ModuleParticles::Start()
 	basic_bullet.anim.PushBack({ 73, 305, 6, 6 });
 	basic_bullet.end_particle = &end_bullet;
 	basic_bullet.life = 2000;
-	
 
 	end_bullet.anim.PushBack({ 52, 11, 10, 10 });
 	end_bullet.anim.PushBack({ 63, 11, 10, 10 });
@@ -109,15 +97,23 @@ bool ModuleParticles::Start()
 	Small_NPC_explosion.anim.speed = 0.4;
 	Small_NPC_explosion.life = 100;
 
+}
+
+ModuleParticles::~ModuleParticles()
+{}
+
+bool ModuleParticles::Start()
+{
+	LOG("Loading particles");
+
+	graphics = App->textures->Load("Sprites/Lasers/Basic.png");	
 	return true;
-	
 }
 
 bool ModuleParticles::CleanUp()
 {
 	LOG("Unloading particles");
 	App->textures->Unload(graphics);
-	App->textures->Unload(greyturret);
 
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -153,8 +149,6 @@ update_status ModuleParticles::Update()
 				p->fx_played = true;
 			}
 		}
-
-		
 	}
 	return UPDATE_CONTINUE;
 }

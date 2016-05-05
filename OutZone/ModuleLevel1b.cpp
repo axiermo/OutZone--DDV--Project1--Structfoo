@@ -21,9 +21,11 @@ ModuleLevel1b::~ModuleLevel1b()
 
 bool ModuleLevel1b::Start()
 {
+	
 	LOG("Loading background assets");
 	bool ret = true;
-
+	App->render->camera.y = 0;
+	App->particles->Enable();
 	// Background
 	graphics = App->textures->Load("Sprites/Maps/map1_base.png");
 
@@ -85,7 +87,7 @@ bool ModuleLevel1b::CleanUp()
 	LOG("Unloading world1");
 	App->textures->Unload(graphics);
 
-	App->player->Disable();
+	
 	App->collision->Disable();
 	App->enemies->Disable();
 	App->scene_level1f->Disable();
@@ -100,6 +102,7 @@ update_status ModuleLevel1b::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || App->player->position.y<-3640 || App->player->destroyed)
 	{
+		App->player->Disable();
 		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 1.0f);
 	}
 	return UPDATE_CONTINUE;

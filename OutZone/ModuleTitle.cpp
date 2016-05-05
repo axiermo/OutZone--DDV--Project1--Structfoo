@@ -41,7 +41,7 @@ bool ModuleTitle::Start()
 	App->scene_level1b->Disable();
 	App->scene_level1f->Disable();
 	App->enemies->Disable();
-
+	App->player->destroyed = false;
 	return true;
 }
 

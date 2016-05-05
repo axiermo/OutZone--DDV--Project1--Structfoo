@@ -8,7 +8,8 @@
 #include "ModuleCollision.h"
 
 #define nullrect {0,0,0,0} 
-#define MAX_ACTIVE_PARTICLES 100
+
+#define MAX_ACTIVE_PARTICLES 20
 
 struct SDL_Texture;
 struct Collider;
@@ -51,8 +52,6 @@ private:
 	Particle* active[MAX_ACTIVE_PARTICLES];
 
 public:
-
-	SDL_Texture* greyturret;
 	// Basic laser
 
 	Particle laserup;
@@ -72,6 +71,7 @@ public:
 	Particle explosionleft;
 	Particle explosionupleft;	
 	Particle end_laser;
+
 	//-----------------------Turret particles--------------------
 	Particle start_bullet;
 	Particle basic_bullet;

@@ -11,7 +11,6 @@ private:
 	Animation rotate;
 	Directions direction;
 
-
 public:
 	uint next_shoot;
 	uint last_shoot;
