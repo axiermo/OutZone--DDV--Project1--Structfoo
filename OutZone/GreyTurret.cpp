@@ -175,28 +175,28 @@ void GreyTurret::Shoot()
 		switch (direction)
 		{
 		case UP:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 18, position.y - 10, { 0, -2 }, { 0, 0, 8, 8 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 18, position.y - 10, { 0, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
 			break;
 		case DOWN:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 5, position.y + 19, { 0, +2 }, { 0, 0, 8, 8 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 5, position.y + 19, { 0, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
 			break;
 		case LEFT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x - 8, position.y + 5, { -2, 0 }, { 0, 0, 8, 8 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x - 8, position.y + 5, { -2, 0 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
 			break;
 		case RIGHT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 29, position.y + 10, { +2, 0 }, { 0, 0, 8, 8 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 29, position.y + 10, { +2, 0 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
 			break;
 		case UP_LEFT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 5, position.y - 10, { -2, -2 }, { 0, 0, 8, 8 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 5, position.y - 10, { -2, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
 			break;
 		case UP_RIGHT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 20, position.y - 10, { +2, -2 }, { 0, 0, 8, 8 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 20, position.y - 10, { +2, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
 			break;
 		case DOWN_LEFT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x - 11, position.y + 12, { -2, +2 }, { 0, 0, 8, 8 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x - 11, position.y + 12, { -2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
 			break;
 		case DOWN_RIGHT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +2, +2 }, { 0, 0, 14, 14 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
 			break;
 		}
 		last_shoot = SDL_GetTicks();
