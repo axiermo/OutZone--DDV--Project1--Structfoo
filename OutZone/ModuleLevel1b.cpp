@@ -87,11 +87,10 @@ bool ModuleLevel1b::CleanUp()
 	LOG("Unloading world1");
 	App->textures->Unload(graphics);
 
-	
 	App->collision->Disable();
+	App->player->Disable();
 	App->enemies->Disable();
 	App->scene_level1f->Disable();
-	
 
 	return true;
 }
@@ -102,7 +101,6 @@ update_status ModuleLevel1b::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || App->player->position.y<-3640 || App->player->destroyed)
 	{
-		App->player->Disable();
 		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 1.0f);
 	}
 	return UPDATE_CONTINUE;

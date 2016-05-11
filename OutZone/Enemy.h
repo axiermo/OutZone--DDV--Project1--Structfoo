@@ -13,8 +13,6 @@ class Enemy
 protected:
 	Animation* animation;
 	Collider* collider;
-	SDL_Texture* sprite;
-	Particle* change_particle;
 public:
 	iPoint position;
 
@@ -26,7 +24,7 @@ public:
 
 	virtual void Move() {};
 	virtual void Shoot() {};
-	virtual void Draw() ;
+	virtual void Draw();
 };
 
 #endif // __ENEMY_H__

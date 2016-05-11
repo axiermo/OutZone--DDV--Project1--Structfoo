@@ -30,6 +30,8 @@ public:
 	void OnCollision(Collider* c1, Collider* c2);
 	bool AddEnemy(ENEMY_TYPES type, int x, int y);
 
+	SDL_Texture* sprites;
+
 private:
 
 	void SpawnEnemy(const EnemyInfo& info);
@@ -38,7 +40,6 @@ private:
 
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];
-	SDL_Texture* sprites;
 };
 
 #endif // __ModuleEnemies_H__

@@ -2,6 +2,7 @@
 #include "Enemy.h"
 #include "ModuleCollision.h"
 #include "ModuleRender.h"
+#include "ModuleEnemies.h"
 
 Enemy::Enemy(int x, int y) : position(x, y), collider(nullptr)
 {}
@@ -22,5 +23,5 @@ void Enemy::Draw()
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
 
-	App->render->Blit(sprite, position.x, position.y, &(animation->GetCurrentFrame()));
+	App->render->Blit(App->enemies->sprites, position.x, position.y, &(animation->GetCurrentFrame()));
 }

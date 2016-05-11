@@ -28,6 +28,8 @@ GreyTurret::GreyTurret(int x, int y) : Enemy(x, y)
 	position.y = y;
 
 	last_shoot = SDL_GetTicks();
+
+	direction = DOWN;
 }
 
 
@@ -163,8 +165,6 @@ void GreyTurret::Move()
 		rotate.setframe(UP);
 		direction = UP;
 	}
-
-
 }
 
 void GreyTurret::Shoot()
@@ -208,5 +208,5 @@ void GreyTurret::Draw(){
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
 
-	App->render->Blit(sprite, position.x, position.y, &rotate.GetActualFrame());
+	App->render->Blit(App->enemies->sprites, position.x, position.y, &rotate.GetActualFrame());
 }
