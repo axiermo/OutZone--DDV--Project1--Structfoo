@@ -21,7 +21,7 @@ ModuleEnemies::~ModuleEnemies()
 
 bool ModuleEnemies::Start()
 {
-	sprites = App->textures->Load("Sprites/Enemies/StaticTurret.png");
+	sprites = App->textures->Load("Sprites/Enemies/Enemies.png");
 
 	return true;
 }
