@@ -122,13 +122,13 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 
 	if (i != MAX_ENEMIES)
 	{
-		switch (info.type)
-		{
+		switch (info.type){
 		case ENEMY_TYPES::GREYTURRET:
 			enemies[i] = new GreyTurret(info.x, info.y);
 			break;
-
-
+		case ENEMY_TYPES::DOOR:
+			enemies[i] = new Door(info.x, info.y);
+			break;
 		}
 	}
 }

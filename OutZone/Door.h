@@ -3,8 +3,7 @@
 
 #include "Enemy.h"
 
-class Door : public Enemy
-{
+class Door : public Enemy{
 private:
 	float wave = -1.0f;
 	bool going_up = true;

@@ -7,8 +7,6 @@
 #include "ModuleEnemies.h"
 #include "ModuleTextures.h"
 
-#define PI 3.1415926
-
 Door::Door(int x, int y) : Enemy(x, y)
 {
 	rotate.PushBack({ 19, 665, 111, 65 }); // top
