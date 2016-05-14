@@ -24,10 +24,10 @@ Application::Application()
 	modules[5] = scene_title = new ModuleTitle();
 	modules[6] = scene_level1b = new ModuleLevel1b();
 	modules[7] = scene_gameover = new ModuleGameOver();
-	modules[8] = player = new ModulePlayer();
-	modules[9] = particles = new ModuleParticles();
-	modules[10] = scene_level1f = new ModuleLevel1f();
-	modules[11] = enemies = new ModuleEnemies();
+	modules[8] = scene_level1f = new ModuleLevel1f();
+	modules[9] = enemies = new ModuleEnemies();
+	modules[10] = player = new ModulePlayer();
+	modules[11] = particles = new ModuleParticles();
 	modules[12] = collision = new ModuleCollision();
 	modules[13] = fade = new ModuleFadeToBlack();
 }

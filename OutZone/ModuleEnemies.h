@@ -3,11 +3,12 @@
 
 #include "Module.h"
 #include "GreyTurret.h"
+#include "Door.h"
 
 #define MAX_ENEMIES 100
 class Enemy;
 
-enum ENEMY_TYPES { NO_TYPE, GREYTURRET };
+enum ENEMY_TYPES { NO_TYPE, GREYTURRET, DOOR };
 
 struct EnemyInfo
 {

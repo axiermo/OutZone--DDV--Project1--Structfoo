@@ -248,7 +248,7 @@ void ModulePlayer::Fire(Directions direction)
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2) 
 {
-	if (self == c1 && self != nullptr && c2->type == COLLIDER_WALL || c2->type == COLLIDER_TURRET)
+	if (self == c1 && self != nullptr && c2->type == COLLIDER_WALL || c2->type == COLLIDER_TURRET || c2->type == COLLIDER_DOOR)
 	{
 		position = last_position;
 	}
