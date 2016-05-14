@@ -9,11 +9,11 @@
 
 Door::Door(int x, int y) : Enemy(x, y)
 {
-	rotate.PushBack({ 19, 665, 111, 65 }); // top
+	rotate.PushBack({ 19, 665, 114, 106 }); // top
 
 	animation = &rotate;
 
-	collider = App->collision->AddCollider({ 0, 0, 111, 65 }, COLLIDER_DOOR, App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 111, 84}, COLLIDER_DOOR, App->enemies);
 
 	position.x = x;
 	position.y = y;

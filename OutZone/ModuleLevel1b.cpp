@@ -43,7 +43,7 @@ bool ModuleLevel1b::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET,132, -610);
 
 	//Door
-	App->enemies->AddEnemy(ENEMY_TYPES::DOOR, 73, -3339);
+	App->enemies->AddEnemy(ENEMY_TYPES::DOOR, 73, -3347);
 
 	// Blue destroyed ship
 	App->collision->AddCollider({ 0, 56, 16, 15 }, COLLIDER_WALL);
