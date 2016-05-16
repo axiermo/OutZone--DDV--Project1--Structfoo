@@ -55,7 +55,7 @@ ModuleParticles::ModuleParticles()
 	end_laser.anim.speed = 0.4;
 	end_laser.life = 100;
 
-	//---------------------GreyTurret Particles --------------------------------
+	//--------------------- GreyTurret Particles --------------------------------
 
 	start_bullet.anim.PushBack({ 5, 7, 18, 18 });
 	start_bullet.life = 10;
@@ -68,11 +68,10 @@ ModuleParticles::ModuleParticles()
 	end_bullet.anim.PushBack({ 52, 11, 10, 10 });
 	end_bullet.anim.PushBack({ 63, 11, 10, 10 });
 	end_bullet.anim.PushBack({ 75, 11, 10, 10 });
-	basic_bullet.end_particle = &end_bullet;
 	end_bullet.anim.speed = 0.4f;
 	end_bullet.life = 10;
 
-	//----------------------BigTurret Particles---------------------------------------
+	//---------------------- BigTurret Particles ---------------------------------------
 
 	Big_Tur_Exp.anim.PushBack({});
 	end_bullet.life = 10;
@@ -86,7 +85,7 @@ ModuleParticles::ModuleParticles()
 	End_Big_Laser.anim.PushBack({});
 	End_Big_Laser.life = 10;
 
-	//------------------------Door Turret---------------------------
+	//------------------------ Door Turret ---------------------------
 
 	Door_Tur_Exp.anim.PushBack({});
 	end_bullet.life = 10;
@@ -125,6 +124,17 @@ ModuleParticles::ModuleParticles()
 	Small_NPC_explosion.anim.speed = 0.4;
 	Small_NPC_explosion.life = 100;
 
+	Player_explosion.anim.PushBack({ 217, 0, 115, 115 });
+	Player_explosion.anim.PushBack({ 337, 0, 115, 115 });
+	Player_explosion.anim.PushBack({ 455, 0, 115, 115 });
+	Player_explosion.anim.PushBack({ 572, 0, 115, 115 });
+	Player_explosion.anim.PushBack({ 215, 119, 119, 119 });
+	Player_explosion.anim.PushBack({ 334, 119, 115, 115 });
+	Player_explosion.anim.PushBack({ 451, 119, 115, 115 });
+	Player_explosion.anim.PushBack({ 568, 119, 115, 115 });
+	Player_explosion.anim.PushBack({ 687, 119, 115, 115 });
+	Player_explosion.anim.speed = 0.15;
+	Player_explosion.life = 980;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -134,7 +144,7 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 
-	graphics = App->textures->Load("Sprites/Lasers/Basic.png");	
+	graphics = App->textures->Load("Sprites/Particles/All.png");	
 	return true;
 }
 
@@ -246,7 +256,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
-		if (active[i] != nullptr && active[i]->collider == c1 && active[i]->end_particle != nullptr&& c2->type == COLLIDER_WALL && c1->type == COLLIDER_PLAYER_SHOT)
+		if (active[i] != nullptr && active[i]->collider == c1 && active[i]->end_particle != nullptr && (c2->type == COLLIDER_WALL || c2->type == COLLIDER_TURRET) && (c1->type == COLLIDER_PLAYER_SHOT || c1->type == COLLIDER_ENEMY_SHOT))
 		{
 			AddParticle(*active[i]->end_particle, active[i]->position.x - 5, active[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
 			active[i]->collider->to_delete = true;
@@ -254,14 +264,18 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 			active[i] = nullptr;
 			break;
 		}
-		if (active[i] != nullptr && active[i]->collider == c1 && active[i]->end_particle != nullptr&&c2->type == COLLIDER_PLAYER &&c1->type == COLLIDER_ENEMY_SHOT)
+
+		if (active[i] != nullptr && active[i]->collider == c1 && active[i]->end_particle != nullptr && c2->type == COLLIDER_PLAYER && c1->type == COLLIDER_ENEMY_SHOT)
 		{
-			AddParticle(*active[i]->end_particle, active[i]->position.x - 5, active[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
+			int x = App->player->position.x - 40;
+			int y = App->player->position.y - 40;
+
+			AddParticle(Player_explosion, x, y, { 0, 0 }, nullrect, COLLIDER_NONE);
 			active[i]->collider->to_delete = true;
 			delete active[i];
 			active[i] = nullptr;
 			App->player->destroyed = true;
-
+			App->player->Disable();
 			break;
 		}
 	}

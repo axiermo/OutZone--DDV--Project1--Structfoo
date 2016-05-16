@@ -119,9 +119,9 @@ update_status ModuleLevel1b::Update()
 {
 	App->render->Blit(graphics, 0, -3850, &World1);
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || App->player->position.y<-3640 || App->player->destroyed)
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || App->player->position.y < -3640 || App->player->destroyed)
 	{
-		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 1.0f);
+		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 2.0);
 	}
 	return UPDATE_CONTINUE;
 }

@@ -104,12 +104,12 @@ update_status ModulePlayer::Update()
 	int speed = 4;
 	direction = IDLE;
 	last_position = position;
-	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_STATE::KEY_REPEAT){
+
+	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_STATE::KEY_REPEAT)
+	{
 		if (App->player->self->type == COLLIDER_PLAYER)
 			App->player->self->type = COLLIDER_GOD;
-		
 	}
-
 
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
 		if (position.x < SCREEN_WIDTH - 30)
@@ -256,6 +256,24 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (self == c1 && self != nullptr && c2->type == COLLIDER_WALL || c2->type == COLLIDER_TURRET || c2->type == COLLIDER_DOOR || c2->type == COLLIDER_TURRET_WALL)
 	{
-		position = last_position;
+		if (position.y + 4 >= c2->rect.y + c2->rect.h)
+		{
+			position.y = c2->rect.y + c2->rect.h;
+		}
+
+		else if (position.y + c1->rect.h - 4 <= c2->rect.y)
+		{
+			position.y = c2->rect.y - c1->rect.h;
+		}
+
+		else if (position.x <= c2->rect.x + c2->rect.w)
+		{
+			position.x = last_position.x;
+		}
+
+		else if (c1->rect.x + c1->rect.w <= c2->rect.x)
+		{
+			position.x = last_position.x;
+		}
 	}
 }
