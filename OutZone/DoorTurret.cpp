@@ -11,11 +11,12 @@
 
 DoorTurret::DoorTurret(int x, int y) : Enemy(x, y)
 {
-	anim.PushBack({ 11, 6, 27, 31 }); // UP
-
+	anim.PushBack({ 90, 793, 26, 40 }); // UP
+	anim.PushBack({ 119, 793, 26, 40 }); // UP
+	anim.speed = 1.0f;
 	animation = &anim;
 
-	collider = App->collision->AddCollider({ 0, 0, 24, 30 }, COLLIDER_TURRET, App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 26, 40 }, COLLIDER_TURRET, App->enemies);
 
 	position.x = x;
 	position.y = y;
@@ -121,5 +122,5 @@ void DoorTurret::Draw(){
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
 
-	App->render->Blit(App->enemies->sprites, position.x, position.y, &anim.GetActualFrame());
+	App->render->Blit(App->enemies->sprites, position.x, position.y, &anim.GetActualFrame(),-1.0f);
 }

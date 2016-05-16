@@ -7,7 +7,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
-
+#include "ModuleFonts.h"
 ModuleLevel1f::ModuleLevel1f()
 {
 	World1 = { 0, 0, 256, 4180 };
@@ -37,7 +37,12 @@ bool ModuleLevel1f::CleanUp()
 
 update_status ModuleLevel1f::Update()
 {
-	App->render->Blit(graphics, 0, -3850, &World1);
-
+	App->render->Blit(graphics, 0, -3850, &World1,-1.0f);
+	App->fonts->Blit(24, 0, 0, "player1");
+	App->fonts->Blit(104, 0, 0, "top");
+	App->fonts->Blit(160, 0, 0, "player2");
+	App->fonts->Blit(72, 8, 0, "0");
+	App->fonts->Blit(96, 8, 0, "200000");
+	App->fonts->Blit(208, 8, 0, "0");
 	return UPDATE_CONTINUE;
 }

@@ -46,7 +46,18 @@ bool ModuleLevel1b::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 132, -992);
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 107, -2057);
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 43, -2057);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 75, -2009);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 75, -2018);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 11, -2010);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 147, -2026);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 203, -2002);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 179, -2050);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 155, -2098);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 19, -2098);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 3, -2138);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 75, -2146);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 203, -2130);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 139, -2154);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 99, -2106);
 
 	//-----------------Big Turrets-----------------------------
 
@@ -117,11 +128,11 @@ bool ModuleLevel1b::CleanUp()
 
 update_status ModuleLevel1b::Update()
 {
-	App->render->Blit(graphics, 0, -3850, &World1);
+	App->render->Blit(graphics, 0, -3850, &World1,-1.0f,true);
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || App->player->position.y < -3640 || App->player->destroyed)
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || App->player->position.y<-3640 || App->player->destroyed)
 	{
-		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 2.0);
+		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 1.0f);
 	}
 	return UPDATE_CONTINUE;
 }

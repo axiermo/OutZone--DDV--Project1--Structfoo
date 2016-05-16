@@ -31,6 +31,8 @@ GreyTurret::GreyTurret(int x, int y) : Enemy(x, y)
 	rotate.PushBack({ 106, 80, 29, 28 }); // LEFT_M_BOT
 	rotate.PushBack({ 43, 80, 27, 29 }); // LEFT_B_BOT
 
+
+
 	animation = &rotate;
 
 	collider = App->collision->AddCollider({ 0, 0, 24, 30 }, COLLIDER_TURRET, App->enemies);
@@ -242,10 +244,9 @@ void GreyTurret::Shoot()
 }
 
 
-void GreyTurret::Draw()
-{
+void GreyTurret::Draw(){
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
 
-	App->render->Blit(App->enemies->sprites, position.x, position.y, &rotate.GetActualFrame());
+	App->render->Blit(App->enemies->sprites, position.x, position.y, &rotate.GetActualFrame(),-1.0f);
 }

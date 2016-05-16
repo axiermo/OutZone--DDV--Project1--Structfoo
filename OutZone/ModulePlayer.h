@@ -40,6 +40,10 @@ public:
 	Animation left;
 	Animation upleft;
 
+	int font_score = -1;
+	char score_text[10];
+	uint score = 0;
+
 	Animation* curr_animation = nullptr;
 	Animation* last_animation = nullptr;
 

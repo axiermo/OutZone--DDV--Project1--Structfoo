@@ -27,6 +27,10 @@ struct Particle
 	Particle* end_particle = nullptr;
 	bool fx_played = false;
 
+	int font_score = -1;
+	char score_text[10];
+	uint score = 0;
+
 	Particle();
 	Particle(const Particle& p);
 	~Particle();
@@ -53,6 +57,7 @@ private:
 
 public:
 	// Basic laser
+
 	Particle laserup;
 	Particle laser67;
 	Particle laserupright;
@@ -71,26 +76,24 @@ public:
 	Particle explosionupleft;	
 	Particle end_laser;
 
-	// GreyTurret particles
+	//-----------------------GreyTurret particles--------------------
 	Particle start_bullet;
 	Particle basic_bullet;
 	Particle end_bullet;
-
-	// BigTurret particles
+	//
+	//------------------------ BigTurret particles-------------------
 	Particle Big_Tur_Laser;
 	Particle Big_Tur_Exp;
 	Particle End_Big_Laser;
 
-	// Door Turret
+	//------------------------- Door Turret-----------------------
 	Particle Door_Tur_Laser;
 	Particle Door_Tur_Exp;
 	Particle End_Door_Laser;
 
 	// Turret
-	Particle Small_NPC_explosion;
 
-	// Player
-	Particle Player_explosion;
+	Particle Small_NPC_explosion;
 };
 
 #endif // __MODULEPARTICLES_H__

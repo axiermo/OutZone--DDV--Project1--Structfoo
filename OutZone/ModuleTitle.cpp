@@ -11,7 +11,7 @@
 #include "ModuleGameOver.h"
 #include "ModuleLevel1f.h"
 #include "ModuleEnemies.h"
-
+#include "ModuleFonts.h"
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
 ModuleTitle::ModuleTitle()
@@ -56,11 +56,11 @@ bool ModuleTitle::CleanUp()
 update_status ModuleTitle::Update()
 {
 	App->render->Blit(graphics, 0, 0, &title, 0); 
-
+	
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
 	{
 		App->fade->FadeToBlack(App->scene_title, App->scene_level1b, 1.0f);
 	}
-
+	
 	return UPDATE_CONTINUE;
 }

@@ -11,17 +11,18 @@
 
 BigTurret::BigTurret(int x, int y) : Enemy(x, y)
 {
-	anim.PushBack({ 11, 6, 27, 31 }); // UP
+	anim.PushBack({ 22,781,63,64}); // UP
 
 	animation = &anim;
 
-	collider = App->collision->AddCollider({ 0, 0, 24, 30 }, COLLIDER_TURRET, App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 63,64 }, COLLIDER_TURRET, App->enemies);
 
 	position.x = x;
 	position.y = y;
 
 	last_shoot = SDL_GetTicks();
 	//TODO change the sprite to the hole in the ground
+	
 	if (x < 100)
 	{
 		left = true;
@@ -129,5 +130,5 @@ void BigTurret::Draw(){
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
 
-	App->render->Blit(App->enemies->sprites, position.x, position.y, &anim.GetActualFrame());
+	App->render->Blit(App->enemies->sprites, position.x, position.y, &anim.GetActualFrame(),-1.0f);
 }

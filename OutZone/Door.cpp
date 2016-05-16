@@ -199,5 +199,5 @@ void Door::Draw(){
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
 
-	App->render->Blit(App->enemies->sprites, position.x, position.y, &rotate.GetActualFrame());
+	App->render->Blit(App->enemies->sprites, position.x, position.y, &rotate.GetActualFrame(),-1.0f);
 }

@@ -8,7 +8,7 @@
 #include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
 #include "Animation.h"
-
+#include "ModuleFonts.h"
 #include "SDL/include/SDL_timer.h"
 
 ModulePlayer::ModulePlayer()
@@ -85,7 +85,8 @@ bool ModulePlayer::Start()
 	curr_animation = &up;
 
 	self = App->collision->AddCollider({position.x + 9, position.y + 1, 12, 29 }, COLLIDER_PLAYER, this);
-
+	font_score = App->fonts->Load("OutZoneScoreFont.png", "! #$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz^_", 1);
+	font_score = App->fonts->Load("OutZoneScoreFontGreen.png", "! #$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz^_", 1);
 	last_laser = SDL_GetTicks();
 	return ret;
 }
@@ -104,12 +105,12 @@ update_status ModulePlayer::Update()
 	int speed = 4;
 	direction = IDLE;
 	last_position = position;
-
-	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_STATE::KEY_REPEAT)
-	{
+	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_STATE::KEY_REPEAT){
 		if (App->player->self->type == COLLIDER_PLAYER)
 			App->player->self->type = COLLIDER_GOD;
+		
 	}
+
 
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
 		if (position.x < SCREEN_WIDTH - 30)
@@ -161,14 +162,15 @@ update_status ModulePlayer::Update()
 	// DRAW -------------------------------------------------------------
 
 	if (direction != IDLE)
-		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetCurrentFrame()));
+		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetCurrentFrame()),-1.0f);
 	else
-		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetActualFrame()));
+		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetActualFrame()),-1.0f);
 
 	// MODIFY COLLISION -------------------------------------------------
 
 	self->SetPos(position.x + 9, position.y + 1);
-
+	
+	
 	return UPDATE_CONTINUE;
 }
 
@@ -256,24 +258,6 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (self == c1 && self != nullptr && c2->type == COLLIDER_WALL || c2->type == COLLIDER_TURRET || c2->type == COLLIDER_DOOR || c2->type == COLLIDER_TURRET_WALL)
 	{
-		if (position.y + 4 >= c2->rect.y + c2->rect.h)
-		{
-			position.y = c2->rect.y + c2->rect.h;
-		}
-
-		else if (position.y + c1->rect.h - 4 <= c2->rect.y)
-		{
-			position.y = c2->rect.y - c1->rect.h;
-		}
-
-		else if (position.x <= c2->rect.x + c2->rect.w)
-		{
-			position.x = last_position.x;
-		}
-
-		else if (c1->rect.x + c1->rect.w <= c2->rect.x)
-		{
-			position.x = last_position.x;
-		}
+		position = last_position;
 	}
 }
