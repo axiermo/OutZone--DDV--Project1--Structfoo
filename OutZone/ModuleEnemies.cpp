@@ -147,10 +147,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && c2->type == COLLIDER_PLAYER_SHOT)
 		{
-			//we substract 7 cause the position of the turret it's different from the base of it
-			App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x - 7, enemies[i]->position.y, { 0, 0 }, { 0, 0, 44, 43 }, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x - 7, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
 			delete enemies[i];
-
 			enemies[i] = nullptr;
 			break;
 		}
