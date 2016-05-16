@@ -11,14 +11,27 @@
 
 GreyTurret::GreyTurret(int x, int y) : Enemy(x, y)
 {
-	rotate.PushBack({ 11, 6, 27, 31 }); // top
-	rotate.PushBack({ 11, 45, 28, 27 }); // right
-	rotate.PushBack({ 9, 117, 30, 27 }); // left
-	rotate.PushBack({ 9, 80, 29, 29 }); // bot
-	rotate.PushBack({ 74, 8, 27, 29 }); // top right
-	rotate.PushBack({ 76, 114, 23, 29 }); // top left
-	rotate.PushBack({ 74, 44, 28, 28 }); // bot right
-	rotate.PushBack({ 76, 80, 26, 28 }); // bot left
+	rotate.PushBack({ 11, 6, 27, 31 }); // UP
+	rotate.PushBack({ 11, 45, 28, 27 }); // RIGHT
+	rotate.PushBack({ 9, 117, 30, 27 }); // LEFT
+	rotate.PushBack({ 9, 80, 29, 29 }); // DOWN
+	//45 DEGREES
+	rotate.PushBack({ 74, 8, 27, 29 }); // UP_RIGHT
+	rotate.PushBack({ 76, 114, 23, 29 }); // UP_LEFT
+	rotate.PushBack({ 74, 44, 28, 28 }); // DOWN_RIGHT
+	rotate.PushBack({ 76, 80, 26, 28 }); //DOWN_LEFT
+	//TODO change the sprite repeat it
+	rotate.PushBack({ 43, 116, 28, 27 }); // LEFT_M_UP
+	rotate.PushBack({ 109, 113, 23, 30 }); // LEFT_U_UP
+	rotate.PushBack({ 106, 10, 27, 27 }); // RIGHT_M_UP 
+	rotate.PushBack({ 43, 7, 26, 30 }); // RIGHT_U_UP
+
+	rotate.PushBack({ 106, 43, 28, 29 }); // RIGHT_B_BOT
+	rotate.PushBack({ 43, 44, 27, 28 }); // RIGHT_M_BOT
+	rotate.PushBack({ 106, 80, 29, 28 }); // LEFT_M_BOT
+	rotate.PushBack({ 43, 80, 27, 29 }); // LEFT_B_BOT
+
+
 
 	animation = &rotate;
 
@@ -28,7 +41,7 @@ GreyTurret::GreyTurret(int x, int y) : Enemy(x, y)
 	position.y = y;
 
 	last_shoot = SDL_GetTicks();
-
+	//TODO change the sprite to the hole in the ground
 	direction = DOWN;
 }
 
@@ -40,14 +53,15 @@ void GreyTurret::Move()
 	float angle, dx, dy;
 	int player_position_x, player_position_y;
 
-
 	player_position_x = App->player->position.x;
 
 	player_position_y = App->player->position.y;
 
 	dx = float(player_position_x - position.x);
+
 	dy = float(player_position_y - position.y);
 
+	
 
 	angle = atan2(dy, dx) * 180 / PI;
 
@@ -63,8 +77,8 @@ void GreyTurret::Move()
 	}
 	else if (dx > 0 && dy > 0 && angle>11.25 && angle < 33.75)
 	{
-		//rotate.setframe(RIGHT_M_BOT);
-		//direction = RIGHT_M_BOT;
+		rotate.setframe(RIGHT_M_BOT);
+		direction = RIGHT_M_BOT;
 
 	}
 	else if (dx > 0 && dy > 0 && angle>33.75 && angle < 56.25)
@@ -75,8 +89,8 @@ void GreyTurret::Move()
 	}
 	else if (dx > 0 && dy > 0 && angle>56.25 && angle < 78.25)
 	{
-		//rotate.setframe(RIGHT_B_BOT);
-		//direction = RIGHT_B_BOT;
+		rotate.setframe(RIGHT_B_BOT);
+		direction = RIGHT_B_BOT;
 	}
 	else if (dx > 0 && dy > 0 && angle>78.25 && angle < 90)
 	{
@@ -84,57 +98,57 @@ void GreyTurret::Move()
 		direction = DOWN;
 	}
 	//bot left quadrant
-	else if (dx < 0 && dy>0 && angle<-0.1 && angle>-11.25)
+	else if (dx < 0 && (angle>168.75))
 	{
 		rotate.setframe(LEFT);
 		direction = LEFT;
 
 	}
-	else if (dx < 0 && dy>0 && angle<-11.25&& angle>-33.75)
+	else if (dx < 0 && dy>0 && angle<168.75 && angle>146.25)
 	{
-		//rotate.setframe(LEFT_M_DOWN);
-		//direction = LEFT_M_DOWN;
+		rotate.setframe(LEFT_M_DOWN);
+		direction = LEFT_M_DOWN;
 
 	}
-	else if (dx < 0 && dy>0 && angle<-33.75 && angle>-56.25)
+	else if (dx < 0 && (angle<146.25) && (angle>123.75))
 	{
 		rotate.setframe(DOWN_LEFT);
 		direction = DOWN_LEFT;
 
 	}
-	else if (dx < 0 && dy>0 && angle < -56.25 && angle - 78.25)
+	else if (dx < 0 && dy>0 && angle < 123.75 && angle >101.75)
 	{
-		//rotate.setframe(LEFT_B_DOWN);
-		//direction = LEFT_B_DOWN;
+		rotate.setframe(LEFT_B_DOWN);
+		direction = LEFT_B_DOWN;
 	}
-	else if (dx < 0 && dy>0 && angle<-78.25 && angle > -89.9)
+	else if (dx < 0 && dy>0 && angle<101.75 && angle > 90)
 	{
 		rotate.setframe(DOWN);
 		direction = DOWN;
 	}
 
 	//top left quadrant
-	else if (dx < 0 && dy < 0 && angle>0 && angle<11.25)
+	else if (dx > 0 && angle>0 && angle<11.25)
 	{
 		rotate.setframe(LEFT);
 		direction = LEFT;
 	}
-	else if (dx < 0 && dy < 0 && angle>11.25 && angle < 33.75)
+	else if (dx < 0 && dy < 0 && angle>-168.75 && angle < -146.25)
 	{
-		//rotate.setframe(LEFT_M_UP);
-		//direction = LEFT_M_UP;
+		rotate.setframe(LEFT_M_UP);
+		direction = LEFT_M_UP;
 	}
-	else if (dx < 0 && dy < 0 && angle>33.75 && angle < 56.25)
+	else if (dx < 0 && dy < 0 && angle>-146.25 && angle < -123.75)
 	{
 		rotate.setframe(UP_LEFT);
 		direction = UP_LEFT;
 	}
-	else if (dx < 0 && dy < 0 && angle>56.25 && angle < 78.25)
+	else if (dx < 0 && dy < 0 && angle>-123.75 && angle < -101.75)
 	{
-		//rotate.setframe(LEFT_U_UP);
-		//direction = LEFT_U_UP;
+		rotate.setframe(LEFT_U_UP);
+		direction = LEFT_U_UP;
 	}
-	else if (dx < 0 && dy < 0 && angle>78.25 && angle < 90)
+	else if (dx < 0 && dy < 0 && angle>-101.75 && angle < -90)
 	{
 		rotate.setframe(UP);
 		direction = UP;
@@ -145,20 +159,20 @@ void GreyTurret::Move()
 		rotate.setframe(RIGHT);
 		direction = RIGHT;
 	}
-	else if (dx>0 && dy<0 && angle > -11.25 && angle > -33.75)
+	else if (dx>0 && dy<0 && angle < -11.25 && angle > -33.75)
 	{
-		//rotate.setframe(RIGHT_M_UP);
-		//direction = RIGHT_M_UP;
+		rotate.setframe(RIGHT_M_UP);
+		direction = RIGHT_M_UP;
 	}
-	else if (dx>0 && dy<0 && angle > -33.75 && angle > -56.25)
+	else if (dx>0 && dy<0 && angle < -33.75 && angle > -56.25)
 	{
 		rotate.setframe(UP_RIGHT);
 		direction = UP_RIGHT;
 	}
-	else if (dx>0 && dy<0 && angle > -56.25 && angle > -78.25)
+	else if (dx>0 && dy<0 && angle < -56.25 && angle > -78.25)
 	{
-		//rotate.setframe(RIGHT_U_UP);
-		//direction = RIGHT_U_UP;
+		rotate.setframe(RIGHT_U_UP);
+		direction = RIGHT_U_UP;
 	}
 	else if (dx>0 && dy<0 && angle < -78.25 && angle > -89.1)
 	{
@@ -169,8 +183,9 @@ void GreyTurret::Move()
 
 void GreyTurret::Shoot()
 {
+	float distance = position.DistanceTo(App->player->position);
 	next_shoot = SDL_GetTicks();
-	if (next_shoot - last_shoot > 1800)
+	if (next_shoot - last_shoot > 1800 && distance>100 && distance <350)
 	{
 		switch (direction)
 		{
@@ -198,6 +213,31 @@ void GreyTurret::Shoot()
 		case DOWN_RIGHT:
 			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
 			break;
+		case LEFT_M_DOWN:
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { -2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			break;
+		case LEFT_B_DOWN:
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { -1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			break;
+		case LEFT_M_UP:
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { -2, -1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			break;
+		case LEFT_U_UP:
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { -1, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			break;
+		case RIGHT_M_BOT:
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			break;
+		case RIGHT_B_BOT:
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			break;
+		case RIGHT_M_UP:
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +2, -1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			break;
+		case RIGHT_U_UP:
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +1, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			break;
+
 		}
 		last_shoot = SDL_GetTicks();
 	}

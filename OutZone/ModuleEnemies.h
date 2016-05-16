@@ -8,7 +8,7 @@
 #define MAX_ENEMIES 100
 class Enemy;
 
-enum ENEMY_TYPES { NO_TYPE, GREYTURRET, DOOR };
+enum ENEMY_TYPES { NO_TYPE, GREYTURRET,DOORTURRET,BIGTURRET, DOOR };
 
 struct EnemyInfo
 {

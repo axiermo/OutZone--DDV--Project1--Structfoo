@@ -55,7 +55,7 @@ ModuleParticles::ModuleParticles()
 	end_laser.anim.speed = 0.4;
 	end_laser.life = 100;
 
-	//Turret Particles --------------------------------
+	//---------------------GreyTurret Particles --------------------------------
 
 	start_bullet.anim.PushBack({ 5, 7, 18, 18 });
 	start_bullet.life = 10;
@@ -71,6 +71,34 @@ ModuleParticles::ModuleParticles()
 	basic_bullet.end_particle = &end_bullet;
 	end_bullet.anim.speed = 0.4f;
 	end_bullet.life = 10;
+
+	//----------------------BigTurret Particles---------------------------------------
+
+	Big_Tur_Exp.anim.PushBack({});
+	end_bullet.life = 10;
+
+	Big_Tur_Laser.anim.PushBack({});
+	Big_Tur_Laser.anim.PushBack({});
+	Big_Tur_Laser.end_particle = &End_Big_Laser;
+	Big_Tur_Laser.anim.speed = 0.4f;
+	Big_Tur_Laser.life = 2000;
+
+	End_Big_Laser.anim.PushBack({});
+	End_Big_Laser.life = 10;
+
+	//------------------------Door Turret---------------------------
+
+	Door_Tur_Exp.anim.PushBack({});
+	end_bullet.life = 10;
+
+	Door_Tur_Laser.anim.PushBack({});
+	Door_Tur_Laser.anim.PushBack({});
+	Door_Tur_Laser.end_particle = &End_Big_Laser;
+	Door_Tur_Laser.anim.speed = 0.4f;
+	Door_Tur_Laser.life = 2000;
+
+	End_Door_Laser.anim.PushBack({});
+	End_Door_Laser.life = 10;
 
 	/* Laser sweep
 	laser67.anim.PushBack({ 56, 100, 10, 16 });

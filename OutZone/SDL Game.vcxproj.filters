@@ -86,6 +86,12 @@
     <ClInclude Include="Door.h">
       <Filter>Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="BigTurret.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="DoorTurret.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -146,6 +152,12 @@
       <Filter>Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Door.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="BigTurret.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="DoorTurret.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
   </ItemGroup>

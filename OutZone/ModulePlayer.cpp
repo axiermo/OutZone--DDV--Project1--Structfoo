@@ -104,6 +104,12 @@ update_status ModulePlayer::Update()
 	int speed = 4;
 	direction = IDLE;
 	last_position = position;
+	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_STATE::KEY_REPEAT){
+		if (App->player->self->type == COLLIDER_PLAYER)
+			App->player->self->type = COLLIDER_GOD;
+		
+	}
+
 
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
 		if (position.x < SCREEN_WIDTH - 30)
@@ -248,7 +254,7 @@ void ModulePlayer::Fire(Directions direction)
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2) 
 {
-	if (self == c1 && self != nullptr && c2->type == COLLIDER_WALL || c2->type == COLLIDER_TURRET || c2->type == COLLIDER_DOOR)
+	if (self == c1 && self != nullptr && c2->type == COLLIDER_WALL || c2->type == COLLIDER_TURRET || c2->type == COLLIDER_DOOR || c2->type == COLLIDER_TURRET_WALL)
 	{
 		position = last_position;
 	}

@@ -72,10 +72,20 @@ public:
 	Particle explosionupleft;	
 	Particle end_laser;
 
-	//-----------------------Turret particles--------------------
+	//-----------------------GreyTurret particles--------------------
 	Particle start_bullet;
 	Particle basic_bullet;
 	Particle end_bullet;
+	//
+	//------------------------ BigTurret particles-------------------
+	Particle Big_Tur_Laser;
+	Particle Big_Tur_Exp;
+	Particle End_Big_Laser;
+
+	//------------------------- Door Turret-----------------------
+	Particle Door_Tur_Laser;
+	Particle Door_Tur_Exp;
+	Particle End_Door_Laser;
 
 	// Turret
 

@@ -38,9 +38,26 @@ bool ModuleLevel1b::Start()
 	App->scene_level1f->Enable();
 	App->enemies->Enable();
 
-	//Turrets
+	//--------------Grey Turrets----------------------
+
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 4, -578);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET,132, -610);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 132, -610);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 196, -675);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 132, -992);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 107, -2057);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 43, -2057);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 75, -2009);
+
+	//-----------------Big Turrets-----------------------------
+
+	App->enemies->AddEnemy(ENEMY_TYPES::BIGTURRET, 20, -1320);
+	App->enemies->AddEnemy(ENEMY_TYPES::BIGTURRET, 180, -1610);
+
+	//-----------------Door Turrets--------------------------
+
+	App->enemies->AddEnemy(ENEMY_TYPES::DOORTURRET, 60, -3255);
+	App->enemies->AddEnemy(ENEMY_TYPES::DOORTURRET, 160, -3255);
+	//Soldiers
 
 	//Door
 	App->enemies->AddEnemy(ENEMY_TYPES::DOOR, 73, -3347);
@@ -68,13 +85,13 @@ bool ModuleLevel1b::Start()
 	App->collision->AddCollider({ 96, -1892, 32, 54 }, COLLIDER_WALL);
 
 	// Defense tower
-	App->collision->AddCollider({ 0, -1207, 32, 34 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 0, -1331, 125, 124 }, COLLIDER_WALL); // Left Tower
-	App->collision->AddCollider({ 0, -1349, 121, 18 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 198, -1351, 58, 145 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 134, -1637, 122, 143 }, COLLIDER_WALL); // Right Tower
-	App->collision->AddCollider({ 0, -1636, 58, 20 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 0, -1616, 62, 121 }, COLLIDER_WALL); // Pipiru
+	App->collision->AddCollider({ 0, -1207, 32, 34 }, COLLIDER_TURRET_WALL);
+	App->collision->AddCollider({ 0, -1331, 125, 124 }, COLLIDER_TURRET_WALL); // Left Tower
+	App->collision->AddCollider({ 0, -1349, 121, 18 }, COLLIDER_TURRET_WALL);
+	App->collision->AddCollider({ 198, -1351, 58, 145 }, COLLIDER_TURRET_WALL);
+	App->collision->AddCollider({ 134, -1637, 122, 143 }, COLLIDER_TURRET_WALL); // Right Tower
+	App->collision->AddCollider({ 0, -1636, 58, 20 }, COLLIDER_TURRET_WALL);
+	App->collision->AddCollider({ 0, -1616, 62, 121 }, COLLIDER_TURRET_WALL); // Pipiru
 
 	//Gate
 	App->collision->AddCollider({ 0, -3333, 30, 64 }, COLLIDER_WALL);

@@ -7,6 +7,8 @@
 #include "ModulePlayer.h"
 #include "Enemy.h"
 #include "GreyTurret.h"
+#include "BigTurret.h"
+#include "DoorTurret.h"
 
 #define SPAWN_MARGIN 50
 
@@ -125,6 +127,12 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		switch (info.type){
 		case ENEMY_TYPES::GREYTURRET:
 			enemies[i] = new GreyTurret(info.x, info.y);
+			break;
+		case ENEMY_TYPES::BIGTURRET:
+			enemies[i] = new BigTurret(info.x, info.y);
+			break;
+		case ENEMY_TYPES::DOORTURRET:
+			enemies[i] = new DoorTurret(info.x, info.y);
 			break;
 		case ENEMY_TYPES::DOOR:
 			enemies[i] = new Door(info.x, info.y);
