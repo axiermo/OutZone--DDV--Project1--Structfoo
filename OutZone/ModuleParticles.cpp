@@ -64,6 +64,8 @@ ModuleParticles::ModuleParticles()
 	basic_bullet.anim.PushBack({ 73, 305, 6, 6 });
 	basic_bullet.end_particle = &end_bullet;
 	basic_bullet.life = 2000;
+	explosionshot.anim.PushBack({ 41, 300, 16, 16 });
+	explosionshot.life = 20;
 
 	end_bullet.anim.PushBack({ 52, 11, 10, 10 });
 	end_bullet.anim.PushBack({ 63, 11, 10, 10 });

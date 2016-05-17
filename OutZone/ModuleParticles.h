@@ -80,6 +80,7 @@ public:
 	Particle start_bullet;
 	Particle basic_bullet;
 	Particle end_bullet;
+	Particle explosionshot;
 
 	// BigTurret particles
 	Particle Big_Tur_Laser;

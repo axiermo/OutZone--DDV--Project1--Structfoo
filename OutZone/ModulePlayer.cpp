@@ -148,6 +148,26 @@ update_status ModulePlayer::Update()
 		else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = DOWN_RIGHT);
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_UP)
+	{
+		App->render->camera.y = 1500;
+		App->player->position.y = -700;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_UP)
+	{
+		App->render->camera.y = 2700;
+		App->player->position.y = -1200;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_3] == KEY_STATE::KEY_UP)
+	{
+		App->render->camera.y = 3250;
+		App->player->position.y = -1450;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_4] == KEY_STATE::KEY_UP)
+	{
+		App->render->camera.y = 6700;
+		App->player->position.y = -3150;
+	}
 	// FIRE -------------------------------------------------------
 
 	curr_laser = SDL_GetTicks();
