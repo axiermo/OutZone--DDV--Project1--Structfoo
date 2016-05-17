@@ -270,7 +270,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 			int x = App->player->position.x - 40;
 			int y = App->player->position.y - 40;
 
-			AddParticle(Player_explosion, x, y, { 0, 0 }, nullrect, COLLIDER_NONE);
+			AddParticle(Player_explosion, x, y, { 0, 0 }, { x, y, 115, 115 }, COLLIDER_PLAYER_SHOT);
 			active[i]->collider->to_delete = true;
 			delete active[i];
 			active[i] = nullptr;

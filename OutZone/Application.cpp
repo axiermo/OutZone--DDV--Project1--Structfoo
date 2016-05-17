@@ -28,8 +28,8 @@ Application::Application()
 	modules[8] = scene_gameover = new ModuleGameOver();
 	modules[9] = enemies = new ModuleEnemies();
 	modules[10] = particles = new ModuleParticles();
-	modules[11] = collision = new ModuleCollision();
-	modules[12] = scene_level1f = new ModuleLevel1f();
+	modules[11] = scene_level1f = new ModuleLevel1f();
+	modules[12] = collision = new ModuleCollision();
 	modules[13] = fonts = new ModuleFonts();
 	modules[14] = fade = new ModuleFadeToBlack();
 }
