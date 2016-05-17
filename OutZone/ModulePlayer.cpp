@@ -85,8 +85,8 @@ bool ModulePlayer::Start()
 	curr_animation = &up;
 
 	self = App->collision->AddCollider({position.x + 9, position.y + 1, 12, 29 }, COLLIDER_PLAYER, this);
-	font_score = App->fonts->Load("OutZoneScoreFont.png", "! #$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz^_", 1);
-	font_score = App->fonts->Load("OutZoneScoreFontGreen.png", "! #$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz^_", 1);
+	font_score = App->fonts->Load("OutZoneScoreFont.png", "!_#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz^ ", 1);
+	font_score = App->fonts->Load("OutZoneScoreFontGreen.png", "!_#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz^ ", 1);
 	last_laser = SDL_GetTicks();
 	return ret;
 }
@@ -224,6 +224,7 @@ void ModulePlayer::Fire(Directions direction)
 	case UP:
 		App->particles->AddParticle(App->particles->laserup, position.x + 18, position.y - 10, { 0, -5 }, { 0, 0, 6, 18 }, COLLIDER_PLAYER_SHOT);
 		App->particles->AddParticle(App->particles->explosionup, position.x +12, position.y -15, { 0, 0 }, nullrect, COLLIDER_NONE);
+		
 		break;
 	case DOWN:
 		App->particles->AddParticle(App->particles->laserup, position.x + 5, position.y + 19, { 0, +5 }, { 0, 0, 6, 18 }, COLLIDER_PLAYER_SHOT);

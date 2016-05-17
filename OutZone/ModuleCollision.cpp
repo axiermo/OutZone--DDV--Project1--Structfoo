@@ -2,7 +2,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
-
+#include "ModulePlayer.h"
 ModuleCollision::ModuleCollision()
 {
 	for (uint i = 0; i < MAX_COLLIDERS; ++i)
@@ -90,6 +90,7 @@ update_status ModuleCollision::PreUpdate()
 		{
 			delete colliders[i];
 			colliders[i] = nullptr;
+			
 		}
 	}
 

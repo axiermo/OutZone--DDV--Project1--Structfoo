@@ -150,7 +150,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x - 7, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
 			delete enemies[i];
 			enemies[i] = nullptr;
+			App->player->score += 390;
 			break;
+			
 		}
 	}
 }
