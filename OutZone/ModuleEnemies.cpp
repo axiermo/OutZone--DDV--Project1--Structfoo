@@ -9,6 +9,7 @@
 #include "GreyTurret.h"
 #include "BigTurret.h"
 #include "DoorTurret.h"
+#include "Soldier1.h"
 
 #define SPAWN_MARGIN 50
 
@@ -136,6 +137,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::DOOR:
 			enemies[i] = new Door(info.x, info.y);
+			break;
+		case ENEMY_TYPES::SOLDIER1:
+			enemies[i] = new Soldier1(info.x, info.y);
 			break;
 		}
 	}

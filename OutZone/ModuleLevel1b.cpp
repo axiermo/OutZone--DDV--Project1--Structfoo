@@ -39,7 +39,7 @@ bool ModuleLevel1b::Start()
 	App->enemies->Enable();
 
 	//--------------Grey Turrets----------------------
-
+	
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 4, -578);
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 132, -610);
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 196, -675);
@@ -58,7 +58,7 @@ bool ModuleLevel1b::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 203, -2130);
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 139, -2154);
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 99, -2106);
-
+	
 	//-----------------Big Turrets-----------------------------
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BIGTURRET, 20, -1320);
@@ -68,7 +68,8 @@ bool ModuleLevel1b::Start()
 
 	App->enemies->AddEnemy(ENEMY_TYPES::DOORTURRET, 60, -3255);
 	App->enemies->AddEnemy(ENEMY_TYPES::DOORTURRET, 160, -3255);
-	//Soldiers
+	//------------------Soldiers----------------------
+	App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 160, -2500);
 
 	//Door
 	App->enemies->AddEnemy(ENEMY_TYPES::DOOR, 73, -3347);

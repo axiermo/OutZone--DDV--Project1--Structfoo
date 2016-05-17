@@ -4,6 +4,7 @@
 #include "p2Point.h"
 #include "Animation.h"
 #include "ModuleParticles.h"
+#include "Path.h"
 
 struct SDL_Texture;
 struct Collider;
@@ -13,6 +14,7 @@ class Enemy
 protected:
 	Animation* animation;
 	Collider* collider;
+	Path* path;
 public:
 	iPoint position;
 
