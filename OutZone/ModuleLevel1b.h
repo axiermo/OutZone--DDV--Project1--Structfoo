@@ -19,6 +19,9 @@ public:
 	bool CleanUp();
 
 public:
+	Collider* lborder;
+	Collider* rborder;
+	Collider* sborder;
 	Mix_Music* soundtrack;
 	SDL_Texture* graphics = nullptr;
 	SDL_Rect World1;

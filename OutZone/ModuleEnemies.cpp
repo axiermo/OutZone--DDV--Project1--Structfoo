@@ -151,7 +151,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
-			if (c2->type == COLLIDER_PLAYER_SHOT && enemies[i]->lives > 0)
+			if ((c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_BORDER) && enemies[i]->lives > 0)
 			{
 				enemies[i]->lives -= 2;
 
@@ -161,7 +161,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					// All ifs from the differents enemies-explosions we have.
 					delete enemies[i];
 					enemies[i] = nullptr;
-					App->player->score += 390;
+					if (c2->type == COLLIDER_PLAYER_SHOT) App->player->score += 390;
 				}
 			}
 			break;

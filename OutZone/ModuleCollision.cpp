@@ -75,6 +75,15 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_DOOR][COLLIDER_PLAYER_SHOT] = true;
 	matrix[COLLIDER_DOOR][COLLIDER_ENEMY_SHOT] = true;
 	matrix[COLLIDER_DOOR][COLLIDER_DOOR] = false;
+
+	matrix[COLLIDER_BORDER][COLLIDER_WALL] = true;
+	matrix[COLLIDER_BORDER][COLLIDER_PLAYER] = false;
+	matrix[COLLIDER_BORDER][COLLIDER_TURRET] = true;
+	matrix[COLLIDER_BORDER][COLLIDER_PLAYER_SHOT] = false;
+	matrix[COLLIDER_BORDER][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_BORDER][COLLIDER_GOD] = false;
+	matrix[COLLIDER_BORDER][COLLIDER_TURRET_WALL] = false;
+	matrix[COLLIDER_BORDER][COLLIDER_DOOR] = true;
 }
 
 ModuleCollision::~ModuleCollision()
