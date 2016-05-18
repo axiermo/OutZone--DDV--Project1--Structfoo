@@ -64,16 +64,19 @@ bool ModuleLevel1b::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::BIGTURRET, 20, -1320);
 	App->enemies->AddEnemy(ENEMY_TYPES::BIGTURRET, 180, -1610);
 
+	//-----------------Door--------------------------
+
+	App->enemies->AddEnemy(ENEMY_TYPES::DOOR, 73, -3347);
+
 	//-----------------Door Turrets--------------------------
 
 	App->enemies->AddEnemy(ENEMY_TYPES::DOORTURRET, 60, -3255);
 	App->enemies->AddEnemy(ENEMY_TYPES::DOORTURRET, 160, -3255);
+
 	//------------------Soldiers----------------------
+
 	App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 160, -2500);
-
-	//Door
-	App->enemies->AddEnemy(ENEMY_TYPES::DOOR, 73, -3347);
-
+	
 	// Blue destroyed ship
 	App->collision->AddCollider({ 0, 56, 16, 15 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 0, -86, 64, 142 }, COLLIDER_WALL);

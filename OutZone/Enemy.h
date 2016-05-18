@@ -17,6 +17,7 @@ protected:
 	Path* path;
 public:
 	iPoint position;
+	int lives = 2;
 
 public:
 	Enemy(int x, int y);

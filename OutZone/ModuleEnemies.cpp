@@ -149,14 +149,22 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && c2->type == COLLIDER_PLAYER_SHOT)
+		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
-			App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x - 7, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
-			delete enemies[i];
-			enemies[i] = nullptr;
-			App->player->score += 390;
+			if (c2->type == COLLIDER_PLAYER_SHOT && enemies[i]->lives > 0)
+			{
+				enemies[i]->lives -= 2;
+
+				if (enemies[i]->lives < 1)
+				{
+					if (c1->type == COLLIDER_TURRET) App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x - 7, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
+					// All ifs from the differents enemies-explosions we have.
+					delete enemies[i];
+					enemies[i] = nullptr;
+					App->player->score += 390;
+				}
+			}
 			break;
-			
 		}
 	}
 }

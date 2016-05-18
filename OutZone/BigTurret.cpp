@@ -20,6 +20,8 @@ BigTurret::BigTurret(int x, int y) : Enemy(x, y)
 	position.x = x;
 	position.y = y;
 
+	lives = 20;
+
 	last_shoot = SDL_GetTicks();
 	//TODO change the sprite to the hole in the ground
 	

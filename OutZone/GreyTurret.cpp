@@ -31,7 +31,7 @@ GreyTurret::GreyTurret(int x, int y) : Enemy(x, y)
 	rotate.PushBack({ 106, 80, 29, 28 }); // LEFT_M_BOT
 	rotate.PushBack({ 43, 80, 27, 29 }); // LEFT_B_BOT
 
-
+	lives = 4;
 
 	animation = &rotate;
 

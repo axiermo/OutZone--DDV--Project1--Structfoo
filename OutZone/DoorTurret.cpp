@@ -16,6 +16,8 @@ DoorTurret::DoorTurret(int x, int y) : Enemy(x, y)
 	anim.speed = 1.0f;
 	animation = &anim;
 
+	lives = 8;
+
 	collider = App->collision->AddCollider({ 0, 0, 26, 40 }, COLLIDER_TURRET, App->enemies);
 
 	position.x = x;

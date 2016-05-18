@@ -16,22 +16,23 @@
 #include "ModuleFonts.h"
 
 Application::Application()
-{
-	modules[0] = window = new ModuleWindow();
-	modules[1] = render = new ModuleRender();
-	modules[2] = input = new ModuleInput();
-	modules[3] = textures = new ModuleTextures();
-	modules[4] = audio = new ModuleAudio();
-	modules[5] = scene_title = new ModuleTitle();
-	modules[6] = scene_level1b = new ModuleLevel1b();
-	modules[7] = player = new ModulePlayer();
-	modules[8] = scene_gameover = new ModuleGameOver();
-	modules[9] = enemies = new ModuleEnemies();
-	modules[10] = particles = new ModuleParticles();
-	modules[11] = scene_level1f = new ModuleLevel1f();
-	modules[12] = collision = new ModuleCollision();
-	modules[13] = fonts = new ModuleFonts();
-	modules[14] = fade = new ModuleFadeToBlack();
+{ 
+	int i = 0;
+	modules[i++] = window = new ModuleWindow();
+	modules[i++] = render = new ModuleRender();
+	modules[i++] = input = new ModuleInput();
+	modules[i++] = textures = new ModuleTextures();
+	modules[i++] = audio = new ModuleAudio();
+	modules[i++] = scene_title = new ModuleTitle();
+	modules[i++] = scene_level1b = new ModuleLevel1b();
+	modules[i++] = scene_gameover = new ModuleGameOver();
+	modules[i++] = enemies = new ModuleEnemies();
+	modules[i++] = player = new ModulePlayer();
+	modules[i++] = particles = new ModuleParticles();
+	modules[i++] = scene_level1f = new ModuleLevel1f();
+	modules[i++] = collision = new ModuleCollision();
+	modules[i++] = fonts = new ModuleFonts();
+	modules[i++] = fade = new ModuleFadeToBlack();
 }
 
 Application::~Application()

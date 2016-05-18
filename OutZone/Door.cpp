@@ -15,6 +15,8 @@ Door::Door(int x, int y) : Enemy(x, y)
 
 	collider = App->collision->AddCollider({ 0, 0, 111, 84}, COLLIDER_DOOR, App->enemies);
 
+	lives = 14;
+
 	position.x = x;
 	position.y = y;
 

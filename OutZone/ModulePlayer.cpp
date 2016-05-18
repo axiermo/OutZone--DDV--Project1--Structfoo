@@ -304,4 +304,15 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			position.x = last_position.x;
 		}
 	}
+
+	if (self == c1 && self != nullptr && c2->type == COLLIDER_ENEMY_SHOT)
+	{
+		int x = App->player->position.x - 40;
+		int y = App->player->position.y - 40;
+
+		App->particles->AddParticle(App->particles->Player_explosion, x, y, { 0, 0 }, { x, y, 115, 115 }, COLLIDER_PLAYER_SHOT);
+		App->player->destroyed = true;
+		App->player->Disable();
+	}
+
 }

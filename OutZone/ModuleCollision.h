@@ -11,7 +11,6 @@ enum COLLIDER_TYPE
 	COLLIDER_PLAYER,
 	COLLIDER_WALL,
 	COLLIDER_TURRET,
-	COLLIDER_ENEMY,
 	COLLIDER_PLAYER_SHOT,
 	COLLIDER_ENEMY_SHOT,
 	COLLIDER_GOD,
@@ -27,7 +26,10 @@ struct Collider
 	COLLIDER_TYPE type;
 	Module* callback = nullptr;
 
-	Collider(SDL_Rect rectangle, COLLIDER_TYPE type, Module* callback = nullptr) : rect(rectangle), type(type), callback(callback)
+	Collider(SDL_Rect rectangle, COLLIDER_TYPE type, Module* callback = nullptr) :
+		rect(rectangle),
+		type(type),
+		callback(callback)
 	{}
 
 	void SetPos(int x, int y)
@@ -36,6 +38,7 @@ struct Collider
 		rect.y = y;
 	}
 
+	Directions ColliderHit(const SDL_Rect& r) const;
 	bool CheckCollision(const SDL_Rect& r) const;
 };
 

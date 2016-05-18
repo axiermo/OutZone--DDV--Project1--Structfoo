@@ -43,7 +43,7 @@ Soldier1::Soldier1(int x, int y) :Enemy(x, y)
 
 	animation = &walk;
 
-	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_TURRET, (Module*)App->enemies);
 	
 	path.PushBack({ -0.8f, 0.1f }, 150, &walk);
 	path.PushBack({ 0.8f, 0.1f }, 150, &walk);
