@@ -138,6 +138,18 @@ ModuleParticles::ModuleParticles()
 	Player_explosion.anim.PushBack({ 687, 119, 115, 115 });
 	Player_explosion.anim.speed = 0.15;
 	Player_explosion.life = 980;
+
+	Misile.anim.PushBack({ 217, 0, 115, 115 });
+	Misile.anim.PushBack({ 337, 0, 115, 115 });
+	Misile.anim.PushBack({ 455, 0, 115, 115 });
+	Misile.anim.PushBack({ 572, 0, 115, 115 });
+	Misile.anim.PushBack({ 215, 119, 119, 119 });
+	Misile.anim.PushBack({ 334, 119, 115, 115 });
+	Misile.anim.PushBack({ 451, 119, 115, 115 });
+	Misile.anim.PushBack({ 568, 119, 115, 115 });
+	Misile.anim.PushBack({ 687, 119, 115, 115 });
+	Misile.anim.speed = 0.1;
+	Misile.life = 400;
 }
 
 ModuleParticles::~ModuleParticles()

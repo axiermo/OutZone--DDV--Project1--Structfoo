@@ -168,6 +168,13 @@ update_status ModulePlayer::Update()
 		App->render->camera.y = 6700;
 		App->player->position.y = -3150;
 	}
+
+	if (App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN){
+		App->particles->AddParticle(App->particles->Misile, App->render->camera.x, -App->render->camera.y, { 0, 0 }, { 0, 0, 117, 114 }, COLLIDER_PLAYER_SHOT, 0);
+		App->particles->AddParticle(App->particles->Misile, App->render->camera.x, -App->render->camera.y + 80, { 0, 0 }, { 0, 0, 117, 114 }, COLLIDER_PLAYER_SHOT, 0);
+		App->particles->AddParticle(App->particles->Misile, App->render->camera.x, -App->render->camera.y + 140, { 0, 0 }, { 0, 0, 117, 114 }, COLLIDER_PLAYER_SHOT, 0);
+	}
+
 	// FIRE -------------------------------------------------------
 
 	curr_laser = SDL_GetTicks();

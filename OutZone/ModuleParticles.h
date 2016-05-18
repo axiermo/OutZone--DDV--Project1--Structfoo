@@ -97,6 +97,9 @@ public:
 
 	// Player
 	Particle Player_explosion;
+
+	// Missile attack
+	Particle Misile;
 };
 
 #endif // __MODULEPARTICLES_H__
