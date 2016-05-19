@@ -194,7 +194,7 @@ update_status ModuleParticles::Update()
 	return UPDATE_CONTINUE;
 }
 	
-void ModuleParticles::AddParticle(const Particle& particle, int x, int y, iPoint speed, SDL_Rect size_collider, COLLIDER_TYPE collider_type, Uint32 delay)
+void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -204,11 +204,8 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, iPoint
 			p->born = SDL_GetTicks() + delay;
 			p->position.x = x;
 			p->position.y = y;
-			p->speed = speed;
-			
 			if (collider_type != COLLIDER_NONE)
-				p->collider = App->collision->AddCollider(size_collider, collider_type, this);
-
+				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
 			active[i] = p;
 			break;
 		}
@@ -261,7 +258,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
-			AddParticle(*active[i]->end_particle, active[i]->position.x - 5, active[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
+			AddParticle(*active[i]->end_particle, active[i]->position.x - 5, active[i]->position.y, COLLIDER_NONE);
 			active[i]->collider->to_delete = true;
 			delete active[i];
 			active[i] = nullptr;

@@ -311,8 +311,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		int y = App->player->position.y - 40;
 
 		App->particles->AddParticle(App->particles->Player_explosion, x, y, { 0, 0 }, { x, y, 115, 115 }, COLLIDER_PLAYER_SHOT);
-		App->player->destroyed = true;
-		App->player->Disable();
+		destroyed = true;
+		Disable();
 	}
-
 }
