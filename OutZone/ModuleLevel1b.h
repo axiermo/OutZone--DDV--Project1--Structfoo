@@ -17,6 +17,15 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
+	bool wave1;
+	bool wave2;
+	bool wave3;
+	bool wave4;
+	bool wave5;
+	bool wave6;
+	bool wave7;
+	bool wave8;
+	bool wave9;
 
 public:
 	Collider* lborder;

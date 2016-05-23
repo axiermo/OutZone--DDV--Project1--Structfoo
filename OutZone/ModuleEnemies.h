@@ -17,6 +17,7 @@ struct EnemyInfo
 {
 	ENEMY_TYPES type = NO_TYPE;
 	int x, y;
+	int subtype;
 };
 
 class ModuleEnemies : public Module
@@ -32,7 +33,7 @@ public:
 	update_status PostUpdate();
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
-	bool AddEnemy(ENEMY_TYPES type, int x, int y);
+	bool AddEnemy(ENEMY_TYPES type, int x, int y, int subtype);
 
 	SDL_Texture* sprites;
 

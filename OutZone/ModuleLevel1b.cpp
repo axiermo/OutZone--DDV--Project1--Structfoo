@@ -26,6 +26,12 @@ bool ModuleLevel1b::Start()
 	bool ret = true;
 	App->render->camera.y = 0;
 	App->particles->Enable();
+	wave1 = true;
+	wave2 = true;
+	wave3 = true;
+	wave4 = true;
+	wave5 = true;
+	wave6 = true;
 	// Background
 	graphics = App->textures->Load("Sprites/Maps/map1_base.png");
 
@@ -40,42 +46,40 @@ bool ModuleLevel1b::Start()
 
 	//--------------Grey Turrets----------------------
 	
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 4, -578);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 132, -610);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 196, -675);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 132, -992);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 107, -2057);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 43, -2057);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 75, -2018);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 11, -2010);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 147, -2026);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 203, -2002);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 179, -2050);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 155, -2098);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 19, -2098);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 3, -2138);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 75, -2146);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 203, -2130);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 139, -2154);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 99, -2106);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 4, -578,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 132, -610,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 196, -675,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 132, -992,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 107, -2057,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 43, -2057,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 75, -2018,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 11, -2010,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 147, -2026,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 203, -2002,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 179, -2050,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 155, -2098,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 19, -2098,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 3, -2138,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 75, -2146,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 203, -2130,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 139, -2154,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 99, -2106,0);
 	
 	//-----------------Big Turrets-----------------------------
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BIGTURRET, 20, -1320);
-	App->enemies->AddEnemy(ENEMY_TYPES::BIGTURRET, 180, -1610);
+	App->enemies->AddEnemy(ENEMY_TYPES::BIGTURRET, 6, -1330,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::BIGTURRET, 165, -1620,0);
 
 	//-----------------Door--------------------------
 
-	App->enemies->AddEnemy(ENEMY_TYPES::DOOR, 73, -3347);
+	App->enemies->AddEnemy(ENEMY_TYPES::DOOR, 73, -3347,0);
 
 	//-----------------Door Turrets--------------------------
 
-	App->enemies->AddEnemy(ENEMY_TYPES::DOORTURRET, 60, -3255);
-	App->enemies->AddEnemy(ENEMY_TYPES::DOORTURRET, 160, -3255);
+	App->enemies->AddEnemy(ENEMY_TYPES::DOORTURRET, 60, -3255,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::DOORTURRET, 160, -3255,0);
 
-	//------------------Soldiers----------------------
 
-	App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 160, -2500);
 	
 	// Blue destroyed ship
 	App->collision->AddCollider({ 0, 56, 16, 15 }, COLLIDER_WALL);
@@ -146,5 +150,55 @@ update_status ModuleLevel1b::Update()
 	{
 		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 2.0);
 	}
+
+	if ((App->player->position.y) < 220 && wave1){
+
+		wave1 = false;
+
+		//------------------Soldiers----------------------
+		//1 = L right, 2 = Vertical, 3 = stay, 4 = L left, 5= horizontal
+
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 120, -100, 1);
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 100, -150, 1);
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 160, -180, 1);
+
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -180, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -220, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -260, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -300, 2);
+
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 10, -220, 3);
+
+		
+	}
+
+	if ((App->player->position.y) < -200 && wave2){
+
+		wave2 = false;
+
+		//------------------Soldiers----------------------
+		//1 = L right, 2 = Vertical, 3 = stay, 4 = L left, 5= horizontal
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 120, -550, 1);
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 100, -450, 1);
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 110, -650, 1);
+
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 80, -450, 4);
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 75, -500, 4);
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -550, 4);
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 70, -600, 4);
+
+	}
+
+	if ((App->player->position.y) < -200 && wave3){
+
+		wave2 = false;
+
+		//------------------Soldiers----------------------
+		//1 = L right, 2 = Vertical, 3 = stay, 4 = L left, 5= horizontal
+		
+	}
+
+
+
 	return UPDATE_CONTINUE;
 }

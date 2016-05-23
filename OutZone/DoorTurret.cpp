@@ -9,7 +9,7 @@
 
 #define PI 3.1415926
 
-DoorTurret::DoorTurret(int x, int y) : Enemy(x, y)
+DoorTurret::DoorTurret(int x, int y) : Enemy(x, y,0)
 {
 	anim.PushBack({ 90, 793, 26, 40 }); // UP
 	anim.PushBack({ 119, 793, 26, 40 }); // UP

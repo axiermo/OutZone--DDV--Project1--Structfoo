@@ -9,7 +9,7 @@
 
 #define PI 3.1415926
 
-BigTurret::BigTurret(int x, int y) : Enemy(x, y)
+BigTurret::BigTurret(int x, int y) : Enemy(x, y,0)
 {
 	anim.PushBack({ 22,781,63,64}); // UP
 
@@ -45,62 +45,105 @@ void BigTurret::Move()
 {
 	if (left)
 	{
-		if (direction == RIGHT_B_BOT && previous == DOWN_RIGHT)
+		next_shoot = SDL_GetTicks();
+		if (next_shoot - last_shoot > 450)
 		{
-			direction = DOWN_RIGHT;
-			previous = RIGHT_B_BOT;
+			if (direction == RIGHT_B_BOT)
+			{
+				App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				direction = DOWN_RIGHT;
+				last_shoot = SDL_GetTicks();
+			}
 		}
-		else if (direction == DOWN_RIGHT&&previous == RIGHT_B_BOT)
-		{
-			direction = RIGHT_M_BOT;
-			previous = DOWN_RIGHT;
 
+		next_shoot = SDL_GetTicks();
+		if (next_shoot - last_shoot > 450)
+		{
+			if (direction == DOWN_RIGHT)
+			{
+				App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				direction = RIGHT_M_BOT;
+				last_shoot = SDL_GetTicks();
+			}
 		}
-		else if (direction == RIGHT_M_BOT && previous == DOWN_RIGHT)
-		{
-			direction = DOWN_RIGHT;
-			previous = RIGHT_M_BOT;
 
+		next_shoot = SDL_GetTicks();
+		if (next_shoot - last_shoot > 450)
+		{
+			if (direction == RIGHT_M_BOT)
+			{
+				App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				direction = DOWN_RIGHT2;
+				last_shoot = SDL_GetTicks();
+			}
 		}
-		else if (direction == DOWN_RIGHT && previous == RIGHT_M_BOT)
-		{
-			direction = RIGHT_B_BOT;
-			previous = DOWN_RIGHT;
 
+		next_shoot = SDL_GetTicks();
+		if (next_shoot - last_shoot > 450)
+		{
+			if (direction == DOWN_RIGHT2)
+			{
+				App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				direction = RIGHT_B_BOT;
+				last_shoot = SDL_GetTicks();
+			}
 		}
 	}
+
 	else
 	{
-		if (direction == LEFT_B_DOWN && previous == DOWN_LEFT)
+		next_shoot = SDL_GetTicks();
+		if (next_shoot - last_shoot > 450)
 		{
-			direction = DOWN_LEFT;
-			previous = LEFT_B_DOWN;
+			if (direction == LEFT_B_DOWN)
+			{
+				App->particles->AddParticle(App->particles->basic_bullet, position.x - 12, position.y + 12, { -1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				direction = DOWN_LEFT;
+				last_shoot = SDL_GetTicks();
+			}
 		}
-		else if (direction == DOWN_LEFT&&previous == LEFT_B_DOWN)
-		{
-			direction = LEFT_M_DOWN;
-			previous = DOWN_LEFT;
 
-		}
-		else if (direction == LEFT_M_DOWN && previous == DOWN_LEFT)
+		next_shoot = SDL_GetTicks();
+		if (next_shoot - last_shoot > 450)
 		{
-			direction = DOWN_LEFT;
-			previous = LEFT_M_DOWN;
-
+			if (direction == DOWN_LEFT)
+			{
+				App->particles->AddParticle(App->particles->basic_bullet, position.x - 12, position.y + 12, { -2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				direction = LEFT_M_DOWN;
+				last_shoot = SDL_GetTicks();
+			}
 		}
-		else if (direction == DOWN_LEFT && previous == LEFT_M_DOWN)
+
+		next_shoot = SDL_GetTicks();
+		if (next_shoot - last_shoot > 450)
 		{
-			direction = LEFT_B_DOWN;
-			previous = DOWN_LEFT;
-
+			if (direction == LEFT_M_DOWN)
+			{
+				App->particles->AddParticle(App->particles->basic_bullet, position.x - 12, position.y + 12, { -2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				direction = DOWN_LEFT2;
+				last_shoot = SDL_GetTicks();
+			}
 		}
+
+		next_shoot = SDL_GetTicks();
+		if (next_shoot - last_shoot > 450)
+		{
+			if (direction == DOWN_LEFT2)
+			{
+				App->particles->AddParticle(App->particles->basic_bullet, position.x - 12, position.y + 12, { -2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				direction = LEFT_B_DOWN;
+				last_shoot = SDL_GetTicks();
+			}
+		}
+
+
 	}
 }
-
+/*
 void BigTurret::Shoot()
 {
 	next_shoot = SDL_GetTicks();
-	if (next_shoot - last_shoot > 1800)
+	if (next_shoot - last_shoot > 450)
 	{
 		switch (direction)
 		{
@@ -108,6 +151,9 @@ void BigTurret::Shoot()
 			App->particles->AddParticle(App->particles->basic_bullet, position.x - 11, position.y + 12, { -2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
 			break;
 		case DOWN_RIGHT:
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			break;
+		case DOWN_RIGHT2:
 			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
 			break;
 		case RIGHT_M_BOT:
@@ -126,6 +172,7 @@ void BigTurret::Shoot()
 		last_shoot = SDL_GetTicks();
 	}
 }
+*/
 
 
 void BigTurret::Draw(){

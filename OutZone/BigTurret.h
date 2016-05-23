@@ -18,7 +18,7 @@ public:
 	uint last_shoot;
 	BigTurret(int x, int y);
 	void Move();
-	void Shoot();
+	void Shoot() {};
 	void Draw();
 };
 #endif // !__BIG_TURRET_H__

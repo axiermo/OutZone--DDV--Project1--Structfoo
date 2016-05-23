@@ -1,117 +1,69 @@
-﻿Build started 19/05/2016 10:43:10.
-     1>Project "C:\Users\marcdpg\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
+﻿Build started 23/05/2016 15:17:41.
+     1>Project "C:\Users\paubv1\Desktop\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BigTurret.cpp DoorTurret.cpp GreyTurret.cpp ModuleEnemies.cpp ModuleParticles.cpp ModulePlayer.cpp Soldier1.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Application.cpp BigTurret.cpp Door.cpp DoorTurret.cpp Enemy.cpp GreyTurret.cpp ModuleEnemies.cpp ModuleFonts.cpp ModuleGameOver.cpp ModuleLevel1f.cpp Main.cpp ModuleAudio.cpp ModuleCollision.cpp ModuleFadeToBlack.cpp ModuleInput.cpp ModuleParticles.cpp ModulePlayer.cpp ModuleRender.cpp ModuleLevel1b.cpp ModuleTitle.cpp ModuleTextures.cpp ModuleWindow.cpp Soldier1.cpp
          Soldier1.cpp
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(73): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(198): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(205): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(206): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(209): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(210): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(213): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(214): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(217): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(218): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(221): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(222): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(225): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(226): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(229): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(230): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(233): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(234): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(237): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(238): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(241): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(242): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(245): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(246): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(249): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(250): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(253): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(254): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(257): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(258): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(261): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(262): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(265): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(266): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
+     1>c:\users\paubv1\desktop\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(112): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\paubv1\desktop\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(237): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         ModuleWindow.cpp
+         ModuleTextures.cpp
+         ModuleTitle.cpp
+         ModuleLevel1b.cpp
+         ModuleRender.cpp
          ModulePlayer.cpp
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(245): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(246): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(250): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(251): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(254): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(255): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(258): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(259): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(262): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(263): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(266): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(267): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(270): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(271): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(274): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(275): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(313): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
          ModuleParticles.cpp
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleparticles.cpp(55): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleparticles.cpp(127): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleparticles.cpp(139): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\paubv1\desktop\outzone--ddv--project1--structfoo\outzone\moduleparticles.cpp(55): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\paubv1\desktop\outzone--ddv--project1--structfoo\outzone\moduleparticles.cpp(127): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\paubv1\desktop\outzone--ddv--project1--structfoo\outzone\moduleparticles.cpp(139): warning C4305: '=' : truncation from 'double' to 'float'
+         ModuleInput.cpp
+         ModuleFadeToBlack.cpp
+         ModuleCollision.cpp
+         ModuleAudio.cpp
+         Main.cpp
+         ModuleLevel1f.cpp
+         ModuleGameOver.cpp
+         ModuleFonts.cpp
          ModuleEnemies.cpp
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleenemies.cpp(160): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
          GreyTurret.cpp
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(66): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(186): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(193): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(194): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(197): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(198): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(201): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(202): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(205): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(206): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(209): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(210): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(213): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(214): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(217): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(218): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(221): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(222): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(225): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(226): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(229): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(230): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(233): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(234): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(237): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(238): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(241): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(242): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(245): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(246): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(249): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(250): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(253): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(254): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
+     1>c:\users\paubv1\desktop\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(66): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\paubv1\desktop\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(186): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         Enemy.cpp
          DoorTurret.cpp
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\doorturret.cpp(103): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\doorturret.cpp(106): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\doorturret.cpp(109): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\doorturret.cpp(112): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\doorturret.cpp(115): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-         BigTurret.cpp
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\bigturret.cpp(108): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\bigturret.cpp(111): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\bigturret.cpp(114): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\bigturret.cpp(117): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\bigturret.cpp(120): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
-     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\bigturret.cpp(123): error C2660: 'ModuleParticles::AddParticle' : function does not take 6 arguments
          Generating Code...
-     1>Done Building Project "C:\Users\marcdpg\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)) -- FAILED.
+         Compiling...
+         Door.cpp
+         BigTurret.cpp
+         Application.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\paubv1\Desktop\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\paubv1\Desktop\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\paubv1\Desktop\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.lib" /MACHINE:X86 Debug\Application.obj
+         Debug\BigTurret.obj
+         Debug\Door.obj
+         Debug\DoorTurret.obj
+         Debug\Enemy.obj
+         Debug\GreyTurret.obj
+         Debug\ModuleEnemies.obj
+         Debug\ModuleFonts.obj
+         Debug\ModuleGameOver.obj
+         Debug\ModuleLevel1f.obj
+         Debug\Globals.obj
+         Debug\Main.obj
+         Debug\ModuleAudio.obj
+         Debug\ModuleCollision.obj
+         Debug\ModuleFadeToBlack.obj
+         Debug\ModuleInput.obj
+         Debug\ModuleParticles.obj
+         Debug\ModulePlayer.obj
+         Debug\ModuleRender.obj
+         Debug\ModuleLevel1b.obj
+         Debug\ModuleTitle.obj
+         Debug\ModuleTextures.obj
+         Debug\ModuleWindow.obj
+         Debug\Soldier1.obj
+     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+         SDL Game.vcxproj -> C:\Users\paubv1\Desktop\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe
+     1>Done Building Project "C:\Users\paubv1\Desktop\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:00.89
+Time Elapsed 00:00:02.86

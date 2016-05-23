@@ -17,7 +17,7 @@ private:
 
 public:
 
-	Soldier1(int x, int y);
+	Soldier1(int x, int y, int subtype);
 	uint next_shoot;
 	uint last_shoot;
 

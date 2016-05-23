@@ -12,32 +12,28 @@
 
 #define PI 3.1415926
 
-Soldier1::Soldier1(int x, int y) :Enemy(x, y)
+Soldier1::Soldier1(int x, int y, int subtype) :Enemy(x, y, subtype)
 {
-	//TURRET SPRITES!!!!!!!!
-	//TURRET SPRITES!!!!!!!!
-	//TURRET SPRITES!!!!!!!!
-	//TURRET SPRITES!!!!!!!!
-	//TURRET SPRITES!!!!!!!!
-	walk.PushBack({ 11, 6, 27, 31 }); // UP
-	walk.PushBack({ 11, 45, 28, 27 }); // RIGHT
-	walk.PushBack({ 9, 117, 30, 27 }); // LEFT
-	walk.PushBack({ 9, 80, 29, 29 }); // DOWN
-	
-	walk.PushBack({ 74, 8, 27, 29 }); // UP_RIGHT
-	walk.PushBack({ 76, 114, 23, 29 }); // UP_LEFT
-	walk.PushBack({ 74, 44, 28, 28 }); // DOWN_RIGHT
-	walk.PushBack({ 76, 80, 26, 28 }); //DOWN_LEFT
-	
-	walk.PushBack({ 43, 116, 28, 27 }); // LEFT_M_UP
-	walk.PushBack({ 109, 113, 23, 30 }); // LEFT_U_UP
-	walk.PushBack({ 106, 10, 27, 27 }); // RIGHT_M_UP 
-	walk.PushBack({ 43, 7, 26, 30 }); // RIGHT_U_UP
 
-	walk.PushBack({ 106, 43, 28, 29 }); // RIGHT_B_BOT
-	walk.PushBack({ 43, 44, 27, 28 }); // RIGHT_M_BOT
-	walk.PushBack({ 106, 80, 29, 28 }); // LEFT_M_BOT
-	walk.PushBack({ 43, 80, 27, 29 }); // LEFT_B_BOT
+	walk.PushBack({ 12, 492, 28, 35 }); // UP
+	walk.PushBack({ 17, 533, 24, 35 }); // RIGHT
+	walk.PushBack({ 12, 613, 23, 33 }); // LEFT
+	walk.PushBack({ 10, 573, 28, 35 }); // DOWN
+
+	walk.PushBack({ 80, 493, 25, 35 }); // UP_RIGHT
+	walk.PushBack({ 77, 612, 27, 35 }); // UP_LEFT
+	walk.PushBack({ 75, 533, 27, 35 }); // DOWN_RIGHT
+	walk.PushBack({ 76, 573, 27, 36 }); //DOWN_LEFT
+
+	walk.PushBack({ 44, 613, 24, 35 }); // LEFT_M_UP
+	walk.PushBack({ 110, 612, 26, 35 }); // LEFT_U_UP
+	walk.PushBack({ 114, 492, 22, 36 }); // RIGHT_M_UP 
+	walk.PushBack({ 46, 493, 28, 36 }); // RIGHT_U_UP
+
+	walk.PushBack({ 107, 534, 29, 34 }); // RIGHT_B_BOT
+	walk.PushBack({ 46, 533, 26, 35 }); // RIGHT_M_BOT
+	walk.PushBack({ 108, 573, 26, 35 }); // LEFT_M_BOT
+	walk.PushBack({ 45, 574, 27, 35 }); // LEFT_B_BOT
 
 	walk.speed = 0.5f;
 
@@ -45,8 +41,51 @@ Soldier1::Soldier1(int x, int y) :Enemy(x, y)
 
 	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_TURRET, (Module*)App->enemies);
 	
-	path.PushBack({ -0.8f, 0.1f }, 150, &walk);
-	path.PushBack({ 0.8f, 0.1f }, 150, &walk);
+	switch (subtype)
+	{
+	case 1:
+		path.PushBack({ 0.0f, 0.9f }, 150, &walk);
+		path.PushBack({ 0.5f, 0.8f }, 150, &walk);
+		path.PushBack({ 0.7f, 0.8f }, 150, &walk);
+		break;
+	case 2:
+		path.PushBack({ 0.0f, 1.0f }, 150, &walk);
+		break;
+	case 3:
+		path.PushBack({ 0.0f, 0.0f }, 150, &walk);
+		break;
+	case 4:
+		path.PushBack({ -0.0f, 0.9f }, 150, &walk);
+		path.PushBack({ 0.0f, 0.0f }, 60, &walk);
+		path.PushBack({ -0.5f, 0.8f }, 150, &walk);
+		path.PushBack({ -0.7f, 0.8f }, 150, &walk);
+		break;
+	case 5://!!!
+		path.PushBack({ 0.0f, -1.0f }, 40, &walk);
+		path.PushBack({ 0.7f, 0.0f }, 150, &walk);	//x pixels
+		// we willneed more cases for this one
+		break;
+	case 6:
+		path.PushBack({ -0.8f, 0.0f }, 150, &walk);
+		path.PushBack({ -0.8f, 0.4f }, 40, &walk);
+		path.PushBack({ -0.8f, -0.4f }, 80, &walk);
+		path.PushBack({ -0.8f, 0.4f }, 40, &walk);
+		path.PushBack({ -0.8f, 0.0f }, 150, &walk);
+		break;
+	case 7:
+		path.PushBack({ -0.8f, 0.0f }, 150, &walk);
+		path.PushBack({ -0.8f, 0.0f }, 40, &walk);
+		path.PushBack({ 0.0f, 0.4f }, 80, &walk);
+	case 8:
+		path.PushBack({ -0.8f, 0.0f }, 150, &walk);
+		path.PushBack({ 0.8f, 0.0f }, 40, &walk);
+		path.PushBack({ -0.8f, -0.4f }, 80, &walk);
+	
+
+
+
+	}
+	
 	//Set the automathic paths here
 	
 	original_pos.x = x;
@@ -201,69 +240,70 @@ void Soldier1::Shoot()
 	{
 		switch (direction)
 		{
+			//GreySoldier correct shot
 		case UP:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 9, position.y - 6, { 0, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->explosionshot, position.x + 5, position.y - 15, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y - 6, { 0, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->explosionshot, position.x + 7, position.y - 15, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case DOWN:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 10, position.y + 19, { 0, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->explosionshot, position.x + 5, position.y + 19, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 10, position.y + 22, { 0, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->explosionshot, position.x + 5, position.y + 22, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case LEFT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x - 5, position.y + 6, { -2, 0 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->explosionshot, position.x - 10, position.y + 1, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x - 5, position.y + 12, { -2, 0 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->explosionshot, position.x - 10, position.y + 7, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case RIGHT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 25, position.y + 6, { +2, 0 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->explosionshot, position.x + 20, position.y + 1, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 23, position.y + 11, { +2, 0 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->explosionshot, position.x + 18, position.y + 6, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case UP_LEFT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x - 5, position.y - 5, { -2, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->explosionshot, position.x - 10, position.y - 10, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 0, position.y - 5, { -2, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->explosionshot, position.x - 5, position.y - 10, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case UP_RIGHT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 22, position.y - 5, { +2, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->explosionshot, position.x + 18, position.y - 10, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 22, position.y - 2, { +2, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->explosionshot, position.x + 18, position.y - 7, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case DOWN_LEFT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x - 5, position.y + 20, { -2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->explosionshot, position.x - 10, position.y + 15, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x - 5, position.y + 23, { -2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->explosionshot, position.x - 10, position.y + 18, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case DOWN_RIGHT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 23, position.y + 20, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->explosionshot, position.x + 18, position.y + 15, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 21, position.y + 21, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->explosionshot, position.x + 16, position.y + 16, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case LEFT_M_DOWN:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x - 5, position.y + 14, { -2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->explosionshot, position.x - 10, position.y + 10, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x - 5, position.y + 17, { -2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->explosionshot, position.x - 10, position.y + 13, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case LEFT_B_DOWN:
 			App->particles->AddParticle(App->particles->basic_bullet, position.x + 1, position.y + 22, { -1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->explosionshot, position.x - 5, position.y + 19, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case LEFT_M_UP:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x - 5, position.y - 4, { -2, -1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->explosionshot, position.x - 10, position.y - 8, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x - 3, position.y - 1, { -2, -1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->explosionshot, position.x - 8, position.y - 5, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case LEFT_U_UP:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 1, position.y - 4, { -1, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->explosionshot, position.x - 5, position.y - 15, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 5, position.y - 4, { -1, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->explosionshot, position.x - 3, position.y - 15, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case RIGHT_M_BOT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 25, position.y + 14, { +2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->explosionshot, position.x + 20, position.y + 10, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 25, position.y + 17, { +2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->explosionshot, position.x + 20, position.y + 13, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case RIGHT_B_BOT:
 			App->particles->AddParticle(App->particles->basic_bullet, position.x + 17, position.y + 22, { +1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->explosionshot, position.x + 12, position.y + 19, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case RIGHT_M_UP:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 25, position.y - 4, { +2, -1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->explosionshot, position.x + 20, position.y - 8, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 21, position.y + 5, { +2, -1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->explosionshot, position.x + 16, position.y + 1, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 		case RIGHT_U_UP:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 17, position.y - 4, { +1, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->explosionshot, position.x + 12, position.y - 15, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->basic_bullet, position.x + 17, position.y - 1, { +1, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->explosionshot, position.x + 14, position.y - 12, { 0, 0 }, nullrect, COLLIDER_NONE);
 			break;
 
 		}

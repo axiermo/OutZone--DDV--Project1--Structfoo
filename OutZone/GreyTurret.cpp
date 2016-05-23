@@ -9,7 +9,7 @@
 
 #define PI 3.1415926
 
-GreyTurret::GreyTurret(int x, int y) : Enemy(x, y)
+GreyTurret::GreyTurret(int x, int y) : Enemy(x, y,0)
 {
 	rotate.PushBack({ 11, 6, 27, 31 }); // UP
 	rotate.PushBack({ 11, 45, 28, 27 }); // RIGHT

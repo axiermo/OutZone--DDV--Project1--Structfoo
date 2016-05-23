@@ -98,7 +98,7 @@ bool ModuleEnemies::CleanUp()
 	return true;
 }
 
-bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y)
+bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y,int subtype)
 {
 	bool ret = false;
 
@@ -109,6 +109,7 @@ bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y)
 			queue[i].type = type;
 			queue[i].x = x;
 			queue[i].y = y;
+			queue[i].subtype = subtype;
 			ret = true;
 			break;
 		}
@@ -139,7 +140,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new Door(info.x, info.y);
 			break;
 		case ENEMY_TYPES::SOLDIER1:
-			enemies[i] = new Soldier1(info.x, info.y);
+			enemies[i] = new Soldier1(info.x, info.y,info.subtype);
 			break;
 		}
 	}
