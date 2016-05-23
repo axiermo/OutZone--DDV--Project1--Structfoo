@@ -162,24 +162,11 @@ update_status ModuleLevel1b::Update()
 	}
 
 	if ((App->player->position.y) < 160 && wave1){
-
 		wave1 = false;
-
 		//------------------Soldiers----------------------
 		//1 = L right, 2 = Vertical, 3 = stay, 4 = L left, 5= horizontal
-
 		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -40, 1);
-		
-		/*
-
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -180, 2);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -220, 2);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -260, 2);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -300, 2);
-		*/
 		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 10, -340, 3);
-		
-		
 	}
 
 	if ((App->player->position.y) < 135 && wave2){
@@ -208,6 +195,12 @@ update_status ModuleLevel1b::Update()
 	if ((App->player->position.y) < -130 && wave7){
 		wave7 = false;
 		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 150, -430, 1);
+	}
+	if ((App->player->position.y) < -160 && wave8){
+		wave8 = false;
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 125, -450, 1);
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 185, -440, 1);
+
 	}
 
 
