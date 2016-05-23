@@ -32,6 +32,16 @@ bool ModuleLevel1b::Start()
 	wave4 = true;
 	wave5 = true;
 	wave6 = true;
+	wave7 = true;
+	wave8 = true;
+	wave9 = true;
+	wave10 = true;
+	wave11 = true;
+	wave12 = true;
+	wave13 = true;
+	wave14 = true;
+	wave15 = true;
+
 	// Background
 	graphics = App->textures->Load("Sprites/Maps/map1_base.png");
 
@@ -151,51 +161,53 @@ update_status ModuleLevel1b::Update()
 		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 2.0);
 	}
 
-	if ((App->player->position.y) < 220 && wave1){
+	if ((App->player->position.y) < 160 && wave1){
 
 		wave1 = false;
 
 		//------------------Soldiers----------------------
 		//1 = L right, 2 = Vertical, 3 = stay, 4 = L left, 5= horizontal
 
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 120, -100, 1);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 100, -150, 1);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 160, -180, 1);
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -40, 1);
+		
+		/*
 
 		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -180, 2);
 		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -220, 2);
 		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -260, 2);
 		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -300, 2);
-
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 10, -220, 3);
-
+		*/
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 10, -340, 3);
+		
 		
 	}
 
-	if ((App->player->position.y) < -200 && wave2){
-
+	if ((App->player->position.y) < 135 && wave2){
 		wave2 = false;
-
-		//------------------Soldiers----------------------
 		//1 = L right, 2 = Vertical, 3 = stay, 4 = L left, 5= horizontal
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 120, -550, 1);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 100, -450, 1);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 110, -650, 1);
-
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 80, -450, 4);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 75, -500, 4);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -550, 4);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 70, -600, 4);
-
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 100, -80, 1);
 	}
 
-	if ((App->player->position.y) < -200 && wave3){
+	if ((App->player->position.y) < 70 && wave3){
+		wave3 = false;
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 125, -180, 1);
+	}
 
-		wave2 = false;
-
-		//------------------Soldiers----------------------
-		//1 = L right, 2 = Vertical, 3 = stay, 4 = L left, 5= horizontal
-		
+	if ((App->player->position.y) < 30 && wave4){
+		wave4 = false;
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 95, -180, 2);
+	}
+	if ((App->player->position.y) < -15 && wave5){
+		wave5 = false;
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 135, -200, 2);
+	}
+	if ((App->player->position.y) < -55 && wave6){
+		wave6 = false;
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 95, -250, 2);
+	}
+	if ((App->player->position.y) < -130 && wave7){
+		wave7 = false;
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 150, -430, 1);
 	}
 
 

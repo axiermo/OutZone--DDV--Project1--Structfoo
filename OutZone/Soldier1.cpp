@@ -46,7 +46,8 @@ Soldier1::Soldier1(int x, int y, int subtype) :Enemy(x, y, subtype)
 	case 1:
 		path.PushBack({ 0.0f, 0.9f }, 150, &walk);
 		path.PushBack({ 0.5f, 0.8f }, 150, &walk);
-		path.PushBack({ 0.7f, 0.8f }, 150, &walk);
+		path.PushBack({ 0.7f, 0.3f }, 150, &walk);
+		path.PushBack({ 0.9f, 0.1f }, 150, &walk);
 		break;
 	case 2:
 		path.PushBack({ 0.0f, 1.0f }, 150, &walk);

@@ -33,7 +33,7 @@ ModuleTitle::~ModuleTitle()
 bool ModuleTitle::Start()
 {
 	LOG("Loading first scene");
-	
+	App->player->score = 0;
 	graphics = App->textures->Load("Sprites/Intro.png");
 	App->player->Disable();
 	App->collision->Disable();
