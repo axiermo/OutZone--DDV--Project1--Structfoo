@@ -148,6 +148,14 @@ update_status ModulePlayer::Update()
 		else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = DOWN_RIGHT);
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_UP){
+		if (1){ //<- check if there's bombs available (not implemented)
+			App->particles->AddParticle(App->particles->Player_explosion, App->render->camera.x, (-App->render->camera.y * 2 / speed) + 47, { 0, 0 }, { 0, 0, 0, 0 }, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->Player_explosion, App->render->camera.x, (-App->render->camera.y * 2 / speed) + 129, { 0, 0 }, { 0, 0, 0, 0 }, COLLIDER_PLAYER_SHOT, 0);
+			App->particles->AddParticle(App->particles->Player_explosion, App->render->camera.x, (-App->render->camera.y * 2 / speed) + 235, { 0, 0 }, { 0, 0, 0, 0 }, COLLIDER_PLAYER_SHOT, 0);
+		}
+	}
+	
 	if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_UP)
 	{
 		App->render->camera.y = 1500;
