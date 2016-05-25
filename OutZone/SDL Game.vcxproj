@@ -96,6 +96,7 @@
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="p2Point.h" />
     <ClInclude Include="Path.h" />
+    <ClInclude Include="RedSoldier.h" />
     <ClInclude Include="Soldier1.h" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +123,7 @@
     <ClCompile Include="ModuleTitle.cpp" />
     <ClCompile Include="ModuleTextures.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
+    <ClCompile Include="RedSoldier.cpp" />
     <ClCompile Include="Soldier1.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

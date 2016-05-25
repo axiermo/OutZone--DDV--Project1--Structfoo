@@ -101,6 +101,9 @@
     <ClInclude Include="Soldier1.h">
       <Filter>Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="RedSoldier.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -173,6 +176,9 @@
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="Soldier1.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="RedSoldier.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
   </ItemGroup>

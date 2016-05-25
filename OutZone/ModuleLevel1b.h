@@ -32,6 +32,21 @@ public:
 	bool wave13;
 	bool wave14;
 	bool wave15;
+	bool wave16;
+	bool wave17;
+	bool wave18;
+	bool wave19;
+	bool wave20;
+	bool wave21;
+	bool wave22;
+	bool wave23;
+	bool wave24;
+	bool wave25;
+	bool wave26;
+	bool wave27;
+	bool wave28;
+	bool wave29;
+	bool wave30;
 
 public:
 	Collider* lborder;

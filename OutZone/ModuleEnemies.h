@@ -7,12 +7,13 @@
 #include "BigTurret.h"
 #include "Soldier1.h"
 #include "Door.h"
+#include "RedSoldier.h"
 
 #define MAX_ENEMIES 100
 
 class Enemy;
 
-enum ENEMY_TYPES { NO_TYPE, GREYTURRET, DOORTURRET, BIGTURRET, DOOR, SOLDIER1 };
+enum ENEMY_TYPES { NO_TYPE, GREYTURRET, DOORTURRET, BIGTURRET, DOOR, SOLDIER1,REDSOLDIER };
 
 struct EnemyInfo
 {
