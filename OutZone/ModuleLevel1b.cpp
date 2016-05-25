@@ -146,7 +146,7 @@ bool ModuleLevel1b::Start()
 	lborder = App->collision->AddCollider({ -36, -3850, 1, 4180 }, COLLIDER_BORDER);
 	rborder = App->collision->AddCollider({ 292, -3850, 1, 4180 }, COLLIDER_BORDER);
 	sborder = App->collision->AddCollider({ 300, 300, 1000, 1 }, COLLIDER_BORDER);
-	//nborder = App->collision->AddCollider({ 0, 0, SCREEN_WIDTH, 30 }, COLLIDER_BORDER_TOP);
+	nborder = App->collision->AddCollider({ 0, 0, SCREEN_WIDTH, 20 }, COLLIDER_BORDER_TOP);
 
 	return ret;
 }
@@ -169,7 +169,7 @@ update_status ModuleLevel1b::Update()
 	App->render->Blit(graphics, 0, -3850, &World1,-1.0f,true);
 
 	sborder->SetPos(App->player->position.x - 300, App->player->position.y + 200);
-	//nborder->SetPos(0, App->render->camera.y / -2);
+	nborder->SetPos(0, App->render->camera.y / -2);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || App->player->position.y < -3640 || App->player->destroyed)
 	{

@@ -182,76 +182,81 @@ void GreyTurret::Shoot()
 {
 	float distance = position.DistanceTo(App->player->position);
 	next_shoot = SDL_GetTicks();
-	if (next_shoot - last_shoot > 1800 && distance > 100 && distance < 350 && !destroyed)
+
+	if (App->player->position.y - position.y < 160 || appeared)
 	{
-		switch (direction)
+		appeared = true;
+		if (next_shoot - last_shoot > 1800 && distance > 100 && distance < 350 && !destroyed)
 		{
-		case UP:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 9, position.y - 6, { 0, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 5, position.y - 15, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case DOWN:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 10, position.y + 19, { 0, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 5, position.y + 19, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case LEFT:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x - 5, position.y + 6, { -2, 0 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x - 10, position.y + 1, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case RIGHT:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 25, position.y + 6, { +2, 0 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 20, position.y + 1, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case UP_LEFT:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x - 5, position.y - 5, { -2, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x - 10, position.y - 10, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case UP_RIGHT:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 22, position.y - 5, { +2, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 18, position.y - 10, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case DOWN_LEFT:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x - 5, position.y + 20, { -2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x - 10, position.y + 15, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case DOWN_RIGHT:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 23, position.y + 20, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 18, position.y + 15, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case LEFT_M_DOWN:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x - 5, position.y + 14, { -2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x - 10, position.y + 10, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case LEFT_B_DOWN:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 1, position.y + 22, { -1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x - 5, position.y + 19, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case LEFT_M_UP:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x - 5, position.y - 4, { -2, -1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x - 10, position.y - 8, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case LEFT_U_UP:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 1, position.y - 4, { -1, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x - 5, position.y - 15, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case RIGHT_M_BOT:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 25, position.y + 14, { +2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 20, position.y + 10, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case RIGHT_B_BOT:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 17, position.y + 22, { +1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 12, position.y + 19, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case RIGHT_M_UP:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 25, position.y - 4, { +2, -1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 20, position.y - 8, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
-		case RIGHT_U_UP:
-			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 17, position.y - 4, { +1, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 12, position.y - 15, { 0, 0 }, nullrect, COLLIDER_NONE);
-			break;
+			switch (direction)
+			{
+			case UP:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 9, position.y - 6, { 0, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 5, position.y - 15, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case DOWN:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 10, position.y + 19, { 0, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 5, position.y + 19, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case LEFT:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x - 5, position.y + 6, { -2, 0 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x - 10, position.y + 1, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case RIGHT:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 25, position.y + 6, { +2, 0 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 20, position.y + 1, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case UP_LEFT:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x - 5, position.y - 5, { -2, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x - 10, position.y - 10, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case UP_RIGHT:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 22, position.y - 5, { +2, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 18, position.y - 10, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case DOWN_LEFT:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x - 5, position.y + 20, { -2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x - 10, position.y + 15, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case DOWN_RIGHT:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 23, position.y + 20, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 18, position.y + 15, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case LEFT_M_DOWN:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x - 5, position.y + 14, { -2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x - 10, position.y + 10, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case LEFT_B_DOWN:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 1, position.y + 22, { -1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x - 5, position.y + 19, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case LEFT_M_UP:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x - 5, position.y - 4, { -2, -1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x - 10, position.y - 8, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case LEFT_U_UP:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 1, position.y - 4, { -1, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x - 5, position.y - 15, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case RIGHT_M_BOT:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 25, position.y + 14, { +2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 20, position.y + 10, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case RIGHT_B_BOT:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 17, position.y + 22, { +1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 12, position.y + 19, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case RIGHT_M_UP:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 25, position.y - 4, { +2, -1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 20, position.y - 8, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			case RIGHT_U_UP:
+				App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 17, position.y - 4, { +1, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 12, position.y - 15, { 0, 0 }, nullrect, COLLIDER_NONE);
+				break;
+			}
+			last_shoot = SDL_GetTicks();
 		}
-		last_shoot = SDL_GetTicks();
 	}
 }
 

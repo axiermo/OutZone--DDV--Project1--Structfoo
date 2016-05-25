@@ -21,6 +21,7 @@ public:
 	int lives = 2;
 	int subtype;
 	bool destroyed = false;
+	bool appeared = false;
 
 public:
 	Enemy(int x, int y,int subtype);

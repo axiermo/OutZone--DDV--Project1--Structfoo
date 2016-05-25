@@ -14,6 +14,7 @@ private:
 public:
 	uint next_shoot;
 	uint last_shoot;
+
 	GreyTurret(int x, int y);
 	void Move();
 	void Shoot();

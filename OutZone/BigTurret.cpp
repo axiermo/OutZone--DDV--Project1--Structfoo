@@ -15,12 +15,13 @@ BigTurret::BigTurret(int x, int y) : Enemy(x, y,0)
 
 	collider = App->collision->AddCollider({ 0, 0, 63,64 }, COLLIDER_BIG_TURRET, App->enemies);
 
-	dead.PushBack({ 19, 945, 74, 82 });
-	dead.PushBack({ 23, 1066, 78, 82 });
-	dead.PushBack({ 29, 1179, 78, 82 });
-	dead.PushBack({ 33, 1290, 76, 82 });
-	dead.PushBack({ 34, 1400, 84, 82 });
-	dead.speed = 0.15f;
+	dead.PushBack({ 42, 1008, 70, 60 });
+	dead.PushBack({ 45, 1085, 70, 60 });
+	dead.PushBack({ 43, 1243, 70, 60 });
+	dead.PushBack({ 42, 940, 70, 60 });
+	dead.PushBack({ 45, 1158, 70, 60 });
+
+	dead.speed = 0.2f;
 
 	position.x = x;
 	position.y = y;
@@ -46,8 +47,9 @@ BigTurret::BigTurret(int x, int y) : Enemy(x, y,0)
 
 void BigTurret::Shoot()
 {
-	if (!destroyed)
+	if (!destroyed && (App->player->position.y - position.y < 165 || appeared))
 	{
+		appeared = true;
 		if (left)
 		{
 			next_shoot = SDL_GetTicks();
@@ -55,7 +57,7 @@ void BigTurret::Shoot()
 			{
 				if (direction == RIGHT_B_BOT)
 				{
-					App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 30, position.y + 40, { +1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 30, position.y + 40, { +1, +2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 					App->particles->AddParticle(App->particles->Big_Tur_Exp, position.x + 25, position.y + 35, { 0, 0 }, nullrect, COLLIDER_NONE);
 					direction = DOWN_RIGHT;
 					last_shoot = SDL_GetTicks();
@@ -67,7 +69,7 @@ void BigTurret::Shoot()
 			{
 				if (direction == DOWN_RIGHT)
 				{
-					App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 30, position.y + 40, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 30, position.y + 40, { +2, +2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 					App->particles->AddParticle(App->particles->Big_Tur_Exp, position.x + 25, position.y + 35, { 0, 0 }, nullrect, COLLIDER_NONE);
 					direction = RIGHT_M_BOT;
 					last_shoot = SDL_GetTicks();
@@ -80,7 +82,7 @@ void BigTurret::Shoot()
 				if (direction == RIGHT_M_BOT)
 				{
 
-					App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 30, position.y + 40, { +2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 30, position.y + 40, { +2, +1 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 					App->particles->AddParticle(App->particles->Big_Tur_Exp, position.x + 25, position.y + 35, { 0, 0 }, nullrect, COLLIDER_NONE);
 					direction = DOWN_RIGHT2;
 					last_shoot = SDL_GetTicks();
@@ -92,7 +94,7 @@ void BigTurret::Shoot()
 			{
 				if (direction == DOWN_RIGHT2)
 				{
-					App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 30, position.y + 40, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 30, position.y + 40, { +2, +2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 					App->particles->AddParticle(App->particles->Big_Tur_Exp, position.x + 25, position.y + 35, { 0, 0 }, nullrect, COLLIDER_NONE);
 					direction = RIGHT_B_BOT;
 					last_shoot = SDL_GetTicks();
@@ -161,5 +163,5 @@ void BigTurret::Draw()
 
 	if (!destroyed) App->render->Blit(App->enemies->sprites, position.x, position.y, &anim.GetActualFrame(), -1.0f);
 	else
-		App->render->Blit(App->enemies->sprites, position.x - 10, position.y - 20, &dead.GetCurrentFrame(), -1.0f);
+		App->render->Blit(App->enemies->sprites, position.x - 10, position.y, &dead.GetCurrentFrame(), -1.0f);
 }

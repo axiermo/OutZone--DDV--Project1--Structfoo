@@ -9,6 +9,7 @@ private:
 	float wave = -1.0f;
 	bool going_up = true;
 	Animation anim;
+	Animation dead;
 	Directions direction;
 
 public:
