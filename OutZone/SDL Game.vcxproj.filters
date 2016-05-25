@@ -104,6 +104,9 @@
     <ClInclude Include="RedSoldier.h">
       <Filter>Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleExplosion.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -180,6 +183,9 @@
     </ClCompile>
     <ClCompile Include="RedSoldier.cpp">
       <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleExplosion.cpp">
+      <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

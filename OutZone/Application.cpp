@@ -14,6 +14,7 @@
 #include "ModuleAudio.h"
 #include "ModuleEnemies.h"
 #include "ModuleFonts.h"
+#include "ModuleExplosion.h"
 
 Application::Application()
 { 
@@ -31,6 +32,7 @@ Application::Application()
 	modules[i++] = particles = new ModuleParticles();
 	modules[i++] = scene_level1f = new ModuleLevel1f();
 	modules[i++] = collision = new ModuleCollision();
+	modules[i++] = explosion = new ModuleExplosion();
 	modules[i++] = fonts = new ModuleFonts();
 	modules[i++] = fade = new ModuleFadeToBlack();
 }

@@ -89,8 +89,6 @@ public:
 
 	// Turret
 	Particle Small_NPC_explosion;
-
-	Particle Player_explosion;
 };
 
 #endif // __MODULEPARTICLES_H__

@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
+#include "ModuleExplosion.h"
 #include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
 #include "Animation.h"
@@ -67,18 +68,6 @@ ModulePlayer::ModulePlayer()
 	upright.PushBack({ 82, 325, 24, 36 });
 	upright.PushBack({ 114, 323, 25, 37 });
 	upright.speed = 0.2f;
-
-	explosion.PushBack({ 241, 0, 115, 110 });
-	explosion.PushBack({ 361, 0, 115, 110 });
-	explosion.PushBack({ 479, 0, 115, 110 });
-	explosion.PushBack({ 596, 0, 115, 110 });
-	explosion.PushBack({ 241, 112, 117, 114 });
-	explosion.PushBack({ 359, 113, 113, 113 });
-	explosion.PushBack({ 476, 113, 113, 113 });
-	explosion.PushBack({ 593, 113, 114, 112 });
-	explosion.PushBack({ 710, 113, 113, 113 });
-	explosion.speed = 0.15f;
-	explosion.loop = false;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -118,110 +107,111 @@ update_status ModulePlayer::Update()
 	int speed = 4;
 	direction = IDLE;
 	last_position = position;
-	if (self->type == COLLIDER_PLAYER || self->type == COLLIDER_GOD)
+
+	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_STATE::KEY_REPEAT)
 	{
-		if (App->input->keyboard[SDL_SCANCODE_G] == KEY_STATE::KEY_REPEAT)
-		{
-			if (App->player->self->type == COLLIDER_PLAYER)
-				App->player->self->type = COLLIDER_GOD;
-		}
-		if (App->input->keyboard[SDL_SCANCODE_N] == KEY_STATE::KEY_REPEAT)
-		{
-			if (App->player->self->type == COLLIDER_GOD)
-				App->player->self->type = COLLIDER_PLAYER;
-		}
-
-		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
-			if (position.x < SCREEN_WIDTH - 30)
-				SelectAnimation(direction = RIGHT);
-
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
-			if (position.x > 0)
-				SelectAnimation(direction = LEFT);
-
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE)
-		{
-			if (position.y < 160 + (App->render->camera.y / -2))
-			{
-				App->render->camera.y += speed;
-			}
-			SelectAnimation(direction = UP);
-
-			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = UP_LEFT);
-			else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = UP_RIGHT);
-		}
-
-		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
-		{
-			if (position.y < (App->render->camera.y / -2) + 288)
-			{
-				SelectAnimation(direction = DOWN);
-			}
-
-			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = DOWN_LEFT);
-			else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = DOWN_RIGHT);
-		}
-		
-		if (App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_UP){
-			if (App->player->bombs>0){ //<- check if there's bombs available (not implemented)
-				App->particles->AddParticle(App->particles->Player_explosion, App->render->camera.x, (-App->render->camera.y * 2 / speed) + 47, { 0, 0 }, { 0, 0, 0, 0 }, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->Player_explosion, App->render->camera.x, (-App->render->camera.y * 2 / speed) + 129, { 0, 0 }, { 0, 0, 0, 0 }, COLLIDER_PLAYER_SHOT, 0);
-				App->particles->AddParticle(App->particles->Player_explosion, App->render->camera.x, (-App->render->camera.y * 2 / speed) + 235, { 0, 0 }, { 0, 0, 0, 0 }, COLLIDER_PLAYER_SHOT, 0);
-				App->player->bombs--;
-
-			}
-		}
-		
-		if (App->input->keyboard[SDL_SCANCODE_B] == KEY_STATE::KEY_UP)
-			bombs++;
-
-		t0 = SDL_GetTicks();
-		if (t0 - t1 > 1600){
-			energy--;
-			t1 = SDL_GetTicks();
-		}
-
-		if (App->input->keyboard[SDL_SCANCODE_E] == KEY_STATE::KEY_UP)
-			score += 10000;
-		if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_UP)
-		{
-			App->render->camera.y = 1500;
-			App->player->position.y = -700;
-		}
-		if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_UP)
-		{
-			App->render->camera.y = 2700;
-			App->player->position.y = -1200;
-		}
-		if (App->input->keyboard[SDL_SCANCODE_3] == KEY_STATE::KEY_UP)
-		{
-			App->render->camera.y = 3250;
-			App->player->position.y = -1450;
-		}
-		if (App->input->keyboard[SDL_SCANCODE_4] == KEY_STATE::KEY_UP)
-		{
-			App->render->camera.y = 6700;
-			App->player->position.y = -3150;
-		}
+		if (App->player->self->type == COLLIDER_PLAYER)
+			App->player->self->type = COLLIDER_GOD;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_N] == KEY_STATE::KEY_REPEAT)
+	{
+		if (App->player->self->type == COLLIDER_GOD)
+			App->player->self->type = COLLIDER_PLAYER;
 	}
 
-	if (destroyed == true && !explosion.Finished())
+	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
+		if (position.x < SCREEN_WIDTH - 30)
+			SelectAnimation(direction = RIGHT);
+
+	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
+		if (position.x > 0)
+			SelectAnimation(direction = LEFT);
+
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE)
 	{
-		SelectAnimation(direction = EXPLOSION);
-		
-		if (self->rect.x > position.x - 40 && self->rect.y > position.y - 40)
+		if (position.y < 160 + (App->render->camera.y / -2))
 		{
-			self->rect.x -= 2;
-			self->rect.y -= 2;
+			App->render->camera.y += speed;
 		}
-		if (self->rect.w < 115 && self->rect.h < 115)
-		{
-			self->rect.w += 3.5;
-			self->rect.h += 3.5;
-		}
+		SelectAnimation(direction = UP);
+
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = UP_LEFT);
+		else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = UP_RIGHT);
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
+	{
+		if (position.y < (App->render->camera.y / -2) + 288)
+		{
+			SelectAnimation(direction = DOWN);
+		}
+
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = DOWN_LEFT);
+		else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = DOWN_RIGHT);
+	}
 		
+	if (App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_UP)
+	{
+		if (App->player->bombs > 0)
+		{
+			if (position.y < 170 + (App->render->camera.y / -2))
+				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 160, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
+			else if (position.y < 180 + (App->render->camera.y / -2))
+				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 170, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
+			else if (position.y < 190 + (App->render->camera.y / -2))
+				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 180, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
+			else if (position.y < 200 + (App->render->camera.y / -2))
+				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 195, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
+			else if (position.y < 210 + (App->render->camera.y / -2))
+				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 205, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
+			else if (position.y < 220 + (App->render->camera.y / -2))
+				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 215, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
+			else if (position.y < 230 + (App->render->camera.y / -2))
+				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 225, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
+			else if (position.y < 240 + (App->render->camera.y / -2))
+				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 235, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
+			else if (position.y < 250 + (App->render->camera.y / -2))
+				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 245, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
+			else if (position.y < 260 + (App->render->camera.y / -2))
+				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 255, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
+			else
+				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 270, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
+
+			App->player->bombs--;
+		}
+	}
+		
+	if (App->input->keyboard[SDL_SCANCODE_B] == KEY_STATE::KEY_UP)
+		bombs++;
+
+	t0 = SDL_GetTicks();
+	if (t0 - t1 > 1600){
+		energy--;
+		t1 = SDL_GetTicks();
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_E] == KEY_STATE::KEY_UP)
+		score += 10000;
+	if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_UP)
+	{
+		App->render->camera.y = 1500;
+		App->player->position.y = -700;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_UP)
+	{
+		App->render->camera.y = 2700;
+		App->player->position.y = -1200;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_3] == KEY_STATE::KEY_UP)
+	{
+		App->render->camera.y = 3250;
+		App->player->position.y = -1450;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_4] == KEY_STATE::KEY_UP)
+	{
+		App->render->camera.y = 6700;
+		App->player->position.y = -3150;
+	}
 
 	// FIRE -------------------------------------------------------
 
@@ -241,17 +231,14 @@ update_status ModulePlayer::Update()
 
 	// DRAW -------------------------------------------------------------
 
-	if (direction == EXPLOSION)
-		App->render->Blit(graphics, position.x - 40, position.y - 40, &(curr_animation->GetCurrentFrame()), -1.0f);
-	else if (direction != IDLE)
+	if (direction != IDLE)
 		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetCurrentFrame()),-1.0f);
 	else
 		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetActualFrame()),-1.0f);
 
 	// MODIFY COLLISION -------------------------------------------------
 
-	if (direction != EXPLOSION)
-		self->SetPos(position.x + 9, position.y + 1);
+	self->SetPos(position.x + 9, position.y + 1);
 
 	return UPDATE_CONTINUE;
 }
@@ -291,10 +278,6 @@ void ModulePlayer::SelectAnimation(Directions direction)
 	case DOWN_RIGHT:
 		curr_animation = &downright;
 		break;
-	case EXPLOSION:
-		curr_animation = &explosion;
-		break;
-
 	}
 }
 
@@ -366,17 +349,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 
-	if (self == c1 && self != nullptr && self->type == COLLIDER_PLAYER && c2->type == COLLIDER_ENEMY_SHOT)
+	if (self == c1 && self != nullptr && self->type == COLLIDER_PLAYER && c2->type == COLLIDER_ENEMY_SHOT && !destroyed)
 	{
+		App->explosion->AddExplosion(App->explosion->Player, position.x - 30, position.y - 30, { 0, 0 }, { 0, 0, 120, 120 }, COLLIDER_EXPLOSION);
 		destroyed = true;
-		int x = App->player->position.x + 10;
-		int y = App->player->position.y + 10;
-
-		self->rect.x = x;
-		self->rect.y = y;
-		self->rect.w = 10;
-		self->rect.h = 10;
-		self->type = COLLIDER_EXPLOSION;
+		Disable();
 	}
 }
 	

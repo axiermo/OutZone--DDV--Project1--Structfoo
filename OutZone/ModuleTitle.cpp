@@ -34,6 +34,7 @@ bool ModuleTitle::Start()
 {
 	LOG("Loading first scene");
 	App->player->score = 0;
+	App->player->energy = 36;
 	graphics = App->textures->Load("Sprites/Maps/Intro.png");
 	App->player->Disable();
 	App->collision->Disable();

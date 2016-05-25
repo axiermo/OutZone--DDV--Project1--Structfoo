@@ -15,13 +15,39 @@ BigTurret::BigTurret(int x, int y) : Enemy(x, y,0)
 
 	collider = App->collision->AddCollider({ 0, 0, 63,64 }, COLLIDER_BIG_TURRET, App->enemies);
 
+	// Dead fire anim
 	dead.PushBack({ 42, 1008, 70, 60 });
 	dead.PushBack({ 45, 1085, 70, 60 });
 	dead.PushBack({ 43, 1243, 70, 60 });
 	dead.PushBack({ 42, 940, 70, 60 });
 	dead.PushBack({ 45, 1158, 70, 60 });
-
 	dead.speed = 0.2f;
+
+	// Left turret
+	hit1_left.PushBack({ 152, 39, 65, 82 });
+	hit1_left.PushBack({ 222, 39, 65, 82 });
+	hit1_left.PushBack({ 292, 39, 65, 82 });
+	hit1_left.PushBack({ 362, 39, 65, 82 });
+	hit1_left.speed = 0.5f;
+
+	hit2_left.PushBack({ 152, 291, 65, 82 });
+	hit2_left.PushBack({ 222, 291, 65, 82 });
+	hit2_left.PushBack({ 292, 291, 65, 82 });
+	hit2_left.PushBack({ 362, 291, 65, 82 });
+	hit2_left.speed = 0.5f;
+
+	// Right turret
+	hit1_right.PushBack({ 152, 416, 65, 82 });
+	hit1_right.PushBack({ 222, 416, 65, 82 });
+	hit1_right.PushBack({ 292, 416, 65, 82 });
+	hit1_right.PushBack({ 362, 416, 65, 82 });
+	hit1_right.speed = 0.5f;
+		
+	hit2_right.PushBack({ 152, 165, 65, 82 });
+	hit2_right.PushBack({ 222, 165, 65, 82 });
+	hit2_right.PushBack({ 292, 165, 65, 82 });
+	hit2_right.PushBack({ 362, 165, 65, 82 });
+	hit2_right.speed = 0.5f;
 
 	position.x = x;
 	position.y = y;
@@ -161,7 +187,27 @@ void BigTurret::Draw()
 	else
 		collider->type = COLLIDER_DEAD;
 
-	if (!destroyed) App->render->Blit(App->enemies->sprites, position.x, position.y, &anim.GetActualFrame(), -1.0f);
+	// Drawing correct anim of the turret depending on the damage received.
+	if (left)
+	{
+		if (!destroyed && lives <= 12 && lives > 8)
+			App->render->Blit(App->enemies->sprites, position.x - 1, position.y - 15, &hit1_left.GetCurrentFrame(), -1.0f);
+		else if
+			(!destroyed && lives <= 8 && lives > 0) App->render->Blit(App->enemies->sprites, position.x - 1, position.y - 16, &hit2_left.GetCurrentFrame(), -1.0f);
+		else if
+			(!destroyed && lives > 12) App->render->Blit(App->enemies->sprites, position.x, position.y, &anim.GetActualFrame(), -1.0f);
+		else
+			App->render->Blit(App->enemies->sprites, position.x - 10, position.y, &dead.GetCurrentFrame(), -1.0f);
+	}
 	else
-		App->render->Blit(App->enemies->sprites, position.x - 10, position.y, &dead.GetCurrentFrame(), -1.0f);
+	{
+		if (!destroyed && lives <= 12 && lives > 8)
+			App->render->Blit(App->enemies->sprites, position.x - 1, position.y - 17, &hit1_right.GetCurrentFrame(), -1.0f);
+		else if
+			(!destroyed && lives <= 8 && lives > 0) App->render->Blit(App->enemies->sprites, position.x - 1, position.y - 15, &hit2_right.GetCurrentFrame(), -1.0f);
+		else if
+			(!destroyed && lives > 12) App->render->Blit(App->enemies->sprites, position.x, position.y, &anim.GetActualFrame(), -1.0f);
+		else
+			App->render->Blit(App->enemies->sprites, position.x - 10, position.y, &dead.GetCurrentFrame(), -1.0f);
+	}
 }

@@ -12,6 +12,11 @@ private:
 
 	Animation anim;
 	Animation dead;
+	Animation hit1_right;
+	Animation hit2_right;
+	Animation hit1_left;
+	Animation hit2_left;
+
 	Directions direction;
 
 public:

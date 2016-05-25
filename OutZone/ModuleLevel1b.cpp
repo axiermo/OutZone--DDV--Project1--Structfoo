@@ -71,10 +71,10 @@ bool ModuleLevel1b::Start()
 
 	//--------------Grey Turrets----------------------
 	
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 4, -578,0);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 132, -610,0);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 196, -675,0);
-	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 132, -992,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 3, -577,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 131, -609,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 195, -673,0);
+	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 131, -993,0);
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 107, -2057,0);
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 43, -2057,0);
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 75, -2018,0);

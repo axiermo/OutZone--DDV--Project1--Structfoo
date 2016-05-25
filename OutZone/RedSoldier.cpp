@@ -39,7 +39,7 @@ RedSoldier::RedSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)
 
 	animation = &walk;
 
-	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_TURRET, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	switch (subtype)
 	{

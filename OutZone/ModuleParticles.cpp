@@ -107,6 +107,7 @@ ModuleParticles::ModuleParticles()
 	End_Enemy_Laser.anim.speed = 0.4f;
 	End_Enemy_Laser.life = 100;
 
+	Small_NPC_explosion.anim.PushBack({ 26, 128, 44, 44 });
 	Small_NPC_explosion.anim.PushBack({ 31, 178, 40, 40});
 	Small_NPC_explosion.anim.PushBack({ 86, 176, 44, 40});
 	Small_NPC_explosion.anim.PushBack({ 146, 178, 40, 40 });
@@ -114,8 +115,8 @@ ModuleParticles::ModuleParticles()
 	Small_NPC_explosion.anim.PushBack({ 88, 241, 40, 40});
 	Small_NPC_explosion.anim.PushBack({ 148, 241, 40, 40 });
 	Small_NPC_explosion.anim.PushBack({ 205, 188, 40, 40});
-	Small_NPC_explosion.anim.speed = 0.3;
-	Small_NPC_explosion.life = 380;
+	Small_NPC_explosion.anim.speed = 0.3f;
+	Small_NPC_explosion.life = 400;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -239,9 +240,9 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{ 
-			if (c1->type == COLLIDER_PLAYER_SHOT)
+			if (c1->type == COLLIDER_PLAYER_SHOT && c2->type != COLLIDER_BORDER_TOP)
 				AddParticle(*active[i]->end_particle, active[i]->position.x - 8, active[i]->position.y - 4, { 0, 0 }, nullrect, COLLIDER_NONE);
-			else
+			else if (c1->type != COLLIDER_PLAYER_SHOT && c2->type != COLLIDER_BORDER_TOP)
 				AddParticle(*active[i]->end_particle, active[i]->position.x, active[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
 
 			delete active[i];

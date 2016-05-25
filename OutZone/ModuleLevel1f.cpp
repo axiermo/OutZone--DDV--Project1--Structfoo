@@ -64,7 +64,7 @@ update_status ModuleLevel1f::Update()
 
 
 	//UI
-	sprintf_s(App->player->score_text, 10, "%d", App->player->score);
+	sprintf_s(App->player->score_text, 10, "%7d", App->player->score);
 
 
 	App->render->Blit(graphics2, 160, 0, &insertcoin.GetCurrentFrame(), -1.0f, false);
