@@ -15,11 +15,12 @@ protected:
 	Animation* animation;
 	Collider* collider;
 	Path* path;
+
 public:
 	iPoint position;
 	int lives = 2;
 	int subtype;
-
+	bool destroyed = false;
 
 public:
 	Enemy(int x, int y,int subtype);

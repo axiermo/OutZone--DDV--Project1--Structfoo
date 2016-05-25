@@ -6,7 +6,6 @@
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
-
 #include "SDL/include/SDL_timer.h"
 
 ModuleParticles::ModuleParticles()
@@ -48,59 +47,12 @@ ModuleParticles::ModuleParticles()
 	explosionupleft.anim.PushBack({ 154, 69, 14, 16 });
 	explosionupleft.life = 10;
 
-	end_laser.anim.PushBack({ 82, 132, 18, 18 });
+	end_laser.anim.PushBack({ 80, 132, 18, 18 });
 	end_laser.anim.PushBack({ 104, 132, 18, 18 });
 	end_laser.anim.PushBack({ 124, 132, 18, 18 });
 	end_laser.anim.PushBack({ 148, 132, 18, 18 });
 	end_laser.anim.speed = 0.4;
 	end_laser.life = 100;
-
-	//---------------------GreyTurret Particles --------------------------------
-
-	start_bullet.anim.PushBack({ 5, 7, 18, 18 });
-	start_bullet.life = 10;
-
-	basic_bullet.anim.PushBack({ 65, 305, 6, 6 });
-	basic_bullet.anim.PushBack({ 73, 305, 6, 6 });
-	basic_bullet.end_particle = &end_bullet;
-	basic_bullet.life = 2000;
-	explosionshot.anim.PushBack({ 41, 300, 16, 16 });
-	explosionshot.life = 20;
-
-	end_bullet.anim.PushBack({ 52, 11, 10, 10 });
-	end_bullet.anim.PushBack({ 63, 11, 10, 10 });
-	end_bullet.anim.PushBack({ 75, 11, 10, 10 });
-	basic_bullet.end_particle = &end_bullet;
-	end_bullet.anim.speed = 0.4f;
-	end_bullet.life = 10;
-
-	//----------------------BigTurret Particles---------------------------------------
-
-	Big_Tur_Exp.anim.PushBack({});
-	end_bullet.life = 10;
-
-	Big_Tur_Laser.anim.PushBack({});
-	Big_Tur_Laser.anim.PushBack({});
-	Big_Tur_Laser.end_particle = &End_Big_Laser;
-	Big_Tur_Laser.anim.speed = 0.4f;
-	Big_Tur_Laser.life = 2000;
-
-	End_Big_Laser.anim.PushBack({});
-	End_Big_Laser.life = 10;
-
-	//------------------------Door Turret---------------------------
-
-	Door_Tur_Exp.anim.PushBack({});
-	end_bullet.life = 10;
-
-	Door_Tur_Laser.anim.PushBack({});
-	Door_Tur_Laser.anim.PushBack({});
-	Door_Tur_Laser.end_particle = &End_Big_Laser;
-	Door_Tur_Laser.anim.speed = 0.4f;
-	Door_Tur_Laser.life = 2000;
-
-	End_Door_Laser.anim.PushBack({});
-	End_Door_Laser.life = 10;
 
 	/* Laser sweep
 	laser67.anim.PushBack({ 56, 100, 10, 16 });
@@ -117,27 +69,53 @@ ModuleParticles::ModuleParticles()
 	laser157.end_particle = &end_laser;
 	*/
 
-	Small_NPC_explosion.anim.PushBack({ 31, 178, 39, 38 });
-	Small_NPC_explosion.anim.PushBack({ 86, 176, 44, 43 });
-	Small_NPC_explosion.anim.PushBack({ 146, 178, 39, 37 });
-	Small_NPC_explosion.anim.PushBack({ 36, 243, 30, 36 });
-	Small_NPC_explosion.anim.PushBack({ 96, 244, 24, 29 });
-	Small_NPC_explosion.anim.PushBack({ 141, 246, 16, 19 });
-	Small_NPC_explosion.anim.PushBack({ 177, 252, 9, 11 });
-	Small_NPC_explosion.anim.speed = 0.4;
-	Small_NPC_explosion.life = 100;
+	//---------------------- BigTurret Particles ---------------------------------------
 
-	Player_explosion.anim.PushBack({ 217, 0, 115, 115 });
-	Player_explosion.anim.PushBack({ 337, 0, 115, 115 });
-	Player_explosion.anim.PushBack({ 455, 0, 115, 115 });
-	Player_explosion.anim.PushBack({ 572, 0, 115, 115 });
-	Player_explosion.anim.PushBack({ 215, 119, 119, 119 });
-	Player_explosion.anim.PushBack({ 334, 119, 115, 115 });
-	Player_explosion.anim.PushBack({ 451, 119, 115, 115 });
-	Player_explosion.anim.PushBack({ 568, 119, 115, 115 });
-	Player_explosion.anim.PushBack({ 687, 119, 115, 115 });
-	Player_explosion.anim.speed = 0.15;
-	Player_explosion.life = 980;
+	Big_Tur_Exp.anim.PushBack({ 221, 244, 31, 30 });
+	Big_Tur_Exp.life = 50;
+
+	Big_Tur_Laser.anim.PushBack({ 230, 276, 14, 14 });
+	Big_Tur_Laser.anim.PushBack({ 231, 292, 12, 12 });
+	Big_Tur_Laser.end_particle = &End_Enemy_Laser;
+	Big_Tur_Laser.anim.speed = 0.4f;
+	Big_Tur_Laser.life = 4000;
+
+	Big_NPC_explosion.anim.PushBack({ 276, 14, 157, 130 });
+	Big_NPC_explosion.anim.PushBack({ 417, 14, 157, 130 });
+	Big_NPC_explosion.anim.PushBack({ 560, 14, 157, 130 });
+	Big_NPC_explosion.anim.PushBack({ 276, 143, 157, 130 });
+	Big_NPC_explosion.anim.PushBack({ 417, 143, 157, 130 });
+	Big_NPC_explosion.anim.PushBack({ 560, 143, 157, 130 });
+	Big_NPC_explosion.anim.PushBack({ 702, 143, 157, 130 });
+	Big_NPC_explosion.anim.speed = 0.5;
+	Big_NPC_explosion.life = 150;
+
+	//------------------------ Door Turret && Grey turret && Soldiers ---------------------------
+
+	Enemy_Exp.anim.PushBack({ 41, 300, 16, 16 });
+	Enemy_Exp.life = 50;
+	
+	Enemy_Laser.anim.PushBack({ 65, 305, 6, 6 });
+	Enemy_Laser.anim.PushBack({ 73, 305, 6, 6 });
+	Enemy_Laser.end_particle = &End_Enemy_Laser;
+	Enemy_Laser.anim.speed = 0.4f;
+	Enemy_Laser.life = 4000;
+
+	End_Enemy_Laser.anim.PushBack({ 88, 304, 8, 8 });
+	End_Enemy_Laser.anim.PushBack({ 99, 304, 8, 8 });
+	End_Enemy_Laser.anim.PushBack({ 111, 305, 5, 6 });
+	End_Enemy_Laser.anim.speed = 0.4f;
+	End_Enemy_Laser.life = 100;
+
+	Small_NPC_explosion.anim.PushBack({ 31, 178, 40, 40});
+	Small_NPC_explosion.anim.PushBack({ 86, 176, 44, 40});
+	Small_NPC_explosion.anim.PushBack({ 146, 178, 40, 40 });
+	Small_NPC_explosion.anim.PushBack({ 31, 241, 40, 40});
+	Small_NPC_explosion.anim.PushBack({ 88, 241, 40, 40});
+	Small_NPC_explosion.anim.PushBack({ 148, 241, 40, 40 });
+	Small_NPC_explosion.anim.PushBack({ 205, 188, 40, 40});
+	Small_NPC_explosion.anim.speed = 0.3;
+	Small_NPC_explosion.life = 380;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -260,9 +238,12 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		if (active[i] != nullptr && active[i]->collider == c1)
-		{
-			AddParticle(*active[i]->end_particle, active[i]->position.x - 5, active[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
-			active[i]->collider->to_delete = true;
+		{ 
+			if (c1->type == COLLIDER_PLAYER_SHOT)
+				AddParticle(*active[i]->end_particle, active[i]->position.x - 8, active[i]->position.y - 4, { 0, 0 }, nullrect, COLLIDER_NONE);
+			else
+				AddParticle(*active[i]->end_particle, active[i]->position.x, active[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
+
 			delete active[i];
 			active[i] = nullptr;
 			break;

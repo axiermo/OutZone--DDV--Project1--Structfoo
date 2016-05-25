@@ -37,6 +37,7 @@ public:
 	Collider* lborder;
 	Collider* rborder;
 	Collider* sborder;
+	Collider* nborder;
 	Mix_Music* soundtrack;
 	SDL_Texture* graphics = nullptr;
 	SDL_Rect World1;

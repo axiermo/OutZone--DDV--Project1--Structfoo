@@ -39,7 +39,6 @@ update_status ModuleEnemies::PreUpdate()
 			{
 				SpawnEnemy(queue[i]);
 				queue[i].type = ENEMY_TYPES::NO_TYPE;
-				LOG("Spawning enemy at %d", queue[i].x * SCREEN_SIZE);
 			}
 		}
 	}
@@ -70,7 +69,6 @@ update_status ModuleEnemies::PostUpdate()
 		{
 			if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
 			{
-				LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
 				delete enemies[i];
 				enemies[i] = nullptr;
 			}
@@ -98,7 +96,7 @@ bool ModuleEnemies::CleanUp()
 	return true;
 }
 
-bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y,int subtype)
+bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y, int subtype)
 {
 	bool ret = false;
 
@@ -140,7 +138,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new Door(info.x, info.y);
 			break;
 		case ENEMY_TYPES::SOLDIER1:
-			enemies[i] = new Soldier1(info.x, info.y,info.subtype);
+			enemies[i] = new Soldier1(info.x, info.y, info.subtype);
 			break;
 		}
 	}
@@ -152,17 +150,43 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
-			if ((c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_BORDER) && enemies[i]->lives > 0)
+			if ((c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_EXPLOSION) && enemies[i]->lives > 0)
 			{
 				enemies[i]->lives -= 2;
 
 				if (enemies[i]->lives < 1)
 				{
-					if (c1->type == COLLIDER_TURRET) App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x - 7, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
-					// All ifs from the differents enemies-explosions we have.
+					if (c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET)
+					{
+						if (c1->type == COLLIDER_ENEMY) // That kind of enemy instant kill
+						{
+							App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
+							delete enemies[i];
+							enemies[i] = nullptr;
+						}
+						if (c1->type == COLLIDER_TURRET && enemies[i]->destroyed == false) // This one changes the animation to a hole. Will be killed by the border.
+						{
+							App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
+							enemies[i]->destroyed = true;
+						}
+
+						if (c1->type == COLLIDER_BIG_TURRET && enemies[i]->destroyed == false) // This one changes the animation to a hole. Will be killed by the border.
+						{
+							App->particles->AddParticle(App->particles->Big_NPC_explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 30, { 0, 0 }, nullrect, COLLIDER_NONE);
+							enemies[i]->destroyed = true;
+						}
+
+						App->player->score += 390;
+					}
+				}
+			}
+
+			if (c2->type == COLLIDER_BORDER)
+			{
+				if (c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_DEAD)
+				{
 					delete enemies[i];
 					enemies[i] = nullptr;
-					if (c2->type == COLLIDER_PLAYER_SHOT) App->player->score += 390;
 				}
 			}
 			break;

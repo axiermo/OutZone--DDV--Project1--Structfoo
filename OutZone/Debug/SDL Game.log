@@ -1,19 +1,12 @@
-<<<<<<< HEAD
-﻿Build started 24/05/2016 10:40:30.
-     1>Project "C:\Users\Viriato\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
-=======
-﻿Build started 24/05/2016 0:50:33.
-     1>Project "C:\Users\Usuario\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
->>>>>>> origin/master
+﻿Build started 25/05/2016 2:01:00.
+     1>Project "C:\Users\Marc\Desktop\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModulePlayer.cpp
-         ModulePlayer.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModuleParticles.cpp
+         ModuleParticles.cpp
+     1>c:\users\marc\desktop\outzone--ddv--project1--structfoo\outzone\moduleparticles.cpp(54): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\marc\desktop\outzone--ddv--project1--structfoo\outzone\moduleparticles.cpp(117): warning C4305: '=' : truncation from 'double' to 'float'
        Link:
-<<<<<<< HEAD
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Viriato\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Viriato\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Viriato\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.lib" /MACHINE:X86 Debug\Application.obj
-=======
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Usuario\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Usuario\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Usuario\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.lib" /MACHINE:X86 Debug\Application.obj
->>>>>>> origin/master
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Marc\Desktop\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Marc\Desktop\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Marc\Desktop\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.lib" /MACHINE:X86 Debug\Application.obj
          Debug\BigTurret.obj
          Debug\Door.obj
          Debug\DoorTurret.obj
@@ -37,18 +30,9 @@
          Debug\ModuleTextures.obj
          Debug\ModuleWindow.obj
          Debug\Soldier1.obj
-<<<<<<< HEAD
-         SDL Game.vcxproj -> C:\Users\Viriato\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe
-     1>Done Building Project "C:\Users\Viriato\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
+         SDL Game.vcxproj -> C:\Users\Marc\Desktop\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe
+     1>Done Building Project "C:\Users\Marc\Desktop\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.42
-=======
-         SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe
-     1>Done Building Project "C:\Users\Usuario\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:01.56
->>>>>>> origin/master
+Time Elapsed 00:00:00.46

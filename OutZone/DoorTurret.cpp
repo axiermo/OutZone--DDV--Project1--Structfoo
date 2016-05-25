@@ -9,11 +9,12 @@
 
 #define PI 3.1415926
 
-DoorTurret::DoorTurret(int x, int y) : Enemy(x, y,0)
+DoorTurret::DoorTurret(int x, int y) : Enemy(x, y, 0)
 {
 	anim.PushBack({ 90, 793, 26, 40 }); // UP
 	anim.PushBack({ 119, 793, 26, 40 }); // UP
-	anim.speed = 1.0f;
+	anim.PushBack({ 98, 868, 37, 37 }); // DEAD
+	anim.speed = 0.2f;
 	animation = &anim;
 
 	lives = 8;
@@ -24,105 +25,115 @@ DoorTurret::DoorTurret(int x, int y) : Enemy(x, y,0)
 	position.y = y;
 
 	last_shoot = SDL_GetTicks();
-	//TODO change the sprite to the hole in the ground
 
-	direction = DOWN_LEFT;
-	previous = LEFT_B_DOWN;
-
-}
-
-
-
-
-void DoorTurret::Move()
-{
-
-	if (direction == DOWN_LEFT && previous == LEFT_B_DOWN)
-	{
-		direction = LEFT_B_DOWN;
-		previous = DOWN_LEFT;
-	}
-	else if (direction == LEFT_B_DOWN && previous == DOWN_LEFT)
-	{
-		direction = DOWN;
-		previous = LEFT_B_DOWN;
-
-	}
-	else if (direction == DOWN && previous == LEFT_B_DOWN)
-	{
-		direction = RIGHT_B_BOT;
-		previous = DOWN;
-
-	}
-	else if (direction == RIGHT_B_BOT && previous == DOWN)
-	{
-		direction = DOWN_RIGHT;
-		previous = RIGHT_B_BOT;
-
-	}
-	else if (direction == DOWN_RIGHT && previous == RIGHT_B_BOT)
-	{
-		direction = RIGHT_B_BOT;
-		previous = DOWN_RIGHT;
-
-	}
-	else if (direction == RIGHT_B_BOT && previous == DOWN_RIGHT)
-	{
-		direction = DOWN;
-		previous = RIGHT_B_BOT;
-
-	}
-	else if (direction == DOWN && previous == RIGHT_B_BOT)
-	{
-		direction = LEFT_B_DOWN;
-		previous = DOWN;
-
-	}
-	else if (direction == LEFT_B_DOWN && previous == DOWN)
-	{
-		direction = DOWN_LEFT;
-		previous = LEFT_B_DOWN;
-
-	}
-
-
-
-
-
-
+	direction = LEFT;
 }
 
 void DoorTurret::Shoot()
 {
 	next_shoot = SDL_GetTicks();
-	if (next_shoot - last_shoot > 1800)
+	if (next_shoot - last_shoot > 400 && !destroyed)
 	{
-		switch (direction)
+		if (direction == LEFT)
 		{
-		case DOWN:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x - 11, position.y + 12, { 0, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			break;
-		case DOWN_LEFT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x - 11, position.y + 12, { -2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			break;
-		case DOWN_RIGHT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			break;
-		case RIGHT_B_BOT:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { +1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			break;
-		case LEFT_B_DOWN:
-			App->particles->AddParticle(App->particles->basic_bullet, position.x + 12, position.y + 12, { -1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-			break;
+			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 5, position.y + 8, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 10, position.y + 10, { -2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			direction = DOWN_LEFT;
+			last_shoot = SDL_GetTicks();
 		}
-		last_shoot = SDL_GetTicks();
+	}
+	next_shoot = SDL_GetTicks();
+	if (next_shoot - last_shoot > 450 && !destroyed)
+	{
+		if (direction == DOWN_LEFT)
+		{
+			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 5, position.y + 8, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 10, position.y + 10, { -1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			direction = DOWN;
+			last_shoot = SDL_GetTicks();
+		}
+	}
+	next_shoot = SDL_GetTicks();
+	if (next_shoot - last_shoot > 450 && !destroyed)
+	{
+		if (direction == DOWN)
+		{
+			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 5, position.y + 8, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 10, position.y + 10, { 0, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			direction = DOWN_RIGHT;
+			last_shoot = SDL_GetTicks();
+		}
+	}
+	next_shoot = SDL_GetTicks();
+	if (next_shoot - last_shoot > 450 && !destroyed)
+	{
+		if (direction == DOWN_RIGHT)
+		{
+			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 5, position.y + 8, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 10, position.y + 10, { +1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			direction = RIGHT;
+			last_shoot = SDL_GetTicks();
+		}
+	}
+	next_shoot = SDL_GetTicks();
+	if (next_shoot - last_shoot > 450 && !destroyed)
+	{
+		if (direction == RIGHT)
+		{
+			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 5, position.y + 8, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 10, position.y + 10, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			direction = DOWN_RIGHT2;
+			last_shoot = SDL_GetTicks();
+		}
+	}
+	next_shoot = SDL_GetTicks();
+	if (next_shoot - last_shoot > 450 && !destroyed)
+	{
+		if (direction == DOWN_RIGHT2)
+		{
+			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 5, position.y + 8, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 10, position.y + 10, { +1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			direction = DOWN2;							
+			last_shoot = SDL_GetTicks();				
+		}												
+	}													
+	if (next_shoot - last_shoot > 450 && !destroyed)
+	{													
+		if (direction == DOWN2)							
+		{		
+			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 5, position.y + 8, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 10, position.y + 10, { 0, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			direction = DOWN_LEFT2;						
+			last_shoot = SDL_GetTicks();				
+		}												
+	}													
+	if (next_shoot - last_shoot > 450 && !destroyed)
+	{													
+		if (direction == DOWN_LEFT2)					
+		{				
+			App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 5, position.y + 8, { 0, 0 }, nullrect, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 10, position.y + 10, { -1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			direction = LEFT;							
+			last_shoot = SDL_GetTicks();				
+		}
 	}
 }
 
 
-void DoorTurret::Draw(){
-	if (collider != nullptr)
+void DoorTurret::Draw()
+{
+	if (collider != nullptr && !destroyed)
 		collider->SetPos(position.x, position.y);
+	else
+	{
+		collider->type = COLLIDER_DEAD;
+		collider->SetPos(position.x - 1, position.y + 14);
+	}
 
-	App->render->Blit(App->enemies->sprites, position.x, position.y, &anim.GetActualFrame(),-1.0f);
+	if (!destroyed) App->render->Blit(App->enemies->sprites, position.x, position.y, &anim.GetActualFrame(), -1.0f);
+	else
+	{
+		anim.setframe(2);
+		App->render->Blit(App->enemies->sprites, position.x - 1, position.y + 14, &anim.GetCurrentFrame(), -1.0f);
+	}
 }

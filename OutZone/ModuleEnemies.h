@@ -9,15 +9,16 @@
 #include "Door.h"
 
 #define MAX_ENEMIES 100
+
 class Enemy;
 
-enum ENEMY_TYPES { NO_TYPE, GREYTURRET,DOORTURRET,BIGTURRET, DOOR, SOLDIER1 };
+enum ENEMY_TYPES { NO_TYPE, GREYTURRET, DOORTURRET, BIGTURRET, DOOR, SOLDIER1 };
 
 struct EnemyInfo
 {
-	ENEMY_TYPES type = NO_TYPE;
+	ENEMY_TYPES type = ENEMY_TYPES::NO_TYPE;
 	int x, y;
-	int subtype;
+	int subtype = 0;
 };
 
 class ModuleEnemies : public Module
@@ -45,6 +46,7 @@ private:
 
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];
+
 };
 
 #endif // __ModuleEnemies_H__

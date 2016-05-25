@@ -6,7 +6,7 @@ Severity of the bug (A, B or C) - Title
 
 # Description:
 
-Type
+Type (Ex: art, code, animation...)
 
 Summary
 

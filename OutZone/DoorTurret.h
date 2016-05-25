@@ -8,7 +8,6 @@ class DoorTurret : public Enemy
 private:
 	float wave = -1.0f;
 	bool going_up = true;
-	Directions previous;
 	Animation anim;
 	Directions direction;
 
@@ -16,7 +15,7 @@ public:
 	uint next_shoot;
 	uint last_shoot;
 	DoorTurret(int x, int y);
-	void Move();
+	void Move() {};
 	void Shoot();
 	void Draw();
 };

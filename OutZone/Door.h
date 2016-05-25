@@ -7,15 +7,13 @@ class Door : public Enemy{
 private:
 	float wave = -1.0f;
 	bool going_up = true;
-	Animation rotate;
+	Animation anim;
 	Directions direction;
 
 public:
-	//uint next_shoot;
-	//uint last_shoot;
 	Door(int x, int y);
-	//void Move();
-	//void Shoot();
+	void Move(){};
+	void Shoot(){};
 	void Draw();
 };
 

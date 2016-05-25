@@ -67,6 +67,18 @@ ModulePlayer::ModulePlayer()
 	upright.PushBack({ 82, 325, 24, 36 });
 	upright.PushBack({ 114, 323, 25, 37 });
 	upright.speed = 0.2f;
+
+	explosion.PushBack({ 241, 0, 115, 110 });
+	explosion.PushBack({ 361, 0, 115, 110 });
+	explosion.PushBack({ 479, 0, 115, 110 });
+	explosion.PushBack({ 596, 0, 115, 110 });
+	explosion.PushBack({ 241, 112, 117, 114 });
+	explosion.PushBack({ 359, 113, 113, 113 });
+	explosion.PushBack({ 476, 113, 113, 113 });
+	explosion.PushBack({ 593, 113, 114, 112 });
+	explosion.PushBack({ 710, 113, 113, 113 });
+	explosion.speed = 0.15f;
+	explosion.loop = false;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -85,6 +97,7 @@ bool ModulePlayer::Start()
 	curr_animation = &up;
 
 	self = App->collision->AddCollider({position.x + 9, position.y + 1, 12, 29 }, COLLIDER_PLAYER, this);
+
 	font_score = App->fonts->Load("OutZoneScoreFont.png", "!_#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz^ ", 1);
 	font_score = App->fonts->Load("OutZoneScoreFontGreen.png", "!_#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz^ ", 1);
 	last_laser = SDL_GetTicks();
@@ -105,77 +118,100 @@ update_status ModulePlayer::Update()
 	int speed = 4;
 	direction = IDLE;
 	last_position = position;
-
-	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_STATE::KEY_REPEAT)
+	if (self->type == COLLIDER_PLAYER || self->type == COLLIDER_GOD)
 	{
-		if (App->player->self->type == COLLIDER_PLAYER)
-			App->player->self->type = COLLIDER_GOD;
-	}
-	if (App->input->keyboard[SDL_SCANCODE_N] == KEY_STATE::KEY_REPEAT)
-	{
-		if (App->player->self->type == COLLIDER_GOD)
-			App->player->self->type = COLLIDER_PLAYER;
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
-		if (position.x < SCREEN_WIDTH - 30)
-			SelectAnimation(direction = RIGHT);
-
-	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
-		if (position.x > 0)
-			SelectAnimation(direction = LEFT);
-
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE)
-	{
-		if (position.y < 160 + (App->render->camera.y / -2))
+		if (App->input->keyboard[SDL_SCANCODE_G] == KEY_STATE::KEY_REPEAT)
 		{
-			App->render->camera.y += speed;
+			if (App->player->self->type == COLLIDER_PLAYER)
+				App->player->self->type = COLLIDER_GOD;
 		}
-		SelectAnimation(direction = UP);
-
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = UP_LEFT);
-		else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = UP_RIGHT);
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
-	{
-		if (position.y < (App->render->camera.y / -2) + 288)
+		if (App->input->keyboard[SDL_SCANCODE_N] == KEY_STATE::KEY_REPEAT)
 		{
-			SelectAnimation(direction = DOWN);
+			if (App->player->self->type == COLLIDER_GOD)
+				App->player->self->type = COLLIDER_PLAYER;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = DOWN_LEFT);
-		else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = DOWN_RIGHT);
-	}
+		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
+			if (position.x < SCREEN_WIDTH - 30)
+				SelectAnimation(direction = RIGHT);
 
-	if (App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_UP){
-		if (1){ //<- check if there's bombs available (not implemented)
-			App->particles->AddParticle(App->particles->Player_explosion, App->render->camera.x, (-App->render->camera.y * 2 / speed) + 47, { 0, 0 }, { 0, 0, 0, 0 }, COLLIDER_PLAYER_SHOT);
-			App->particles->AddParticle(App->particles->Player_explosion, App->render->camera.x, (-App->render->camera.y * 2 / speed) + 129, { 0, 0 }, { 0, 0, 0, 0 }, COLLIDER_PLAYER_SHOT, 0);
-			App->particles->AddParticle(App->particles->Player_explosion, App->render->camera.x, (-App->render->camera.y * 2 / speed) + 235, { 0, 0 }, { 0, 0, 0, 0 }, COLLIDER_PLAYER_SHOT, 0);
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
+			if (position.x > 0)
+				SelectAnimation(direction = LEFT);
+
+		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE)
+		{
+			if (position.y < 160 + (App->render->camera.y / -2))
+			{
+				App->render->camera.y += speed;
+			}
+			SelectAnimation(direction = UP);
+
+			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = UP_LEFT);
+			else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = UP_RIGHT);
+		}
+
+		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
+		{
+			if (position.y < (App->render->camera.y / -2) + 288)
+			{
+				SelectAnimation(direction = DOWN);
+			}
+
+			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = DOWN_LEFT);
+			else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = DOWN_RIGHT);
+		}
+		/*
+		if (App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_UP)
+		{
+			if (1) //<- check if there's bombs available (not implemented)
+			{ 
+				App->particles->AddParticle(App->particles->Player_explosion, App->render->camera.x, (-App->render->camera.y * 2 / speed) + 47, { 0, 0 }, { 0, 0, 0, 0 }, COLLIDER_EXPLOSION);
+				App->particles->AddParticle(App->particles->Player_explosion, App->render->camera.x, (-App->render->camera.y * 2 / speed) + 129, { 0, 0 }, { 0, 0, 0, 0 }, COLLIDER_EXPLOSION);
+				App->particles->AddParticle(App->particles->Player_explosion, App->render->camera.x, (-App->render->camera.y * 2 / speed) + 235, { 0, 0 }, { 0, 0, 0, 0 }, COLLIDER_EXPLOSION);
+			}
+		}
+		*/
+		if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_UP)
+		{
+			App->render->camera.y = 1500;
+			App->player->position.y = -700;
+		}
+		if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_UP)
+		{
+			App->render->camera.y = 2700;
+			App->player->position.y = -1200;
+		}
+		if (App->input->keyboard[SDL_SCANCODE_3] == KEY_STATE::KEY_UP)
+		{
+			App->render->camera.y = 3250;
+			App->player->position.y = -1450;
+		}
+		if (App->input->keyboard[SDL_SCANCODE_4] == KEY_STATE::KEY_UP)
+		{
+			App->render->camera.y = 6700;
+			App->player->position.y = -3150;
 		}
 	}
-	
-	if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_UP)
+
+	if (destroyed == true && !explosion.Finished())
 	{
-		App->render->camera.y = 1500;
-		App->player->position.y = -700;
+		SelectAnimation(direction = EXPLOSION);
+		
+		if (self->rect.x > position.x - 40 && self->rect.y > position.y - 40)
+		{
+			self->rect.x -= 2;
+			self->rect.y -= 2;
+		}
+		if (self->rect.w < 115 && self->rect.h < 115)
+		{
+			self->rect.w += 3.5;
+			self->rect.h += 3.5;
+		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_UP)
-	{
-		App->render->camera.y = 2700;
-		App->player->position.y = -1200;
-	}
-	if (App->input->keyboard[SDL_SCANCODE_3] == KEY_STATE::KEY_UP)
-	{
-		App->render->camera.y = 3250;
-		App->player->position.y = -1450;
-	}
-	if (App->input->keyboard[SDL_SCANCODE_4] == KEY_STATE::KEY_UP)
-	{
-		App->render->camera.y = 6700;
-		App->player->position.y = -3150;
-	}
+
+		
+
 	// FIRE -------------------------------------------------------
 
 	curr_laser = SDL_GetTicks();
@@ -194,16 +230,18 @@ update_status ModulePlayer::Update()
 
 	// DRAW -------------------------------------------------------------
 
-	if (direction != IDLE)
+	if (direction == EXPLOSION)
+		App->render->Blit(graphics, position.x - 40, position.y - 40, &(curr_animation->GetCurrentFrame()), -1.0f);
+	else if (direction != IDLE)
 		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetCurrentFrame()),-1.0f);
 	else
 		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetActualFrame()),-1.0f);
 
 	// MODIFY COLLISION -------------------------------------------------
 
-	self->SetPos(position.x + 9, position.y + 1);
-	
-	
+	if (direction != EXPLOSION)
+		self->SetPos(position.x + 9, position.y + 1);
+
 	return UPDATE_CONTINUE;
 }
 
@@ -242,6 +280,10 @@ void ModulePlayer::SelectAnimation(Directions direction)
 	case DOWN_RIGHT:
 		curr_animation = &downright;
 		break;
+	case EXPLOSION:
+		curr_animation = &explosion;
+		break;
+
 	}
 }
 
@@ -290,7 +332,7 @@ void ModulePlayer::Fire(Directions direction)
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2) 
 {
-	if (self == c1 && self != nullptr && c2->type == COLLIDER_WALL || c2->type == COLLIDER_TURRET || c2->type == COLLIDER_DOOR || c2->type == COLLIDER_TURRET_WALL)
+	if (self == c1 && self != nullptr && self->type != COLLIDER_EXPLOSION && (c2->type == COLLIDER_WALL || c2->type == COLLIDER_TURRET || c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_TURRET_WALL))
 	{
 		if (position.y + 4 >= c2->rect.y + c2->rect.h)
 		{
@@ -313,14 +355,17 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 
-	if (self == c1 && self != nullptr && c2->type == COLLIDER_ENEMY_SHOT)
+	if (self == c1 && self != nullptr && self->type == COLLIDER_PLAYER && c2->type == COLLIDER_ENEMY_SHOT)
 	{
-		int x = App->player->position.x - 40;
-		int y = App->player->position.y - 40;
+		destroyed = true;
+		int x = App->player->position.x + 10;
+		int y = App->player->position.y + 10;
 
-		App->particles->AddParticle(App->particles->Player_explosion, x, y, { 0, 0 }, { x, y, 115, 115 }, COLLIDER_NONE);//change the collider
-		App->player->destroyed = true;
-		App->player->Disable();
+		self->rect.x = x;
+		self->rect.y = y;
+		self->rect.w = 10;
+		self->rect.h = 10;
+		self->type = COLLIDER_EXPLOSION;
 	}
-
 }
+	

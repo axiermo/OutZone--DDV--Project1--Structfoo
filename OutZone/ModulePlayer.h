@@ -39,6 +39,7 @@ public:
 	Animation downleft;
 	Animation left;
 	Animation upleft;
+	Animation explosion;
 
 	int font_score = -1;
 	char score_text[10];

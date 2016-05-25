@@ -23,5 +23,5 @@ void Enemy::Draw()
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
 
-	App->render->Blit(App->enemies->sprites, position.x, position.y, &(animation->GetCurrentFrame()),-1.0f);
+	App->render->Blit(App->enemies->sprites, position.x, position.y, &(animation->GetCurrentFrame()));
 }
