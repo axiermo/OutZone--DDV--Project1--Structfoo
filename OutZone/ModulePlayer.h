@@ -44,6 +44,11 @@ public:
 	int font_score = -1;
 	char score_text[10];
 	uint score = 0;
+	uint bombs = 3;
+	int energy = 36;
+
+	uint t0;
+	uint t1;
 
 	Animation* curr_animation = nullptr;
 	Animation* last_animation = nullptr;

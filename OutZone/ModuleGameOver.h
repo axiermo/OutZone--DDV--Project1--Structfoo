@@ -21,6 +21,10 @@ public:
 public:
 
 	SDL_Texture* graphics = nullptr;
+	SDL_Texture* graphics2 = nullptr;
+	Animation top;
+	Animation player1;
+	Animation player2;
 	Mix_Music* soundtrack;
 
 	SDL_Rect GameOverScreen;

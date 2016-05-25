@@ -20,7 +20,17 @@ public:
 
 public:
 	SDL_Texture* graphics = nullptr;
+	SDL_Texture* graphics2 = nullptr;
+
 	SDL_Rect World1;
+	Animation lives;
+	Animation insertcoin;
+	Animation player1lives;
+	Animation player1blink;
+	Animation top;
+	Animation bomb;
+	Animation energy;
+	Animation energybar;
 };
 
 #endif // __ModuleLevel1f_H__
