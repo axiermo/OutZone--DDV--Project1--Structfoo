@@ -11,7 +11,9 @@
 #include "DoorTurret.h"
 #include "Soldier1.h"
 #include "RedSoldier.h"
-
+#include "ChangeBox.h"
+#include "UpgradePowerUp.h"
+#include "EnergyBox.h"
 #define SPAWN_MARGIN 50
 
 ModuleEnemies::ModuleEnemies()
@@ -143,6 +145,15 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::REDSOLDIER:
 			enemies[i] = new RedSoldier(info.x, info.y, info.subtype);
+			break;
+		case ENEMY_TYPES::ENERGYBOX:
+			enemies[i] = new EnergyBox(info.x, info.y);
+			break;
+		case ENEMY_TYPES::CHANGEBOX:
+			enemies[i] = new ChangeBox(info.x, info.y);
+			break;
+		case ENEMY_TYPES::UPGRADEPOWERUP:
+			enemies[i] = new UpgradePowerUp(info.x, info.y);
 			break;
 		}
 	}

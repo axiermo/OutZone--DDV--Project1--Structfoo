@@ -107,6 +107,18 @@
     <ClInclude Include="ModuleExplosion.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="ChangeBox.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Header.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="UpgradePowerUp.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="EnergyBox.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -186,6 +198,15 @@
     </ClCompile>
     <ClCompile Include="ModuleExplosion.cpp">
       <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeBox.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="EnergyBox.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradePowerUp.cpp">
+      <Filter>Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

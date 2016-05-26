@@ -69,6 +69,20 @@ bool ModuleLevel1b::Start()
 	App->scene_level1f->Enable();
 	App->enemies->Enable();
 
+
+	//Boxes
+
+	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 208, -490, 0);
+	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 0, -963, 0);
+	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 0, -1497, 0);
+	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 200, -2085, 0);
+	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 200, -3435, 0);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYBOX, 200, -530, 0);
+	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYBOX, 85, -1202, 0);
+	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYBOX, 136, -1870, 0);
+	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYBOX, 8, -3148, 0);
+	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYBOX, 16, -3435, 0);
 	//--------------Grey Turrets----------------------
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 3, -577,0);
