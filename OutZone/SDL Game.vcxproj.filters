@@ -119,6 +119,12 @@
     <ClInclude Include="EnergyBox.h">
       <Filter>Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="EnergyPowerUp.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangePowerUp.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -207,6 +213,12 @@
     </ClCompile>
     <ClCompile Include="UpgradePowerUp.cpp">
       <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="EnergyPowerUp.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangePowerUp.cpp">
+      <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

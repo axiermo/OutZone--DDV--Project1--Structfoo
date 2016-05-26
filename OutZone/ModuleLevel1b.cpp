@@ -71,6 +71,10 @@ bool ModuleLevel1b::Start()
 
 
 	//Boxes
+	App->enemies->AddEnemy(ENEMY_TYPES::UPGRADEPOWERUP, 100, 100, 0);
+	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYPOWERUP, 120, 100, 0);
+	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEPOWERUP, 140, 100, 0);
+
 
 	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 208, -490, 0);
 	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 0, -963, 0);

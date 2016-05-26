@@ -14,6 +14,8 @@
 #include "ChangeBox.h"
 #include "UpgradePowerUp.h"
 #include "EnergyBox.h"
+#include "EnergyPowerUp.h"
+#include "ChangePowerUp.h"
 #define SPAWN_MARGIN 50
 
 ModuleEnemies::ModuleEnemies()
@@ -154,6 +156,12 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::UPGRADEPOWERUP:
 			enemies[i] = new UpgradePowerUp(info.x, info.y);
+			break;
+		case ENEMY_TYPES::ENERGYPOWERUP:
+			enemies[i] = new EnergyPowerUp(info.x, info.y);
+			break;
+		case ENEMY_TYPES::CHANGEPOWERUP:
+			enemies[i] = new ChangePowerUp(info.x, info.y);
 			break;
 		}
 	}

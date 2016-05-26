@@ -12,7 +12,8 @@
 UpgradePowerUp::UpgradePowerUp(int x, int y) : Enemy(x, y, 0)
 {
 	rotate.PushBack({ 407, 515, 16, 16 }); // UP
-
+	rotate.PushBack({ 407, 533, 16, 16 });
+	rotate.speed = 0.2f;
 
 	lives = 1;
 
@@ -31,5 +32,5 @@ void UpgradePowerUp::Draw()
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
 
-	App->render->Blit(App->enemies->sprites, position.x, position.y, &rotate.GetActualFrame(), -1.0f);
+	App->render->Blit(App->enemies->sprites, position.x, position.y, &rotate.GetCurrentFrame(), -1.0f);
 }

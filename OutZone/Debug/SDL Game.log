@@ -1,55 +1,18 @@
-﻿Build started 26/05/2016 12:01:37.
+﻿Build started 26/05/2016 13:00:26.
      1>Project "C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Application.cpp BigTurret.cpp ChangeBox.cpp Door.cpp DoorTurret.cpp Enemy.cpp EnergyBox.cpp GreyTurret.cpp ModuleEnemies.cpp ModuleExplosion.cpp ModuleFonts.cpp ModuleGameOver.cpp ModuleLevel1f.cpp Main.cpp ModuleAudio.cpp ModuleCollision.cpp ModuleFadeToBlack.cpp ModuleInput.cpp ModuleParticles.cpp ModulePlayer.cpp ModuleRender.cpp ModuleLevel1b.cpp ModuleTitle.cpp ModuleTextures.cpp ModuleWindow.cpp RedSoldier.cpp Soldier1.cpp UpgradePowerUp.cpp
-         UpgradePowerUp.cpp
-         Soldier1.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(246): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(370): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         RedSoldier.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\redsoldier.cpp(114): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\redsoldier.cpp(239): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         ModuleWindow.cpp
-         ModuleTextures.cpp
-         ModuleTitle.cpp
-         ModuleLevel1b.cpp
-         ModuleRender.cpp
-         ModulePlayer.cpp
-         ModuleParticles.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\moduleparticles.cpp(54): warning C4305: '=' : truncation from 'double' to 'float'
-         ModuleInput.cpp
-         ModuleFadeToBlack.cpp
-         ModuleCollision.cpp
-         ModuleAudio.cpp
-         Main.cpp
-         ModuleLevel1f.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\modulelevel1f.cpp(28): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\modulelevel1f.cpp(89): warning C4018: '<' : signed/unsigned mismatch
-         ModuleGameOver.cpp
-         ModuleFonts.cpp
-         ModuleExplosion.cpp
-         ModuleEnemies.cpp
-         Generating Code...
-         Compiling...
-         GreyTurret.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(63): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(183): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         EnergyBox.cpp
-         Enemy.cpp
-         DoorTurret.cpp
-         Door.cpp
-         ChangeBox.cpp
-         BigTurret.cpp
-         Application.cpp
-         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ChangePowerUp.cpp
+         ChangePowerUp.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.lib" /MACHINE:X86 Debug\Application.obj
          Debug\BigTurret.obj
          Debug\ChangeBox.obj
+         Debug\ChangePowerUp.obj
          Debug\Door.obj
          Debug\DoorTurret.obj
          Debug\Enemy.obj
          Debug\EnergyBox.obj
+         Debug\EnergyPowerUp.obj
          Debug\GreyTurret.obj
          Debug\ModuleEnemies.obj
          Debug\ModuleExplosion.obj
@@ -72,10 +35,9 @@
          Debug\RedSoldier.obj
          Debug\Soldier1.obj
          Debug\UpgradePowerUp.obj
-     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
          SDL Game.vcxproj -> C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe
      1>Done Building Project "C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.59
+Time Elapsed 00:00:00.49
