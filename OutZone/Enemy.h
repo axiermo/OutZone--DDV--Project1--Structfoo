@@ -24,7 +24,7 @@ public:
 	bool appeared = false;
 
 public:
-	Enemy(int x, int y,int subtype);
+	Enemy(int x, int y, int subtype);
 	virtual ~Enemy();
 
 	const Collider* GetCollider() const;

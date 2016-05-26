@@ -154,29 +154,7 @@ update_status ModulePlayer::Update()
 	{
 		if (App->player->bombs > 0)
 		{
-			if (position.y < 170 + (App->render->camera.y / -2))
-				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 160, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
-			else if (position.y < 180 + (App->render->camera.y / -2))
-				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 170, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
-			else if (position.y < 190 + (App->render->camera.y / -2))
-				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 180, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
-			else if (position.y < 200 + (App->render->camera.y / -2))
-				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 195, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
-			else if (position.y < 210 + (App->render->camera.y / -2))
-				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 205, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
-			else if (position.y < 220 + (App->render->camera.y / -2))
-				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 215, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
-			else if (position.y < 230 + (App->render->camera.y / -2))
-				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 225, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
-			else if (position.y < 240 + (App->render->camera.y / -2))
-				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 235, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
-			else if (position.y < 250 + (App->render->camera.y / -2))
-				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 245, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
-			else if (position.y < 260 + (App->render->camera.y / -2))
-				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 255, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
-			else
-				App->explosion->AddExplosion(App->explosion->Airstrike, 0, position.y - 270, { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
-
+			App->explosion->AddExplosion(App->explosion->Airstrike, App->render->camera.x, (-App->render->camera.y * 2 / speed), { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
 			App->player->bombs--;
 		}
 	}
