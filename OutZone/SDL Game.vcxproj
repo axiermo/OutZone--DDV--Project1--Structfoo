@@ -72,6 +72,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="BigTurret.h" />
+    <ClInclude Include="BlueSoldier.h" />
     <ClInclude Include="ChangeBox.h" />
     <ClInclude Include="ChangePowerUp.h" />
     <ClInclude Include="Door.h" />
@@ -80,7 +81,6 @@
     <ClInclude Include="EnergyBox.h" />
     <ClInclude Include="EnergyPowerUp.h" />
     <ClInclude Include="GreyTurret.h" />
-    <ClInclude Include="Header.h" />
     <ClInclude Include="ModuleEnemies.h" />
     <ClInclude Include="ModuleExplosion.h" />
     <ClInclude Include="ModuleFonts.h" />
@@ -104,11 +104,13 @@
     <ClInclude Include="Path.h" />
     <ClInclude Include="RedSoldier.h" />
     <ClInclude Include="Soldier1.h" />
+    <ClInclude Include="Truck.h" />
     <ClInclude Include="UpgradePowerUp.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BigTurret.cpp" />
+    <ClCompile Include="BlueSoldier.cpp" />
     <ClCompile Include="ChangeBox.cpp" />
     <ClCompile Include="ChangePowerUp.cpp" />
     <ClCompile Include="Door.cpp" />
@@ -137,6 +139,7 @@
     <ClCompile Include="ModuleWindow.cpp" />
     <ClCompile Include="RedSoldier.cpp" />
     <ClCompile Include="Soldier1.cpp" />
+    <ClCompile Include="Truck.cpp" />
     <ClCompile Include="UpgradePowerUp.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

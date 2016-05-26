@@ -110,9 +110,6 @@
     <ClInclude Include="ChangeBox.h">
       <Filter>Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Header.h">
-      <Filter>Enemies</Filter>
-    </ClInclude>
     <ClInclude Include="UpgradePowerUp.h">
       <Filter>Enemies</Filter>
     </ClInclude>
@@ -124,6 +121,12 @@
     </ClInclude>
     <ClInclude Include="ChangePowerUp.h">
       <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Truck.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueSoldier.h">
+      <Filter>Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -219,6 +222,12 @@
     </ClCompile>
     <ClCompile Include="ChangePowerUp.cpp">
       <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Truck.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueSoldier.cpp">
+      <Filter>Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

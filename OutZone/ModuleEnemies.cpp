@@ -16,6 +16,8 @@
 #include "EnergyBox.h"
 #include "EnergyPowerUp.h"
 #include "ChangePowerUp.h"
+#include "Truck.h"
+#include "BlueSoldier.h"
 #define SPAWN_MARGIN 50
 
 ModuleEnemies::ModuleEnemies()
@@ -147,6 +149,12 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::REDSOLDIER:
 			enemies[i] = new RedSoldier(info.x, info.y, info.subtype);
+			break;
+		case ENEMY_TYPES::TRUCK:
+			enemies[i] = new Truck(info.x, info.y, info.subtype);
+			break;
+		case ENEMY_TYPES::BLUESOLDIER:
+			enemies[i] = new BlueSoldier(info.x, info.y, info.subtype);
 			break;
 		case ENEMY_TYPES::ENERGYBOX:
 			enemies[i] = new EnergyBox(info.x, info.y);

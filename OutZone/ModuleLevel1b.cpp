@@ -205,6 +205,7 @@ update_status ModuleLevel1b::Update()
 		//1 = L right, 2 = Vertical, 3 = stay, 4 = L left, 5= horizontal
 		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -40, 1);
 		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 10, -340, 3);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 20 ,100,3);
 	}
 
 	if ((App->player->position.y) < 135 && wave2){

@@ -1,11 +1,42 @@
-﻿Build started 26/05/2016 13:00:26.
-     1>Project "C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
+﻿Build started 26/05/2016 14:07:47.
+     1>Project "C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ChangePowerUp.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Application.cpp BigTurret.cpp BlueSoldier.cpp ChangeBox.cpp ChangePowerUp.cpp Door.cpp DoorTurret.cpp Enemy.cpp EnergyBox.cpp EnergyPowerUp.cpp GreyTurret.cpp ModuleEnemies.cpp ModuleGameOver.cpp ModuleLevel1b.cpp ModuleTitle.cpp RedSoldier.cpp Soldier1.cpp Truck.cpp UpgradePowerUp.cpp
+         Truck.cpp
+     1>c:\users\paubv1\documents\github\outzone--ddv--project1--structfoo\outzone\truck.cpp(85): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         ModuleLevel1b.cpp
+         ModuleEnemies.cpp
+         BlueSoldier.cpp
+     1>c:\users\paubv1\documents\github\outzone--ddv--project1--structfoo\outzone\bluesoldier.cpp(143): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\paubv1\documents\github\outzone--ddv--project1--structfoo\outzone\bluesoldier.cpp(267): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         Generating Code...
+         Compiling...
+         UpgradePowerUp.cpp
+         Soldier1.cpp
+     1>c:\users\paubv1\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(246): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\paubv1\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(370): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         RedSoldier.cpp
+     1>c:\users\paubv1\documents\github\outzone--ddv--project1--structfoo\outzone\redsoldier.cpp(246): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\paubv1\documents\github\outzone--ddv--project1--structfoo\outzone\redsoldier.cpp(370): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         ModuleTitle.cpp
+         ModuleGameOver.cpp
+         GreyTurret.cpp
+     1>c:\users\paubv1\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(63): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\paubv1\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(183): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         EnergyPowerUp.cpp
+         EnergyBox.cpp
+         Enemy.cpp
+         DoorTurret.cpp
+         Door.cpp
          ChangePowerUp.cpp
+         ChangeBox.cpp
+         BigTurret.cpp
+         Application.cpp
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.lib" /MACHINE:X86 Debug\Application.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.lib" /MACHINE:X86 Debug\Application.obj
          Debug\BigTurret.obj
+         Debug\BlueSoldier.obj
          Debug\ChangeBox.obj
          Debug\ChangePowerUp.obj
          Debug\Door.obj
@@ -34,10 +65,12 @@
          Debug\ModuleWindow.obj
          Debug\RedSoldier.obj
          Debug\Soldier1.obj
+         Debug\Truck.obj
          Debug\UpgradePowerUp.obj
-         SDL Game.vcxproj -> C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe
-     1>Done Building Project "C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
+     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+         SDL Game.vcxproj -> C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe
+     1>Done Building Project "C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.49
+Time Elapsed 00:00:03.18
