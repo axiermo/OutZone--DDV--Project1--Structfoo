@@ -13,6 +13,7 @@ private:
 	iPoint original_pos;
 	Animation dead;
 	Animation mazurka;
+	Animation hit;
 	Path path;
 	Directions direction;
 

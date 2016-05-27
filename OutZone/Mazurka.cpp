@@ -22,13 +22,20 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 	mazurka.PushBack({ 367, 781, 62, 58 });
 	mazurka.speed = 0.2f;
 	mazurka.loop = true;
+
+	hit.PushBack({ 303, 844, 64, 89 });
+	hit.PushBack({ 369, 844, 62, 89 });
+	hit.PushBack({ 434, 844, 64, 89 });
+	hit.PushBack({ 500, 844, 62, 89 });
+	hit.speed = 0.2f;
+	hit.loop = true;
 	
 	dead.PushBack({ 465, 6, 128, 160 });
 
 
 	animation = &mazurka;
 
-	collider = App->collision->AddCollider({ 0, 0, 60, 58 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 60, 58 }, COLLIDER_TYPE::COLLIDER_BIG_TURRET, (Module*)App->enemies);
 
 	switch (subtype){
 	case 1:
@@ -244,7 +251,7 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 
 void Mazurka::Move()
 {
-
+	if (!destroyed)
 	position = original_pos + path.GetCurrentSpeed();
 
 }
@@ -365,14 +372,18 @@ void Mazurka::Shoot()
 
 void Mazurka::Draw()
 {
-	if (collider != nullptr && !destroyed)
+	if (collider != nullptr && !destroyed && lives > 36)
 		collider->SetPos(position.x, position.y);
+	else if (collider != nullptr && !destroyed && lives <= 36)
+		collider->SetPos(position.x, position.y - 15);
 	else
 		collider->type = COLLIDER_DEAD;
 
-	if (!destroyed)
-		App->render->Blit(App->enemies->sprites, position.x, position.y, &mazurka.GetCurrentFrame(), -1.0f);
+	if (!destroyed && lives <= 36 && lives > 0)
+		App->render->Blit(App->enemies->sprites, position.x, position.y - 30, &hit.GetCurrentFrame(), -1.0f);
+	else if
+		(!destroyed && lives > 36) App->render->Blit(App->enemies->sprites, position.x, position.y, &mazurka.GetCurrentFrame(), -1.0f);
 	else
-		App->render->Blit(App->enemies->sprites, position.x - 10, position.y, &dead.GetCurrentFrame(), -1.0f);
+		App->render->Blit(App->enemies->sprites, position.x -33, position.y - 65, &dead.GetCurrentFrame(), -1.0f);
 
 }

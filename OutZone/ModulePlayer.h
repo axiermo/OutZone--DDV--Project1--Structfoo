@@ -54,11 +54,14 @@ public:
 	uint score = 0;
 	uint bombs = 3;
 	int energy = 36;
+	int lives = 2;
 
 	uint t0;
 	uint t1;
 	uint tt0;
 	uint tt1;
+
+	bool checkpoint1 = false, checkpoint2 = false, checkpoint3 = false, checkpoint4 = false;
 
 	Animation* curr_animation = nullptr;
 	Animation* last_animation = nullptr;

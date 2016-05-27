@@ -24,7 +24,12 @@ bool ModuleLevel1b::Start()
 	
 	LOG("Loading background assets");
 	bool ret = true;
-	App->render->camera.y = 0;
+	if (App->player->checkpoint1 == true || App->player->checkpoint2 == true || App->player->checkpoint3 == true || App->player->checkpoint4 == true){
+		App->render->camera.y = App->player->position.y + 3850;
+	}
+	else{
+		App->render->camera.y = 0;
+	}
 	App->particles->Enable();
 	wave1 = true;
 	wave2 = true;
@@ -419,7 +424,10 @@ update_status ModuleLevel1b::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 192, -3747, 4);
 	}
 
-
+	if (App->player->position.y < -743) App->player->checkpoint1 = true;
+	if (App->player->position.y < -1650) App->player->checkpoint2 = true;
+	if (App->player->position.y < -2242) App->player->checkpoint3 = true;
+	if (App->player->position.y < -3338) App->player->checkpoint4 = true;
 
 	return UPDATE_CONTINUE;
 }

@@ -111,8 +111,27 @@ bool ModulePlayer::Start()
 
 	basic_laser = App->audio->LoadFX("Audio/FX/Laser.wav");
 
-	position.x = 100;
-	position.y = 220;
+	if (checkpoint4 == true){
+		position.x = 114;
+		position.y = -3338;
+	}
+	else if (checkpoint3 == true){
+		position.x = 113;
+		position.y = -2246;
+	}
+	else if (checkpoint2 == true){
+		position.x = 139;
+		position.y = -1346;
+	}
+	else if (checkpoint1 == true){
+		position.x = 75;
+		position.y = -734;
+	}
+	else{
+		position.x = 100;
+		position.y = 220;
+	}
+
 	curr_animation = &up;
 
 	weapon = false;
@@ -775,5 +794,6 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		App->explosion->AddExplosion(App->explosion->Player, position.x - 30, position.y - 30, { 0, 0 }, { 0, 0, 105, 115 }, COLLIDER_EXPLOSION);
 		destroyed = true;
 		Disable();
+		lives--;
 	}
 }
