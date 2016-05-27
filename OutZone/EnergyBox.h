@@ -6,15 +6,10 @@
 class EnergyBox : public Enemy
 {
 private:
-
 	Animation rotate;
 
-
 public:
-
-
 	EnergyBox(int x, int y);
-
 	void Draw();
 };
 

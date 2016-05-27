@@ -19,6 +19,36 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_WALL][COLLIDER_TURRET] = false;
 	matrix[COLLIDER_WALL][COLLIDER_EXPLOSION] = false;
 
+	matrix[COLLIDER_ENERGY][COLLIDER_WALL] = false;
+	matrix[COLLIDER_ENERGY][COLLIDER_PLAYER] = true;
+	matrix[COLLIDER_ENERGY][COLLIDER_ENEMY] = false;
+	matrix[COLLIDER_ENERGY][COLLIDER_PLAYER_SHOT] = false;
+	matrix[COLLIDER_ENERGY][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_ENERGY][COLLIDER_GOD] = true;
+	matrix[COLLIDER_ENERGY][COLLIDER_TURRET_WALL] = false;
+	matrix[COLLIDER_ENERGY][COLLIDER_TURRET] = false;
+	matrix[COLLIDER_ENERGY][COLLIDER_EXPLOSION] = false;
+
+	matrix[COLLIDER_UPGRADE][COLLIDER_WALL] = false;
+	matrix[COLLIDER_UPGRADE][COLLIDER_PLAYER] = true;
+	matrix[COLLIDER_UPGRADE][COLLIDER_ENEMY] = false;
+	matrix[COLLIDER_UPGRADE][COLLIDER_PLAYER_SHOT] = false;
+	matrix[COLLIDER_UPGRADE][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_UPGRADE][COLLIDER_GOD] = true;
+	matrix[COLLIDER_UPGRADE][COLLIDER_TURRET_WALL] = false;
+	matrix[COLLIDER_UPGRADE][COLLIDER_TURRET] = false;
+	matrix[COLLIDER_UPGRADE][COLLIDER_EXPLOSION] = false;
+
+	matrix[COLLIDER_CHANGE][COLLIDER_WALL] = false;
+	matrix[COLLIDER_CHANGE][COLLIDER_PLAYER] = true;
+	matrix[COLLIDER_CHANGE][COLLIDER_ENEMY] = false;
+	matrix[COLLIDER_CHANGE][COLLIDER_PLAYER_SHOT] = false;
+	matrix[COLLIDER_CHANGE][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_CHANGE][COLLIDER_GOD] = true;
+	matrix[COLLIDER_CHANGE][COLLIDER_TURRET_WALL] = false;
+	matrix[COLLIDER_CHANGE][COLLIDER_TURRET] = false;
+	matrix[COLLIDER_CHANGE][COLLIDER_EXPLOSION] = false;
+
 	matrix[COLLIDER_PLAYER][COLLIDER_WALL] = true;
 	matrix[COLLIDER_PLAYER][COLLIDER_PLAYER] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY] = true;
@@ -38,6 +68,16 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_ENEMY][COLLIDER_TURRET_WALL] = false;
 	matrix[COLLIDER_ENEMY][COLLIDER_TURRET] = true;
 	matrix[COLLIDER_ENEMY][COLLIDER_EXPLOSION] = true;
+
+	matrix[COLLIDER_RED_SOLDIER][COLLIDER_WALL] = true;
+	matrix[COLLIDER_RED_SOLDIER][COLLIDER_PLAYER] = true;
+	matrix[COLLIDER_RED_SOLDIER][COLLIDER_ENEMY] = false;
+	matrix[COLLIDER_RED_SOLDIER][COLLIDER_PLAYER_SHOT] = true;
+	matrix[COLLIDER_RED_SOLDIER][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_RED_SOLDIER][COLLIDER_GOD] = true;
+	matrix[COLLIDER_RED_SOLDIER][COLLIDER_TURRET_WALL] = false;
+	matrix[COLLIDER_RED_SOLDIER][COLLIDER_TURRET] = true;
+	matrix[COLLIDER_RED_SOLDIER][COLLIDER_EXPLOSION] = true;
 
 	matrix[COLLIDER_TURRET][COLLIDER_WALL] = true;
 	matrix[COLLIDER_TURRET][COLLIDER_PLAYER] = true;
@@ -79,6 +119,9 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_TURRET_WALL] = false;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_DEAD] = false;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_EXPLOSION] = false;
+	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_UPGRADE] = false;
+	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_ENERGY] = false;
+	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_CHANGE] = false;
 
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_WALL] = true;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_PLAYER] = true;
@@ -91,6 +134,9 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_BIG_TURRET] = false;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_DEAD] = false;
 	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_EXPLOSION] = true;
+	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_UPGRADE] = false;
+	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_ENERGY] = false;
+	matrix[COLLIDER_ENEMY_SHOT][COLLIDER_CHANGE] = false;
 
 	matrix[COLLIDER_GOD][COLLIDER_WALL] = true;
 	matrix[COLLIDER_GOD][COLLIDER_PLAYER] = true;
@@ -256,6 +302,9 @@ void ModuleCollision::DebugDraw()
 			App->render->DrawQuad(colliders[i]->rect, 40, 75, 200, alpha);
 			break;
 		case COLLIDER_ENEMY: // red
+			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
+			break;
+		case COLLIDER_RED_SOLDIER: // red
 			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
 			break;
 		}

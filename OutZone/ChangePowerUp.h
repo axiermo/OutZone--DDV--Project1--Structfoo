@@ -6,14 +6,11 @@
 class ChangePowerUp : public Enemy
 {
 private:
-
 	Animation rotate;
-
 
 public:
 
 	ChangePowerUp(int x, int y);
-
 	void Draw();
 };
 

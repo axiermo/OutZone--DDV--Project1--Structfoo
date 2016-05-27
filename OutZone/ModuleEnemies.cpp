@@ -183,15 +183,22 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		{
 			if ((c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_EXPLOSION) && enemies[i]->lives > 0)
 			{
-				enemies[i]->lives -= 2;
+				enemies[i]->lives -= App->player->damage;
 
 				if (enemies[i]->lives < 1)
 				{
-					if (c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET)
+					if (c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_RED_SOLDIER)
 					{
 						if (c1->type == COLLIDER_ENEMY) // That kind of enemy instant kill
 						{
 							App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
+							delete enemies[i];
+							enemies[i] = nullptr;
+						}
+						if (c1->type == COLLIDER_RED_SOLDIER) // That kind of enemy instant kill
+						{
+							App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
+							App->enemies->AddEnemy(ENEMY_TYPES::UPGRADEPOWERUP, enemies[i]->position.x + 2, enemies[i]->position.y + 10, 0);
 							delete enemies[i];
 							enemies[i] = nullptr;
 						}
@@ -216,6 +223,30 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			{
 				if (c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_DEAD)
 				{
+					delete enemies[i];
+					enemies[i] = nullptr;
+				}
+			}
+			if (c2->type == COLLIDER_PLAYER || c2->type == COLLIDER_GOD)
+			{
+				if (c1->type == COLLIDER_CHANGE)
+				{
+					App->player->curr_animation = &App->player->up2;
+					App->player->weapon = !App->player->weapon;
+					delete enemies[i];
+					enemies[i] = nullptr;
+				}
+				if (c1->type == COLLIDER_ENERGY)
+				{
+					if (App->player->energy < 20) App->player->energy += 16;
+					else App->player->energy = 36;
+
+					delete enemies[i];
+					enemies[i] = nullptr;
+				}
+				if (c1->type == COLLIDER_UPGRADE)
+				{
+					if (App->player->laser < 3) App->player->laser++;
 					delete enemies[i];
 					enemies[i] = nullptr;
 				}

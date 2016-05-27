@@ -7,11 +7,9 @@
 #include "ModuleEnemies.h"
 #include "ModuleTextures.h"
 
-
-
 ChangePowerUp::ChangePowerUp(int x, int y) : Enemy(x, y, 0)
 {
-	rotate.PushBack({ 383, 553, 16, 16 }); // UP
+	rotate.PushBack({ 383, 553, 16, 16 }); 
 	rotate.PushBack({ 406, 553, 16, 16 });
 	rotate.speed = 0.2f;
 
@@ -19,12 +17,10 @@ ChangePowerUp::ChangePowerUp(int x, int y) : Enemy(x, y, 0)
 
 	animation = &rotate;
 
-	collider = App->collision->AddCollider({ 0, 0, 16, 16 }, COLLIDER_NONE, App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 16, 16 }, COLLIDER_CHANGE, App->enemies);
 
 	position.x = x;
 	position.y = y;
-
-
 }
 
 void ChangePowerUp::Draw()

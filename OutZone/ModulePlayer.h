@@ -22,7 +22,11 @@ public:
 	bool CleanUp();
 
 	void SelectAnimation(Directions direction);
-	void Fire(Directions direction);
+	void Fire(Directions dir);
+
+	bool weapon;
+	uint laser;
+	uint damage;
 
 public:
 	enum Directions direction;
@@ -39,7 +43,11 @@ public:
 	Animation downleft;
 	Animation left;
 	Animation upleft;
-	Animation explosion;
+
+	Animation up2;
+	Animation right2;
+	Animation down2;
+	Animation left2;
 
 	int font_score = -1;
 	char score_text[10];
@@ -49,9 +57,12 @@ public:
 
 	uint t0;
 	uint t1;
+	uint tt0;
+	uint tt1;
 
 	Animation* curr_animation = nullptr;
 	Animation* last_animation = nullptr;
+	Animation* aux = nullptr;
 
 	Collider* self;
 	bool destroyed = false;

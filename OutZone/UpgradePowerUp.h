@@ -9,12 +9,9 @@ private:
 
 	Animation rotate;
 
-
 public:
 
-
 	UpgradePowerUp(int x, int y);
-
 	void Draw();
 };
 

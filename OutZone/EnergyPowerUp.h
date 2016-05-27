@@ -6,15 +6,10 @@
 class EnergyPowerUp : public Enemy
 {
 private:
-
 	Animation rotate;
 
-
 public:
-
-
 	EnergyPowerUp(int x, int y);
-
 	void Draw();
 };
 

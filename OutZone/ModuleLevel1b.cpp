@@ -71,22 +71,37 @@ bool ModuleLevel1b::Start()
 
 
 	//Boxes
-	App->enemies->AddEnemy(ENEMY_TYPES::UPGRADEPOWERUP, 100, 100, 0);
-	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYPOWERUP, 120, 100, 0);
-	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEPOWERUP, 140, 100, 0);
 
-
+	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEPOWERUP, 217, -480 , 0);
 	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 208, -490, 0);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEPOWERUP, 10, -953, 0);
 	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 0, -963, 0);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEPOWERUP, 10, -1487, 0);
 	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 0, -1497, 0);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEPOWERUP, 210, -2075, 0);
 	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 200, -2085, 0);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEPOWERUP, 210, -3425, 0);
 	App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 200, -3435, 0);
 
+	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYPOWERUP, 215, -515, 0);
 	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYBOX, 200, -530, 0);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYPOWERUP, 100, -1185, 0);
 	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYBOX, 85, -1202, 0);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYPOWERUP, 150, -1855, 0);
 	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYBOX, 136, -1870, 0);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYPOWERUP, 23, -3133, 0);
 	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYBOX, 8, -3148, 0);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYPOWERUP, 31, -3420, 0);
 	App->enemies->AddEnemy(ENEMY_TYPES::ENERGYBOX, 16, -3435, 0);
+
 	//--------------Grey Turrets----------------------
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 3, -577,0);
@@ -205,7 +220,6 @@ update_status ModuleLevel1b::Update()
 		//1 = L right, 2 = Vertical, 3 = stay, 4 = L left, 5= horizontal
 		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -40, 1);
 		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 10, -340, 3);
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 20 ,100,3);
 	}
 
 	if ((App->player->position.y) < 135 && wave2){

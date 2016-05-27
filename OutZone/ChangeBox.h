@@ -6,15 +6,11 @@
 class ChangeBox : public Enemy
 {
 private:
-
 	Animation rotate;
 
 
 public:
-
-
 	ChangeBox(int x, int y);
-
 	void Draw();
 };
 

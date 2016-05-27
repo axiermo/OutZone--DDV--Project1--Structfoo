@@ -7,8 +7,6 @@
 #include "ModuleEnemies.h"
 #include "ModuleTextures.h"
 
-
-
 EnergyBox::EnergyBox(int x, int y) : Enemy(x, y, 0)
 {
 	rotate.PushBack({ 314, 508, 40, 40 }); // UP
@@ -22,8 +20,6 @@ EnergyBox::EnergyBox(int x, int y) : Enemy(x, y, 0)
 
 	position.x = x;
 	position.y = y;
-
-
 }
 
 void EnergyBox::Draw()

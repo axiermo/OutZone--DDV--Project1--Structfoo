@@ -52,7 +52,7 @@ public:
 private:
 
 	SDL_Texture* graphics = nullptr;
-	
+
 	Particle* active[MAX_ACTIVE_PARTICLES];
 
 public:
@@ -66,6 +66,30 @@ public:
 	Particle laser112;
 	Particle laserupleft;
 	Particle laser157;
+
+	Particle laser67_2;
+	Particle laser22_2;
+	Particle laser112_2;
+	Particle laser157_2;
+
+	Particle laserup2;
+	Particle laserupright2;
+	Particle laserright2;
+	Particle laserupleft2;
+	Particle laser3;
+
+	Particle triple1r;
+	Particle triple1c;
+	Particle triple1l;
+	Particle triple2r;
+	Particle triple2c;
+	Particle triple2l;
+	Particle triple3r;
+	Particle triple3c;
+	Particle triple3l;
+	Particle triple_exp;
+	Particle end_triple;
+
 	Particle explosionup;
 	Particle explosionupright;
 	Particle explosionright;
@@ -73,7 +97,7 @@ public:
 	Particle explosiondown;
 	Particle explosiondownleft;
 	Particle explosionleft;
-	Particle explosionupleft;	
+	Particle explosionupleft;
 	Particle end_laser;
 
 	// GreyTurret, door turret, soldier particles
@@ -91,4 +115,4 @@ public:
 	Particle Small_NPC_explosion;
 };
 
-#endif // __MODULEPARTICLES_H__
+#endif // __MODULEPARTICLES_H__  
