@@ -412,6 +412,11 @@ update_status ModuleLevel1b::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 80, -1910, 20);
 		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 190, -1880, 19);
 
+		//Boss
+		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 0, -3747, 1);
+		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 64, -3747, 3);
+		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 128, -3747, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 192, -3747, 4);
 	}
 
 

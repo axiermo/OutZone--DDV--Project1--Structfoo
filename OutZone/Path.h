@@ -3,7 +3,7 @@
 
 #include "p2Point.h"
 #include "Animation.h"
-#define MAX_STEPS 25
+#define MAX_STEPS 50
 
 struct Step
 {

@@ -18,6 +18,7 @@
 #include "ChangePowerUp.h"
 #include "Truck.h"
 #include "BlueSoldier.h"
+#include "Mazurka.h"
 #define SPAWN_MARGIN 50
 
 ModuleEnemies::ModuleEnemies()
@@ -170,6 +171,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::CHANGEPOWERUP:
 			enemies[i] = new ChangePowerUp(info.x, info.y);
+			break;
+		case ENEMY_TYPES::MAZURKA:
+			enemies[i] = new Mazurka(info.x, info.y, info.subtype);
 			break;
 		}
 	}
