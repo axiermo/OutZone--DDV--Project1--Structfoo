@@ -29,6 +29,7 @@ public:
 
 	const Collider* GetCollider() const;
 
+	void movementAI() {};
 	virtual void Move() {};
 	virtual void Shoot() {};
 	virtual void Draw();

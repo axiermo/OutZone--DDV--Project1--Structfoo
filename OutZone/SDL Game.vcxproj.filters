@@ -131,6 +131,9 @@
     <ClInclude Include="Mazurka.h">
       <Filter>Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="Tank.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -233,6 +236,9 @@
       <Filter>Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Mazurka.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Tank.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
   </ItemGroup>

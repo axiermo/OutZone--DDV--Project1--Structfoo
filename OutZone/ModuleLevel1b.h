@@ -47,6 +47,18 @@ public:
 	bool wave28;
 	bool wave29;
 	bool wave30;
+	bool wave31;
+	bool wave32;
+	bool wave33;//first truck
+	bool wave34;
+	bool wave35;
+	bool wave36;
+	bool wave37;
+	bool wave38;
+	bool wave39;
+	bool wave40;
+	bool wave41;
+	bool wave42;
 
 public:
 	Collider* lborder;

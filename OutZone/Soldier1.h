@@ -23,6 +23,7 @@ private:
 	Animation walk;
 	Path path;
 	Directions direction;
+	iPoint AI = { 0, 0 };
 
 	Animation* curr_animation = nullptr;
 	Animation* last_animation = nullptr;
@@ -30,6 +31,7 @@ private:
 public:
 
 	void SelectAnimation(Directions direction);
+	iPoint movementAI();
 
 	Soldier1(int x, int y, int subtype);
 	uint next_shoot;

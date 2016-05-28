@@ -10,6 +10,7 @@
 #include "ModuleParticles.h"
 #include "ModuleGameOver.h"
 #include "ModuleEnemies.h"
+#include "Enemy.h"
 
 ModuleLevel1b::ModuleLevel1b()
 {
@@ -61,6 +62,17 @@ bool ModuleLevel1b::Start()
 	wave28 = true;
 	wave29 = true; 
 	wave30 = true;
+	wave31 = true;
+	wave32 = true;
+	wave33 = true;
+	wave34 = true;
+	wave35 = true;
+	wave36 = true;
+	wave37 = true;
+	wave38 = true;
+	wave39 = true;
+	wave40 = true;
+	wave41= true;
 
 	// Background
 	graphics = App->textures->Load("Sprites/Maps/map1_base.png");
@@ -209,16 +221,10 @@ update_status ModuleLevel1b::Update()
 	sborder->SetPos(App->player->position.x - 300, App->player->position.y + 200);
 	nborder->SetPos(0, App->render->camera.y / -2);
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || App->player->position.y < -3640 || App->player->destroyed)
+	if (App->player->destroyed)//change to 0 lives
 	{
 		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 2.0);
 	}
-
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || App->player->position.y < -3640 || App->player->destroyed)
-	{
-		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 2.0);
-	}
-
 	if ((App->player->position.y) < 160 && wave1){
 		wave1 = false;
 		//------------------Soldiers----------------------
@@ -298,13 +304,12 @@ update_status ModuleLevel1b::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 15, -660, 1);
 	}
 	//the ones that come from out of the truck
-	if ((App->player->position.y) < -440 && wave15){
-		wave15 = false;
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -630, 9);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -620, 9);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -660, 9);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -620, 9);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -660, 9);
+	if ((App->player->position.y) < -650 && wave33){
+		wave33 = false;
+		App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 40, -940, 2);
+		//put the delay and the truck not destroyed condition
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -750, 3);
+		
 	}
 	if ((App->player->position.y) < -900 && wave16){
 		wave16 = false;
@@ -410,18 +415,104 @@ update_status ModuleLevel1b::Update()
 
 	}
 
-	if ((App->player->position.y) < -1650 && wave30){
-		wave30 = false;
 
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 15, -1860, 17);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 80, -1910, 20);
-		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 190, -1880, 19);
+	/*if ((App->player->position.y) < 160 && wave31)
+	{
+		uint numtanks = 0;
+		uint t0;
+		uint t1=0;
+		t0 = SDL_GetTicks();
+		wave31 = false;
+		while (numtanks < 4){
+			t0 = SDL_GetTicks();
+			while ((t0 - t1) > 3000) 
+			{
+				t1 = SDL_GetTicks();
+				App->enemies->AddEnemy(ENEMY_TYPES::TANK, 200, 90, 1);
+				numtanks++;
+			}
+		}
+	}*/
+	if ((App->player->position.y) < -2450 && wave32){
+		wave32 = false;
+		//truck one
+		App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 170, -2670, 1);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2670, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2670, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2630, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2630, 2);
 
+		//
+		//if (truck is alive)
+		//{
+		//	// Delay of appearance;
+		//	//App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -1910, 20);
+		//}
+		
+		//truck2
+		App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 10, -2840, 1);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2840, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2840, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2800, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2800, 2);
+
+		//
+		//if (truck is alive)
+		//{
+		//	// Delay of appearance;
+		//	//App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -1910, 20);
+		//}
+	
+
+
+		App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 100, -3040, 1);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3040, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3040, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3000, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3000, 2);
+
+		//
+		//if (truck is alive)
+		//{
+		//	// Delay of appearance;
+		//	//App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -1910, 20);
+		//}
+	
+	
+
+	}
+
+	//	if ((App->player->position.y) < -2850 && wave32 && truck3 not destroyed){
+	//		wave32 = false;
+
+	//		App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 160, -3040, 1);
+	//		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3040, 2);
+	//		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3040, 2);
+	//		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3000, 2);
+	//		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3000, 2);
+
+	//		/*App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -1910, 20);
+	//		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -1880, 19);
+	//		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -1910, 20);
+	//		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -1880, 19);*/
+
+
+	//	}
+	//
+
+	if ((App->player->position.y) < -3000 && wave35 /*&& truck4 spawned*/){
+		wave35 = false;
+
+		App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 100, -3100, 21);
+	
+	}
+	if((App->player->position.y) < -3400 && wave36){
+		wave36 = false;
 		//Boss
 		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 0, -3747, 1);
-		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 64, -3747, 3);
+		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 64, -3647, 3);
 		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 128, -3747, 2);
-		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 192, -3747, 4);
+		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 192, -3647, 4);
 	}
 
 	if (App->player->position.y < -743) App->player->checkpoint1 = true;
@@ -429,5 +520,5 @@ update_status ModuleLevel1b::Update()
 	if (App->player->position.y < -2242) App->player->checkpoint3 = true;
 	if (App->player->position.y < -3338) App->player->checkpoint4 = true;
 
-	return UPDATE_CONTINUE;
-}
+		return UPDATE_CONTINUE;
+	}

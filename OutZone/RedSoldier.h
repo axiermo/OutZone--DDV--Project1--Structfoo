@@ -32,7 +32,7 @@ private:
 public:
 
 	RedSoldier(int x, int y, int subtype);
-
+	iPoint movementAI();
 
 
 	uint next_shoot;

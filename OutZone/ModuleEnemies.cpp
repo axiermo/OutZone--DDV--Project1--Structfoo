@@ -19,6 +19,7 @@
 #include "Truck.h"
 #include "BlueSoldier.h"
 #include "Mazurka.h"
+#include "Tank.h"
 #define SPAWN_MARGIN 50
 
 ModuleEnemies::ModuleEnemies()
@@ -56,6 +57,7 @@ update_status ModuleEnemies::PreUpdate()
 
 update_status ModuleEnemies::Update()
 {
+
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	if (enemies[i] != nullptr) enemies[i]->Move();
 
@@ -175,6 +177,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::MAZURKA:
 			enemies[i] = new Mazurka(info.x, info.y, info.subtype);
 			break;
+		case ENEMY_TYPES::TANK:
+			enemies[i] = new Tank(info.x, info.y, info.subtype);
+			break;
 		}
 	}
 }
@@ -191,7 +196,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 				if (enemies[i]->lives < 1)
 				{
-					if (c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_RED_SOLDIER)
+					if (c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_RED_SOLDIER || c1->type == TRUCK)
 					{
 						if (c1->type == COLLIDER_ENEMY) // That kind of enemy instant kill
 						{
@@ -217,6 +222,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 							App->particles->AddParticle(App->particles->Big_NPC_explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 30, { 0, 0 }, nullrect, COLLIDER_NONE);
 							enemies[i]->destroyed = true;
 						}
+						if (c1->type == TRUCK && enemies[i]->destroyed == false) // This one changes the animation to a hole. Will be killed by the border.
+						{
+							App->particles->AddParticle(App->particles->Big_NPC_explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 30, { 0, 0 }, nullrect, COLLIDER_NONE);
+							enemies[i]->destroyed = true;
+						}
+
 
 						App->player->score += 390;
 					}

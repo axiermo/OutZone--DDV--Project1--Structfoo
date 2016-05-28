@@ -1,4 +1,4 @@
-#include "Application.h"
+﻿#include "Application.h"
 #include "Mazurka.h"
 #include "ModuleCollision.h"
 #include "Path.h"
@@ -29,8 +29,13 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 	hit.PushBack({ 500, 844, 62, 89 });
 	hit.speed = 0.2f;
 	hit.loop = true;
+<<<<<<< HEAD
+
+	dead.PushBack({ 447, 37, 64, 80 });
+=======
 	
 	dead.PushBack({ 465, 6, 128, 160 });
+>>>>>>> origin/master
 
 
 	animation = &mazurka;
@@ -90,11 +95,11 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 		break;
 	case 2:
 		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 80, &mazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 1.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 70, &mazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
@@ -140,7 +145,7 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 		break;
 	case 3:
 		path.PushBack({ 0.0f, -1.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 60, &mazurka);
 		path.PushBack({ 0.0f, 1.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
@@ -148,7 +153,7 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, 1.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -0.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 150, &mazurka);
 		path.PushBack({ 0.0f, 1.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -1.0f }, 100, &mazurka);
@@ -158,7 +163,7 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, -1.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 30, &mazurka);
 		path.PushBack({ 0.0f, -1.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
@@ -214,7 +219,7 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, 1.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -1.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 48, &mazurka);
 		path.PushBack({ 0.0f, 1.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
@@ -222,7 +227,7 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 75, &mazurka);
 		path.PushBack({ 0.0f, 3.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
@@ -230,7 +235,7 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, 1.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 78, &mazurka);
 		path.PushBack({ 0.0f, 0.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
@@ -252,7 +257,11 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 void Mazurka::Move()
 {
 	if (!destroyed)
+<<<<<<< HEAD
+		position = original_pos + path.GetCurrentSpeed();
+=======
 	position = original_pos + path.GetCurrentSpeed();
+>>>>>>> origin/master
 
 }
 
@@ -384,6 +393,10 @@ void Mazurka::Draw()
 	else if
 		(!destroyed && lives > 36) App->render->Blit(App->enemies->sprites, position.x, position.y, &mazurka.GetCurrentFrame(), -1.0f);
 	else
+<<<<<<< HEAD
+		App->render->Blit(App->enemies->sprites, position.x, position.y - 15, &dead.GetCurrentFrame(), -1.0f);
+=======
 		App->render->Blit(App->enemies->sprites, position.x -33, position.y - 65, &dead.GetCurrentFrame(), -1.0f);
+>>>>>>> origin/master
 
 }

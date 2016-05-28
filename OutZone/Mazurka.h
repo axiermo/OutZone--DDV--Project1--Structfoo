@@ -1,10 +1,8 @@
 #ifndef __MAZURKA_H__
 #define __MAZURKA_H__
-
 #include "Enemy.h"
 #include "p2Point.h"
 #include "Path.h"
-
 class Mazurka : public Enemy
 {
 private:
@@ -16,16 +14,12 @@ private:
 	Animation hit;
 	Path path;
 	Directions direction;
-
 public:
-
 	Mazurka(int x, int y, int subtype);
 	uint next_shoot;
 	uint last_shoot;
-
 	void Move();
 	void Shoot();
 	void Draw();
 };
-
 #endif // __MAZURKA_H__

@@ -180,6 +180,8 @@ RedSoldier::RedSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.4f, 0.8f }, 60, &downright);
 		path.PushBack({ 0.0f, 1.0f }, 3000, &down);
 		break;
+	case 21:
+		path.PushBack({ 0.0f, 1.0f }, 3000, &down);
 
 	}
 
@@ -189,7 +191,16 @@ RedSoldier::RedSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)
 	original_pos.y = y;
 
 }
+iPoint RedSoldier::movementAI()
+{
+	int num = 0;
+	if (App->player->position.x < 120)
+		num = 2;
+	else
+		num = -2;
+	return iPoint((int)num, 0);
 
+}
 void RedSoldier::SelectAnimation(Directions direction)
 {
 	int speed = 2;
@@ -360,7 +371,7 @@ void RedSoldier::Move()
 	}
 
 	// Move with the path
-	position = original_pos + path.GetCurrentSpeed();
+	position = original_pos + path.GetCurrentSpeed()+ movementAI();
 }
 
 void RedSoldier::Shoot()

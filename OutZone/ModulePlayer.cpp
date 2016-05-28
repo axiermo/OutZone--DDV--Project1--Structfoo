@@ -174,7 +174,7 @@ update_status ModulePlayer::Update()
 
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE)
 		{
-			if (position.y < 160 + (App->render->camera.y / -2))
+			if (position.y < 160 + (App->render->camera.y / -2) && position.y>-3650 )
 			{
 				App->render->camera.y += speed;
 			}
@@ -279,6 +279,16 @@ update_status ModulePlayer::Update()
 	{
 		App->render->camera.y = 6700;
 		App->player->position.y = -3150;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_5] == KEY_STATE::KEY_UP)
+	{
+		App->render->camera.y = 5000;
+		App->player->position.y = -2150;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_6] == KEY_STATE::KEY_UP)
+	{
+		App->render->camera.y = 5000;
+		App->player->position.y = -3250;
 	}
 	// Damage -----------------------------------------------------
 

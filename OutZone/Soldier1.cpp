@@ -180,6 +180,9 @@ Soldier1::Soldier1(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.4f, 0.8f }, 60, &downright);
 		path.PushBack({ 0.0f, 1.0f }, 3000, &down);
 		break;
+	case 21:
+		path.PushBack({ 0.0f, 1.0f }, 3000, &down);
+		break;
 
 	}
 
@@ -189,6 +192,8 @@ Soldier1::Soldier1(int x, int y, int subtype) :Enemy(x, y, subtype)
 	original_pos.y = y;
 
 }
+
+
 
 void Soldier1::SelectAnimation(Directions direction)
 {
@@ -229,6 +234,13 @@ void Soldier1::SelectAnimation(Directions direction)
 }
 void Soldier1::Move()
 {
+	if (subtype == 21){
+		if (App->player->position.x < 120)
+			AI.x -= 0.3f;
+		else
+			AI.x += 0.3f;
+	}
+
 
 	float angle, dx, dy;
 	int player_position_x, player_position_y;
@@ -360,7 +372,7 @@ void Soldier1::Move()
 	}
 
 	// Move with the path
-	position = original_pos + path.GetCurrentSpeed();
+	position = original_pos + path.GetCurrentSpeed() + AI;
 
 
 }
