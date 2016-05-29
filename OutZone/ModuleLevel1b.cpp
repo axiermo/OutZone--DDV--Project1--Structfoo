@@ -25,6 +25,7 @@ bool ModuleLevel1b::Start()
 	
 	LOG("Loading background assets");
 	bool ret = true;
+
 	if (App->player->checkpoint1 == true || App->player->checkpoint2 == true || App->player->checkpoint3 == true || App->player->checkpoint4 == true){
 		App->render->camera.y = App->player->position.y + 3850;
 	}
@@ -225,6 +226,7 @@ update_status ModuleLevel1b::Update()
 	{
 		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 2.0);
 	}
+
 	if ((App->player->position.y) < 160 && wave1){
 		wave1 = false;
 		//------------------Soldiers----------------------

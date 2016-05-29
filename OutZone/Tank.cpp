@@ -68,6 +68,7 @@ Tank::Tank(int x, int y, int subtype) :Enemy(x, y, subtype)
 	original_pos.x = x;
 	original_pos.y = y;
 
+	lives = 15;
 }
 
 void Tank::Move()

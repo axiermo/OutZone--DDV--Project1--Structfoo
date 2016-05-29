@@ -32,8 +32,12 @@ public:
 	Animation energy;
 	Animation energybar;
 	Animation goahead;
+	Animation lowenergy;
 
-	uint t = 0;
+	Mix_Chunk* low_energy = nullptr;
+
+	uint t = 0, t2 = 0;
+	bool played = false;
 };
 
 #endif // __ModuleLevel1f_H__

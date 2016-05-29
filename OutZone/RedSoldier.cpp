@@ -379,7 +379,7 @@ void RedSoldier::Shoot()
 	float distance = position.DistanceTo(App->player->position);
 	next_shoot = SDL_GetTicks();
 
-	if (App->player->position.y - position.y < 100 || appeared)
+	if (App->player->position.y - position.y < 85 || appeared)
 	{
 		appeared = true;
 		if (next_shoot - last_shoot > 1800 && distance > 100 && distance < 136)

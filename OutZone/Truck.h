@@ -15,6 +15,7 @@ private:
 	Animation up;
 	Animation down;
 	Animation stop;
+	Animation dead;
 	Path path;
 	Directions direction;
 

@@ -37,6 +37,10 @@ ModuleLevel1f::ModuleLevel1f()
 	goahead.PushBack({ 4, 87, 50, 48 });
 	goahead.PushBack({ 0, 0, 0, 0 });
 	goahead.speed = 0.1f;
+
+	lowenergy.PushBack({ 4, 155, 44, 27 });
+	lowenergy.PushBack({ 0, 0, 0, 0 });
+	lowenergy.speed = 0.05f;
 }
 
 ModuleLevel1f::~ModuleLevel1f()
@@ -46,10 +50,11 @@ bool ModuleLevel1f::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-
+	t2 = 0;
+	t = 0;
 	graphics = App->textures->Load("Sprites/Maps/map1_foreground.png");
 	graphics2 = App->textures->Load("Sprites/UI/UI.png");
-
+	low_energy = App->audio->LoadFX("Audio/FX/Low_energy.wav");
 
 	return ret;
 }
@@ -103,14 +108,43 @@ update_status ModuleLevel1f::Update()
 		App->render->Blit(graphics2, 18 + i * 2, 16, &energy.GetCurrentFrame(), -1.0f, false);
 	}
 
+	// Go ahead -----------------------------------------
+
 	if (App->player->position.y > 160 + (App->render->camera.y / -2))
 	{
 		t++;
-		if (t > 300)
+		if (t > 400)
 			App->render->Blit(graphics2, SCREEN_WIDTH / 2 - 25, 50, &goahead.GetCurrentFrame(), -1.0f, false);
 	}
 	else
 		t = 0;
+
+	// Low energy ----------------------------------------
+
+	if (App->player->energy < 8 && App->player->energy > 5)
+	{
+		App->render->Blit(graphics2, 18, 25, &lowenergy.GetCurrentFrame(), -1.0f, false);
+	}
+
+	else if (App->player->energy < 6 && App->player->energy > 2)
+	{
+		lowenergy.speed = 0.1f;
+		App->render->Blit(graphics2, 18, 25, &lowenergy.GetCurrentFrame(), -1.0f, false);
+	}
+
+	else if (App->player->energy < 3 && App->player->energy > 0)
+	{
+		lowenergy.speed = 0.15f;
+		App->render->Blit(graphics2, 18, 25, &lowenergy.GetCurrentFrame(), -1.0f, false);
+	}
+
+	else if (App->player->energy == 0)
+	{
+		lowenergy.setframe(0);
+		App->render->Blit(graphics2, 18, 25, &lowenergy.GetCurrentFrame(), -1.0f, false);
+		t2++;
+	}
+
 	return UPDATE_CONTINUE;
 }
 

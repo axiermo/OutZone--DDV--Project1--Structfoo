@@ -21,10 +21,11 @@ Truck::Truck(int x, int y, int subtype) : Enemy(x, y, subtype)
 	down.PushBack({ 492, 292, 80, 123 });
 	down.PushBack({ 492, 420, 80, 124 });
 	down.PushBack({ 492, 567, 80, 125 });
-	//down.PushBack({ 520, 17 , 96, 120 });//hole
+
+	dead.PushBack({ 520, 17 , 96, 120 });//hole
 
 	down.speed = 0.1f;
-
+	lives = 40;
 	curr_animation = &down;
 
 	collider = App->collision->AddCollider({ 0, 0, 75, 120 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
@@ -93,6 +94,8 @@ void Truck::Draw()
 
 	if (!destroyed)
 		App->render->Blit(App->enemies->sprites, position.x, position.y, &(curr_animation->GetCurrentFrame()), -1.0f);
+	else 
+		App->render->Blit(App->enemies->sprites, position.x, position.y, &dead.GetCurrentFrame(), -1.0f);
 
 
 	// Green blit ----------------------------

@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Animation.h"
 #include "Globals.h"
+#include "ModuleAudio.h"
 
 struct SDL_Texture;
 
@@ -21,6 +22,9 @@ public:
 	
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* graphics2 = nullptr;
+
+	Mix_Chunk* insertcoin = nullptr;
+
 	SDL_Rect title;
 	Animation creditnums;
 	int coins = 0;
@@ -29,6 +33,9 @@ public:
 
 	float foreground_pos;
 	bool forward;
+
+	bool stop = false;
+	uint t = 0;
 };
 
 #endif // __ModuleTitle_H__
