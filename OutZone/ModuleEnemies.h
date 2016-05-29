@@ -48,7 +48,6 @@ public:
 	Mix_Chunk* small_death = nullptr;
 	Mix_Chunk* big_death = nullptr;
 	Mix_Chunk* enemy_hit = nullptr;
-	Mix_Chunk* pick_upgrade = nullptr;
 
 private:
 	void SpawnEnemy(const EnemyInfo& info);

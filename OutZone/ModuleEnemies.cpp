@@ -44,7 +44,6 @@ bool ModuleEnemies::Start()
 	small_death = App->audio->LoadFX("Audio/FX/Small_enemy_death.wav");
 	big_death = App->audio->LoadFX("Audio/FX/Big_enemy_death.wav");
 	enemy_hit = App->audio->LoadFX("Audio/FX/Enemy_hit.wav");
-	pick_upgrade = App->audio->LoadFX("Audio/FX/Pick_upgrade.wav");
 
 	return true;
 }
@@ -299,7 +298,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				}
 				if (c1->type == COLLIDER_UPGRADE)
 				{
-					//App->audio->PlayFX(pick_upgrade);
+					App->audio->PlayFX(change_weapon);
 
 					if (App->player->laser < 3) App->player->laser++;
 					delete enemies[i];
