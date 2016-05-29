@@ -20,6 +20,8 @@
 #include "BlueSoldier.h"
 #include "Mazurka.h"
 #include "Tank.h"
+#include "Bomb.h"
+
 #define SPAWN_MARGIN 50
 
 ModuleEnemies::ModuleEnemies()
@@ -35,6 +37,14 @@ bool ModuleEnemies::Start()
 {
 	sprites = App->textures->Load("Sprites/Enemies/Enemies.png");
 	sprites2 = App->textures->Load("Sprites/Enemies/Enemies2.png");
+
+	pick_energy = App->audio->LoadFX("Audio/FX/Pick_energy.wav");
+	pick_bomb = App->audio->LoadFX("Audio/FX/Pick_bomb.wav");
+	change_weapon = App->audio->LoadFX("Audio/FX/Change_weapon.wav");
+	small_death = App->audio->LoadFX("Audio/FX/Small_enemy_death.wav");
+	big_death = App->audio->LoadFX("Audio/FX/Big_enemy_death.wav");
+	enemy_hit = App->audio->LoadFX("Audio/FX/Enemy_hit.wav");
+	pick_upgrade = App->audio->LoadFX("Audio/FX/Pick_upgrade.wav");
 
 	return true;
 }
@@ -181,6 +191,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::TANK:
 			enemies[i] = new Tank(info.x, info.y, info.subtype);
 			break;
+		case ENEMY_TYPES::BOMB:
+			enemies[i] = new Bomb(info.x, info.y);
+			break;
 		}
 	}
 }
@@ -195,6 +208,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			{
 				enemies[i]->lives -= App->player->damage;
 				enemies[i]->hit = true;
+				App->audio->PlayFX(enemy_hit);
 
 				if (enemies[i]->lives < 1)
 				{
@@ -203,29 +217,46 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c1->type == COLLIDER_ENEMY) // That kind of enemy instant kill
 						{
 							App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
+							App->audio->PlayFX(small_death);
 							delete enemies[i];
 							enemies[i] = nullptr;
 						}
 						if (c1->type == COLLIDER_RED_SOLDIER) // That kind of enemy instant kill
 						{
 							App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
-							App->enemies->AddEnemy(ENEMY_TYPES::UPGRADEPOWERUP, enemies[i]->position.x + 2, enemies[i]->position.y + 10, 0);
+
+							if (x == true)
+							{
+								if (App->player->laser < 4) App->enemies->AddEnemy(ENEMY_TYPES::UPGRADEPOWERUP, enemies[i]->position.x + 2, enemies[i]->position.y + 10, 0);
+								else App->enemies->AddEnemy(ENEMY_TYPES::BOMB, enemies[i]->position.x + 2, enemies[i]->position.y + 10, 0);
+								x = false;
+							}
+							else
+							{
+								App->enemies->AddEnemy(ENEMY_TYPES::BOMB, enemies[i]->position.x + 2, enemies[i]->position.y + 10, 0);
+								x = true;
+							}
+
+							App->audio->PlayFX(small_death);
 							delete enemies[i];
 							enemies[i] = nullptr;
 						}
 						if (c1->type == COLLIDER_TURRET && enemies[i]->destroyed == false) // This one changes the animation to a hole. Will be killed by the border.
 						{
+							App->audio->PlayFX(small_death);
 							App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
 							enemies[i]->destroyed = true;
 						}
 
 						if (c1->type == COLLIDER_BIG_TURRET && enemies[i]->destroyed == false) // This one changes the animation to a hole. Will be killed by the border.
 						{
+							App->audio->PlayFX(big_death);
 							App->particles->AddParticle(App->particles->Big_NPC_explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 30, { 0, 0 }, nullrect, COLLIDER_NONE);
 							enemies[i]->destroyed = true;
 						}
 						if (c1->type == TRUCK && enemies[i]->destroyed == false) // This one changes the animation to a hole. Will be killed by the border.
 						{
+							App->audio->PlayFX(big_death);
 							App->particles->AddParticle(App->particles->Big_NPC_explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 30, { 0, 0 }, nullrect, COLLIDER_NONE);
 							enemies[i]->destroyed = true;
 						}
@@ -250,6 +281,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			{
 				if (c1->type == COLLIDER_CHANGE)
 				{
+					App->audio->PlayFX(change_weapon);
 					App->player->curr_animation = &App->player->up2;
 					App->player->weapon = !App->player->weapon;
 					delete enemies[i];
@@ -257,6 +289,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				}
 				if (c1->type == COLLIDER_ENERGY)
 				{
+					App->audio->PlayFX(pick_energy);
+
 					if (App->player->energy < 20) App->player->energy += 16;
 					else App->player->energy = 36;
 
@@ -265,7 +299,17 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				}
 				if (c1->type == COLLIDER_UPGRADE)
 				{
+					//App->audio->PlayFX(pick_upgrade);
+
 					if (App->player->laser < 3) App->player->laser++;
+					delete enemies[i];
+					enemies[i] = nullptr;
+				}
+				if (c1->type == COLLIDER_BOMB)
+				{
+					App->audio->PlayFX(pick_bomb);
+
+					App->player->bombs++;
 					delete enemies[i];
 					enemies[i] = nullptr;
 				}

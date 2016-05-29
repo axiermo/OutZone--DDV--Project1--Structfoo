@@ -19,8 +19,6 @@ Door::Door(int x, int y) : Enemy (x, y, 0)
 
 	position.x = x;
 	position.y = y;
-
-	direction = UP;
 }
 
 void Door::Draw()

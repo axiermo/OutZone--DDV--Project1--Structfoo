@@ -21,8 +21,6 @@ ChangeBox::ChangeBox(int x, int y) : Enemy(x, y, 0)
 
 	position.x = x;
 	position.y = y;
-
-
 }
 
 void ChangeBox::Draw()

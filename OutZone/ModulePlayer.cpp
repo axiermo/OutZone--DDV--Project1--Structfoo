@@ -110,6 +110,7 @@ bool ModulePlayer::Start()
 	graphics = App->textures->Load("Sprites/Character/Moves.png");
 
 	basic_laser = App->audio->LoadFX("Audio/FX/Laser.wav");
+	triple_laser = App->audio->LoadFX("Audio/FX/Laser2.wav");
 
 	if (checkpoint4 == true){
 		position.x = 114;
@@ -761,7 +762,9 @@ void ModulePlayer::Fire(Directions dir)
 	}
 
 	last_laser = SDL_GetTicks();
-	App->audio->PlayFX(basic_laser);
+	
+	if (weapon == false) App->audio->PlayFX(basic_laser);
+	else App->audio->PlayFX(triple_laser);
 }
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)

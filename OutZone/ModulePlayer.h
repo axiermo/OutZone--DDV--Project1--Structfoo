@@ -33,6 +33,7 @@ public:
 
 	SDL_Texture* graphics = nullptr;
 	Mix_Chunk* basic_laser = nullptr;
+	Mix_Chunk* triple_laser = nullptr;
 
 	Animation idle;
 	Animation up;

@@ -11,7 +11,6 @@ EnergyBox::EnergyBox(int x, int y) : Enemy(x, y, 0)
 {
 	rotate.PushBack({ 314, 508, 40, 40 }); // UP
 
-
 	lives = 2;
 
 	animation = &rotate;

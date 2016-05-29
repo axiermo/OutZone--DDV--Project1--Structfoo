@@ -7,7 +7,7 @@ class EnergyPowerUp : public Enemy
 {
 private:
 	Animation rotate;
-	uint t = 0;
+
 public:
 	EnergyPowerUp(int x, int y);
 	void Draw();

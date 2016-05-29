@@ -10,12 +10,13 @@
 #include "RedSoldier.h"
 #include "BlueSoldier.h"
 #include "Mazurka.h"
+#include "ModuleAudio.h"
 
 #define MAX_ENEMIES 100
 
 class Enemy;
 
-enum ENEMY_TYPES { NO_TYPE, GREYTURRET, DOORTURRET, BIGTURRET, DOOR, SOLDIER1, REDSOLDIER, TRUCK,TANK, BLUESOLDIER, ENERGYBOX, CHANGEBOX, UPGRADEPOWERUP, ENERGYPOWERUP, CHANGEPOWERUP, MAZURKA };
+enum ENEMY_TYPES { NO_TYPE, GREYTURRET, DOORTURRET, BIGTURRET, DOOR, SOLDIER1, REDSOLDIER, TRUCK,TANK, BLUESOLDIER, ENERGYBOX, CHANGEBOX, UPGRADEPOWERUP, ENERGYPOWERUP, CHANGEPOWERUP, MAZURKA, BOMB };
 
 struct EnemyInfo
 {
@@ -41,9 +42,17 @@ public:
 	SDL_Texture* sprites;
 	SDL_Texture* sprites2;
 
-private:
+	Mix_Chunk* change_weapon = nullptr;
+	Mix_Chunk* pick_bomb = nullptr;
+	Mix_Chunk* pick_energy = nullptr;
+	Mix_Chunk* small_death = nullptr;
+	Mix_Chunk* big_death = nullptr;
+	Mix_Chunk* enemy_hit = nullptr;
+	Mix_Chunk* pick_upgrade = nullptr;
 
+private:
 	void SpawnEnemy(const EnemyInfo& info);
+	bool x = true;
 
 private:
 

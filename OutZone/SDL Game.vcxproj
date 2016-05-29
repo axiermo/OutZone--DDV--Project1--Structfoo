@@ -73,6 +73,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="BigTurret.h" />
     <ClInclude Include="BlueSoldier.h" />
+    <ClInclude Include="Bomb.h" />
     <ClInclude Include="ChangeBox.h" />
     <ClInclude Include="ChangePowerUp.h" />
     <ClInclude Include="Door.h" />
@@ -113,6 +114,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BigTurret.cpp" />
     <ClCompile Include="BlueSoldier.cpp" />
+    <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="ChangeBox.cpp" />
     <ClCompile Include="ChangePowerUp.cpp" />
     <ClCompile Include="Door.cpp" />
