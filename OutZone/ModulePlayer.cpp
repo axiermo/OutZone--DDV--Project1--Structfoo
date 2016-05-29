@@ -141,8 +141,8 @@ bool ModulePlayer::Start()
 
 	self = App->collision->AddCollider({ position.x + 9, position.y + 1, 12, 29 }, COLLIDER_PLAYER, this);
 
-	font_score = App->fonts->Load("OutZoneScoreFont.png", "!_#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz^ ", 1);
-	font_score = App->fonts->Load("OutZoneScoreFontGreen.png", "!_#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz^ ", 1);
+	font_score = App->fonts->Load("Sprites/Fonts/OutZoneScoreFont.png", "!_#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz^ ", 1);
+	
 	last_laser = SDL_GetTicks();
 	return ret;
 }

@@ -21,7 +21,9 @@ ModuleLevel1f::ModuleLevel1f()
 
 	lives.PushBack({ 107, 4, 8, 16 });
 
-	player1lives.PushBack({ 20, 4, 8, 16 });
+	for (int i = 0; i < 10; i++){
+		player1lives.PushBack({ 4 + i * 8, 4, 8, 15 });
+	}
 
 	player1blink.PushBack({ 138, 16, 56, 8 });
 	player1blink.PushBack({ 0, 0, 0, 0 });
@@ -65,14 +67,14 @@ update_status ModuleLevel1f::Update()
 {
 	//World
 	App->render->Blit(graphics, 0, -3850, &World1, -1.0f);
-
+	player1lives.setframe(App->player->lives);
 
 	//UI
 	sprintf_s(App->player->score_text, 10, "%7d", App->player->score);
 
 
 	App->render->Blit(graphics2, 160, 0, &insertcoin.GetCurrentFrame(), -1.0f, false);
-	App->render->Blit(graphics2, 8, 1, &player1lives.GetCurrentFrame(), -1.0f, false);
+	App->render->Blit(graphics2, 8, 1, &player1lives.GetActualFrame(), -1.0f, false);
 	App->render->Blit(graphics2, 0, 0, &lives.GetCurrentFrame(), -1.0f, false);
 	
 	App->fonts->Blit(24, 8, 0, App->player->score_text);

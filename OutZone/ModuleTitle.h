@@ -20,8 +20,13 @@ public:
 public:
 	
 	SDL_Texture* graphics = nullptr;
+	SDL_Texture* graphics2 = nullptr;
 	SDL_Rect title;
-	
+	Animation creditnums;
+	int coins = 0;
+	Animation credit;
+	Animation pushstart;
+
 	float foreground_pos;
 	bool forward;
 };
