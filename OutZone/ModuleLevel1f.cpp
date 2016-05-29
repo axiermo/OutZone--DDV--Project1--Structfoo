@@ -31,6 +31,10 @@ ModuleLevel1f::ModuleLevel1f()
 
 	energybar.PushBack({ 4, 71, 92, 8 });
 	energy.PushBack({ 101, 71, 1, 8 });
+
+	goahead.PushBack({ 4, 87, 50, 48 });
+	goahead.PushBack({ 0, 0, 0, 0 });
+	goahead.speed = 0.1f;
 }
 
 ModuleLevel1f::~ModuleLevel1f()
@@ -79,19 +83,32 @@ update_status ModuleLevel1f::Update()
 	App->render->Blit(graphics2, 24, 1, &player1blink.GetCurrentFrame(), -1.0f, false);
 	App->render->Blit(graphics2, 0, 16, &energybar.GetCurrentFrame(), -1.0f, false);
 
-	if (App->player->score < 200000){
+	if (App->player->score < 200000)
+	{
 		App->fonts->Blit(96, 8, 0, "200000");
 	}
-	else{
+	else
+	{
 		App->fonts->Blit(96, 8, 0, App->player->score_text);
 	}
 
-	for (int i = 0; i < App->player->bombs; i++){
+	for (int i = 0; i < App->player->bombs; i++)
+	{
 		App->render->Blit(graphics2, i * 8, SCREEN_HEIGHT - 16, &bomb.GetCurrentFrame(), -1.0f, false);
 	}
-	for (int i = 0; i < App->player->energy; i++){
+	for (int i = 0; i < App->player->energy; i++)
+	{
 		App->render->Blit(graphics2, 18 + i * 2, 16, &energy.GetCurrentFrame(), -1.0f, false);
 	}
+
+	if (App->player->position.y > 160 + (App->render->camera.y / -2))
+	{
+		t++;
+		if (t > 300)
+			App->render->Blit(graphics2, SCREEN_WIDTH / 2 - 25, 50, &goahead.GetCurrentFrame(), -1.0f, false);
+	}
+	else
+		t = 0;
 	return UPDATE_CONTINUE;
 }
 

@@ -7,7 +7,7 @@ class ChangeBox : public Enemy
 {
 private:
 	Animation rotate;
-
+	uint t = 0;
 
 public:
 	ChangeBox(int x, int y);

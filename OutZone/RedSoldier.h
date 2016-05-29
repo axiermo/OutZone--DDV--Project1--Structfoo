@@ -34,7 +34,7 @@ public:
 	RedSoldier(int x, int y, int subtype);
 	iPoint movementAI();
 
-
+	uint t = 0;
 	uint next_shoot;
 	uint last_shoot;
 

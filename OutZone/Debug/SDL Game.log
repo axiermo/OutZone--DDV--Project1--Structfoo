@@ -1,21 +1,11 @@
-<<<<<<< HEAD
-﻿Build started 28/05/2016 20:47:22.
-     1>Project "C:\Users\Usuario\Desktop\OutZone--DDV--Project1--Structfoo\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
+﻿Build started 29/05/2016 3:05:40.
+     1>Project "C:\Users\Marc\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModuleLevel1b.cpp
-         ModuleLevel1b.cpp
-=======
-﻿Build started 27/05/2016 23:26:27.
-     1>Project "C:\Users\Viriato\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Mazurka.cpp
-         Mazurka.cpp
-     1>c:\users\viriato\documents\github\outzone--ddv--project1--structfoo\outzone\mazurka.cpp(19): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\viriato\documents\github\outzone--ddv--project1--structfoo\outzone\mazurka.cpp(275): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\viriato\documents\github\outzone--ddv--project1--structfoo\outzone\mazurka.cpp(277): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
->>>>>>> origin/master
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModulePlayer.cpp
+         ModulePlayer.cpp
+     1>c:\users\marc\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(309): warning C4018: '>' : signed/unsigned mismatch
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Usuario\Desktop\OutZone--DDV--Project1--Structfoo\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Usuario\Desktop\OutZone--DDV--Project1--Structfoo\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Usuario\Desktop\OutZone--DDV--Project1--Structfoo\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.lib" /MACHINE:X86 Debug\Application.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Marc\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Marc\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Marc\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.lib" /MACHINE:X86 Debug\Application.obj
          Debug\BigTurret.obj
          Debug\BlueSoldier.obj
          Debug\ChangeBox.obj
@@ -50,13 +40,9 @@
          Debug\Tank.obj
          Debug\Truck.obj
          Debug\UpgradePowerUp.obj
-         SDL Game.vcxproj -> C:\Users\Usuario\Desktop\OutZone--DDV--Project1--Structfoo\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe
-     1>Done Building Project "C:\Users\Usuario\Desktop\OutZone--DDV--Project1--Structfoo\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
+         SDL Game.vcxproj -> C:\Users\Marc\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe
+     1>Done Building Project "C:\Users\Marc\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-<<<<<<< HEAD
-Time Elapsed 00:00:00.81
-=======
-Time Elapsed 00:00:00.46
->>>>>>> origin/master
+Time Elapsed 00:00:00.59

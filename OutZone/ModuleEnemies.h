@@ -39,6 +39,7 @@ public:
 	void OnCollision(Collider* c1, Collider* c2);
 	bool AddEnemy(ENEMY_TYPES type, int x, int y, int subtype);
 	SDL_Texture* sprites;
+	SDL_Texture* sprites2;
 
 private:
 

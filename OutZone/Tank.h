@@ -15,7 +15,7 @@ private:
 	iPoint original_pos;
 	Animation tankanim;
 	
-	
+	uint t = 0;
 
 	Path path;
 	Directions direction;

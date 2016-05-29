@@ -9,7 +9,7 @@ private:
 	bool going_up = true;
 	Animation anim;
 	Directions direction;
-
+	uint t = 0;
 public:
 	Door(int x, int y);
 	void Move(){};

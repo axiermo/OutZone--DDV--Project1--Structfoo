@@ -36,6 +36,7 @@ public:
 	Soldier1(int x, int y, int subtype);
 	uint next_shoot;
 	uint last_shoot;
+	uint t = 0;
 
 	void Move();
 	void Shoot();

@@ -34,6 +34,7 @@ ModuleEnemies::~ModuleEnemies()
 bool ModuleEnemies::Start()
 {
 	sprites = App->textures->Load("Sprites/Enemies/Enemies.png");
+	sprites2 = App->textures->Load("Sprites/Enemies/Enemies2.png");
 
 	return true;
 }
@@ -193,6 +194,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			if ((c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_EXPLOSION) && enemies[i]->lives > 0)
 			{
 				enemies[i]->lives -= App->player->damage;
+				enemies[i]->hit = true;
 
 				if (enemies[i]->lives < 1)
 				{
@@ -233,6 +235,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					}
 				}
 			}
+			
+
 
 			if (c2->type == COLLIDER_BORDER)
 			{

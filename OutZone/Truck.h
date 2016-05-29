@@ -20,7 +20,7 @@ private:
 
 	void SelectAnimation(Directions direction);
 
-
+	uint t = 0;
 	Animation* curr_animation = nullptr;
 	Animation* last_animation = nullptr;
 

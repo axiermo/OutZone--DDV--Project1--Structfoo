@@ -8,7 +8,7 @@ class UpgradePowerUp : public Enemy
 private:
 
 	Animation rotate;
-
+	uint t = 0;
 public:
 
 	UpgradePowerUp(int x, int y);

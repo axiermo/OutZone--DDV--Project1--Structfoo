@@ -188,6 +188,7 @@ void BigTurret::Draw()
 		collider->type = COLLIDER_DEAD;
 
 	// Drawing correct anim of the turret depending on the damage received.
+	
 	if (left)
 	{
 		if (!destroyed && lives <= 12 && lives > 8)
@@ -198,6 +199,18 @@ void BigTurret::Draw()
 			(!destroyed && lives > 12) App->render->Blit(App->enemies->sprites, position.x, position.y, &anim.GetActualFrame(), -1.0f);
 		else
 			App->render->Blit(App->enemies->sprites, position.x - 10, position.y, &dead.GetCurrentFrame(), -1.0f);
+
+		if (!destroyed && hit == true)  
+		{
+			App->render->Blit(App->enemies->sprites2, position.x, position.y, &anim.GetActualFrame(), -1.0f);
+			t++;
+
+			if (t == 5)
+			{
+				hit = false;
+				t = 0;
+			}
+		}
 	}
 	else
 	{
@@ -209,5 +222,17 @@ void BigTurret::Draw()
 			(!destroyed && lives > 12) App->render->Blit(App->enemies->sprites, position.x, position.y, &anim.GetActualFrame(), -1.0f);
 		else
 			App->render->Blit(App->enemies->sprites, position.x - 10, position.y, &dead.GetCurrentFrame(), -1.0f);
+
+		if (!destroyed && hit == true)
+		{
+			App->render->Blit(App->enemies->sprites2, position.x, position.y, &anim.GetActualFrame(), -1.0f);
+			t++;
+
+			if (t == 5)
+			{
+				hit = false;
+				t = 0;
+			}
+		}
 	}
 }

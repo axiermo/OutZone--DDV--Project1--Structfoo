@@ -22,6 +22,7 @@ public:
 	int subtype;
 	bool destroyed = false;
 	bool appeared = false;
+	bool hit = false;
 
 public:
 	Enemy(int x, int y, int subtype);

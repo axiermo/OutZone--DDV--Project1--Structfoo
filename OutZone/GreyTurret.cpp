@@ -271,7 +271,21 @@ void GreyTurret::Draw()
 		collider->SetPos(position.x - 1, position.y + 14);
 	}
 
-	if (!destroyed) App->render->Blit(App->enemies->sprites, position.x, position.y, &rotate.GetActualFrame(),-1.0f);
+	if (!destroyed)
+	{
+		if (hit == false) App->render->Blit(App->enemies->sprites, position.x, position.y, &rotate.GetActualFrame(), -1.0f);
+		else
+		{
+			App->render->Blit(App->enemies->sprites2, position.x, position.y, &rotate.GetActualFrame(), -1.0f);
+			t++;
+
+			if (t == 5)
+			{
+				hit = false;
+				t = 0;
+			}
+		}
+	}
 	else
 	{
 		rotate.setframe(17);

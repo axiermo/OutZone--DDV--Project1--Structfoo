@@ -11,13 +11,14 @@ private:
 	iPoint original_pos;
 	Animation dead;
 	Animation mazurka;
-	Animation hit;
+	Animation hit2;
 	Path path;
 	Directions direction;
 public:
 	Mazurka(int x, int y, int subtype);
 	uint next_shoot;
 	uint last_shoot;
+	uint t = 0;
 	void Move();
 	void Shoot();
 	void Draw();

@@ -415,24 +415,19 @@ update_status ModuleLevel1b::Update()
 
 	}
 
-
-	/*if ((App->player->position.y) < 160 && wave31)
+	if (App->player->position.y < -2000 && wave31)
 	{
-		uint numtanks = 0;
-		uint t0;
-		uint t1=0;
+		if (numtanks == 4) wave31 = false;
+
 		t0 = SDL_GetTicks();
-		wave31 = false;
-		while (numtanks < 4){
-			t0 = SDL_GetTicks();
-			while ((t0 - t1) > 3000) 
-			{
-				t1 = SDL_GetTicks();
-				App->enemies->AddEnemy(ENEMY_TYPES::TANK, 200, 90, 1);
-				numtanks++;
-			}
+		if (t0 - t1 > 1600 && numtanks < 4)
+		{
+			App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2300, 1);
+			numtanks++;
+			t1 = SDL_GetTicks();
 		}
-	}*/
+	}
+
 	if ((App->player->position.y) < -2450 && wave32){
 		wave32 = false;
 		//truck one

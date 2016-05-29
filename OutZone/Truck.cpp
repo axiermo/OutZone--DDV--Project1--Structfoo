@@ -22,13 +22,12 @@ Truck::Truck(int x, int y, int subtype) : Enemy(x, y, subtype)
 	down.PushBack({ 492, 420, 80, 124 });
 	down.PushBack({ 492, 567, 80, 125 });
 	//down.PushBack({ 520, 17 , 96, 120 });//hole
-	
 
 	down.speed = 0.1f;
 
 	curr_animation = &down;
 
-	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 75, 120 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	switch (subtype)
 	{
@@ -89,14 +88,25 @@ void Truck::Draw()
 	if (collider != nullptr && !destroyed)
 		collider->SetPos(position.x, position.y);
 	else
-	{
 		collider->type = COLLIDER_DEAD;
-		collider->SetPos(position.x - 1, position.y + 14);
-	}
+
+
 	if (!destroyed)
 		App->render->Blit(App->enemies->sprites, position.x, position.y, &(curr_animation->GetCurrentFrame()), -1.0f);
-	else
-		down.setframe(5);//hole
-		App->render->Blit(App->enemies->sprites, position.x - 1, position.y + 14, &down.GetCurrentFrame(), -1.0f);
 
+
+	// Green blit ----------------------------
+
+	if (hit == false) App->render->Blit(App->enemies->sprites, position.x, position.y, &(curr_animation->GetCurrentFrame()), -1.0f);
+	else
+	{
+		App->render->Blit(App->enemies->sprites2, position.x, position.y, &curr_animation->GetActualFrame(), -1.0f);
+		t++;
+
+		if (t == 5)
+		{
+			hit = false;
+			t = 0;
+		}
+	}
 }

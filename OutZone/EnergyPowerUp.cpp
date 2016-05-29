@@ -28,5 +28,16 @@ void EnergyPowerUp::Draw()
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
 
-	App->render->Blit(App->enemies->sprites, position.x, position.y, &rotate.GetCurrentFrame(), -1.0f);
+	if (hit == false) App->render->Blit(App->enemies->sprites, position.x, position.y, &(rotate.GetCurrentFrame()), -1.0f);
+	else
+	{
+		App->render->Blit(App->enemies->sprites2, position.x, position.y, &rotate.GetActualFrame(), -1.0f);
+		t++;
+
+		if (t == 5)
+		{
+			hit = false;
+			t = 0;
+		}
+	}
 }

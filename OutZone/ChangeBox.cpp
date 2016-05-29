@@ -13,7 +13,6 @@ ChangeBox::ChangeBox(int x, int y) : Enemy(x, y, 0)
 {
 	rotate.PushBack({ 363, 510, 32, 32 }); // UP
 
-
 	lives = 2;
 
 	animation = &rotate;

@@ -49,7 +49,7 @@ public:
 	bool wave30;
 	bool wave31;
 	bool wave32;
-	bool wave33;//first truck
+	bool wave33; //first truck
 	bool wave34;
 	bool wave35;
 	bool wave36;
@@ -59,6 +59,8 @@ public:
 	bool wave40;
 	bool wave41;
 	bool wave42;
+
+	uint t0, t1 = 0, numtanks = 0;
 
 public:
 	Collider* lborder;

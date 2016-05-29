@@ -31,6 +31,9 @@ public:
 	Animation bomb;
 	Animation energy;
 	Animation energybar;
+	Animation goahead;
+
+	uint t = 0;
 };
 
 #endif // __ModuleLevel1f_H__

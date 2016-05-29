@@ -165,16 +165,14 @@ update_status ModulePlayer::Update()
 	{
 	case false: // 1st weapon
 		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
-			if (position.x < SCREEN_WIDTH - 30)
 				SelectAnimation(direction = RIGHT);
 
 		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
-			if (position.x > 0)
 				SelectAnimation(direction = LEFT);
 
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE)
 		{
-			if (position.y < 160 + (App->render->camera.y / -2) && position.y>-3650 )
+			if (position.y < 160 + (App->render->camera.y / -2) && position.y > - 3650)
 			{
 				App->render->camera.y += speed;
 			}
@@ -186,10 +184,7 @@ update_status ModulePlayer::Update()
 
 		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
 		{
-			if (position.y < (App->render->camera.y / -2) + 288)
-			{
-				SelectAnimation(direction = DOWN);
-			}
+			SelectAnimation(direction = DOWN);
 
 			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = DOWN_LEFT);
 			else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE) SelectAnimation(direction = DOWN_RIGHT);
@@ -197,16 +192,14 @@ update_status ModulePlayer::Update()
 		break;
 	case true: // 2nd weapon
 		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
-			if (position.x < SCREEN_WIDTH - 30)
 				SelectAnimation(direction = RIGHT);
 
 		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE && (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE || App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE))
-			if (position.x > 0)
 				SelectAnimation(direction = LEFT);
 
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE)
 		{
-			if (position.y < 160 + (App->render->camera.y / -2))
+			if (position.y < 160 + (App->render->camera.y / -2) && position.y > -3650)
 			{
 				App->render->camera.y += speed;
 			}
@@ -215,10 +208,7 @@ update_status ModulePlayer::Update()
 
 		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
 		{
-			if (position.y < (App->render->camera.y / -2) + 288)
-			{
 				SelectAnimation(direction = DOWN);
-			}
 		}
 		break;
 	}
@@ -371,7 +361,7 @@ void ModulePlayer::SelectAnimation(Directions direction)
 			else if (last_animation == &downleft) curr_animation = &left;
 			else if (last_animation == &down) curr_animation = &downright;
 			else curr_animation = &up;
-			position.y -= speed;
+			if (position.y > -3805) position.y -= speed;
 			break;
 		case DOWN:
 			if (last_animation == &left) curr_animation = &downleft;
@@ -380,7 +370,7 @@ void ModulePlayer::SelectAnimation(Directions direction)
 			else if (last_animation == &upleft) curr_animation = &left;
 			else if (last_animation == &up) curr_animation = &upleft;
 			else curr_animation = &down;
-			position.y += speed;
+			if (position.y < (App->render->camera.y / -2) + 288) position.y += speed;
 			break;
 		case LEFT:
 			if (last_animation == &up) curr_animation = &upleft;
@@ -389,7 +379,7 @@ void ModulePlayer::SelectAnimation(Directions direction)
 			else if (last_animation == &upright) curr_animation = &up;
 			else if (last_animation == &down) curr_animation = &downleft;
 			else curr_animation = &left;
-			position.x -= speed;
+			if (position.x > 0) position.x -= speed;
 			break;
 		case RIGHT:
 			if (last_animation == &up) curr_animation = &upright;
@@ -398,7 +388,7 @@ void ModulePlayer::SelectAnimation(Directions direction)
 			else if (last_animation == &upleft) curr_animation = &up;
 			else if (last_animation == &down) curr_animation = &downright;
 			else curr_animation = &right;
-			position.x += speed;
+			if (position.x < SCREEN_WIDTH - 30) position.x += speed;
 			break;
 		case UP_LEFT:
 			if (last_animation == &upright) curr_animation = &up;
@@ -439,19 +429,19 @@ void ModulePlayer::SelectAnimation(Directions direction)
 		{
 		case UP:
 			curr_animation = &up2;
-			position.y -= speed;
+			if (position.y > -3805) position.y -= speed;
 			break;
 		case DOWN:
 			curr_animation = &down2;
-			position.y += speed;
+			if (position.y < (App->render->camera.y / -2) + 288) position.y += speed;
 			break;
 		case LEFT:
 			curr_animation = &left2;
-			position.x -= speed;
+			if (position.x > 0) position.x -= speed;
 			break;
 		case RIGHT:
 			curr_animation = &right2;
-			position.x += speed;
+			if (position.x < SCREEN_WIDTH - 30) position.x += speed;
 			break;
 		}
 		break;
