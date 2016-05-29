@@ -469,7 +469,7 @@ void RedSoldier::Draw()
 		App->render->Blit(App->enemies->sprites2, position.x, position.y, &curr_animation->GetActualFrame(), -1.0f);
 		t++;
 
-		if (t == 5)
+		if (t == 3)
 		{
 			hit = false;
 			t = 0;

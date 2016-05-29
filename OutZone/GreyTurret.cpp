@@ -279,7 +279,7 @@ void GreyTurret::Draw()
 			App->render->Blit(App->enemies->sprites2, position.x, position.y, &rotate.GetActualFrame(), -1.0f);
 			t++;
 
-			if (t == 5)
+			if (t == 3)
 			{
 				hit = false;
 				t = 0;
