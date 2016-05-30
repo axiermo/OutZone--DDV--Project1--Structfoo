@@ -56,7 +56,7 @@ public:
 	char score_text[10];
 	uint score = 0;
 	uint bombs = 3;
-	int energy = 36;
+	int energy = 8;
 	int lives = 2;
 
 	uint t0;

@@ -273,7 +273,7 @@ update_status ModulePlayer::Update()
 			if (energy > 0) energy--;
 			t1 = SDL_GetTicks();
 		}
-		if (App->scene_level1f->t2 > 100 && energy == 0)
+		if (App->scene_level1f->t2 > 200 && energy == 0)
 		{
 			curr_animation = &lowenergydead;
 			if (App->scene_level1f->t2 > 200) App->player->destroyed = true;
@@ -330,7 +330,7 @@ update_status ModulePlayer::Update()
 
 	if (direction != IDLE)
 		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetCurrentFrame()), -1.0f);
-	else if (App->scene_level1f->t2 > 100 && energy == 0)
+	else if (App->scene_level1f->t2 > 200 && energy == 0)
 		App->render->Blit(graphics, position.x - 3, position.y - 20, &(curr_animation->GetCurrentFrame()), -1.0f);
 	else
 		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetActualFrame()), -1.0f);

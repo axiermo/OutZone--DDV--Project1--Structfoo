@@ -40,7 +40,7 @@ bool ModuleTitle::Start()
 {
 	LOG("Loading first scene");
 	App->player->score = 0;
-	App->player->energy = 36;
+	App->player->energy = 8;
 
 	stop = false;
 	t = 0;

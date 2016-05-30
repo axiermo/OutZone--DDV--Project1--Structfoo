@@ -36,7 +36,7 @@ public:
 
 	Mix_Chunk* low_energy = nullptr;
 
-	uint t = 0, t2 = 0;
+	uint t = 0, t1 = 0, t2 = 0, t3 = 0, t4 = 0, t5 = 0;
 	bool played = false;
 };
 

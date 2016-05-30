@@ -50,8 +50,9 @@ bool ModuleLevel1f::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	t2 = 0;
-	t = 0;
+	
+	t = 0, t1 = 0, t2 = 0, t3 = 21, t4 = 13, t5 = 0;
+
 	graphics = App->textures->Load("Sprites/Maps/map1_foreground.png");
 	graphics2 = App->textures->Load("Sprites/UI/UI.png");
 	low_energy = App->audio->LoadFX("Audio/FX/Low_energy.wav");
@@ -124,24 +125,48 @@ update_status ModuleLevel1f::Update()
 	if (App->player->energy < 8 && App->player->energy > 5)
 	{
 		App->render->Blit(graphics2, 18, 25, &lowenergy.GetCurrentFrame(), -1.0f, false);
+		if (t1 == 35)
+		{
+			App->audio->PlayFX(low_energy);
+			t1 = 0;
+		}
+		t1++;
 	}
 
 	else if (App->player->energy < 6 && App->player->energy > 2)
 	{
-		lowenergy.speed = 0.1f;
+		lowenergy.speed = 0.09f;
 		App->render->Blit(graphics2, 18, 25, &lowenergy.GetCurrentFrame(), -1.0f, false);
+		if (t3 == 28)
+		{
+			App->audio->PlayFX(low_energy);
+			t3 = 0;
+		}
+		t3++;
 	}
 
 	else if (App->player->energy < 3 && App->player->energy > 0)
 	{
 		lowenergy.speed = 0.15f;
 		App->render->Blit(graphics2, 18, 25, &lowenergy.GetCurrentFrame(), -1.0f, false);
+		if (t4 == 16)
+		{
+			App->audio->PlayFX(low_energy);
+			t4 = 0;
+		}
+		t4++;
 	}
 
 	else if (App->player->energy == 0)
 	{
 		lowenergy.setframe(0);
 		App->render->Blit(graphics2, 18, 25, &lowenergy.GetCurrentFrame(), -1.0f, false);
+		if (t5 == 9 && t2 < 200)
+		{
+			App->audio->PlayFX(low_energy);
+			t5 = 0;
+		}
+		t5++;
 		t2++;
 	}
 
