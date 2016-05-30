@@ -793,11 +793,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 
-	if (self == c1 && self != nullptr && self->type == COLLIDER_PLAYER && c2->type == COLLIDER_ENEMY_SHOT && !destroyed)
+	if (self == c1 && self != nullptr && self->type == COLLIDER_PLAYER && (c2->type == COLLIDER_ENEMY_SHOT || c2->type == COLLIDER_ENEMY) && !destroyed)
 	{
 		App->explosion->AddExplosion(App->explosion->Player, position.x - 30, position.y - 30, { 0, 0 }, { 0, 0, 105, 115 }, COLLIDER_EXPLOSION);
 		destroyed = true;
 		Disable();
-		lives--;
-	}
+		}
 }

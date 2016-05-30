@@ -11,6 +11,7 @@
 #include "ModuleGameOver.h"
 #include "ModuleEnemies.h"
 #include "Enemy.h"
+#include "ModuleTitle.h"
 
 ModuleLevel1b::ModuleLevel1b()
 {
@@ -25,7 +26,8 @@ bool ModuleLevel1b::Start()
 	
 	LOG("Loading background assets");
 	bool ret = true;
-
+	App->player->lives--;
+	App->player->energy = 36;
 	if (App->player->checkpoint1 == true || App->player->checkpoint2 == true || App->player->checkpoint3 == true || App->player->checkpoint4 == true){
 		App->render->camera.y = App->player->position.y + 3850;
 	}
@@ -224,7 +226,17 @@ update_status ModuleLevel1b::Update()
 
 	if (App->player->destroyed)//change to 0 lives
 	{
+		if (App->player->lives > 0){
+			
+			App->player->destroyed = false;
+			
+			App->fade->FadeToBlack(App->scene_level1b, App->scene_level1b, 2.0);
+			
+			
+		}
+		else{
 		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 2.0);
+		}
 	}
 
 	if ((App->player->position.y) < 160 && wave1){
