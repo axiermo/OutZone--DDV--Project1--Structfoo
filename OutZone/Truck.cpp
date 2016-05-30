@@ -22,14 +22,18 @@ Truck::Truck(int x, int y, int subtype) : Enemy(x, y, subtype)
 	down.PushBack({ 492, 420, 80, 124 });
 	down.PushBack({ 492, 567, 80, 125 });
 
-	dead.PushBack({ 520, 17 , 96, 120 });//hole
+	stop.PushBack({ 492, 164, 80, 124 });
+
+	wheels.PushBack({ 315, 584, 66, 24 });
+	
+	dead.PushBack({ 520, 17, 96, 120});//hole
 
 	down.speed = 0.1f;
 	lives = 40;
 	curr_animation = &down;
 
-	collider = App->collision->AddCollider({ 0, 0, 75, 120 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
-
+	collider = App->collision->AddCollider({ 0, 0, 75, 120 }, COLLIDER_TYPE::COLLIDER_TRUCK, (Module*)App->enemies);
+	
 	switch (subtype)
 	{
 	case 1:
@@ -37,7 +41,7 @@ Truck::Truck(int x, int y, int subtype) : Enemy(x, y, subtype)
 		break;
 	case 2:
 		path.PushBack({ 0.0f, 1.3f }, 150, &down);
-		path.PushBack({ 0.0f, 0.0f }, 150, &down);
+		path.PushBack({ 0.0f, 0.0f }, 150, &stop);
 		path.PushBack({ 0.0f, 0.9f }, 500, &down);
 		break;
 
@@ -63,19 +67,28 @@ void Truck::SelectAnimation(Directions direction)
 		curr_animation = &stop;
 		position.y += 0;
 		break;
+	case UP://dead
+		curr_animation = &dead;
+		position.y += 0;
+		break;
 
-	//case DOWN_RIGHT:
-		//curr_animation = &downright;
-		//break;
 	}
 }
 //TODO
 void Truck::Move()
 {
-
+	if (!path.Moving() && !destroyed)
+		SelectAnimation(IDLE);
+	
+	else if (!destroyed)
+		SelectAnimation(DOWN);
+	else
+		SelectAnimation(UP);
+	
 
 
 	// Move with the path
+	if (!destroyed)
 	position = original_pos + path.GetCurrentSpeed();
 
 
@@ -89,27 +102,30 @@ void Truck::Draw()
 	if (collider != nullptr && !destroyed)
 		collider->SetPos(position.x, position.y);
 	else
+	{
+		collider->rect.h = 1;
 		collider->type = COLLIDER_DEAD;
 
-
-	if (!destroyed)
-		App->render->Blit(App->enemies->sprites, position.x, position.y, &(curr_animation->GetCurrentFrame()), -1.0f);
-	else 
-		App->render->Blit(App->enemies->sprites, position.x, position.y, &dead.GetCurrentFrame(), -1.0f);
-
+	}
+		
 
 	// Green blit ----------------------------
-
-	if (hit == false) App->render->Blit(App->enemies->sprites, position.x, position.y, &(curr_animation->GetCurrentFrame()), -1.0f);
-	else
-	{
-		App->render->Blit(App->enemies->sprites2, position.x, position.y, &curr_animation->GetActualFrame(), -1.0f);
-		t++;
-
-		if (t == 3)
+	if (!destroyed){
+		if (hit == false)
+			App->render->Blit(App->enemies->sprites, position.x, position.y, &(curr_animation->GetCurrentFrame()), -1.0f);
+		else
 		{
-			hit = false;
-			t = 0;
+			App->render->Blit(App->enemies->sprites2, position.x, position.y, &curr_animation->GetActualFrame(), -1.0f);
+			t++;
+
+			if (t == 3)
+			{
+				hit = false;
+				t = 0;
+			}
 		}
 	}
+	else
+		App->render->Blit(App->enemies->sprites, position.x - 15, position.y, &(dead.GetCurrentFrame()), -1.0f);
+	
 }

@@ -14,6 +14,7 @@ private:
 	iPoint original_pos;
 	Animation up;
 	Animation down;
+	Animation wheels;
 	Animation stop;
 	Animation dead;
 	Path path;

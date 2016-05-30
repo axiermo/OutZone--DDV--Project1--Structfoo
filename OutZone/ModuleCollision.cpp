@@ -317,6 +317,9 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_RED_SOLDIER: // red
 			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
 			break;
+		case COLLIDER_TRUCK: 
+			App->render->DrawQuad(colliders[i]->rect, 255,40, 20, alpha);
+			break;
 		}
 	}
 }
