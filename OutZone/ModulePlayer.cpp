@@ -131,32 +131,15 @@ bool ModulePlayer::Start()
 	basic_laser = App->audio->LoadFX("Audio/FX/Laser.wav");
 	triple_laser = App->audio->LoadFX("Audio/FX/Laser2.wav");
 
-	if (checkpoint4 == true){
-		position.x = 114;
-		position.y = -3338;
-	}
-	else if (checkpoint3 == true){
-		position.x = 113;
-		position.y = -2246;
-	}
-	else if (checkpoint2 == true){
-		position.x = 139;
-		position.y = -1346;
-	}
-	else if (checkpoint1 == true){
-		position.x = 75;
-		position.y = -734;
-	}
-	else{
-		position.x = 100;
-		position.y = 220;
-	}
+	position.x = 100;
+	position.y = 220;
 
 	curr_animation = &up;
 
 	weapon = false;
 	laser = 1;
 	damage = 2;
+	bombs = 3;
 
 	self = App->collision->AddCollider({ position.x + 9, position.y + 1, 12, 29 }, COLLIDER_PLAYER, this);
 

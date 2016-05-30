@@ -48,6 +48,7 @@ bool ModuleTitle::Start()
 	graphics = App->textures->Load("Sprites/Maps/Intro.png");
 	graphics2 = App->textures->Load("Sprites/UI/UIIntro.png");
 	insertcoin = App->audio->LoadFX("Audio/FX/Coin.wav");
+
 	App->player->Disable();
 	App->collision->Disable();
 	App->scene_gameover->Disable();

@@ -45,6 +45,8 @@ bool ModuleEnemies::Start()
 	big_death = App->audio->LoadFX("Audio/FX/Big_enemy_death.wav");
 	enemy_hit = App->audio->LoadFX("Audio/FX/Enemy_hit.wav");
 
+	x = true;
+
 	return true;
 }
 
@@ -103,6 +105,7 @@ bool ModuleEnemies::CleanUp()
 	LOG("Freeing all enemies");
 
 	App->textures->Unload(sprites);
+	App->textures->Unload(sprites2);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{

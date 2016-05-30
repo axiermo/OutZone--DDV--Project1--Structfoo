@@ -33,11 +33,12 @@ ModuleGameOver::~ModuleGameOver()
 bool ModuleGameOver::Start()
 {
 	LOG("Loading first scene");
-	App->particles->Disable();
+
 	graphics = App->textures->Load("Sprites/Maps/outzonegg.png");
 	graphics2 = App->textures->Load("Sprites/UI/UI.png");
 	soundtrack = App->audio->LoadMusic("Audio/Music/Game_over.ogg");
 	App->audio->PlayMusic0(soundtrack);
+
 	return true;
 }
 
@@ -45,6 +46,7 @@ bool ModuleGameOver::CleanUp()
 {
 	LOG("Unloading title scene");
 	App->textures->Unload(graphics);
+	App->textures->Unload(graphics2);
 	
 	return true;
 }

@@ -64,8 +64,6 @@ public:
 	uint tt0;
 	uint tt1;
 
-	bool checkpoint1 = false, checkpoint2 = false, checkpoint3 = false, checkpoint4 = false;
-
 	Animation* curr_animation = nullptr;
 	Animation* last_animation = nullptr;
 	Animation* aux = nullptr;

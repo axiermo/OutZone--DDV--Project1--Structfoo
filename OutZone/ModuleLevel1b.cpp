@@ -28,13 +28,10 @@ bool ModuleLevel1b::Start()
 	bool ret = true;
 	App->player->lives--;
 	App->player->energy = 36;
-	if (App->player->checkpoint1 == true || App->player->checkpoint2 == true || App->player->checkpoint3 == true || App->player->checkpoint4 == true){
-		App->render->camera.y = App->player->position.y + 3850;
-	}
-	else{
+
 		App->render->camera.y = 0;
-	}
-	App->particles->Enable();
+	
+
 	wave1 = true;
 	wave2 = true;
 	wave3 = true;
@@ -88,7 +85,7 @@ bool ModuleLevel1b::Start()
 	App->player->Enable();
 	App->scene_level1f->Enable();
 	App->enemies->Enable();
-
+	App->particles->Enable();
 
 	//Boxes
 
@@ -198,7 +195,7 @@ bool ModuleLevel1b::Start()
 
 	lborder = App->collision->AddCollider({ -36, -3850, 1, 4180 }, COLLIDER_BORDER);
 	rborder = App->collision->AddCollider({ 292, -3850, 1, 4180 }, COLLIDER_BORDER);
-	sborder = App->collision->AddCollider({ 300, 300, 1000, 1 }, COLLIDER_BORDER);
+	sborder = App->collision->AddCollider({ App->player->position.x - 300, App->player->position.y + 300, 1000, 1 }, COLLIDER_BORDER);
 	nborder = App->collision->AddCollider({ 0, 0, SCREEN_WIDTH, 20 }, COLLIDER_BORDER_TOP);
 
 	return ret;
@@ -213,6 +210,7 @@ bool ModuleLevel1b::CleanUp()
 	App->player->Disable();
 	App->enemies->Disable();
 	App->scene_level1f->Disable();
+	App->particles->Disable();
 
 	return true;
 }
@@ -229,6 +227,7 @@ update_status ModuleLevel1b::Update()
 		if (App->player->lives > 0){
 			
 			App->player->destroyed = false;
+			
 			
 			App->fade->FadeToBlack(App->scene_level1b, App->scene_level1b, 2.0);
 			
@@ -523,11 +522,6 @@ update_status ModuleLevel1b::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 128, -3747, 2);
 		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 192, -3647, 4);
 	}
-
-	if (App->player->position.y < -743) App->player->checkpoint1 = true;
-	if (App->player->position.y < -1650) App->player->checkpoint2 = true;
-	if (App->player->position.y < -2242) App->player->checkpoint3 = true;
-	if (App->player->position.y < -3338) App->player->checkpoint4 = true;
 
 		return UPDATE_CONTINUE;
 	}
