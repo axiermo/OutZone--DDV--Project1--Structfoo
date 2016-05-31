@@ -1,4 +1,4 @@
-#include "Globals.h"
+ #include "Globals.h"
 #include "Application.h"
 #include "ModuleLevel1b.h"
 #include "ModuleLevel1f.h"
@@ -248,8 +248,9 @@ update_status ModuleLevel1b::Update()
 {
 	App->render->Blit(graphics, 0, -3850, &World1, -1.0f, true);
 
-	sborder->SetPos(App->player->position.x - 300, App->player->position.y + 200);
-	nborder->SetPos(0, App->render->camera.y / -2);
+	if(App->player->position.y > -3620) 
+			sborder->SetPos(App->player->position.x - 300, App->player->position.y + 200);
+			nborder->SetPos(0, App->render->camera.y / -2);
 
 	if (App->player->destroyed) //change to 0 lives
 	{
@@ -258,7 +259,7 @@ update_status ModuleLevel1b::Update()
 			App->fade->FadeToBlack(App->scene_level1b, App->scene_level1b, 2.0);
 		}
 		else
-		App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 2.0);
+			App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 2.0);
 	}
 
 	// 1st checkpoint --------------------------------------------------------------------------
@@ -507,77 +508,73 @@ update_status ModuleLevel1b::Update()
 			wave32 = false;
 
 			//truck one
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 200, -2670, 3);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 175, -2670, 3);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 200, -2630, 3);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 175, -2630, 3);
+			if ((App->player->position.y) < -2450 && wave32){
+				wave32 = false;
+				//truck one
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 200, -2670, 4);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 175, -2670, 3);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 200, -2630, 6);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 175, -2630, 5);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 170, -2670, 1);
+				App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 170, -2670, 1);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2670, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2670, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2630, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2630, 2);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2670, 2);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2670, 2);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2630, 2);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2630, 2);
+				//
+				//if (truck is alive)
+				//{
+				//	// Delay of appearance;
+				//	//App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -1910, 20);
+				//}
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -2840, 3);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -2840, 3);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -2800, 3);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -2800, 3);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -2840, 3);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -2840, 3);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -2800, 3);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -2800, 3);
+				//truck2
+				App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 10, -2840, 1);
 
-			//truck2
-			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 10, -2840, 1);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2840, 2);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2840, 2);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2800, 2);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2800, 2);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2840, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2840, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2800, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2800, 2);
+				//
+				//if (truck is alive)
+				//{
+				//	// Delay of appearance;
+				//	//App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -1910, 20);
+				//}
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3040, 3);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3040, 3);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3000, 3);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3000, 3);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3040, 3);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3040, 3);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3000, 3);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3000, 3);
 
-			//truck3
-			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 100, -3040, 1);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3040, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3040, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3000, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3000, 2);
+				App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 100, -3040, 1);
+
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3040, 2);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3040, 2);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3000, 2);
+				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3000, 2);
+			}
 		}
-	}
 
-	//	if ((App->player->position.y) < -2850 && wave32 && truck3 not destroyed)
-	//  {
-	//		wave32 = false;
+	
 
-	//		App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 160, -3040, 1);
-	//		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3040, 2);
-	//		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3040, 2);
-	//		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3000, 2);
-	//		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3000, 2);
-
-	//		/*App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -1910, 20);
-	//		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -1880, 19);
-	//		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -1910, 20);
-	//		App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -1880, 19);*/
-	//	}
-
-	//  if ((App->player->position.y) < -3000 && wave35 && truck4 spawned)
-	//  {
-	//	    wave35 = false;
-	//	    App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 100, -3100, 21);
-	//  }
-
-	if((App->player->position.y) < -3400 && wave36)
-	{
-		wave36 = false;
-		//Boss
-		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 0, -3747, 1);
-		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 64, -3647, 3);
-		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 128, -3747, 2);
-		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 192, -3647, 4);
-	}
+		if ((App->player->position.y) < -3400 && wave36)
+		{
+			wave36 = false;
+			//Boss
+			App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 0, -3747, 1);
+			App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 64, -3647, 3);
+			App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 128, -3747, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 192, -3647, 4);
+		}
 
 		return UPDATE_CONTINUE;
 	}
+}

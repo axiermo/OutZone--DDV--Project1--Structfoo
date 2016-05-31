@@ -79,8 +79,23 @@ BlueSoldier::BlueSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, 1.0f }, 150, &down);
 		break;
 	case 3:
-		path.PushBack({ 0.0f, 1.0f }, 200, &down);
+		path.PushBack({ 0.0f, 1.0f }, 180, &down);
 		path.PushBack({ -0.2f, -1.0f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
+	case 4:
+		path.PushBack({ 0.0f, 1.0f }, 184, &down);
+		path.PushBack({ 0.2f, -0.7f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
+	case 5:
+		path.PushBack({ 0.0f, 1.0f }, 188, &down);
+		path.PushBack({ -0.2f, -0.5f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
+	case 6:
+		path.PushBack({ 0.0f, 1.0f }, 204, &down);
+		path.PushBack({ 0.2f, -0.4f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
 	}
