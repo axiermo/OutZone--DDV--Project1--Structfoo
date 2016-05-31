@@ -206,7 +206,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
-			if ((c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_EXPLOSION) && enemies[i]->lives > 0)
+			if ((c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_EXPLOSION || c2->type == COLLIDER_GOD) && enemies[i]->lives > 0)
 			{
 				enemies[i]->lives -= App->player->damage;
 				enemies[i]->hit = true;
@@ -214,9 +214,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 				if (enemies[i]->lives < 1)
 				{
-					if (c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_RED_SOLDIER || c1->type == COLLIDER_TRUCK)
+					if (c1->type == COLLIDER_BOX || c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_RED_SOLDIER || c1->type == COLLIDER_TRUCK)
 					{
-						if (c1->type == COLLIDER_ENEMY) // That kind of enemy instant kill
+						if (c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BOX) // That kind of enemy instant kill
 						{
 							App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
 							App->audio->PlayFX(small_death);

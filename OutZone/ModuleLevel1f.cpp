@@ -1,6 +1,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleLevel1f.h"
+#include "ModuleLevel1b.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleInput.h"
@@ -8,7 +9,11 @@
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
 #include "ModuleFonts.h"
+#include "ModuleEnemies.h"
+#include "Enemy.h"
+#include "ModuleGameOver.h"
 #include <stdio.h>
+
 ModuleLevel1f::ModuleLevel1f()
 {
 	World1 = { 0, 0, 256, 4180 };
@@ -57,6 +62,8 @@ bool ModuleLevel1f::Start()
 	graphics2 = App->textures->Load("Sprites/UI/UI.png");
 	low_energy = App->audio->LoadFX("Audio/FX/Low_energy.wav");
 
+	bool wave33 = true;
+
 	return ret;
 }
 
@@ -77,7 +84,6 @@ update_status ModuleLevel1f::Update()
 
 	//UI
 	sprintf_s(App->player->score_text, 10, "%7d", App->player->score);
-
 
 	App->render->Blit(graphics2, 160, 0, &insertcoin.GetCurrentFrame(), -1.0f, false);
 	App->render->Blit(graphics2, 8, 1, &player1lives.GetActualFrame(), -1.0f, false);
@@ -170,6 +176,7 @@ update_status ModuleLevel1f::Update()
 		t2++;
 	}
 
-	return UPDATE_CONTINUE;
+
+		return UPDATE_CONTINUE;
 }
 

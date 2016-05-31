@@ -182,6 +182,45 @@ RedSoldier::RedSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)
 		break;
 	case 21:
 		path.PushBack({ 0.0f, 1.0f }, 3000, &down);
+	case 22:
+		path.PushBack({ 0.0f, 1.3f }, 127, &down);
+		path.PushBack({ 0.0f, 0.0f }, 1, &up);
+		path.PushBack({ 0.0f, -1.0f }, 20, &up);
+		path.PushBack({ 0.8f, 0.0f }, 190, &right);
+		path.PushBack({ 0.0f, 0.0f }, 5000, &down);
+		break;
+
+	case 23:
+		path.PushBack({ 0.0f, 1.3f }, 127, &down);
+		path.PushBack({ 0.0f, 0.0f }, 1000, &up);
+		path.PushBack({ 0.0f, -1.0f }, 20, &up);
+		path.PushBack({ 0.8f, 0.0f }, 150, &right);
+		path.PushBack({ 0.0f, 0.0f }, 5000, &down);
+		break;
+
+	case 24:
+		path.PushBack({ 0.0f, 1.3f }, 127, &down);
+		path.PushBack({ 0.0f, 0.0f }, 190, &up);
+		path.PushBack({ 0.0f, -1.0f }, 20, &up);
+		path.PushBack({ 0.8f, 0.0f }, 110, &right);
+		path.PushBack({ 0.0f, 0.0f }, 5000, &down);
+		break;
+
+	case 25:
+		path.PushBack({ 0.0f, 1.3f }, 127, &down);
+		path.PushBack({ 0.0f, 0.0f }, 280, &up);
+		path.PushBack({ 0.0f, -1.0f }, 20, &up);
+		path.PushBack({ 0.8f, 0.0f }, 70, &right);
+		path.PushBack({ 0.0f, 0.0f }, 5000, &down);
+		break;
+
+	case 26:
+		path.PushBack({ 0.0f, 1.3f }, 127, &down);
+		path.PushBack({ 0.0f, 0.0f }, 370, &up);
+		path.PushBack({ 0.0f, -1.0f }, 20, &up);
+		path.PushBack({ 0.8f, 0.0f }, 30, &right);
+		path.PushBack({ 0.0f, 0.0f }, 5000, &down);
+		break;
 
 	}
 

@@ -78,10 +78,14 @@ BlueSoldier::BlueSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)
 	case 2:
 		path.PushBack({ 0.0f, 1.0f }, 150, &down);
 		break;
+	case 3:
+		path.PushBack({ 0.0f, 1.0f }, 200, &down);
+		path.PushBack({ -0.2f, -1.0f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
 	}
 
 	//Set the automathic paths here
-
 	original_pos.x = x;
 	original_pos.y = y;
 

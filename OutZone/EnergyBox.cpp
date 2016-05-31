@@ -15,7 +15,7 @@ EnergyBox::EnergyBox(int x, int y) : Enemy(x, y, 0)
 
 	animation = &rotate;
 
-	collider = App->collision->AddCollider({ 0, 0, 32, 32 }, COLLIDER_ENEMY, App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 32, 32 }, COLLIDER_BOX, App->enemies);
 
 	position.x = x;
 	position.y = y;

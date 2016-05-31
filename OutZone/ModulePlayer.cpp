@@ -12,6 +12,7 @@
 #include "ModuleFonts.h"
 #include "SDL/include/SDL_timer.h"
 #include "ModuleLevel1f.h"
+#include "ModuleTitle.h"
 
 ModulePlayer::ModulePlayer()
 {
@@ -126,25 +127,93 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true;
-	graphics = App->textures->Load("Sprites/Character/Moves.png");
 
+	graphics = App->textures->Load("Sprites/Character/Moves.png");
+	font_score = App->fonts->Load("Sprites/Fonts/OutZoneScoreFont.png", "!_#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz^ ", 1);
 	basic_laser = App->audio->LoadFX("Audio/FX/Laser.wav");
 	triple_laser = App->audio->LoadFX("Audio/FX/Laser2.wav");
-
-	position.x = 100;
-	position.y = 220;
-
 	curr_animation = &up;
 
 	weapon = false;
 	laser = 1;
 	damage = 2;
 	bombs = 3;
+	destroyed = false;
 
 	self = App->collision->AddCollider({ position.x + 9, position.y + 1, 12, 29 }, COLLIDER_PLAYER, this);
 
-	font_score = App->fonts->Load("Sprites/Fonts/OutZoneScoreFont.png", "!_#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz^ ", 1);
-	
+    // Checkpoints ----------------------------------------------------
+
+	if (App->scene_title->coins == 0)
+	{
+		bool checkpoint_1 = false;
+		bool checkpoint_2 = false;
+		bool checkpoint_3 = false;
+		bool checkpoint_4 = false;
+		bool checkpoint_5 = false;
+		bool checkpoint_6 = false;
+		bool checkpoint_7 = false;
+	}
+
+	if (position.y < -257) 
+		checkpoint_1 = true;
+	if (position.y < -756) 
+		checkpoint_2 = true;
+	if (position.y < -1263)
+		checkpoint_3 = true;
+	if (position.y < -1812) 
+		checkpoint_4 = true;
+	if (position.y <-2292) 
+		checkpoint_5 = true;
+	if (position.y < -2882) 
+		checkpoint_6 = true;
+
+	position.x = 100;
+	position.y = 220;
+
+	if (checkpoint_1)
+	{
+		position.x = 88;
+		position.y = -257;
+		App->render->camera.x = 0;
+		App->render->camera.y = 1076;
+	}
+	if (checkpoint_2)
+	{
+		position.x = 54;
+		position.y = -756;
+		App->render->camera.x = 0;
+		App->render->camera.y = 2012;
+	}
+	if (checkpoint_3)
+	{
+		position.x = 128;
+		position.y = -1263;
+		App->render->camera.x = 0;
+		App->render->camera.y = 3052;
+	}
+	if (checkpoint_4)
+	{
+		position.x = 100;
+		position.y = -1812;
+		App->render->camera.x = 0;
+		App->render->camera.y = 4152;
+	}
+	if (checkpoint_5)
+	{
+		position.x = 96;
+		position.y = -2292;
+		App->render->camera.x = 0;
+		App->render->camera.y = 5125;
+	}
+	if (checkpoint_6)
+	{
+		position.x = 100;
+		position.y = -2884;
+		App->render->camera.x = 0;
+		App->render->camera.y = 6280;
+	}
+
 	last_laser = SDL_GetTicks();
 	return ret;
 }
@@ -753,7 +822,7 @@ void ModulePlayer::Fire(Directions dir)
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (self == c1 && self != nullptr && self->type != COLLIDER_EXPLOSION && (c2->type == COLLIDER_WALL || c2->type == COLLIDER_TURRET || c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_TURRET_WALL))
+	if (self == c1 && self != nullptr && self->type != COLLIDER_EXPLOSION && (c2->type == COLLIDER_WALL || c2->type == COLLIDER_TURRET || c2->type == COLLIDER_BOX || c2->type == COLLIDER_TURRET_WALL))
 	{
 		if (position.y + 4 >= c2->rect.y + c2->rect.h)
 		{

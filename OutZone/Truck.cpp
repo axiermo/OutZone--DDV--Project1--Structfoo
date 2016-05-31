@@ -40,7 +40,7 @@ Truck::Truck(int x, int y, int subtype) : Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, 1.0f }, 200, &down);
 		break;
 	case 2:
-		path.PushBack({ 0.0f, 1.3f }, 150, &down);
+		path.PushBack({ 0.0f, 1.3f }, 130, &down);
 		path.PushBack({ 0.0f, 0.0f }, 150, &stop);
 		path.PushBack({ 0.0f, 0.9f }, 500, &down);
 		break;

@@ -26,13 +26,11 @@ Tank::Tank(int x, int y, int subtype) :Enemy(x, y, subtype)
 	curr_animation = &tankanim;
 
 	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
-
+	
 	switch (subtype)
 	{
-		//coming from right
 	case 1:
-		path.PushBack({ -1.5f, 0.0f },75, &tankanim);
-
+		path.PushBack({ -1.5f, 0.0f }, 75, &tankanim);
 		path.PushBack({ -1.1f, 0.4f }, 35, &tankanim);
 		path.PushBack({ -0.9f, 0.6f }, 35, &tankanim);
 		path.PushBack({ -0.4f, 1.1f }, 35, &tankanim);
@@ -40,12 +38,46 @@ Tank::Tank(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.4f, 1.1f }, 35, &tankanim);
 		path.PushBack({ 0.9f, 0.6f }, 35, &tankanim);
 		path.PushBack({ 1.1f, 0.4f }, 35, &tankanim);
-
 		path.PushBack({ 1.5f, 0.0f }, 200, &tankanim);
 		break;
-		
-		//coming from left 2 cicles
 	case 2:
+		path.PushBack({ 0.0f, 0.0f }, 60, &tankanim);
+		path.PushBack({ -1.5f, 0.0f }, 75, &tankanim);
+		path.PushBack({ -1.1f, 0.4f }, 35, &tankanim);
+		path.PushBack({ -0.9f, 0.6f }, 35, &tankanim);
+		path.PushBack({ -0.4f, 1.1f }, 35, &tankanim);
+		path.PushBack({ 0.0f, 1.2f }, 35, &tankanim);
+		path.PushBack({ 0.4f, 1.1f }, 35, &tankanim);
+		path.PushBack({ 0.9f, 0.6f }, 35, &tankanim);
+		path.PushBack({ 1.1f, 0.4f }, 35, &tankanim);
+		path.PushBack({ 1.5f, 0.0f }, 200, &tankanim);
+		break;
+	case 3:
+		path.PushBack({ 0.0f, 0.0f }, 120, &tankanim);
+		path.PushBack({ -1.5f, 0.0f }, 75, &tankanim);
+		path.PushBack({ -1.1f, 0.4f }, 35, &tankanim);
+		path.PushBack({ -0.9f, 0.6f }, 35, &tankanim);
+		path.PushBack({ -0.4f, 1.1f }, 35, &tankanim);
+		path.PushBack({ 0.0f, 1.2f }, 35, &tankanim);
+		path.PushBack({ 0.4f, 1.1f }, 35, &tankanim);
+		path.PushBack({ 0.9f, 0.6f }, 35, &tankanim);
+		path.PushBack({ 1.1f, 0.4f }, 35, &tankanim);
+		path.PushBack({ 1.5f, 0.0f }, 200, &tankanim);
+		break;
+	case 4:
+		path.PushBack({ 0.0f, 0.0f }, 180, &tankanim);
+		path.PushBack({ -1.5f, 0.0f }, 75, &tankanim);
+		path.PushBack({ -1.1f, 0.4f }, 35, &tankanim);
+		path.PushBack({ -0.9f, 0.6f }, 35, &tankanim);
+		path.PushBack({ -0.4f, 1.1f }, 35, &tankanim);
+		path.PushBack({ 0.0f, 1.2f }, 35, &tankanim);
+		path.PushBack({ 0.4f, 1.1f }, 35, &tankanim);
+		path.PushBack({ 0.9f, 0.6f }, 35, &tankanim);
+		path.PushBack({ 1.1f, 0.4f }, 35, &tankanim);
+		path.PushBack({ 1.5f, 0.0f }, 200, &tankanim);
+		break;
+		//coming from left 2 cicles
+	case 5:
 		path.PushBack({ -0.9f, 0.0f }, 50, &tankanim);
 		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
 		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
@@ -53,6 +85,54 @@ Tank::Tank(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
 		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
 		path.PushBack({ 0.9f, 0.1f }, 150, &tankanim); 
+		path.PushBack({ -0.9f, 0.0f }, 50, &tankanim);
+		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
+		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
+		path.PushBack({ 0.9f, 0.1f }, 150, &tankanim);
+		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
+		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
+		path.PushBack({ 0.9f, 0.1f }, 150, &tankanim);
+		break;
+	case 6:
+		path.PushBack({ -0.9f, 0.0f }, 50, &tankanim);
+		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
+		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
+		path.PushBack({ 0.9f, 0.1f }, 150, &tankanim);
+		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
+		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
+		path.PushBack({ 0.9f, 0.1f }, 150, &tankanim);
+		path.PushBack({ -0.9f, 0.0f }, 50, &tankanim);
+		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
+		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
+		path.PushBack({ 0.9f, 0.1f }, 150, &tankanim);
+		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
+		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
+		path.PushBack({ 0.9f, 0.1f }, 150, &tankanim);
+		break;
+	case 7:
+		path.PushBack({ -0.9f, 0.0f }, 50, &tankanim);
+		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
+		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
+		path.PushBack({ 0.9f, 0.1f }, 150, &tankanim);
+		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
+		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
+		path.PushBack({ 0.9f, 0.1f }, 150, &tankanim);
+		path.PushBack({ -0.9f, 0.0f }, 50, &tankanim);
+		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
+		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
+		path.PushBack({ 0.9f, 0.1f }, 150, &tankanim);
+		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
+		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
+		path.PushBack({ 0.9f, 0.1f }, 150, &tankanim);
+		break;
+	case 8:
+		path.PushBack({ -0.9f, 0.0f }, 50, &tankanim);
+		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
+		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
+		path.PushBack({ 0.9f, 0.1f }, 150, &tankanim);
+		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
+		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
+		path.PushBack({ 0.9f, 0.1f }, 150, &tankanim);
 		path.PushBack({ -0.9f, 0.0f }, 50, &tankanim);
 		path.PushBack({ 0.5f, 0.8f }, 150, &tankanim);
 		path.PushBack({ 0.7f, 0.3f }, 150, &tankanim);
@@ -73,13 +153,12 @@ Tank::Tank(int x, int y, int subtype) :Enemy(x, y, subtype)
 
 void Tank::Move()
 {
-
-
-
-	// Move with the path
-	position = original_pos + path.GetCurrentSpeed();
-
-
+	if (App->player->position.y < -2000 && )
+	{
+		position = original_pos + path.GetCurrentSpeed();
+	}
+	else
+		path.Reset();
 }
 
 void Tank::Shoot()

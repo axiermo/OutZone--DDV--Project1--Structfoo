@@ -1,34 +1,26 @@
-﻿Build started 04/05/2016 15:30:02.
-     1>Project "C:\Users\marcdpg\Downloads\OutZone--DDV--Project1--Structfoo-master\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
+﻿Build started 31/05/2016 15:54:48.
+     1>Project "C:\Users\marcdpg\Downloads\OutZone--DDV--Project1--Structfoo (1)\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Application.cpp Enemy.cpp GreyTurret.cpp ModuleEnemies.cpp ModuleGameOver.cpp ModuleLevel1f.cpp Globals.cpp Main.cpp ModuleAudio.cpp ModuleCollision.cpp ModuleFadeToBlack.cpp ModuleInput.cpp ModuleParticles.cpp ModulePlayer.cpp ModuleRender.cpp ModuleLevel1b.cpp ModuleTitle.cpp ModuleTextures.cpp ModuleWindow.cpp
-         Application.cpp
-         Enemy.cpp
-         GreyTurret.cpp
-     1>GreyTurret.cpp(54): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-         ModuleEnemies.cpp
-         ModuleGameOver.cpp
-         ModuleLevel1f.cpp
-         Globals.cpp
-         Main.cpp
-         ModuleAudio.cpp
-         ModuleCollision.cpp
-         ModuleFadeToBlack.cpp
-         ModuleInput.cpp
-         ModuleParticles.cpp
-     1>ModuleParticles.cpp(67): warning C4305: '=' : truncation from 'double' to 'float'
-     1>ModuleParticles.cpp(109): warning C4305: '=' : truncation from 'double' to 'float'
-         ModulePlayer.cpp
-         ModuleRender.cpp
-         ModuleLevel1b.cpp
-         ModuleTitle.cpp
-         ModuleTextures.cpp
-         ModuleWindow.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Tank.cpp
+         Tank.cpp
+     1>Tank.cpp(167): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\marcdpg\Downloads\OutZone--DDV--Project1--Structfoo-master\OutZone\Release\OutZone.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\marcdpg\Downloads\OutZone--DDV--Project1--Structfoo-master\OutZone\Release\OutZone.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\marcdpg\Downloads\OutZone--DDV--Project1--Structfoo-master\OutZone\Release\OutZone.lib" /MACHINE:X86 /SAFESEH Release\Application.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\marcdpg\Downloads\OutZone--DDV--Project1--Structfoo (1)\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\marcdpg\Downloads\OutZone--DDV--Project1--Structfoo (1)\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\marcdpg\Downloads\OutZone--DDV--Project1--Structfoo (1)\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.lib" /MACHINE:X86 /SAFESEH Release\Application.obj
+         Release\BigTurret.obj
+         Release\BlueSoldier.obj
+         Release\Bomb.obj
+         Release\ChangeBox.obj
+         Release\ChangePowerUp.obj
+         Release\Door.obj
+         Release\DoorTurret.obj
          Release\Enemy.obj
+         Release\EnergyBox.obj
+         Release\EnergyPowerUp.obj
          Release\GreyTurret.obj
+         Release\Mazurka.obj
          Release\ModuleEnemies.obj
+         Release\ModuleExplosion.obj
+         Release\ModuleFonts.obj
          Release\ModuleGameOver.obj
          Release\ModuleLevel1f.obj
          Release\Globals.obj
@@ -44,11 +36,16 @@
          Release\ModuleTitle.obj
          Release\ModuleTextures.obj
          Release\ModuleWindow.obj
+         Release\RedSoldier.obj
+         Release\Soldier1.obj
+         Release\Tank.obj
+         Release\Truck.obj
+         Release\UpgradePowerUp.obj
          Generating code
          Finished generating code
-         SDL Game.vcxproj -> C:\Users\marcdpg\Downloads\OutZone--DDV--Project1--Structfoo-master\OutZone\Release\OutZone.exe
-     1>Done Building Project "C:\Users\marcdpg\Downloads\OutZone--DDV--Project1--Structfoo-master\OutZone\SDL Game.vcxproj" (Build target(s)).
+         SDL Game.vcxproj -> C:\Users\marcdpg\Downloads\OutZone--DDV--Project1--Structfoo (1)\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.exe
+     1>Done Building Project "C:\Users\marcdpg\Downloads\OutZone--DDV--Project1--Structfoo (1)\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.41
+Time Elapsed 00:00:01.32
