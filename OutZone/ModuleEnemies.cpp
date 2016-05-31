@@ -5,6 +5,7 @@
 #include "ModuleParticles.h"
 #include "ModuleTextures.h"
 #include "ModulePlayer.h"
+#include "ModuleExplosion.h"
 #include "Enemy.h"
 #include "GreyTurret.h"
 #include "BigTurret.h"
@@ -261,6 +262,10 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 							App->audio->PlayFX(big_death);
 							App->particles->AddParticle(App->particles->Big_NPC_explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 30, { 0, 0 }, nullrect, COLLIDER_NONE);
 							enemies[i]->destroyed = true;
+
+							/*App->audio->PlayFX(big_death);
+							App->explosion->AddExplosion(App->explosion->Truck_explosion, enemies[i]->position.x , enemies[i]->position.y, { 0, 0 }, { 0, 0, 36, 70 }, COLLIDER_EXPLOSION);
+							enemies[i]->destroyed = true;*/
 						}
 						App->player->score += 390;
 					}

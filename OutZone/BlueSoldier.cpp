@@ -79,27 +79,68 @@ BlueSoldier::BlueSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, 1.0f }, 150, &down);
 		break;
 	case 3:
-		path.PushBack({ 0.0f, 1.0f }, 180, &down);
-		path.PushBack({ -0.2f, -1.0f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 160, &down);
+		path.PushBack({ -0.2f, -1.3f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
 	case 4:
-		path.PushBack({ 0.0f, 1.0f }, 184, &down);
-		path.PushBack({ 0.2f, -0.7f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 164, &down);
+		path.PushBack({ 0.2f, -0.6f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
 	case 5:
-		path.PushBack({ 0.0f, 1.0f }, 188, &down);
-		path.PushBack({ -0.2f, -0.5f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 168, &down);
+		path.PushBack({ -0.2f, -1.4f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
 	case 6:
-		path.PushBack({ 0.0f, 1.0f }, 204, &down);
-		path.PushBack({ 0.2f, -0.4f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 172, &down);
+		path.PushBack({ 0.2f, -0.6f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
+	//3,4,5,6 first top truck soldiers
+	case 7:
+		path.PushBack({ 0.0f, 1.0f }, 180, &down);
+		path.PushBack({ 0.3f, -1.2f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
+	case 8:
+		path.PushBack({ 0.0f, 1.0f }, 184, &down);
+		path.PushBack({ -0.1f, -0.35f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
+	case 9:
+		path.PushBack({ 0.0f, 1.0f }, 188, &down);
+		path.PushBack({ 0.2f, -1.1f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
+	case 10:
+		path.PushBack({ 0.0f, 1.0f }, 192, &down);
+		path.PushBack({ -0.1f, -0.5f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
+		//7,8,9,10 second top truck soldiers
+	case 11:
+		path.PushBack({ 0.0f, 1.0f }, 180, &down);
+		path.PushBack({ -0.3f, -1.5f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
+	case 12:
+		path.PushBack({ 0.0f, 1.0f }, 184, &down);
+		path.PushBack({ 0.1f, -0.35f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
+	case 13:
+		path.PushBack({ 0.0f, 1.0f }, 188, &down);
+		path.PushBack({ 0.0f, -1.5f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
+	case 14:
+		path.PushBack({ 0.0f, 1.0f }, 192, &down);
+		path.PushBack({ 0.1f, -0.35f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
 	}
-
 	//Set the automathic paths here
 	original_pos.x = x;
 	original_pos.y = y;

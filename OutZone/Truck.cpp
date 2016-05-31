@@ -127,5 +127,5 @@ void Truck::Draw()
 	}
 	else
 		App->render->Blit(App->enemies->sprites, position.x - 15, position.y, &(dead.GetCurrentFrame()), -1.0f);
-	
+		
 }

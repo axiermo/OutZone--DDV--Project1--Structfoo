@@ -54,6 +54,7 @@ public:
 	// Player
 	Explosion Airstrike;
 	Explosion Player;
+	Explosion Truck_explosion;
 };
 
 #endif // __MODULEEXPLOSIONS_H__

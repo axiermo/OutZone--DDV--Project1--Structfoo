@@ -47,6 +47,17 @@ ModuleExplosion::ModuleExplosion()
 	Player.anim.speed = 0.2f;
 	Player.life = 700;
 	Player.anim.loop = false;
+
+	Truck_explosion.anim.PushBack({ 276, 14, 157, 130 });
+	Truck_explosion.anim.PushBack({ 417, 14, 157, 130 });
+	Truck_explosion.anim.PushBack({ 560, 14, 157, 130 });
+	Truck_explosion.anim.PushBack({ 276, 143, 157, 130 });
+	Truck_explosion.anim.PushBack({ 417, 143, 157, 130 });
+	Truck_explosion.anim.PushBack({ 560, 143, 157, 130 });
+	Truck_explosion.anim.PushBack({ 702, 143, 157, 130 });
+	Truck_explosion.anim.speed = 0.5;
+	Truck_explosion.life = 150;
+	Truck_explosion.anim.loop = false;
 }
 
 ModuleExplosion::~ModuleExplosion()
