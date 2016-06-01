@@ -28,8 +28,6 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 	hit2.speed = 0.2f;
 	hit2.loop = true;
 
-	dead.PushBack({ 447, 37, 64, 80 });
-
 	animation = &mazurka;
 
 	collider = App->collision->AddCollider({ 0, 0, 60, 58 }, COLLIDER_TYPE::COLLIDER_MAZURKA, (Module*)App->enemies);
@@ -248,9 +246,7 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 
 void Mazurka::Move()
 {
-	if (!destroyed)
-		position = original_pos + path.GetCurrentSpeed();
-
+	position = original_pos + path.GetCurrentSpeed();
 }
 
 void Mazurka::Shoot()
@@ -274,7 +270,7 @@ void Mazurka::Shoot()
 	float distance = position.DistanceTo(App->player->position);
 	next_shoot = SDL_GetTicks();
 
-	if (next_shoot - last_shoot > 1800 && distance <350 && !destroyed)
+	if (next_shoot - last_shoot > 1800 && distance <350)
 	{
 		if (dx > 0 && dy > 0 && angle > 0 && angle<11.25)
 		{
@@ -370,22 +366,20 @@ void Mazurka::Shoot()
 
 void Mazurka::Draw()
 {
-	if (collider != nullptr && !destroyed)
-		collider->SetPos(position.x, position.y);
-	else
-		collider->type = COLLIDER_DEAD;
-	 
-	if (!destroyed && lives <= 36 && lives > 0)
-		App->render->Blit(App->enemies->sprites, position.x, position.y - 30, &hit2.GetCurrentFrame(), -1.0f);
-	else if
-		(!destroyed && lives > 36) App->render->Blit(App->enemies->sprites, position.x, position.y, &mazurka.GetCurrentFrame(), -1.0f);
-	else
-		App->render->Blit(App->enemies->sprites, position.x, position.y, &dead.GetCurrentFrame(), -1.0f);
+	// Collider ----------------------------------------------------------
 
-	if (hit == false && !destroyed) App->render->Blit(App->enemies->sprites, position.x, position.y, &(mazurka.GetCurrentFrame()), -1.0f);
+	if (collider != nullptr)
+		collider->SetPos(position.x, position.y);
+
+	// Green blit --------------------------------------------------------
+
+	if (hit == false && lives <= 36 && lives > 0)
+		App->render->Blit(App->enemies->sprites, position.x, position.y - 30, &hit2.GetCurrentFrame(), -1.0f);
+	else if (hit == false && lives > 36) 
+		App->render->Blit(App->enemies->sprites, position.x, position.y, &mazurka.GetCurrentFrame(), -1.0f);
 	else
 	{
-		if (!destroyed) App->render->Blit(App->enemies->sprites2, position.x, position.y, &mazurka.GetActualFrame(), -1.0f);
+		App->render->Blit(App->enemies->sprites2, position.x, position.y, &mazurka.GetActualFrame(), -1.0f);
 		t++;
 
 		if (t == 3)

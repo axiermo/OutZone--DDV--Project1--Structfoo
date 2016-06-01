@@ -4,7 +4,6 @@
 #include "Module.h"
 #include "Animation.h"
 #include "p2Point.h"
-#include "Globals.h"
 #include "ModuleCollision.h"
 
 #define nullrect {0,0,0,0} 
@@ -26,10 +25,6 @@ struct Particle
 	Uint32 life = 0;
 	Particle* end_particle = nullptr;
 	bool fx_played = false;
-
-	int font_score = -1;
-	char score_text[10];
-	uint score = 0;
 
 	Particle();
 	Particle(const Particle& p);

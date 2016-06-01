@@ -140,6 +140,9 @@
     <ClInclude Include="ModuleCongratulations.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="ModulePaint.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -251,6 +254,9 @@
       <Filter>Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Modulecongratulations.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModulePaint.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>

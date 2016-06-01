@@ -1,4 +1,4 @@
-#include "Globals.h"
+
 #include "Application.h"
 #include "ModuleLevel1f.h"
 #include "ModuleLevel1b.h"

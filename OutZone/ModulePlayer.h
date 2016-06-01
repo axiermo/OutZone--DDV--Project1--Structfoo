@@ -3,7 +3,6 @@
 
 #include "Module.h"
 #include "Animation.h"
-#include "Globals.h"
 #include "p2Point.h"
 #include "ModuleAudio.h"
 
@@ -78,13 +77,7 @@ public:
 	uint last_laser;
 	uint curr_laser;
 
-	bool checkpoint_1 = false;
-	bool checkpoint_2 = false;
-	bool checkpoint_3 = false;
-	bool checkpoint_4 = false;
-	bool checkpoint_5 = false;
-	bool checkpoint_6 = false;
-	bool checkpoint_7 = false;
+
 };
 
 #endif

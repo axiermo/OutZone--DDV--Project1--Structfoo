@@ -16,6 +16,9 @@
 #include "ModuleFonts.h"
 #include "ModuleExplosion.h"
 #include "ModuleCongratulations.h"
+#include "ModulePaint.h"
+
+
 Application::Application()
 { 
 	int i = 0;
@@ -27,6 +30,7 @@ Application::Application()
 	modules[i++] = scene_title = new ModuleTitle();
 	modules[i++] = scene_level1b = new ModuleLevel1b();
 	modules[i++] = scene_gameover = new ModuleGameOver();
+	modules[i++] = paint = new ModulePaint();
 	modules[i++] = enemies = new ModuleEnemies();
 	modules[i++] = player = new ModulePlayer();
 	modules[i++] = scene_congratulations = new ModuleCongratulations();

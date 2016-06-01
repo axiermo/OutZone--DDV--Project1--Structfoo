@@ -2,7 +2,6 @@
 #define __ModuleTextures_H__
 
 #include "Module.h"
-#include "Globals.h"
 
 #define MAX_TEXTURES 200
 

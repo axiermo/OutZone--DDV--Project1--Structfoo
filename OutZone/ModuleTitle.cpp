@@ -1,4 +1,3 @@
-#include "Globals.h"
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
@@ -12,6 +11,8 @@
 #include "ModuleLevel1f.h"
 #include "ModuleEnemies.h"
 #include "ModuleFonts.h"
+#include "ModuleWindow.h"
+
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
 ModuleTitle::ModuleTitle()
@@ -38,6 +39,9 @@ ModuleTitle::~ModuleTitle()
 
 bool ModuleTitle::Start()
 {
+	App->player->position.x = 100;
+	App->player->position.y = 220;
+
 	LOG("Loading first scene");
 	App->player->score = 0;
 	App->player->energy = 36;
@@ -84,6 +88,17 @@ update_status ModuleTitle::Update()
 	// Adding coins
 	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_UP && coins < 9)
 	{
+		if (coins == 0)
+		{
+			App->window->checkpoint_1 = false;
+			App->window->checkpoint_2 = false;
+			App->window->checkpoint_3 = false;
+			App->window->checkpoint_4 = false;
+			App->window->checkpoint_5 = false;
+			App->window->checkpoint_6 = false;
+			App->window->checkpoint_7 = false;
+		}
+
 		App->audio->PlayFX(insertcoin);
 		coins++;
 	}
@@ -91,6 +106,31 @@ update_status ModuleTitle::Update()
 	// Spending coins
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && coins > 0 && !stop && t > 100)
 	{
+		if (App->window->checkpoint_6 == true)
+		{
+			App->window->checkpoint_6 = false;
+		}
+		else if (App->window->checkpoint_5 == true)
+		{
+			App->window->checkpoint_5 = false;
+		}
+		else if (App->window->checkpoint_4 == true)
+		{
+			App->window->checkpoint_4 = false;
+		}
+		else if (App->window->checkpoint_3 == true)
+		{
+			App->window->checkpoint_3 = false;
+		}
+		else if (App->window->checkpoint_2 == true)
+		{
+			App->window->checkpoint_2 = false;
+		}
+		else if (App->window->checkpoint_1 == true)
+		{
+			App->window->checkpoint_1 = false;
+		}
+		
 		coins -= 1;
 		stop = true;
 	}

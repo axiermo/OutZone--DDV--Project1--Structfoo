@@ -1,4 +1,3 @@
- #include "Globals.h"
 #include "Application.h"
 #include "ModuleLevel1b.h"
 #include "ModuleLevel1f.h"
@@ -13,6 +12,10 @@
 #include "Enemy.h"
 #include "ModuleTitle.h"
 #include "ModuleCongratulations.h"
+#include "ModuleExplosion.h"
+#include "ModulePaint.h"
+#include "ModuleWindow.h"
+
 ModuleLevel1b::ModuleLevel1b()
 {
 	World1 = {0, 0, 256, 4180};
@@ -85,10 +88,12 @@ bool ModuleLevel1b::Start()
 	App->scene_level1f->Enable();
 	App->enemies->Enable();
 	App->particles->Enable();
+	App->explosion->Enable();
+	App->paint->Enable();
 
 	//Boxes
 
-	if (App->player->checkpoint_1 == false)
+	if (App->window->checkpoint_1 == false)
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::CHANGEPOWERUP, 217, -480, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 208, -490, 0);
@@ -96,7 +101,7 @@ bool ModuleLevel1b::Start()
 		App->enemies->AddEnemy(ENEMY_TYPES::ENERGYBOX, 200, -530, 0);
 	}
 
-	if (App->player->checkpoint_3 == false)
+	if (App->window->checkpoint_3 == false)
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::CHANGEPOWERUP, 10, -953, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 0, -963, 0);
@@ -104,7 +109,7 @@ bool ModuleLevel1b::Start()
 		App->enemies->AddEnemy(ENEMY_TYPES::ENERGYBOX, 85, -1202, 0);
 	}
 
-	if (App->player->checkpoint_4 == false)
+	if (App->window->checkpoint_4 == false)
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::CHANGEPOWERUP, 10, -1487, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 0, -1497, 0);
@@ -112,17 +117,17 @@ bool ModuleLevel1b::Start()
 		App->enemies->AddEnemy(ENEMY_TYPES::ENERGYBOX, 136, -1870, 0);
 	}
 
-	if (App->player->checkpoint_5 == false)
+	if (App->window->checkpoint_5 == false)
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::CHANGEPOWERUP, 210, -2075, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 200, -2085, 0);
 	}
-	if (App->player->checkpoint_5 == false)
+	if (App->window->checkpoint_5 == false)
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::ENERGYPOWERUP, 23, -3133, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::ENERGYBOX, 8, -3148, 0);
 	}
-	if (App->player->checkpoint_7 == false)
+	if (App->window->checkpoint_7 == false)
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::CHANGEPOWERUP, 210, -3425, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHANGEBOX, 200, -3435, 0);
@@ -132,19 +137,19 @@ bool ModuleLevel1b::Start()
 
 	// --------------Grey Turrets----------------------
 	
-	if (App->player->checkpoint_2 == false)
+	if (App->window->checkpoint_2 == false)
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 3, -577, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 131, -609, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 195, -673, 0);
 	}
 
-	if (App->player->checkpoint_3 == false)
+	if (App->window->checkpoint_3 == false)
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 131, -993, 0);
 	}
 
-	if (App->player->checkpoint_5 == false)
+	if (App->window->checkpoint_5 == false)
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 107, -2057, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 43, -2057, 0);
@@ -168,13 +173,13 @@ bool ModuleLevel1b::Start()
 
 	//-----------------Big Turrets-----------------------------
 
-	if (App->player->checkpoint_3 == false)
+	if (App->window->checkpoint_3 == false)
 		App->enemies->AddEnemy(ENEMY_TYPES::BIGTURRET, 6, -1330, 0);
 
-	if (App->player->checkpoint_4 == false)
+	if (App->window->checkpoint_4 == false)
 		App->enemies->AddEnemy(ENEMY_TYPES::BIGTURRET, 165, -1620, 0);
 
-	if (App->player->checkpoint_7 == false)
+	if (App->window->checkpoint_7 == false)
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::DOOR, 73, -3347, 0);
 
@@ -240,6 +245,8 @@ bool ModuleLevel1b::CleanUp()
 	App->enemies->Disable();
 	App->scene_level1f->Disable();
 	App->particles->Disable();
+	App->explosion->Disable();
+	App->paint->Disable();
 
 	return true;
 }
@@ -266,7 +273,7 @@ update_status ModuleLevel1b::Update()
 
 	// 1st checkpoint --------------------------------------------------------------------------
 
-	if (App->player->checkpoint_1 == false)
+	if (App->window->checkpoint_1 == false)
 	{
 		if ((App->player->position.y) < 160 && wave1)
 		{
@@ -341,7 +348,7 @@ update_status ModuleLevel1b::Update()
 
 	// 2nd checkpoint ----------------------------------------------------------------------
 
-	if (App->player->checkpoint_2 == false)
+	if (App->window->checkpoint_2 == false)
 	{
 		if ((App->player->position.y) < -320 && wave13)
 		{
@@ -368,7 +375,7 @@ update_status ModuleLevel1b::Update()
 
 	// 3rd checkpoint -----------------------------------------------------------------------
 
-	if (App->player->checkpoint_3 == false)
+	if (App->window->checkpoint_3 == false)
 	{
 		if ((App->player->position.y) < -650 && wave33)
 		{
@@ -449,7 +456,7 @@ update_status ModuleLevel1b::Update()
 
 	// 4 checkpoint ------------------------------------------------------------------------------
 
-	if (App->player->checkpoint_4 == false)
+	if (App->window->checkpoint_4 == false)
 	{
 		// Between big turrets horizontals
 		if ((App->player->position.y) < -1320 && wave24){
@@ -504,7 +511,7 @@ update_status ModuleLevel1b::Update()
 
 	// 6 checkpoint ---------------------------------------------------------------
 
-	if (App->player->checkpoint_6 == false)
+	if (App->window->checkpoint_6 == false)
 	{
 		//truck one
 		if ((App->player->position.y) < -2430 && wave32)

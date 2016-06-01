@@ -6,6 +6,7 @@
 #include "ModuleTextures.h"
 #include "ModulePlayer.h"
 #include "ModuleExplosion.h"
+#include "ModulePaint.h"
 #include "Enemy.h"
 #include "GreyTurret.h"
 #include "BigTurret.h"
@@ -217,7 +218,15 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				{
 					if (c1->type == COLLIDER_DOOR || c1->type == COLLIDER_BOX || c1->type == COLLIDER_TURRET || c1->type == COLLIDER_MAZURKA || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_RED_SOLDIER || c1->type == COLLIDER_TRUCK)
 					{
-						if (c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BOX) // That kind of enemy instant kill
+						if (c1->type == COLLIDER_ENEMY) // That kind of enemy instant kill
+						{
+							App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
+							App->audio->PlayFX(small_death);
+							delete enemies[i];
+							enemies[i] = nullptr;
+							App->player->score += 390;
+						}
+						if (c1->type == COLLIDER_BOX) // That kind of enemy instant kill
 						{
 							App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
 							App->audio->PlayFX(small_death);
@@ -243,12 +252,16 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 							App->audio->PlayFX(small_death);
 							delete enemies[i];
 							enemies[i] = nullptr;
+							App->player->score += 490;
 						}
-						if (c1->type == COLLIDER_TURRET && enemies[i]->destroyed == false) // This one changes the animation to a hole. Will be killed by the border.
+						if (c1->type == COLLIDER_TURRET) // Instant kill.
 						{
 							App->audio->PlayFX(small_death);
 							App->particles->AddParticle(App->particles->Small_NPC_explosion, enemies[i]->position.x, enemies[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
-							enemies[i]->destroyed = true;
+							App->paint->AddPaint(App->paint->turret_hole, enemies[i]->position.x - 1, enemies[i]->position.y + 12);
+							delete enemies[i];
+							enemies[i] = nullptr;
+							App->player->score += 410;
 						}
 
 						if (c1->type == COLLIDER_BIG_TURRET && enemies[i]->destroyed == false) // This one changes the animation to a hole. Will be killed by the border.
@@ -256,19 +269,26 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 							App->audio->PlayFX(big_death);
 							App->particles->AddParticle(App->particles->Big_NPC_explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 30, { 0, 0 }, nullrect, COLLIDER_NONE);
 							enemies[i]->destroyed = true;
+							App->player->score += 810;
 						}
-						if (c1->type == COLLIDER_MAZURKA && enemies[i]->destroyed == false) // This one changes the animation to a hole. Will be killed by the border.
+						if (c1->type == COLLIDER_MAZURKA) // Instant kill.
 						{
 							App->audio->PlayFX(big_death);
 							App->particles->AddParticle(App->particles->Big_NPC_explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 30, { 0, 0 }, nullrect, COLLIDER_NONE);
-							enemies[i]->destroyed = true;
+							App->paint->AddPaint(App->paint->mazurka_hole, enemies[i]->position.x, enemies[i]->position.y);
+							delete enemies[i];
+							enemies[i] = nullptr;
 							App->player->mazurkaskilled++;
+							App->player->score += 13060;
 						}
-						if ((c1->type == COLLIDER_TRUCK) && enemies[i]->destroyed == false) // This one changes the animation to a hole. Will be killed by the border.
+						if (c1->type == COLLIDER_TRUCK) // Instant kill.
 						{
 							App->audio->PlayFX(big_death);
 							App->explosion->AddExplosion(App->explosion->Truck_explosion, enemies[i]->position.x - 20, enemies[i]->position.y - 10, { 0, 0 }, { 0, 0, 100, 150 }, COLLIDER_EXPLOSION);
-							enemies[i]->destroyed = true;
+							App->paint->AddPaint(App->paint->truck_hole, enemies[i]->position.x, enemies[i]->position.y);
+							delete enemies[i];
+							enemies[i] = nullptr;
+							App->player->score += 1770;
 						}
 						if (c1->type == COLLIDER_DOOR) // Instant kill.
 						{
@@ -276,8 +296,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 							App->explosion->AddExplosion(App->explosion->Truck_explosion, enemies[i]->position.x - 20, enemies[i]->position.y - 10, { 0, 0 }, { 0, 0, 100, 150 }, COLLIDER_EXPLOSION);
 							delete enemies[i];
 							enemies[i] = nullptr;
+							App->player->score += 1530;
 						}
-						App->player->score += 390;
 					}
 				}
 			}

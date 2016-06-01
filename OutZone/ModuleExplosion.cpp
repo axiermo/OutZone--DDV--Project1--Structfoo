@@ -1,5 +1,4 @@
 #include <math.h>
-#include "Globals.h"
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"

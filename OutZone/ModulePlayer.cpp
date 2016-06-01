@@ -1,4 +1,3 @@
-#include "Globals.h"
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
@@ -12,7 +11,9 @@
 #include "ModuleFonts.h"
 #include "SDL/include/SDL_timer.h"
 #include "ModuleLevel1f.h"
+#include "ModuleLevel1b.h"
 #include "ModuleTitle.h"
+#include "ModuleWindow.h"
 
 ModulePlayer::ModulePlayer()
 {
@@ -144,69 +145,45 @@ bool ModulePlayer::Start()
 
     // Checkpoints ----------------------------------------------------
 
-	if (App->scene_title->coins == 0)
-	{
-		bool checkpoint_1 = false;
-		bool checkpoint_2 = false;
-		bool checkpoint_3 = false;
-		bool checkpoint_4 = false;
-		bool checkpoint_5 = false;
-		bool checkpoint_6 = false;
-		bool checkpoint_7 = false;
-	}
-
-	if (position.y < -257) 
-		checkpoint_1 = true;
-	if (position.y < -756) 
-		checkpoint_2 = true;
-	if (position.y < -1263)
-		checkpoint_3 = true;
-	if (position.y < -1812) 
-		checkpoint_4 = true;
-	if (position.y <-2292) 
-		checkpoint_5 = true;
-	if (position.y < -2882) 
-		checkpoint_6 = true;
-
 	position.x = 100;
 	position.y = 220;
 
-	if (checkpoint_1)
+	if (App->window->checkpoint_1)
 	{
 		position.x = 88;
 		position.y = -257;
 		App->render->camera.x = 0;
 		App->render->camera.y = 1076;
 	}
-	if (checkpoint_2)
+	if (App->window->checkpoint_2)
 	{
 		position.x = 54;
 		position.y = -756;
 		App->render->camera.x = 0;
 		App->render->camera.y = 2012;
 	}
-	if (checkpoint_3)
+	if (App->window->checkpoint_3)
 	{
 		position.x = 128;
 		position.y = -1263;
 		App->render->camera.x = 0;
 		App->render->camera.y = 3052;
 	}
-	if (checkpoint_4)
+	if (App->window->checkpoint_4)
 	{
 		position.x = 100;
 		position.y = -1812;
 		App->render->camera.x = 0;
 		App->render->camera.y = 4152;
 	}
-	if (checkpoint_5)
+	if (App->window->checkpoint_5)
 	{
 		position.x = 96;
 		position.y = -2292;
 		App->render->camera.x = 0;
 		App->render->camera.y = 5125;
 	}
-	if (checkpoint_6)
+	if (App->window->checkpoint_6)
 	{
 		position.x = 100;
 		position.y = -2884;
@@ -227,6 +204,21 @@ bool ModulePlayer::CleanUp()
 
 update_status ModulePlayer::Update()
 {
+	// Checkpoints ------------------------------------------------
+
+	if (position.y < -257)
+		App->window->checkpoint_1 = true;
+	if (position.y < -756)
+		App->window->checkpoint_2 = true;
+	if (position.y < -1263)
+		App->window->checkpoint_3 = true;
+	if (position.y < -1812)
+		App->window->checkpoint_4 = true;
+	if (position.y <-2292)
+		App->window->checkpoint_5 = true;
+	if (position.y < -2882)
+		App->window->checkpoint_6 = true;
+
 	// MOVEMENT ---------------------------------------------------
 
 	int speed = 4;
@@ -311,9 +303,6 @@ update_status ModulePlayer::Update()
 			App->player->bombs--;
 		}
 	}
-
-	if (App->input->keyboard[SDL_SCANCODE_B] == KEY_STATE::KEY_UP)
-		bombs++;
 
 	// Energy ----------------------------------------------------------------
 

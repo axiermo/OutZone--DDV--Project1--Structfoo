@@ -29,7 +29,6 @@ GreyTurret::GreyTurret(int x, int y) : Enemy(x, y,0)
 	rotate.PushBack({ 43, 80, 27, 29 }); // LEFT_B_BOT
 	rotate.PushBack({ 43, 80, 27, 29 }); // LEFT_B_BOT
 	rotate.PushBack({ 43, 80, 27, 29 }); // LEFT_B_BOT
-	rotate.PushBack({ 98, 868, 37, 37 }); // DEAD
 
 	lives = 4;
 
@@ -186,7 +185,7 @@ void GreyTurret::Shoot()
 	if (App->player->position.y - position.y < 160 || appeared)
 	{
 		appeared = true;
-		if (next_shoot - last_shoot > 1800 && distance > 100 && distance < 350 && !destroyed)
+		if (next_shoot - last_shoot > 1800 && distance > 100 && distance < 350)
 		{
 			switch (direction)
 			{
@@ -263,32 +262,24 @@ void GreyTurret::Shoot()
 
 void GreyTurret::Draw()
 {
-	if (collider != nullptr && !destroyed)
+	// Collider --------------------------------------------
+
+	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
+
+	// Blit & green blit -----------------------------------
+
+	if (hit == false) 
+		App->render->Blit(App->enemies->sprites, position.x, position.y, &rotate.GetActualFrame(), -1.0f);
 	else
 	{
-		collider->type = COLLIDER_DEAD;
-		collider->SetPos(position.x - 1, position.y + 14);
-	}
+		App->render->Blit(App->enemies->sprites2, position.x, position.y, &rotate.GetActualFrame(), -1.0f);
+		t++;
 
-	if (!destroyed)
-	{
-		if (hit == false) App->render->Blit(App->enemies->sprites, position.x, position.y, &rotate.GetActualFrame(), -1.0f);
-		else
+		if (t == 3)
 		{
-			App->render->Blit(App->enemies->sprites2, position.x, position.y, &rotate.GetActualFrame(), -1.0f);
-			t++;
-
-			if (t == 3)
-			{
-				hit = false;
-				t = 0;
-			}
+			hit = false;
+			t = 0;
 		}
-	}
-	else
-	{
-		rotate.setframe(17);
-		App->render->Blit(App->enemies->sprites, position.x - 1, position.y + 14, &rotate.GetCurrentFrame(), -1.0f);
 	}
 }

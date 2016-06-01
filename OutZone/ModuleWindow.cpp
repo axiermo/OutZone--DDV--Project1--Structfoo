@@ -1,4 +1,4 @@
-#include "Globals.h"
+
 #include "Application.h"
 #include "ModuleWindow.h"
 #include "SDL/include/SDL.h"
@@ -50,6 +50,14 @@ bool ModuleWindow::Init()
 			screen_surface = SDL_GetWindowSurface(window);
 		}
 	}
+
+	checkpoint_1 = false;
+	checkpoint_2 = false;
+	checkpoint_3 = false;
+	checkpoint_4 = false;
+	checkpoint_5 = false;
+	checkpoint_6 = false;
+	checkpoint_7 = false;
 
 	return ret;
 }

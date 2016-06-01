@@ -11,6 +11,7 @@
 #include "BlueSoldier.h"
 #include "Mazurka.h"
 #include "ModuleAudio.h"
+#include "Globals.h"
 
 #define MAX_ENEMIES 100
 

@@ -2,7 +2,7 @@
 #include "BlueSoldier.h"
 #include "ModuleCollision.h"
 #include "Path.h"
-#include"p2Point.h"
+#include "p2Point.h"
 #include "ModuleCollision.h"
 #include "ModulePlayer.h"
 #include "ModuleRender.h"
@@ -11,6 +11,7 @@
 #include "ModuleTextures.h"
 #include "ModuleFonts.h"
 #include "SDL/include/SDL_timer.h"
+
 #define PI 3.1415926
 
 BlueSoldier::BlueSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)

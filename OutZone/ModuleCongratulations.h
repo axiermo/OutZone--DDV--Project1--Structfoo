@@ -3,8 +3,8 @@
 
 #include "Module.h"
 #include "Animation.h"
-#include "Globals.h"
 #include "ModuleAudio.h"
+#include "Globals.h"
 
 struct SDL_Texture;
 

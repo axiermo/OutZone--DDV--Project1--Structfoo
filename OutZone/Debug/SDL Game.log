@@ -1,67 +1,11 @@
-﻿Build started 01/06/2016 13:16:39.
-     1>Project "C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
+﻿Build started 01/06/2016 18:26:26.
+     1>Project "C:\Users\marcdpg\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Application.cpp BigTurret.cpp BlueSoldier.cpp Bomb.cpp ChangeBox.cpp ChangePowerUp.cpp Door.cpp DoorTurret.cpp Enemy.cpp EnergyBox.cpp EnergyPowerUp.cpp GreyTurret.cpp Main.cpp Mazurka.cpp ModuleAudio.cpp ModuleCollision.cpp ModuleEnemies.cpp ModuleExplosion.cpp ModuleFadeToBlack.cpp ModuleFonts.cpp ModuleGameOver.cpp ModuleInput.cpp ModuleLevel1b.cpp ModuleLevel1f.cpp ModuleParticles.cpp ModulePlayer.cpp ModuleRender.cpp ModuleTextures.cpp ModuleTitle.cpp ModuleWindow.cpp Modulecongratulations.cpp RedSoldier.cpp Soldier1.cpp Tank.cpp Truck.cpp UpgradePowerUp.cpp
-         Application.cpp
-         Generating Code...
-         Compiling...
-         UpgradePowerUp.cpp
-         Truck.cpp
-         Tank.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\tank.cpp(170): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         Soldier1.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(288): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(290): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(307): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(431): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         RedSoldier.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\redsoldier.cpp(296): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\redsoldier.cpp(418): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         Modulecongratulations.cpp
-         ModuleWindow.cpp
-         ModuleTitle.cpp
-         ModuleTextures.cpp
-         ModuleRender.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModulePlayer.cpp
          ModulePlayer.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(361): warning C4018: '>' : signed/unsigned mismatch
-         ModuleParticles.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\moduleparticles.cpp(84): warning C4305: '=' : truncation from 'double' to 'float'
-         ModuleLevel1f.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\modulelevel1f.cpp(35): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\modulelevel1f.cpp(110): warning C4018: '<' : signed/unsigned mismatch
-         ModuleLevel1b.cpp
-         ModuleInput.cpp
-         ModuleGameOver.cpp
-         ModuleFonts.cpp
-         ModuleFadeToBlack.cpp
-         ModuleExplosion.cpp
-         ModuleEnemies.cpp
-         Generating Code...
-         Compiling...
-         ModuleCollision.cpp
-         ModuleAudio.cpp
-         Mazurka.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\mazurka.cpp(272): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\mazurka.cpp(274): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         Main.cpp
-         GreyTurret.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(63): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(183): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         EnergyPowerUp.cpp
-         EnergyBox.cpp
-         Enemy.cpp
-         DoorTurret.cpp
-         Door.cpp
-         ChangePowerUp.cpp
-         ChangeBox.cpp
-         Bomb.cpp
-         BlueSoldier.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\bluesoldier.cpp(224): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\bluesoldier.cpp(348): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         BigTurret.cpp
-         Generating Code...
+     1>c:\users\marcdpg\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(350): warning C4018: '>' : signed/unsigned mismatch
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.lib" /MACHINE:X86 Debug\Application.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\marcdpg\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\marcdpg\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\marcdpg\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.lib" /MACHINE:X86 Debug\Application.obj
          Debug\BigTurret.obj
          Debug\BlueSoldier.obj
          Debug\Bomb.obj
@@ -86,6 +30,7 @@
          Debug\ModuleCollision.obj
          Debug\ModuleFadeToBlack.obj
          Debug\ModuleInput.obj
+         Debug\ModulePaint.obj
          Debug\ModuleParticles.obj
          Debug\ModulePlayer.obj
          Debug\ModuleRender.obj
@@ -98,9 +43,9 @@
          Debug\Tank.obj
          Debug\Truck.obj
          Debug\UpgradePowerUp.obj
-         SDL Game.vcxproj -> C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe
-     1>Done Building Project "C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
+         SDL Game.vcxproj -> C:\Users\marcdpg\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe
+     1>Done Building Project "C:\Users\marcdpg\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.44
+Time Elapsed 00:00:00.60

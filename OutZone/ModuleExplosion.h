@@ -4,8 +4,8 @@
 #include "Module.h"
 #include "Animation.h"
 #include "p2Point.h"
-#include "Globals.h"
 #include "ModuleCollision.h"
+#include "Globals.h"
 
 #define nullrect {0,0,0,0} 
 
