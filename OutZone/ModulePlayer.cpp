@@ -310,7 +310,7 @@ update_status ModulePlayer::Update()
 	{
 		if (App->player->bombs > 0)
 		{
-			App->explosion->AddExplosion(App->explosion->Airstrike, App->render->camera.x, (-App->render->camera.y * 2 / speed), { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
+			App->explosion->AddExplosion(App->explosion->Airstrike, App->render->camera.x, (-App->render->camera.y * 2 / 4), { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
 			App->player->bombs--;
 		}
 	}
@@ -851,7 +851,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 
-	if (self == c1 && self != nullptr && self->type == COLLIDER_PLAYER && (c2->type == COLLIDER_ENEMY_SHOT || c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_TRUCK) && !destroyed)
+	if (self == c1 && self != nullptr && self->type == COLLIDER_PLAYER && (c2->type == COLLIDER_ENEMY_SHOT || c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_TRUCK || c2->type == COLLIDER_RED_SOLDIER) && !destroyed)
 	{
 		App->explosion->AddExplosion(App->explosion->Player, position.x - 30, position.y - 30, { 0, 0 }, { 0, 0, 105, 115 }, COLLIDER_EXPLOSION);
 		destroyed = true;

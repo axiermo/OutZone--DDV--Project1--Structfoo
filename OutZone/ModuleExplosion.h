@@ -9,7 +9,7 @@
 
 #define nullrect {0,0,0,0} 
 
-#define MAX_ACTIVE_EXPLOSIONS 20
+#define MAX_ACTIVE_EXPLOSIONS 100
 
 struct SDL_Texture;
 struct Collider;

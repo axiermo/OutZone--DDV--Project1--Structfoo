@@ -178,8 +178,8 @@ ModuleParticles::ModuleParticles()
 	Big_NPC_explosion.anim.PushBack({ 417, 143, 157, 130 });
 	Big_NPC_explosion.anim.PushBack({ 560, 143, 157, 130 });
 	Big_NPC_explosion.anim.PushBack({ 702, 143, 157, 130 });
-	Big_NPC_explosion.anim.speed = 0.5;
-	Big_NPC_explosion.life = 150;
+	Big_NPC_explosion.anim.speed = 0.3f;
+	Big_NPC_explosion.life = 300;
 
 	//------------------------ Door Turret && Grey turret && Soldiers ---------------------------
 

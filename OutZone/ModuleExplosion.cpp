@@ -1,4 +1,5 @@
 #include <math.h>
+#include "Globals.h"
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
@@ -13,25 +14,37 @@ ModuleExplosion::ModuleExplosion()
 		active[i] = nullptr;
 
 	//------------------------ Airstrike ---------------------------
-
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 0), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 1), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 2), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
+
+	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 15), 0, SCREEN_WIDTH, SCREEN_HEIGHT });
+
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 3), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 4), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 5), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
+
+	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 15), 0, SCREEN_WIDTH, SCREEN_HEIGHT });
+
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 6), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 7), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 8), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
+
+	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 15), 0, SCREEN_WIDTH, SCREEN_HEIGHT });
+
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 9), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 10), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 11), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
+
+	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 15), 0, SCREEN_WIDTH, SCREEN_HEIGHT });
+
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 12), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 13), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 14), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
 	Airstrike.anim.PushBack({ 0 + (SCREEN_WIDTH * 15), 340, SCREEN_WIDTH, SCREEN_HEIGHT });
-	Airstrike.anim.speed = 0.9f;
-	Airstrike.life = 280;
+
+	Airstrike.anim.speed = 0.8f;
+	Airstrike.life = 400;
 	Airstrike.anim.loop = false;
 
 	Player.anim.PushBack({ 241, 0, 115, 110 });

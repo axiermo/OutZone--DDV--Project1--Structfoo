@@ -1,10 +1,65 @@
-﻿Build started 01/06/2016 11:40:39.
-     1>Project "C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
+﻿Build started 02/06/2016 0:26:41.
+     1>Project "C:\Users\Marc\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModuleExplosion.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Application.cpp BigTurret.cpp BlueSoldier.cpp Bomb.cpp ChangeBox.cpp ChangePowerUp.cpp Door.cpp DoorTurret.cpp Enemy.cpp EnergyBox.cpp EnergyPowerUp.cpp GreyTurret.cpp Mazurka.cpp Modulecongratulations.cpp ModuleEnemies.cpp ModuleExplosion.cpp ModuleFonts.cpp ModuleGameOver.cpp ModuleLevel1f.cpp Globals.cpp Main.cpp ModuleAudio.cpp ModuleCollision.cpp ModuleFadeToBlack.cpp ModuleInput.cpp ModulePaint.cpp ModuleParticles.cpp ModulePlayer.cpp ModuleRender.cpp ModuleLevel1b.cpp ModuleTitle.cpp ModuleTextures.cpp ModuleWindow.cpp RedSoldier.cpp Soldier1.cpp Tank.cpp Truck.cpp UpgradePowerUp.cpp
+         Application.cpp
+         BigTurret.cpp
+         BlueSoldier.cpp
+     1>BlueSoldier.cpp(223): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BlueSoldier.cpp(347): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         Bomb.cpp
+         ChangeBox.cpp
+         ChangePowerUp.cpp
+         Door.cpp
+         DoorTurret.cpp
+         Enemy.cpp
+         EnergyBox.cpp
+         EnergyPowerUp.cpp
+         GreyTurret.cpp
+     1>GreyTurret.cpp(62): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>GreyTurret.cpp(182): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         Mazurka.cpp
+     1>Mazurka.cpp(268): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Mazurka.cpp(270): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         Modulecongratulations.cpp
+         ModuleEnemies.cpp
          ModuleExplosion.cpp
+         ModuleFonts.cpp
+         ModuleGameOver.cpp
+         ModuleLevel1f.cpp
+     1>ModuleLevel1f.cpp(35): warning C4305: '=' : truncation from 'double' to 'float'
+     1>ModuleLevel1f.cpp(108): warning C4018: '<' : signed/unsigned mismatch
+         Globals.cpp
+         Compiling...
+         Main.cpp
+         ModuleAudio.cpp
+         ModuleCollision.cpp
+         ModuleFadeToBlack.cpp
+         ModuleInput.cpp
+         ModulePaint.cpp
+         ModuleParticles.cpp
+     1>ModuleParticles.cpp(83): warning C4305: '=' : truncation from 'double' to 'float'
+         ModulePlayer.cpp
+     1>ModulePlayer.cpp(361): warning C4018: '>' : signed/unsigned mismatch
+         ModuleRender.cpp
+         ModuleLevel1b.cpp
+         ModuleTitle.cpp
+         ModuleTextures.cpp
+         ModuleWindow.cpp
+         RedSoldier.cpp
+     1>RedSoldier.cpp(296): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>RedSoldier.cpp(418): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         Soldier1.cpp
+     1>Soldier1.cpp(287): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>Soldier1.cpp(289): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
+     1>Soldier1.cpp(306): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Soldier1.cpp(430): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         Tank.cpp
+     1>Tank.cpp(164): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         Truck.cpp
+         UpgradePowerUp.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.lib" /MACHINE:X86 /SAFESEH Release\Application.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Marc\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Marc\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Marc\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.lib" /MACHINE:X86 /SAFESEH Release\Application.obj
          Release\BigTurret.obj
          Release\BlueSoldier.obj
          Release\Bomb.obj
@@ -17,6 +72,7 @@
          Release\EnergyPowerUp.obj
          Release\GreyTurret.obj
          Release\Mazurka.obj
+         Release\Modulecongratulations.obj
          Release\ModuleEnemies.obj
          Release\ModuleExplosion.obj
          Release\ModuleFonts.obj
@@ -28,6 +84,7 @@
          Release\ModuleCollision.obj
          Release\ModuleFadeToBlack.obj
          Release\ModuleInput.obj
+         Release\ModulePaint.obj
          Release\ModuleParticles.obj
          Release\ModulePlayer.obj
          Release\ModuleRender.obj
@@ -42,9 +99,9 @@
          Release\UpgradePowerUp.obj
          Generating code
          Finished generating code
-         SDL Game.vcxproj -> C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.exe
-     1>Done Building Project "C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
+         SDL Game.vcxproj -> C:\Users\Marc\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.exe
+     1>Done Building Project "C:\Users\Marc\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.31
+Time Elapsed 00:00:05.01

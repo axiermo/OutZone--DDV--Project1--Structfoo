@@ -163,7 +163,7 @@ void Tank::Shoot()
 {
 	float distance = position.DistanceTo(App->player->position);
 	next_shoot = SDL_GetTicks();
-	if (next_shoot - last_shoot > 1000)
+	if (next_shoot - last_shoot > 1000 && App->player->position.y < -2150)
 	{
 		App->particles->AddParticle(App->particles->TankMissile, position.x + 10, position.y + 22, { 0, +5 }, { 0, 0, 14, 30 }, COLLIDER_ENEMY_SHOT);
 		last_shoot = SDL_GetTicks();

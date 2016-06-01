@@ -274,9 +274,7 @@ bool ModuleLevel1b::CleanUp()
 update_status ModuleLevel1b::Update()
 {
 	App->render->Blit(graphics, 0, -3850, &World1, -1.0f, true);
-	if (App->player->mazurkaskilled == 4){
-		App->fade->FadeToBlack(App->scene_level1b, App->scene_congratulations, 2.0);
-	}
+
 	if(App->player->position.y > -3620) 
 			sborder->SetPos(App->player->position.x - 300, App->player->position.y + 200);
 			nborder->SetPos(0, App->render->camera.y / -2);
@@ -289,6 +287,11 @@ update_status ModuleLevel1b::Update()
 		}
 		else
 			App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 2.0);
+	}
+
+	if (App->player->mazurkaskilled == 4)
+	{
+		App->fade->FadeToBlack(App->scene_level1b, App->scene_congratulations, 2.0);
 	}
 
 	// Red ship -----------------------------------------------------------------------------------

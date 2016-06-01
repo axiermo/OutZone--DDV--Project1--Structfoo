@@ -210,7 +210,15 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		{
 			if ((c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_EXPLOSION || c2->type == COLLIDER_GOD) && enemies[i]->lives > 0)
 			{
-				enemies[i]->lives -= App->player->damage;
+				
+				if (c2->type == COLLIDER_EXPLOSION)
+				{
+					enemies[i]->lives -= 1;
+				}
+				else
+					enemies[i]->lives -= App->player->damage;
+
+				
 				enemies[i]->hit = true;
 				App->audio->PlayFX(enemy_hit);
 
