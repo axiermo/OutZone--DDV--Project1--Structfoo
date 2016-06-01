@@ -107,7 +107,11 @@ update_status ModuleTitle::Update()
 	// Spending coins
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN && coins > 0 && !stop && t > 100)
 	{
-		if (App->window->checkpoint_6 == true)
+		if (App->window->checkpoint_7 == true)
+		{
+			App->window->checkpoint_6 = false;
+		}
+		else if (App->window->checkpoint_6 == true)
 		{
 			App->window->checkpoint_6 = false;
 		}

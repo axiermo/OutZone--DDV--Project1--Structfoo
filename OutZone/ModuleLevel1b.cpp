@@ -598,7 +598,7 @@ update_status ModuleLevel1b::Update()
 	}
 	
 
-	if ((App->player->position.y) < -3400 && wave36)
+	if (App->player->position.y < -3400 && App->render->camera.y > 7200 && wave36)
 	{
 		wave36 = false;
 		//Boss

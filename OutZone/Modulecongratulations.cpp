@@ -11,6 +11,7 @@
 #include "ModuleCollision.h"
 #include "ModuleEnemies.h"
 #include "ModuleFonts.h"
+#include "ModuleWindow.h"
 
 ModuleCongratulations::ModuleCongratulations()
 {
@@ -38,6 +39,14 @@ bool ModuleCongratulations::Start()
 	graphics2 = App->textures->Load("Sprites/UI/UI.png");
 	soundtrack = App->audio->LoadMusic("Audio/Music/Game_over.ogg");
 	App->audio->PlayMusic0(soundtrack);
+
+	App->window->checkpoint_1 = false;
+	App->window->checkpoint_2 = false;
+	App->window->checkpoint_3 = false;
+	App->window->checkpoint_4 = false;
+	App->window->checkpoint_5 = false;
+	App->window->checkpoint_6 = false;
+	App->window->checkpoint_7 = false;
 
 	return true;
 }
