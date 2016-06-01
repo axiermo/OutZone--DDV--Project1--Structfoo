@@ -514,63 +514,61 @@ update_status ModuleLevel1b::Update()
 	if (App->window->checkpoint_6 == false)
 	{
 		//truck one
-		if ((App->player->position.y) < -2430 && wave32)
+		if ((App->render->camera.y) > 5320 && wave32)
 		{
 			wave32 = false;
 			//truck one
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 200, -2700, 4);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 175, -2700, 3);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 200, -2660, 6);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 175, -2660, 5);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 200, -2800, 4);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 175, -2800, 3);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 200, -2760, 6);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 175, -2760, 5);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 165, -2700, 1);
+			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 165, -2800, 1);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2700, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2700, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2660, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2660, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2770, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2770, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2730, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2730, 2);
 
 
 			//truck2
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -2900, 8);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -2900, 7);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -2860, 10);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -2860, 9);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3000, 8);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3000, 7);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -2960, 10);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -2960, 9);
 
+			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 10, -3000, 1);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 10, -2900, 1);
-
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 90, -2900, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 130, -2900, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 90, -2860, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 130, -2860, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 90, -2970, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 130, -2970, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 90, -2930, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 130, -2930, 2);
 
 			//truck 3
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3100, 11);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3100, 12);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3060, 13);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3060, 14);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3200, 11);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3200, 12);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3160, 13);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3160, 14);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 100, -3100, 1);
+			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 110, -3200, 1);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3100, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3100, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3060, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3060, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3170, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3170, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3130, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3130, 2);
 
 			//truck 4
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3400, 15);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3400, 16);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3360, 17);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3360, 18);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3450, 15);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3450, 16);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3410, 17);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3410, 18);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 75, -3400, 1);
+			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 50, -3460, 1);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3400, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3400, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3360, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3360, 2);
-
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 170, -3370, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 130, -3370, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 170, -3420, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 130, -3420, 2);
 		}
 
 	}

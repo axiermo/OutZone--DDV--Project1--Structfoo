@@ -2,7 +2,7 @@
 #include "BlueSoldier.h"
 #include "ModuleCollision.h"
 #include "Path.h"
-#include "p2Point.h"
+#include"p2Point.h"
 #include "ModuleCollision.h"
 #include "ModulePlayer.h"
 #include "ModuleRender.h"
@@ -11,7 +11,6 @@
 #include "ModuleTextures.h"
 #include "ModuleFonts.h"
 #include "SDL/include/SDL_timer.h"
-
 #define PI 3.1415926
 
 BlueSoldier::BlueSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)
@@ -80,26 +79,26 @@ BlueSoldier::BlueSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, 1.0f }, 150, &down);
 		break;
 	case 3:
-		path.PushBack({ 0.0f, 1.0f }, 160, &down);
+		path.PushBack({ 0.0f, 1.0f }, 180, &down);
 		path.PushBack({ -0.2f, -1.3f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
 	case 4:
-		path.PushBack({ 0.0f, 1.0f }, 164, &down);
+		path.PushBack({ 0.0f, 1.0f }, 184, &down);
 		path.PushBack({ 0.2f, -0.6f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
 	case 5:
-		path.PushBack({ 0.0f, 1.0f }, 168, &down);
+		path.PushBack({ 0.0f, 1.0f }, 188, &down);
 		path.PushBack({ -0.2f, -1.4f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
 	case 6:
-		path.PushBack({ 0.0f, 1.0f }, 172, &down);
+		path.PushBack({ 0.0f, 1.0f }, 192, &down);
 		path.PushBack({ 0.2f, -0.6f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
-	//3,4,5,6 first top truck soldiers
+		//3,4,5,6 first top truck soldiers
 	case 7:
 		path.PushBack({ 0.0f, 1.0f }, 180, &down);
 		path.PushBack({ 0.3f, -1.2f }, 40, &down);
@@ -123,25 +122,24 @@ BlueSoldier::BlueSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)
 		//7,8,9,10 second top truck soldiers
 	case 11:
 		path.PushBack({ 0.0f, 1.0f }, 180, &down);
-		path.PushBack({ -0.3f, -1.5f }, 40, &down);
+		path.PushBack({ -0.3f, -1.7f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
 	case 12:
 		path.PushBack({ 0.0f, 1.0f }, 184, &down);
-		path.PushBack({ 0.1f, -0.35f }, 40, &down);
+		path.PushBack({ 0.1f, -0.55f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
 	case 13:
 		path.PushBack({ 0.0f, 1.0f }, 188, &down);
-		path.PushBack({ 0.0f, -1.5f }, 40, &down);
+		path.PushBack({ 0.0f, -1.7f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
 	case 14:
 		path.PushBack({ 0.0f, 1.0f }, 192, &down);
-		path.PushBack({ 0.1f, -0.35f }, 40, &down);
+		path.PushBack({ 0.1f, -0.55f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
-		//11,12,13,14 second top truck soldiers
 	case 15:
 		path.PushBack({ 0.0f, 1.0f }, 240, &down);
 		path.PushBack({ -0.3f, -0.8f }, 40, &down);
@@ -159,7 +157,7 @@ BlueSoldier::BlueSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)
 		break;
 	case 18:
 		path.PushBack({ 0.0f, 1.0f }, 252, &down);
-		path.PushBack({ 0.9f, -0.8f }, 40, &down);
+		path.PushBack({ 0.4f, -0.8f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
 	}

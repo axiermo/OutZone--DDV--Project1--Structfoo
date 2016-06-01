@@ -1,4 +1,3 @@
-
 #ifndef __ENEMY_TANK_H__
 #define __ENEMY_TANK_H__
 
@@ -14,11 +13,13 @@ private:
 
 	iPoint original_pos;
 	Animation tankanim;
-	
+
 	uint t = 0;
 
 	Path path;
 	Directions direction;
+
+	bool left;
 
 	Animation* curr_animation = nullptr;
 	Animation* last_animation = nullptr;
