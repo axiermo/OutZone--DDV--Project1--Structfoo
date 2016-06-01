@@ -353,16 +353,16 @@ update_status ModuleLevel1b::Update()
 		if ((App->player->position.y) < -320 && wave13)
 		{
 			wave13 = false;
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 160, -590, 1);
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 120, -590, 1);
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 85, -630, 1);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 160, -570, 1);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 120, -570, 1);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 85, -610, 1);
 		}
 		if ((App->player->position.y) < -340 && wave14)
 		{
 			wave14 = false;
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 130, -530, 4);
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 100, -530, 4);
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 75, -550, 4);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 130, -510, 4);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 100, -510, 4);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 75, -530, 4);
 		}
 		if ((App->player->position.y) < -440 && wave15)
 		{
@@ -414,15 +414,15 @@ update_status ModuleLevel1b::Update()
 		if ((App->player->position.y) < -1115 && wave19)
 		{
 			wave19 = false;
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 115, -1350, 11);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 125, -1350, 11);
 			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 165, -1350, 11);
 		}
 		if ((App->player->position.y) < -1130 && wave20)
 		{
 			wave20 = false;
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 110, -1400, 11);
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 165, -1400, 11);
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 130, -1380, 11);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 125, -1390, 11);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 165, -1390, 11);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 140, -1365, 11);
 
 		}
 		if ((App->player->position.y) < -1130 && wave23)
@@ -493,16 +493,16 @@ update_status ModuleLevel1b::Update()
 		if ((App->player->position.y) < -1650 && wave28)
 		{
 			wave28 = false;
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 15, -1800, 17);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 27, -1800, 17);
 			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 80, -1810, 20);
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 180, -1830, 19);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 180, -1840, 19);
 		}
 		if ((App->player->position.y) < -1665 && wave29)
 		{
 			wave29 = false;
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 15, -1835, 17);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 27, -1835, 17);
 			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 80, -1835, 20);
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 180, -1825, 18);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 180, -1800, 18);
 			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 80, -1870, 20);
 		}
 	}

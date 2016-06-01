@@ -16,9 +16,9 @@
 RedSoldier::RedSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)
 {
 	up.PushBack({ 159, 502, 26, 36 });
-	up.PushBack({ 152, 544, 29, 34 });
-	up.PushBack({ 193, 544, 26, 34 });
 	up.PushBack({ 196, 501, 27, 37 });
+	up.PushBack({ 232, 501, 26, 35 });
+	up.PushBack({ 268, 501, 26, 35 });
 	up.speed = 0.1f;
 
 	right.PushBack({ 154, 585, 28, 32 });
@@ -27,10 +27,10 @@ RedSoldier::RedSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)
 	right.PushBack({ 276, 583, 26, 33 });
 	right.speed = 0.1f;
 
-	left.PushBack({ 276, 583, 26, 33 });
-	left.PushBack({ 230, 753, 25, 33 });
-	left.PushBack({ 196, 753, 28, 32 });
 	left.PushBack({ 159, 754, 25, 32 });
+	left.PushBack({ 196, 753, 28, 32 });
+	left.PushBack({ 230, 753, 25, 33 });
+	left.PushBack({ 267, 752, 25, 33 });
 	left.speed = 0.1f;
 
 	down.PushBack({ 153, 669, 27, 36 });

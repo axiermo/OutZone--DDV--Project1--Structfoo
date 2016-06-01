@@ -1,66 +1,10 @@
-﻿Build started 01/06/2016 18:35:01.
-     1>Project "C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
+﻿Build started 01/06/2016 18:52:58.
+     1>Project "C:\Users\janfh\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Application.cpp BigTurret.cpp BlueSoldier.cpp Bomb.cpp ChangeBox.cpp ChangePowerUp.cpp Door.cpp DoorTurret.cpp Enemy.cpp EnergyBox.cpp EnergyPowerUp.cpp GreyTurret.cpp Mazurka.cpp Modulecongratulations.cpp ModuleEnemies.cpp ModuleExplosion.cpp ModuleFonts.cpp ModuleGameOver.cpp ModuleLevel1f.cpp Main.cpp ModuleAudio.cpp ModuleCollision.cpp ModuleFadeToBlack.cpp ModuleInput.cpp ModulePaint.cpp ModuleParticles.cpp ModulePlayer.cpp ModuleRender.cpp ModuleLevel1b.cpp ModuleTitle.cpp ModuleTextures.cpp ModuleWindow.cpp RedSoldier.cpp Soldier1.cpp Tank.cpp Truck.cpp UpgradePowerUp.cpp
-         UpgradePowerUp.cpp
-         Truck.cpp
-         Tank.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\tank.cpp(170): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         Soldier1.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(288): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(290): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(307): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\soldier1.cpp(431): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         RedSoldier.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\redsoldier.cpp(296): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\redsoldier.cpp(418): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         ModuleWindow.cpp
-         ModuleTextures.cpp
-         ModuleTitle.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModuleLevel1b.cpp
          ModuleLevel1b.cpp
-         ModuleRender.cpp
-         ModulePlayer.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\moduleplayer.cpp(350): warning C4018: '>' : signed/unsigned mismatch
-         ModuleParticles.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\moduleparticles.cpp(83): warning C4305: '=' : truncation from 'double' to 'float'
-         ModulePaint.cpp
-         ModuleInput.cpp
-         ModuleFadeToBlack.cpp
-         ModuleCollision.cpp
-         ModuleAudio.cpp
-         Main.cpp
-         ModuleLevel1f.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\modulelevel1f.cpp(35): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\modulelevel1f.cpp(110): warning C4018: '<' : signed/unsigned mismatch
-         ModuleGameOver.cpp
-         Generating Code...
-         Compiling...
-         ModuleFonts.cpp
-         ModuleExplosion.cpp
-         ModuleEnemies.cpp
-         Modulecongratulations.cpp
-         Mazurka.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\mazurka.cpp(268): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\mazurka.cpp(270): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         GreyTurret.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(62): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\greyturret.cpp(182): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         EnergyPowerUp.cpp
-         EnergyBox.cpp
-         Enemy.cpp
-         DoorTurret.cpp
-         Door.cpp
-         ChangePowerUp.cpp
-         ChangeBox.cpp
-         Bomb.cpp
-         BlueSoldier.cpp
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\bluesoldier.cpp(225): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\asieram\documents\github\outzone--ddv--project1--structfoo\outzone\bluesoldier.cpp(349): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         BigTurret.cpp
-         Application.cpp
-         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.lib" /MACHINE:X86 Debug\Application.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\janfh\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\janfh\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\janfh\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.lib" /MACHINE:X86 Debug\Application.obj
          Debug\BigTurret.obj
          Debug\BlueSoldier.obj
          Debug\Bomb.obj
@@ -98,11 +42,9 @@
          Debug\Tank.obj
          Debug\Truck.obj
          Debug\UpgradePowerUp.obj
-         LINK : C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe not found or not built by the last incremental link; performing full link
-     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
-         SDL Game.vcxproj -> C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe
-     1>Done Building Project "C:\Users\asieram\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
+         SDL Game.vcxproj -> C:\Users\janfh\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Debug\OutZone.exe
+     1>Done Building Project "C:\Users\janfh\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.90
+Time Elapsed 00:00:00.60

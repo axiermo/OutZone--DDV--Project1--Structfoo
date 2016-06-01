@@ -174,7 +174,6 @@ Soldier1::Soldier1(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, 0.5f }, 40, &down);
 		path.PushBack({ -0.3f, 0.8f }, 40, &downleft);
 		path.PushBack({ -0.5f, 0.5f }, 60, &downleft);
-		path.PushBack({ -0.5f, 0.8f }, 60, &downleft);
 		path.PushBack({ 0.0f, 1.0f }, 20, &down);
 		path.PushBack({ 0.5f, 0.2f }, 60, &downright);
 		path.PushBack({ 0.7f, 0.0f }, 2000, &right);
