@@ -31,6 +31,8 @@ public:
 	enum Directions direction;
 
 	SDL_Texture* graphics = nullptr;
+	SDL_Texture* graphics2 = nullptr;
+
 	Mix_Chunk* basic_laser = nullptr;
 	Mix_Chunk* triple_laser = nullptr;
 
@@ -77,7 +79,7 @@ public:
 	uint last_laser;
 	uint curr_laser;
 
-
+	uint speed = 0, speed2 = 0;
 };
 
 #endif

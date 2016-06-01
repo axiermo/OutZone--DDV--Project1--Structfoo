@@ -208,6 +208,16 @@ ModuleParticles::ModuleParticles()
 	Small_NPC_explosion.anim.PushBack({ 205, 188, 40, 40 });
 	Small_NPC_explosion.anim.speed = 0.3f;
 	Small_NPC_explosion.life = 400;
+
+	// Red ship ---------------------------------------------------
+	Red_ship.anim.PushBack({ 569, 331, 256, 162 });
+	Red_ship.life = 1680;
+
+	Red_ship_explo.anim.PushBack({ 0, 331, 260, 162 });
+	Red_ship_explo.anim.PushBack({ 283, 331, 272, 162 });
+	Red_ship_explo.anim.speed = 0.4f;
+	Red_ship_explo.life = 4000;
+
 }
 
 ModuleParticles::~ModuleParticles()

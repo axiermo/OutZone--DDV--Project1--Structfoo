@@ -61,6 +61,7 @@ bool ModuleTitle::Start()
 	App->enemies->Disable();
 
 	App->player->destroyed = false;
+
 	return true;
 }
 

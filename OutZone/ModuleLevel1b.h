@@ -59,7 +59,9 @@ public:
 	bool wave41;
 	bool wave42;
 
-	uint t0, t1 = 0, numtanks = 0;
+	uint t0, t1 = 0, numtanks = 0, t2 = 0;
+	bool done = false;
+	bool done2 = false;
 
 public:
 	Collider* lborder;

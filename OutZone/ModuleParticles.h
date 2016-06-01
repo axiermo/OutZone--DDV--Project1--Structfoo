@@ -53,6 +53,7 @@ private:
 public:
 
 	Particle TankMissile;
+
 	// Basic laser
 	Particle laserup;
 	Particle laser67;
@@ -109,6 +110,12 @@ public:
 
 	// Turret
 	Particle Small_NPC_explosion;
+
+	// Red ship
+
+	// Red ship
+	Particle Red_ship;
+	Particle Red_ship_explo;
 };
 
 #endif // __MODULEPARTICLES_H__  

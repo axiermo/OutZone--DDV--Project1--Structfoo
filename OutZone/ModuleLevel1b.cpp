@@ -277,6 +277,24 @@ update_status ModuleLevel1b::Update()
 			App->fade->FadeToBlack(App->scene_level1b, App->scene_gameover, 2.0);
 	}
 
+	// Red ship -----------------------------------------------------------------------------------
+	
+	if (t2 >= 100 && !done)
+	{
+		App->particles->AddParticle(App->particles->Red_ship_explo, -5, 320 - 140, { -1, 1 }, nullrect, COLLIDER_NONE);
+		done = true;
+		App->player->speed = 4;
+		App->player->speed2 = 2;
+	}
+	else if (t2 <= 100)
+	{
+		if (!done2) App->particles->AddParticle(App->particles->Red_ship, -5, 320 - 140, { 0, 0 }, nullrect, COLLIDER_NONE);
+		done2 = true;
+	}
+
+	if (t2 < 260)
+		t2++;
+
 	// 1st checkpoint --------------------------------------------------------------------------
 
 	if (App->window->checkpoint_1 == false)

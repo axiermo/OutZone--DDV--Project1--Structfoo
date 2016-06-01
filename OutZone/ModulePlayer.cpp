@@ -130,6 +130,8 @@ bool ModulePlayer::Start()
 	bool ret = true;
 
 	graphics = App->textures->Load("Sprites/Character/Moves.png");
+	graphics2 = App->textures->Load("Sprites/Character/Moves2.png");
+
 	font_score = App->fonts->Load("Sprites/Fonts/OutZoneScoreFont.png", "!_#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz^ ", 1);
 	basic_laser = App->audio->LoadFX("Audio/FX/Laser.wav");
 	triple_laser = App->audio->LoadFX("Audio/FX/Laser2.wav");
@@ -198,6 +200,7 @@ bool ModulePlayer::CleanUp()
 {
 	LOG("Unloading player textures");
 	App->textures->Unload(graphics);
+	App->textures->Unload(graphics2);
 
 	return true;
 }
@@ -221,7 +224,6 @@ update_status ModulePlayer::Update()
 
 	// MOVEMENT ---------------------------------------------------
 
-	int speed = 4;
 	direction = IDLE;
 	last_position = position;
 
@@ -369,12 +371,15 @@ update_status ModulePlayer::Update()
 
 	// DRAW -------------------------------------------------------------
 
-	if (direction != IDLE)
+	if (direction != IDLE && ((App->scene_level1b->t2 < 200 && App->scene_level1b->t2 > 190) || (App->scene_level1b->t2 < 180 && App->scene_level1b->t2 > 170) || (App->scene_level1b->t2 < 160 && App->scene_level1b->t2 > 150) || (App->scene_level1b->t2 < 140 && App->scene_level1b->t2 > 130) || (App->scene_level1b->t2 < 120 && App->scene_level1b->t2 > 110)))
+		App->render->Blit(graphics2, position.x, position.y, &(curr_animation->GetCurrentFrame()), -1.0f);
+	else if (direction != IDLE)
 		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetCurrentFrame()), -1.0f);
 	else if (App->scene_level1f->t2 > 200 && energy == 0)
 		App->render->Blit(graphics, position.x - 3, position.y - 20, &(curr_animation->GetCurrentFrame()), -1.0f);
 	else
 		App->render->Blit(graphics, position.x, position.y, &(curr_animation->GetActualFrame()), -1.0f);
+
 
 	// MODIFY COLLISION -------------------------------------------------
 
@@ -385,7 +390,6 @@ update_status ModulePlayer::Update()
 
 void ModulePlayer::SelectAnimation(Directions direction)
 {
-	int speed = 2;
 	tt0 = SDL_GetTicks();
 	if (tt0 - tt1 > 40){
 		last_animation = curr_animation;
@@ -404,7 +408,7 @@ void ModulePlayer::SelectAnimation(Directions direction)
 			else if (last_animation == &downleft) curr_animation = &left;
 			else if (last_animation == &down) curr_animation = &downright;
 			else curr_animation = &up;
-			if (position.y > -3805) position.y -= speed;
+			if (position.y > -3805) position.y -= speed2;
 			break;
 		case DOWN:
 			if (last_animation == &left) curr_animation = &downleft;
@@ -413,7 +417,7 @@ void ModulePlayer::SelectAnimation(Directions direction)
 			else if (last_animation == &upleft) curr_animation = &left;
 			else if (last_animation == &up) curr_animation = &upleft;
 			else curr_animation = &down;
-			if (position.y < (App->render->camera.y / -2) + 288) position.y += speed;
+			if (position.y < (App->render->camera.y / -2) + 288) position.y += speed2;
 			break;
 		case LEFT:
 			if (last_animation == &up) curr_animation = &upleft;
@@ -422,7 +426,7 @@ void ModulePlayer::SelectAnimation(Directions direction)
 			else if (last_animation == &upright) curr_animation = &up;
 			else if (last_animation == &down) curr_animation = &downleft;
 			else curr_animation = &left;
-			if (position.x > 0) position.x -= speed;
+			if (position.x > 0) position.x -= speed2;
 			break;
 		case RIGHT:
 			if (last_animation == &up) curr_animation = &upright;
@@ -431,7 +435,7 @@ void ModulePlayer::SelectAnimation(Directions direction)
 			else if (last_animation == &upleft) curr_animation = &up;
 			else if (last_animation == &down) curr_animation = &downright;
 			else curr_animation = &right;
-			if (position.x < SCREEN_WIDTH - 30) position.x += speed;
+			if (position.x < SCREEN_WIDTH - 30) position.x += speed2;
 			break;
 		case UP_LEFT:
 			if (last_animation == &upright) curr_animation = &up;
@@ -472,19 +476,19 @@ void ModulePlayer::SelectAnimation(Directions direction)
 		{
 		case UP:
 			curr_animation = &up2;
-			if (position.y > -3805) position.y -= speed;
+			if (position.y > -3805) position.y -= speed2;
 			break;
 		case DOWN:
 			curr_animation = &down2;
-			if (position.y < (App->render->camera.y / -2) + 288) position.y += speed;
+			if (position.y < (App->render->camera.y / -2) + 288) position.y += speed2;
 			break;
 		case LEFT:
 			curr_animation = &left2;
-			if (position.x > 0) position.x -= speed;
+			if (position.x > 0) position.x -= speed2;
 			break;
 		case RIGHT:
 			curr_animation = &right2;
-			if (position.x < SCREEN_WIDTH - 30) position.x += speed;
+			if (position.x < SCREEN_WIDTH - 30) position.x += speed2;
 			break;
 		}
 		break;
