@@ -27,6 +27,7 @@ public:
 public:
 	SDL_Window* window = nullptr;
 	SDL_Surface* screen_surface = nullptr;
+	SDL_Surface* icon = nullptr;
 };
 
 #endif // __ModuleWindow_H__
