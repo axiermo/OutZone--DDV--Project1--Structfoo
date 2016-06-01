@@ -341,9 +341,9 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
-			if (c1->type == COLLIDER_PLAYER_SHOT && c2->type != COLLIDER_BORDER_TOP)
+			if (c1->type == COLLIDER_PLAYER_SHOT && c2->type != COLLIDER_BORDER_TOP && c2->type != COLLIDER_TRUCK)
 				AddParticle(*active[i]->end_particle, active[i]->position.x - 5, active[i]->position.y - 4, { 0, 0 }, nullrect, COLLIDER_NONE);
-			else if (c1->type != COLLIDER_PLAYER_SHOT && c2->type != COLLIDER_BORDER_TOP)
+			else if (c1->type != COLLIDER_PLAYER_SHOT && c2->type != COLLIDER_BORDER_TOP && c2->type != COLLIDER_TRUCK)
 				AddParticle(*active[i]->end_particle, active[i]->position.x, active[i]->position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
 
 			delete active[i];

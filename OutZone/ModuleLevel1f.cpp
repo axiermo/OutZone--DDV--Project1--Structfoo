@@ -119,7 +119,7 @@ update_status ModuleLevel1f::Update()
 	if (App->player->position.y > 160 + (App->render->camera.y / -2))
 	{
 		t++;
-		if (t > 400)
+		if (t > 400 && App->render->camera.y < 7616)
 			App->render->Blit(graphics2, SCREEN_WIDTH / 2 - 25, 50, &goahead.GetCurrentFrame(), -1.0f, false);
 	}
 	else

@@ -25,7 +25,7 @@ Tank::Tank(int x, int y, int subtype) :Enemy(x, y, subtype)
 
 	curr_animation = &tankanim;
 
-	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 45, 45 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	switch (subtype)
 	{
@@ -165,7 +165,7 @@ void Tank::Shoot()
 	next_shoot = SDL_GetTicks();
 	if (next_shoot - last_shoot > 1000)
 	{
-		App->particles->AddParticle(App->particles->TankMissile, position.x + 10, position.y + 22, { 0, +5 }, { 0, 0, 16, 30 }, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->TankMissile, position.x + 10, position.y + 22, { 0, +5 }, { 0, 0, 14, 30 }, COLLIDER_ENEMY_SHOT);
 		last_shoot = SDL_GetTicks();
 	}
 }

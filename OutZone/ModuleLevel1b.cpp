@@ -149,7 +149,7 @@ bool ModuleLevel1b::Start()
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 131, -993, 0);
 	}
 
-	if (App->window->checkpoint_5 == false)
+	if (App->window->checkpoint_4 == false)
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 107, -2057, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 43, -2057, 0);
@@ -158,6 +158,20 @@ bool ModuleLevel1b::Start()
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 147, -2026, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 203, -2002, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 179, -2050, 0);
+	}
+	if (App->window->checkpoint_5 == false)
+	{
+		if (App->window->checkpoint_4 == true)
+		{
+			App->paint->AddPaint(App->paint->turret_hole, 107 - 1, -2057 + 12);
+			App->paint->AddPaint(App->paint->turret_hole, 43  - 1, -2057  + 12);
+			App->paint->AddPaint(App->paint->turret_hole, 75  - 1, -2018  + 12);
+			App->paint->AddPaint(App->paint->turret_hole, 11  - 1, -2010  + 12);
+			App->paint->AddPaint(App->paint->turret_hole, 147 - 1, -2026 + 12);
+			App->paint->AddPaint(App->paint->turret_hole, 203 - 1, -2002 + 12);
+			App->paint->AddPaint(App->paint->turret_hole, 179 - 1, -2050 + 12);
+		}
+
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 155, -2098, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 19, -2098, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 3, -2138, 0);
@@ -514,14 +528,14 @@ update_status ModuleLevel1b::Update()
 			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 30, -1710, 16);
 		}
 
-		if ((App->player->position.y) < -1650 && wave28)
+		if ((App->player->position.y) < -1550 && wave28)
 		{
 			wave28 = false;
 			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 27, -1800, 17);
 			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 80, -1810, 20);
 			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 180, -1840, 19);
 		}
-		if ((App->player->position.y) < -1665 && wave29)
+		if ((App->player->position.y) < -1565 && wave29)
 		{
 			wave29 = false;
 			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 27, -1835, 17);

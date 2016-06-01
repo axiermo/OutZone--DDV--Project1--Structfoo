@@ -153,13 +153,13 @@ bool ModulePlayer::Start()
 	if (App->window->checkpoint_1)
 	{
 		position.x = 88;
-		position.y = -257;
+		position.y = -260;
 		App->render->camera.x = 0;
-		App->render->camera.y = 1076;
+		App->render->camera.y = 1000;
 	}
 	if (App->window->checkpoint_2)
 	{
-		position.x = 54;
+		position.x = 140;
 		position.y = -756;
 		App->render->camera.x = 0;
 		App->render->camera.y = 2012;
@@ -216,17 +216,17 @@ update_status ModulePlayer::Update()
 {
 	// Checkpoints ------------------------------------------------
 
-	if (position.y < -257)
+	if (position.y < -300)
 		App->window->checkpoint_1 = true;
-	if (position.y < -756)
+	if (position.y < -800)
 		App->window->checkpoint_2 = true;
-	if (position.y < -1263)
+	if (position.y < -1300)
 		App->window->checkpoint_3 = true;
-	if (position.y < -1812)
+	if (position.y < -1850)
 		App->window->checkpoint_4 = true;
-	if (position.y <-2292)
+	if (position.y <-2340)
 		App->window->checkpoint_5 = true;
-	if (position.y < -2882)
+	if (position.y < -2920)
 		App->window->checkpoint_6 = true;
 	if (position.y < -3500)
 		App->window->checkpoint_7 = true;

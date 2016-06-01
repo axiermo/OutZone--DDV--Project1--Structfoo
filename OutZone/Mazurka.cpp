@@ -274,88 +274,88 @@ void Mazurka::Shoot()
 	{
 		if (dx > 0 && dy > 0 && angle > 0 && angle<11.25)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 23, position.y + 11, { +2, 0 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 23, position.y + 11, { +2, 0 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx > 0 && dy > 0 && angle>11.25 && angle < 33.75)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 25, position.y + 17, { +2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 25, position.y + 17, { +2, +1 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx > 0 && dy > 0 && angle>33.75 && angle < 56.25)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 21, position.y + 21, { +2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 21, position.y + 21, { +2, +2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx > 0 && dy > 0 && angle>56.25 && angle < 78.25)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 17, position.y + 22, { +1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 17, position.y + 22, { +1, +2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx > 0 && dy > 0 && angle>78.25 && angle < 90)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 10, position.y + 22, { 0, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 10, position.y + 22, { 0, +2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		//bot left quadrant
 		else if (dx < 0 && (angle>168.75))
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x - 5, position.y + 12, { -2, 0 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x - 5, position.y + 12, { -2, 0 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 
 		}
 		else if (dx < 0 && dy>0 && angle<168.75 && angle>146.25)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x - 5, position.y + 17, { -2, +1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x - 5, position.y + 17, { -2, +1 }, { 0, 0, 12, 12}, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx < 0 && (angle<146.25) && (angle>123.75))
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x - 5, position.y + 23, { -2, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x - 5, position.y + 23, { -2, +2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx < 0 && dy>0 && angle < 123.75 && angle >101.75)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 1, position.y + 22, { -1, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 1, position.y + 22, { -1, +2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx < 0 && dy>0 && angle<101.75 && angle > 90)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 10, position.y + 22, { 0, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 10, position.y + 22, { 0, +2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 
 		//top left quadrant
 		else if (dx > 0 && angle>0 && angle<11.25)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x - 5, position.y + 12, { -2, 0 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x - 5, position.y + 12, { -2, 0 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx < 0 && dy < 0 && angle>-168.75 && angle < -146.25)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 0, position.y - 5, { -2, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 0, position.y - 5, { -2, -2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx < 0 && dy < 0 && angle>-146.25 && angle < -123.75)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 0, position.y - 5, { -2, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 0, position.y - 5, { -2, -2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx < 0 && dy < 0 && angle>-123.75 && angle < -101.75)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 5, position.y - 4, { -1, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 5, position.y - 4, { -1, -2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx < 0 && dy < 0 && angle>-101.75 && angle < -90)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 12, position.y - 6, { 0, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 12, position.y - 6, { 0, -2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		//top right quadrant
 		else if (dx>0 && dy<0 && angle<-0.1 && angle>-11.25)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 23, position.y + 11, { +2, 0 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 23, position.y + 11, { +2, 0 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx>0 && dy<0 && angle < -11.25 && angle > -33.75)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 21, position.y + 5, { +2, -1 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 21, position.y + 5, { +2, -1 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx>0 && dy<0 && angle < -33.75 && angle > -56.25)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 22, position.y - 2, { +2, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 22, position.y - 2, { +2, -2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx>0 && dy<0 && angle < -56.25 && angle > -78.25)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 17, position.y - 1, { +1, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 17, position.y - 1, { +1, -2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx>0 && dy<0 && angle < -78.25 && angle > -89.1)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 12, position.y - 6, { 0, -2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x + 12, position.y - 6, { 0, -2 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 
 		last_shoot = SDL_GetTicks();
