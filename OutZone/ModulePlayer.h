@@ -51,7 +51,7 @@ public:
 	Animation left2;
 
 	Animation lowenergydead;
-
+	int mazurkaskilled = 0;
 	int font_score = -1;
 	char score_text[10];
 	char cameray[10];

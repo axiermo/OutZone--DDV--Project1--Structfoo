@@ -83,6 +83,7 @@
     <ClInclude Include="EnergyPowerUp.h" />
     <ClInclude Include="GreyTurret.h" />
     <ClInclude Include="Mazurka.h" />
+    <ClInclude Include="ModuleCongratulations.h" />
     <ClInclude Include="ModuleEnemies.h" />
     <ClInclude Include="ModuleExplosion.h" />
     <ClInclude Include="ModuleFonts.h" />
@@ -124,6 +125,7 @@
     <ClCompile Include="EnergyPowerUp.cpp" />
     <ClCompile Include="GreyTurret.cpp" />
     <ClCompile Include="Mazurka.cpp" />
+    <ClCompile Include="Modulecongratulations.cpp" />
     <ClCompile Include="ModuleEnemies.cpp" />
     <ClCompile Include="ModuleExplosion.cpp" />
     <ClCompile Include="ModuleFonts.cpp" />

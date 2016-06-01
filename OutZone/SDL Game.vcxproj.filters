@@ -137,6 +137,9 @@
     <ClInclude Include="Bomb.h">
       <Filter>Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleCongratulations.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -246,6 +249,9 @@
     </ClCompile>
     <ClCompile Include="Bomb.cpp">
       <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Modulecongratulations.cpp">
+      <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

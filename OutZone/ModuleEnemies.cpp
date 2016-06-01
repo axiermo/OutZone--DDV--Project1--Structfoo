@@ -215,7 +215,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 				if (enemies[i]->lives < 1)
 				{
-					if (c1->type == COLLIDER_DOOR || c1->type == COLLIDER_BOX || c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_RED_SOLDIER || c1->type == COLLIDER_TRUCK)
+					if (c1->type == COLLIDER_DOOR || c1->type == COLLIDER_BOX || c1->type == COLLIDER_TURRET || c1->type == COLLIDER_MAZURKA || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_RED_SOLDIER || c1->type == COLLIDER_TRUCK)
 					{
 						if (c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BOX) // That kind of enemy instant kill
 						{
@@ -256,6 +256,13 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 							App->audio->PlayFX(big_death);
 							App->particles->AddParticle(App->particles->Big_NPC_explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 30, { 0, 0 }, nullrect, COLLIDER_NONE);
 							enemies[i]->destroyed = true;
+						}
+						if (c1->type == COLLIDER_MAZURKA && enemies[i]->destroyed == false) // This one changes the animation to a hole. Will be killed by the border.
+						{
+							App->audio->PlayFX(big_death);
+							App->particles->AddParticle(App->particles->Big_NPC_explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 30, { 0, 0 }, nullrect, COLLIDER_NONE);
+							enemies[i]->destroyed = true;
+							App->player->mazurkaskilled++;
 						}
 						if ((c1->type == COLLIDER_TRUCK) && enemies[i]->destroyed == false) // This one changes the animation to a hole. Will be killed by the border.
 						{

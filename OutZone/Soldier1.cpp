@@ -69,6 +69,7 @@ Soldier1::Soldier1(int x, int y, int subtype) :Enemy(x, y, subtype)
 
 	switch (subtype)
 	{
+		//L right
 	case 1:
 		path.PushBack({ 0.0f, 0.9f }, 50, &down);
 		path.PushBack({ 0.5f, 0.8f }, 150, &downright);
@@ -76,19 +77,22 @@ Soldier1::Soldier1(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.9f, 0.1f }, 150, &downright);
 		break;
 	case 2:
+		// V down
 		path.PushBack({ 0.0f, 1.0f }, 150, &down);
 		break;
 	case 3:
+		//stay
 		path.PushBack({ 0.0f, 0.0f }, 150, &walk);
 		break;
 	case 4:
-
+		// L stay left
 		path.PushBack({ -0.3f, 0.7f }, 60, &downleft);
 		path.PushBack({ 0.0f, 0.0f }, 60, &walk);
 		path.PushBack({ -0.5f, 0.8f }, 100, &downleft);
 		path.PushBack({ -0.7f, 0.8f }, 150, &downleft);
 		break;
-	case 5://!!!
+	case 5:
+
 		path.PushBack({ 0.7f, 0.0f }, 115, &right);
 		path.PushBack({ 0.0f, 0.0f }, 20, &walk);
 		path.PushBack({ -0.7f, 0.0f }, 115, &left);
@@ -221,6 +225,13 @@ Soldier1::Soldier1(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, -1.0f }, 40, &up);
 		//path.PushBack({ 1.5f, 0.0f }, 20, &right);
 		path.PushBack({ 0.0f, 0.0f }, 5000, &down);
+		break;
+	//3rd soldier
+	case 27:
+		path.PushBack({ 0.0f, 1.0f }, 90, &down);
+		path.PushBack({ 0.5f, 0.8f }, 150, &downright);
+		path.PushBack({ 0.7f, 0.3f }, 150, &downright);
+		path.PushBack({ 0.9f, 0.1f }, 150, &downright);
 		break;
 	}
 

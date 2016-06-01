@@ -12,7 +12,7 @@
 #include "ModuleEnemies.h"
 #include "Enemy.h"
 #include "ModuleTitle.h"
-
+#include "ModuleCongratulations.h"
 ModuleLevel1b::ModuleLevel1b()
 {
 	World1 = {0, 0, 256, 4180};
@@ -247,7 +247,9 @@ bool ModuleLevel1b::CleanUp()
 update_status ModuleLevel1b::Update()
 {
 	App->render->Blit(graphics, 0, -3850, &World1, -1.0f, true);
-
+	if (App->player->mazurkaskilled == 4){
+		App->fade->FadeToBlack(App->scene_level1b, App->scene_congratulations, 2.0);
+	}
 	if(App->player->position.y > -3620) 
 			sborder->SetPos(App->player->position.x - 300, App->player->position.y + 200);
 			nborder->SetPos(0, App->render->camera.y / -2);
@@ -282,7 +284,7 @@ update_status ModuleLevel1b::Update()
 		if ((App->player->position.y) < 70 && wave3)
 		{
 			wave3 = false;
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 125, -180, 1);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 125, -180, 27);
 		}
 
 		if ((App->player->position.y) < 30 && wave4)

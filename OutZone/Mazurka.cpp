@@ -32,7 +32,7 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 
 	animation = &mazurka;
 
-	collider = App->collision->AddCollider({ 0, 0, 60, 58 }, COLLIDER_TYPE::COLLIDER_BIG_TURRET, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 60, 58 }, COLLIDER_TYPE::COLLIDER_MAZURKA, (Module*)App->enemies);
 
 	switch (subtype){
 	case 1:
