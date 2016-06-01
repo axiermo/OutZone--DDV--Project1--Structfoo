@@ -57,6 +57,7 @@ private:
 
 public:
 
+	Particle TankMissile;
 	// Basic laser
 	Particle laserup;
 	Particle laser67;

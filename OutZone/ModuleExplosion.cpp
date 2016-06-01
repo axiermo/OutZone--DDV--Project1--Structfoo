@@ -48,15 +48,33 @@ ModuleExplosion::ModuleExplosion()
 	Player.life = 700;
 	Player.anim.loop = false;
 
-	Truck_explosion.anim.PushBack({ 276, 14, 157, 130 });
-	Truck_explosion.anim.PushBack({ 417, 14, 157, 130 });
-	Truck_explosion.anim.PushBack({ 560, 14, 157, 130 });
-	Truck_explosion.anim.PushBack({ 276, 143, 157, 130 });
-	Truck_explosion.anim.PushBack({ 417, 143, 157, 130 });
-	Truck_explosion.anim.PushBack({ 560, 143, 157, 130 });
-	Truck_explosion.anim.PushBack({ 702, 143, 157, 130 });
+	Truck_explosion.anim.PushBack({ 0, 680, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112, 680, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 2, 680, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 3, 680, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 4, 680, 112, 168 });
+	Truck_explosion.anim.PushBack({ 0, 848, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112, 848, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 2, 848, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 3, 848, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 4, 848, 112, 168 });
+	Truck_explosion.anim.PushBack({ 0, 1016, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112, 1016, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 2, 1016, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 3, 1016, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 4, 1016, 112, 168 });
+	Truck_explosion.anim.PushBack({ 0, 1184, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112, 1184, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 2, 1184, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 3, 1184, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 4, 1184, 112, 168 });
+	Truck_explosion.anim.PushBack({ 0, 1352, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112, 1352, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 2, 1352, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 3, 1352, 112, 168 });
+	Truck_explosion.anim.PushBack({ 112 * 4, 1352, 112, 168 });
 	Truck_explosion.anim.speed = 0.5;
-	Truck_explosion.life = 150;
+	Truck_explosion.life = 840;
 	Truck_explosion.anim.loop = false;
 }
 

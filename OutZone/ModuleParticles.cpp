@@ -14,7 +14,13 @@ ModuleParticles::ModuleParticles()
 		active[i] = nullptr;
 
 	// Basic laser -------------------------------------------
-
+	TankMissile.anim.PushBack({ 310, 291, 16, 26 });
+	TankMissile.anim.PushBack({ 349, 285, 12, 32 });
+	TankMissile.anim.PushBack({ 384, 299, 11, 16 });
+	TankMissile.anim.PushBack({ 421, 297, 14, 18 });
+	TankMissile.life = 1000;
+	TankMissile.anim.speed = 0.1f;
+	TankMissile.end_particle = &end_laser;
 	// 1st
 	laserup.anim.PushBack({ 43, 100, 4, 16 });
 	laserup.life = 1000;

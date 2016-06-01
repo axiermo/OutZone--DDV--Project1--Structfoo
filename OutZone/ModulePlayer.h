@@ -54,6 +54,7 @@ public:
 
 	int font_score = -1;
 	char score_text[10];
+	char cameray[10];
 	uint score = 0;
 	uint bombs = 3;
 	int energy = 36;

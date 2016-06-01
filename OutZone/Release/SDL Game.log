@@ -1,10 +1,10 @@
-﻿Build started 31/05/2016 22:35:37.
-     1>Project "C:\Users\Usuario\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
+﻿Build started 01/06/2016 11:40:39.
+     1>Project "C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModuleLevel1b.cpp
-         ModuleLevel1b.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModuleExplosion.cpp
+         ModuleExplosion.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Usuario\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Usuario\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Usuario\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.lib" /MACHINE:X86 /SAFESEH Release\Application.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.lib" /MACHINE:X86 /SAFESEH Release\Application.obj
          Release\BigTurret.obj
          Release\BlueSoldier.obj
          Release\Bomb.obj
@@ -41,11 +41,10 @@
          Release\Truck.obj
          Release\UpgradePowerUp.obj
          Generating code
-     1>c:\users\usuario\documents\github\outzone--ddv--project1--structfoo\outzone\modulelevel1b.cpp(580): warning C4715: 'ModuleLevel1b::Update' : not all control paths return a value
          Finished generating code
-         SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.exe
-     1>Done Building Project "C:\Users\Usuario\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
+         SDL Game.vcxproj -> C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\Release\OutZone.exe
+     1>Done Building Project "C:\Users\paubv1\Documents\GitHub\OutZone--DDV--Project1--Structfoo\OutZone\SDL Game.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.29
+Time Elapsed 00:00:01.31

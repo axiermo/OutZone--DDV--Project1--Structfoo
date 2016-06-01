@@ -160,10 +160,10 @@ bool ModuleLevel1b::Start()
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 203, -2130, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 139, -2154, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 99, -2106, 0);
-		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2300, 1);
-		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2300, 2);
-		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2300, 3);
-		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2300, 4);
+		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2500, 1);
+		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2500, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2500, 3);
+		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2500, 4);
 	}
 
 	//-----------------Big Turrets-----------------------------
@@ -178,8 +178,8 @@ bool ModuleLevel1b::Start()
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::DOOR, 73, -3347, 0);
 
-		App->enemies->AddEnemy(ENEMY_TYPES::DOORTURRET, 60, -3255, 0);
-		App->enemies->AddEnemy(ENEMY_TYPES::DOORTURRET, 160, -3255, 0);
+		App->enemies->AddEnemy(ENEMY_TYPES::DOORTURRET, 45, -3280, 0);
+		App->enemies->AddEnemy(ENEMY_TYPES::DOORTURRET, 185, -3280, 0);
 	}
 	
 	// Walls
@@ -373,11 +373,12 @@ update_status ModuleLevel1b::Update()
 			wave33 = false;
 			// The ones that come from out of the truck. 
 			// ONE MORE SOLDIER!!!
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -943, 22);
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -943, 23);
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -943, 24);
-			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -943, 25);
-			App->enemies->AddEnemy(ENEMY_TYPES::REDSOLDIER, 60, -943, 26); // Red soldier
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -935, 22);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -935, 23);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -935, 24);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -935, 25);
+			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -935, 26);
+			App->enemies->AddEnemy(ENEMY_TYPES::REDSOLDIER, 60, -935, 26); // Red soldier
 
 			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 35, -943, 2);
 		}
@@ -503,78 +504,79 @@ update_status ModuleLevel1b::Update()
 
 	if (App->player->checkpoint_6 == false)
 	{
-			//truck one
-			if ((App->player->position.y) < -2430 && wave32){
-				wave32 = false;
-				//truck one
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 200, -2700, 4);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 175, -2700, 3);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 200, -2660, 6);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 175, -2660, 5);
-
-				App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 170, -2700, 1);
-
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2700, 2);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2700, 2);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2660, 2);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2660, 2);
-			
-
-				//truck2
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -2900, 8);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -2900, 7);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -2860, 10);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -2860, 9);
-
-			
-				App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 10, -2900, 1);
-
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 90, -2900, 2);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 130, -2900, 2);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 90, -2860, 2);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 130, -2860, 2);
-
-				//truck 3
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3100, 11);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3100, 12);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3060, 13);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3060, 14);
-
-				App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 100, -3100, 1);
-
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3100, 2);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3100, 2);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3060, 2);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3060, 2);
-			
-				//truck 4
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3300, 3 );
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3300, 3 );
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3260, 3 );
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3260, 3 );
-
-				App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 100, -3300, 1);
-
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3300, 2);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3300, 2);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3260, 2);
-				App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3260, 2);
-			
-			}
-		
-
-	
-
-		if ((App->player->position.y) < -3400 && wave36)
+		//truck one
+		if ((App->player->position.y) < -2430 && wave32)
 		{
-			wave36 = false;
-			//Boss
-			App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 0, -3747, 1);
-			App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 64, -3647, 3);
-			App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 128, -3747, 2);
-			App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 192, -3647, 4);
+			wave32 = false;
+			//truck one
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 200, -2700, 4);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 175, -2700, 3);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 200, -2660, 6);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 175, -2660, 5);
+
+			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 165, -2700, 1);
+
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2700, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2700, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2660, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2660, 2);
+
+
+			//truck2
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -2900, 8);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -2900, 7);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -2860, 10);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -2860, 9);
+
+
+			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 10, -2900, 1);
+
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 90, -2900, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 130, -2900, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 90, -2860, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 130, -2860, 2);
+
+			//truck 3
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3100, 11);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3100, 12);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3060, 13);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3060, 14);
+
+			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 100, -3100, 1);
+
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3100, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3100, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3060, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3060, 2);
+
+			//truck 4
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3400, 15);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3400, 16);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -3360, 17);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -3360, 18);
+
+			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 75, -3400, 1);
+
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3400, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3400, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -3360, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -3360, 2);
+
 		}
 
-		return UPDATE_CONTINUE;
 	}
+	
+
+	if ((App->player->position.y) < -3400 && wave36)
+	{
+		wave36 = false;
+		//Boss
+		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 0, -3747, 1);
+		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 64, -3647, 3);
+		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 128, -3747, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 192, -3647, 4);
+	}
+
+	return UPDATE_CONTINUE;
+	
 }

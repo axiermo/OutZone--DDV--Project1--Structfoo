@@ -140,6 +140,27 @@ BlueSoldier::BlueSoldier(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.1f, -0.35f }, 40, &down);
 		path.PushBack({ 0.0f, 1.0f }, 500, &down);
 		break;
+		//11,12,13,14 second top truck soldiers
+	case 15:
+		path.PushBack({ 0.0f, 1.0f }, 240, &down);
+		path.PushBack({ -0.3f, -0.8f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
+	case 16:
+		path.PushBack({ 0.0f, 1.0f }, 244, &down);
+		path.PushBack({ 0.4f, -1.4f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
+	case 17:
+		path.PushBack({ 0.0f, 1.0f }, 248, &down);
+		path.PushBack({ -0.5f, -0.9f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
+	case 18:
+		path.PushBack({ 0.0f, 1.0f }, 252, &down);
+		path.PushBack({ 0.9f, -0.8f }, 40, &down);
+		path.PushBack({ 0.0f, 1.0f }, 500, &down);
+		break;
 	}
 	//Set the automathic paths here
 	original_pos.x = x;

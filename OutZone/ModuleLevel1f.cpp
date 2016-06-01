@@ -84,12 +84,13 @@ update_status ModuleLevel1f::Update()
 
 	//UI
 	sprintf_s(App->player->score_text, 10, "%7d", App->player->score);
-
+	sprintf_s(App->player->cameray, 10, "%7d", App->render->camera.y);
 	App->render->Blit(graphics2, 160, 0, &insertcoin.GetCurrentFrame(), -1.0f, false);
 	App->render->Blit(graphics2, 8, 1, &player1lives.GetActualFrame(), -1.0f, false);
 	App->render->Blit(graphics2, 0, 0, &lives.GetCurrentFrame(), -1.0f, false);
 	
 	App->fonts->Blit(24, 8, 0, App->player->score_text);
+	App->fonts->Blit(24,60, 0, App->player->cameray);
 	App->fonts->Blit(24, 0, 0, "player1");
 	
 	App->render->Blit(graphics2, 104, 1, &top.GetCurrentFrame(), -1.0f, false);

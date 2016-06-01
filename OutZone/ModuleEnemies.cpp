@@ -215,7 +215,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 				if (enemies[i]->lives < 1)
 				{
-					if (c1->type == COLLIDER_BOX || c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_RED_SOLDIER || c1->type == COLLIDER_TRUCK)
+					if (c1->type == COLLIDER_DOOR || c1->type == COLLIDER_BOX || c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_RED_SOLDIER || c1->type == COLLIDER_TRUCK)
 					{
 						if (c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BOX) // That kind of enemy instant kill
 						{
@@ -257,15 +257,18 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 							App->particles->AddParticle(App->particles->Big_NPC_explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 30, { 0, 0 }, nullrect, COLLIDER_NONE);
 							enemies[i]->destroyed = true;
 						}
-						if (c1->type == COLLIDER_TRUCK && enemies[i]->destroyed == false) // This one changes the animation to a hole. Will be killed by the border.
+						if ((c1->type == COLLIDER_TRUCK) && enemies[i]->destroyed == false) // This one changes the animation to a hole. Will be killed by the border.
 						{
 							App->audio->PlayFX(big_death);
-							App->particles->AddParticle(App->particles->Big_NPC_explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 30, { 0, 0 }, nullrect, COLLIDER_NONE);
+							App->explosion->AddExplosion(App->explosion->Truck_explosion, enemies[i]->position.x - 20, enemies[i]->position.y - 10, { 0, 0 }, { 0, 0, 100, 150 }, COLLIDER_EXPLOSION);
 							enemies[i]->destroyed = true;
-
-							/*App->audio->PlayFX(big_death);
-							App->explosion->AddExplosion(App->explosion->Truck_explosion, enemies[i]->position.x , enemies[i]->position.y, { 0, 0 }, { 0, 0, 36, 70 }, COLLIDER_EXPLOSION);
-							enemies[i]->destroyed = true;*/
+						}
+						if (c1->type == COLLIDER_DOOR) // Instant kill.
+						{
+							App->audio->PlayFX(big_death);
+							App->explosion->AddExplosion(App->explosion->Truck_explosion, enemies[i]->position.x - 20, enemies[i]->position.y - 10, { 0, 0 }, { 0, 0, 100, 150 }, COLLIDER_EXPLOSION);
+							delete enemies[i];
+							enemies[i] = nullptr;
 						}
 						App->player->score += 390;
 					}
@@ -273,7 +276,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			}
 			if (c2->type == COLLIDER_BORDER)
 			{
-				if (c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_DEAD || c1->type == COLLIDER_TRUCK)
+				if (c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_DEAD || c1->type == COLLIDER_TRUCK || c1->type == COLLIDER_DOOR)
 				{
 					delete enemies[i];
 					enemies[i] = nullptr;

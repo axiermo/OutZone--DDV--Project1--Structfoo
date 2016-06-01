@@ -514,31 +514,31 @@ void ModulePlayer::Fire(Directions dir)
 			if (laser == 1)
 			{
 				if (last_animation == &upright && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser67, position.x + 15, position.y - 8, { 4, -7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser67, position.x + 21, position.y - 20, { 3, -7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &upleft && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser112, position.x + 10, position.y - 8, { -4, -7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
-					
-				App->particles->AddParticle(App->particles->laserup, position.x + 20, position.y - 10, { 0, -7 }, { 0, 0, 5, 18 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser112, position.x + 10, position.y - 20, { -3, -7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
+
+				App->particles->AddParticle(App->particles->laserup, position.x + 20, position.y - 10, { 0, -8 }, { 0, 0, 5, 18 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionup, position.x + 14, position.y - 15, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 2)
 			{
 				if (last_animation == &upright && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser67_2, position.x + 15, position.y - 8, { 4, -7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser67_2, position.x + 20, position.y - 8, { 3, -7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &upleft && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser112_2, position.x + 10, position.y - 8, { -4, -7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser112_2, position.x + 10, position.y - 8, { -3, -7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserup2, position.x + 17, position.y - 12, { 0, -7 }, { 0, 0, 10, 18 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laserup2, position.x + 17, position.y - 12, { 0, -8 }, { 0, 0, 10, 18 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionup, position.x + 14, position.y - 15, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 3)
 			{
 				if (last_animation == &upright && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x + 15, position.y - 8, { 4, -7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x + 15, position.y - 8, { 3, -7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &upleft && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x + 10, position.y - 8, { -4, -7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x + 8, position.y - 15, { -3, -7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laser3, position.x + 10, position.y - 15, { 0, -7 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser3, position.x + 10, position.y - 15, { 0, -8 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionup, position.x + 14, position.y - 15, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 		}
@@ -546,23 +546,23 @@ void ModulePlayer::Fire(Directions dir)
 		{
 			if (laser == 1)
 			{
-				App->particles->AddParticle(App->particles->triple1r, position.x + 23, position.y - 12, { +4, -7 }, { 0, 0, 10, 18 }, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->triple1c, position.x + 12, position.y - 12, { 0, -7 }, { 0, 0, 6, 18 }, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->triple1l, position.x - 2, position.y - 12, { -4, -7 }, { 0, 0, 10, 18 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple1r, position.x + 23, position.y - 12, { +4, -9 }, { 0, 0, 10, 18 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple1c, position.x + 12, position.y - 12, { 0, -9 }, { 0, 0, 6, 18 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple1l, position.x - 2, position.y - 12, { -4, -9 }, { 0, 0, 10, 18 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->triple_exp, position.x - 3, position.y - 12, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 2)
 			{
-				App->particles->AddParticle(App->particles->triple2r, position.x + 23, position.y - 12, { +4, -7 }, { 0, 0, 12, 18 }, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->triple2c, position.x + 12, position.y - 12, { 0, -7 }, { 0, 0, 9, 18 }, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->triple2l, position.x - 2, position.y - 12, { -4, -7 }, { 0, 0, 12, 18 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple2r, position.x + 23, position.y - 12, { +4, -9 }, { 0, 0, 12, 18 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple2c, position.x + 12, position.y - 12, { 0, -9 }, { 0, 0, 9, 18 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple2l, position.x - 2, position.y - 12, { -4, -9 }, { 0, 0, 12, 18 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->triple_exp, position.x - 3, position.y - 12, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 3)
 			{
-				App->particles->AddParticle(App->particles->triple3r, position.x + 23, position.y - 12, { +4, -7 }, { 0, 0, 15, 21 }, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->triple3c, position.x + 12, position.y - 12, { 0, -7 }, { 0, 0, 13, 21 }, COLLIDER_PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->triple3l, position.x - 2, position.y - 12, { -4, -7 }, { 0, 0, 15, 21 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple3r, position.x + 23, position.y - 12, { +4, -9 }, { 0, 0, 15, 21 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple3c, position.x + 12, position.y - 12, { 0, -9 }, { 0, 0, 13, 21 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple3l, position.x - 2, position.y - 12, { -4, -9 }, { 0, 0, 15, 21 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->triple_exp, position.x - 3, position.y - 12, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 		}
@@ -573,31 +573,32 @@ void ModulePlayer::Fire(Directions dir)
 			if (laser == 1)
 			{
 				if (last_animation == &downright && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser112, position.x + 10, position.y + 19, { 4, +7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser112, position.x + 10, position.y + 19, { 3, 7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &downleft && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser67, position.x - 10, position.y + 19, { -4, +7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser67, position.x - 8, position.y + 19, { -3, 7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserup, position.x + 5, position.y + 19, { 0, +7 }, { 0, 0, 5, 18 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laserup, position.x + 5, position.y + 19, { 0, 8 }, { 0, 0, 5, 18 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosiondown, position.x - 1, position.y + 28, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 2)
 			{
 				if (last_animation == &downright && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser112_2, position.x + 10, position.y + 19, { 4, +7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
-				if (last_animation == &downleft && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser67_2, position.x - 10, position.y + 19, { -4, +7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserup2, position.x + 2, position.y + 25, { 0, +7 }, { 0, 0, 10, 18 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser112_2, position.x + 10, position.y + 19, { 3, 7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
+				if (last_animation == &downleft && direction != IDLE)
+					App->particles->AddParticle(App->particles->laser67_2, position.x - 8, position.y + 19, { -3, 7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
+
+				App->particles->AddParticle(App->particles->laserup2, position.x + 2, position.y + 25, { 0, 8 }, { 0, 0, 10, 18 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosiondown, position.x - 1, position.y + 28, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 3)
 			{
 				if (last_animation == &downright && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x + 10, position.y + 19, { 4, +7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x + 8, position.y + 19, { 3, 7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &downleft && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x - 10, position.y + 19, { -4, +7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x - 10, position.y + 19, { -3, 7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laser3, position.x - 5, position.y + 13, { 0, +7 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser3, position.x - 5, position.y + 13, { 0, 8 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosiondown, position.x - 1, position.y + 28, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 		}
@@ -608,31 +609,31 @@ void ModulePlayer::Fire(Directions dir)
 			if (laser == 1)
 			{
 				if (last_animation == &upleft && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser157, position.x + 2, position.y - 2, { -7, -4 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser157, position.x - 7, position.y - 2, { -7, -3 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &downleft && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser22, position.x - 7, position.y + 7, { -7, 4 }, { 0, 0, 17, 12 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser22, position.x - 8, position.y + 7, { -7, 3 }, { 0, 0, 17, 12 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserright, position.x - 8, position.y + 5, { -7, 0 }, { 0, 0, 18, 5 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laserright, position.x - 8, position.y + 5, { -8, 0 }, { 0, 0, 18, 5 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionleft, position.x - 15, position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 2)
 			{
 				if (last_animation == &upleft && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser157_2, position.x + 2, position.y - 2, { -7, -4 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser157_2, position.x - 7, position.y - 4, { -7, -3 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &downleft && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser22_2, position.x - 7, position.y + 7, { -7, 4 }, { 0, 0, 17, 12 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser22_2, position.x - 10, position.y + 2, { -7, 3 }, { 0, 0, 17, 12 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserright2, position.x - 7, position.y + 2, { -7, 0 }, { 0, 0, 18, 10 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laserright2, position.x - 7, position.y + 2, { -8, 0 }, { 0, 0, 18, 10 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionleft, position.x - 15, position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 3)
 			{
 				if (last_animation == &upleft && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x + 2, position.y - 2, { -7, -4 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x - 1, position.y - 5, { -7, -3 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &downleft && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x - 7, position.y + 7, { -7, 4 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x - 13, position.y + 1, { -7, 3 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laser3, position.x - 16, position.y - 5, { -7, 0 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser3, position.x - 16, position.y - 5, { -8, 0 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionleft, position.x - 15, position.y, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 		}
@@ -643,31 +644,31 @@ void ModulePlayer::Fire(Directions dir)
 			if (laser == 1)
 			{
 				if (last_animation == &upright && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser22, position.x + 29, position.y, { 7, -4 }, { 0, 0, 5, 18 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser22, position.x + 29, position.y, { 7, -3 }, { 0, 0, 5, 18 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &downright && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser157, position.x + 23, position.y + 15, { 7, 4 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser157, position.x + 23, position.y + 15, { 7, 3 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserright, position.x + 29, position.y + 10, { +7, 0 }, { 0, 0, 18, 5 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laserright, position.x + 29, position.y + 10, { 8, 0 }, { 0, 0, 18, 5 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionright, position.x + 29, position.y + 4, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 2)
 			{
 				if (last_animation == &upright && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser22_2, position.x + 29, position.y, { 7, -4 }, { 0, 0, 5, 18 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser22_2, position.x + 29, position.y - 2, { 7, -3 }, { 0, 0, 5, 18 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &downright && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser157_2, position.x + 23, position.y + 15, { 7, 4 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser157_2, position.x + 23, position.y + 15, { 7, 3 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserright2, position.x + 29, position.y + 7, { +7, 0 }, { 0, 0, 18, 10 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laserright2, position.x + 29, position.y + 7, { 8, 0 }, { 0, 0, 18, 10 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionright, position.x + 29, position.y + 4, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 3)
 			{
 				if (last_animation == &upright && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x + 29, position.y, { 7, -4 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x + 29, position.y - 9, { 7, -3 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &downright && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x + 23, position.y + 15, { 7, 4 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x + 23, position.y + 15, { 7, 3 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laser3, position.x + 29, position.y, { +7, 0 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser3, position.x + 29, position.y, { 8, 0 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionright, position.x + 29, position.y + 4, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 		}
@@ -678,31 +679,31 @@ void ModulePlayer::Fire(Directions dir)
 			if (laser == 1)
 			{
 				if (last_animation == &up && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser112, position.x + 10, position.y - 8, { -4, -7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser112, position.x + 10, position.y - 20, { -3, -7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &left && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser157, position.x + 2, position.y - 2, { -7, -4 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser157, position.x - 7, position.y - 2, { -7, -3 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserupleft, position.x + 5, position.y - 10, { -6, -6 }, { 0, 0, 14, 14 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laserupleft, position.x + 5, position.y - 10, { -5, -5 }, { 0, 0, 14, 14 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionupleft, position.x, position.y - 14, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 2)
 			{
 				if (last_animation == &up && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser112_2, position.x + 10, position.y - 8, { -4, -7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser112_2, position.x + 10, position.y - 8, { -3, -7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &left && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser157_2, position.x + 2, position.y - 2, { -7, -4 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser157_2, position.x - 7, position.y - 4, { -7, -3 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserupleft2, position.x + 5, position.y - 10, { -6, -6 }, { 0, 0, 18, 18 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laserupleft2, position.x + 5, position.y - 10, { -5, -5 }, { 0, 0, 18, 18 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionupleft, position.x, position.y - 14, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 3)
 			{
 				if (last_animation == &up && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x + 10, position.y - 8, { -4, -7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x + 8, position.y - 15, { -3, -7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &left && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x + 2, position.y - 2, { -7, -4 }, { 0, 0, 24, 24}, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x - 1, position.y - 5, { -7, -3 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laser3, position.x - 5, position.y - 18, { -6, -6 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser3, position.x - 5, position.y - 18, { -5, -5 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionupleft, position.x, position.y - 14, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 		}
@@ -713,31 +714,31 @@ void ModulePlayer::Fire(Directions dir)
 			if (laser == 1)
 			{
 				if (last_animation == &up && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser67, position.x + 15, position.y - 8, { 4, -7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser67, position.x + 21, position.y - 20, { 3, -7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &right && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser22, position.x + 29, position.y, { 7, -4 }, { 0, 0, 5, 18 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser22, position.x + 29, position.y, { 7, -3 }, { 0, 0, 5, 18 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserupright, position.x + 20, position.y - 10, { +6, -6 }, { 0, 0, 14, 14 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laserupright, position.x + 20, position.y - 10, { 5, -5 }, { 0, 0, 14, 14 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionupright, position.x + 20, position.y - 10, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 2)
 			{
 				if (last_animation == &up && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser67_2, position.x + 15, position.y - 8, { 4, -7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser67_2, position.x + 20, position.y - 8, { 3, -7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &right && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser22_2, position.x + 29, position.y, { 7, -4 }, { 0, 0, 5, 18 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser22_2, position.x + 29, position.y - 2, { 7, -3 }, { 0, 0, 5, 18 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserupright2, position.x + 20, position.y - 10, { +6, -6 }, { 0, 0, 18, 18 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laserupright2, position.x + 20, position.y - 10, { 5, -5 }, { 0, 0, 18, 18 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionupright, position.x + 20, position.y - 10, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 3)
 			{
 				if (last_animation == &up && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x + 15, position.y - 8, { 4, -7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x + 15, position.y - 8, { 3, -7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &right && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x + 29, position.y, { 7, -4 }, { 0, 0, 24, 24}, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x + 29, position.y - 9, { 7, -3 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laser3, position.x + 15, position.y - 15, { +6, -6 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser3, position.x + 15, position.y - 15, { 5, -5 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosionupright, position.x + 20, position.y - 10, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 		}
@@ -748,31 +749,31 @@ void ModulePlayer::Fire(Directions dir)
 			if (laser == 1)
 			{
 				if (last_animation == &left && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser22, position.x - 7, position.y + 7, { -7, 4 }, { 0, 0, 17, 12 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser22, position.x - 8, position.y + 7, { -7, 3 }, { 0, 0, 17, 12 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &down && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser67, position.x - 10, position.y + 19, { -4, +7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser67, position.x - 8, position.y + 19, { -3, 7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserupright, position.x - 11, position.y + 12, { -6, +6 }, { 0, 0, 14, 14 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laserupright, position.x - 11, position.y + 12, { -5, 5 }, { 0, 0, 14, 14 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosiondownleft, position.x - 11, position.y + 16, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 2)
 			{
 				if (last_animation == &left && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser22_2, position.x - 7, position.y + 7, { -7, 4 }, { 0, 0, 17, 12 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser22_2, position.x - 10, position.y + 2, { -7, 3 }, { 0, 0, 17, 12 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &down && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser67_2, position.x - 10, position.y + 19, { -4, +7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser67_2, position.x - 8, position.y + 19, { -3, 7 }, { 0, 0, 11, 17 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserupright2, position.x - 9, position.y + 12, { -6, +6 }, { 0, 0, 18, 18 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laserupright2, position.x - 9, position.y + 12, { -5, 5 }, { 0, 0, 18, 18 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosiondownleft, position.x - 11, position.y + 16, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 3)
 			{
 				if (last_animation == &left && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x - 7, position.y + 7, { -7, 4 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x - 13, position.y + 1, { -7, 3 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &down && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x - 10, position.y + 19, { -4, +7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x - 10, position.y + 19, { -3, 7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laser3, position.x - 16, position.y + 12, { -6, +6 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser3, position.x - 16, position.y + 12, { -5, 5 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosiondownleft, position.x - 11, position.y + 16, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 		}
@@ -783,31 +784,31 @@ void ModulePlayer::Fire(Directions dir)
 			if (laser == 1)
 			{
 				if (last_animation == &right && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser157, position.x + 23, position.y + 15, { 7, 4 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser157, position.x + 23, position.y + 15, { 7, 3 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &down && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser112, position.x + 10, position.y + 19, { 4, +7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser112, position.x + 10, position.y + 19, { 3, 7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserupleft, position.x + 12, position.y + 12, { +6, +6 }, { 0, 0, 14, 14 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laserupleft, position.x + 12, position.y + 12, { 5, 5 }, { 0, 0, 14, 14 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosiondownright, position.x + 17, position.y + 20, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 2)
 			{
 				if (last_animation == &right && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser157_2, position.x + 23, position.y + 15, { 7, 4 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser157_2, position.x + 23, position.y + 15, { 7, 3 }, { 0, 0, 16, 10 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &down && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser112_2, position.x + 10, position.y + 19, { 4, +7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser112_2, position.x + 10, position.y + 19, { 3, 7 }, { 0, 0, 11, 16 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laserupleft2, position.x + 10, position.y + 13, { +6, +6 }, { 0, 0, 18, 18 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laserupleft2, position.x + 10, position.y + 13, { 5, 5 }, { 0, 0, 18, 18 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosiondownright, position.x + 17, position.y + 20, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 			if (laser == 3)
 			{
 				if (last_animation == &right && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x + 23, position.y + 15, { 7, 4 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x + 23, position.y + 15, { 7, 3 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 				if (last_animation == &down && direction != IDLE)
-					App->particles->AddParticle(App->particles->laser3, position.x + 10, position.y + 19, { 4, +7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3, position.x + 8, position.y + 19, { 3, 7 }, { 0, 0, 24, 24 }, COLLIDER_PLAYER_SHOT);
 
-				App->particles->AddParticle(App->particles->laser3, position.x + 10, position.y + 13, { +6, +6 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser3, position.x + 10, position.y + 13, { 5, 5 }, { 0, 0, 23, 23 }, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->explosiondownright, position.x + 17, position.y + 20, { 0, 0 }, nullrect, COLLIDER_NONE);
 			}
 		}
@@ -815,14 +816,14 @@ void ModulePlayer::Fire(Directions dir)
 	}
 
 	last_laser = SDL_GetTicks();
-	
+
 	if (weapon == false) App->audio->PlayFX(basic_laser);
 	else App->audio->PlayFX(triple_laser);
 }
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (self == c1 && self != nullptr && self->type != COLLIDER_EXPLOSION && (c2->type == COLLIDER_WALL || c2->type == COLLIDER_TURRET || c2->type == COLLIDER_BOX || c2->type == COLLIDER_TURRET_WALL))
+	if (self == c1 && self != nullptr && self->type != COLLIDER_EXPLOSION && (c2->type == COLLIDER_WALL || c2->type == COLLIDER_TURRET || c2->type == COLLIDER_DOOR || c2->type == COLLIDER_BOX || c2->type == COLLIDER_TURRET_WALL))
 	{
 		if (position.y + 4 >= c2->rect.y + c2->rect.h)
 		{
@@ -845,10 +846,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 
-	if (self == c1 && self != nullptr && self->type == COLLIDER_PLAYER && (c2->type == COLLIDER_ENEMY_SHOT || c2->type == COLLIDER_ENEMY) && !destroyed)
+	if (self == c1 && self != nullptr && self->type == COLLIDER_PLAYER && (c2->type == COLLIDER_ENEMY_SHOT || c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_TRUCK) && !destroyed)
 	{
 		App->explosion->AddExplosion(App->explosion->Player, position.x - 30, position.y - 30, { 0, 0 }, { 0, 0, 105, 115 }, COLLIDER_EXPLOSION);
 		destroyed = true;
 		Disable();
-		}
+	}
 }

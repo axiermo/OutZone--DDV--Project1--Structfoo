@@ -31,6 +31,7 @@ public:
 	uint next_shoot;
 	uint last_shoot;
 
+	bool done = true;
 	void Move();
 	void Shoot();
 	void Draw();

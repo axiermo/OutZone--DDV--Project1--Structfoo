@@ -148,27 +148,30 @@ Tank::Tank(int x, int y, int subtype) :Enemy(x, y, subtype)
 	original_pos.x = x;
 	original_pos.y = y;
 
-	lives = 15;
+	lives = 8;
 }
 
 void Tank::Move()
 {
-	if (App->player->position.y < -2000)
+	
+	if (App->render->camera.y > 4724 )
 	{
+		
 		position = original_pos + path.GetCurrentSpeed();
 	}
-	else
+	else 
 		path.Reset();
+	
+		
 }
 
 void Tank::Shoot()
 {
 	float distance = position.DistanceTo(App->player->position);
 	next_shoot = SDL_GetTicks();
-	if (next_shoot - last_shoot > 900)
+	if (next_shoot - last_shoot > 800)
 	{
-		App->particles->AddParticle(App->particles->Enemy_Laser, position.x + 10, position.y + 22, { 0, +2 }, { 0, 0, 6, 6 }, COLLIDER_ENEMY_SHOT);
-		App->particles->AddParticle(App->particles->Enemy_Exp, position.x + 5, position.y + 22, { 0, 0 }, nullrect, COLLIDER_NONE);
+		App->particles->AddParticle(App->particles->TankMissile, position.x + 10, position.y + 22, { 0, +5 }, { 0, 0, 16, 30 }, COLLIDER_ENEMY_SHOT);
 		last_shoot = SDL_GetTicks();
 	}
 }

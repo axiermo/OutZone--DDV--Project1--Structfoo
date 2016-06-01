@@ -13,7 +13,7 @@ Door::Door(int x, int y) : Enemy (x, y, 0)
 
 	animation = &anim;
 
-	collider = App->collision->AddCollider({ 0, 0, 111, 84}, COLLIDER_ENEMY, App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 111, 70}, COLLIDER_DOOR, App->enemies);
 
 	lives = 14;
 
