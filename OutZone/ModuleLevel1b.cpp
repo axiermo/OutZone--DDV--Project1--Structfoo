@@ -26,7 +26,7 @@ bool ModuleLevel1b::Start()
 	
 	LOG("Loading background assets");
 	bool ret = true;
-
+	App->player->mazurkaskilled = 0;
 	App->player->lives--;
 	App->render->camera.y = 0;
 	App->player->energy = 36;
