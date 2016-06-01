@@ -165,10 +165,16 @@ bool ModuleLevel1b::Start()
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 203, -2130, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 139, -2154, 0);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREYTURRET, 99, -2106, 0);
-		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2500, 1);
-		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2500, 2);
-		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2500, 3);
-		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2500, 4);
+
+		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2550, 1);
+		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2550, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2550, 3);
+		App->enemies->AddEnemy(ENEMY_TYPES::TANK, 240, -2550, 4);
+
+		App->enemies->AddEnemy(ENEMY_TYPES::TANK, -10, -2450, 5);
+		App->enemies->AddEnemy(ENEMY_TYPES::TANK, -10, -2450, 6);
+		App->enemies->AddEnemy(ENEMY_TYPES::TANK, -10, -2450, 7);
+		App->enemies->AddEnemy(ENEMY_TYPES::TANK, -10, -2450, 8);
 	}
 
 	//-----------------Big Turrets-----------------------------
