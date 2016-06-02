@@ -372,6 +372,9 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_TRUCK: 
 			App->render->DrawQuad(colliders[i]->rect, 255,40, 20, alpha);
 			break;
+		case COLLIDER_MAZURKA:
+			App->render->DrawQuad(colliders[i]->rect, 255, 40, 20, alpha);
+			break;
 		}
 	}
 }

@@ -16,72 +16,86 @@
 
 Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 {
-	mazurka.PushBack({ 301, 781, 64, 59 });
-	mazurka.PushBack({ 367, 781, 62, 58 });
+
+
+	mazurka.PushBack({ 300, 721, 64, 59 });
+	mazurka.PushBack({ 366, 721, 62, 58 });
+	mazurka.PushBack({ 432, 721, 64, 59 });
+	mazurka.PushBack({ 498, 721, 62, 58 });
+
 	mazurka.speed = 0.2f;
 	mazurka.loop = true;
 
-	hit2.PushBack({ 303, 844, 64, 89 });
-	hit2.PushBack({ 369, 844, 62, 89 });
-	hit2.PushBack({ 434, 844, 64, 89 });
-	hit2.PushBack({ 500, 844, 62, 89 });
+	stopmazurka.PushBack({ 300, 721, 64, 59 });
+	stopmazurka.loop = true;
+
+	mazurka.speed = 0.2f;
+	mazurka.loop = true;
+
+	hit2.PushBack({ 303, 845, 64, 88 });
+	hit2.PushBack({ 369, 845, 62, 88 });
+	hit2.PushBack({ 434, 845, 64, 88 });
+	hit2.PushBack({ 500, 845, 62, 88 });
+
+
 	hit2.speed = 0.2f;
 	hit2.loop = true;
 
 	animation = &mazurka;
 
-	collider = App->collision->AddCollider({ 0, 0, 60, 58 }, COLLIDER_TYPE::COLLIDER_MAZURKA, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 60, 62 }, COLLIDER_TYPE::COLLIDER_MAZURKA, (Module*)App->enemies);
 
 	switch (subtype){
 	case 1:
+
 		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
 		path.PushBack({ 0.0f, 1.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, -0.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, -1.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, -0.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
+		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
 		path.PushBack({ 0.0f, 1.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
+		path.PushBack({ 0.0f, -0.5f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
+		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
 		path.PushBack({ 0.0f, -1.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
 		path.PushBack({ 0.0f, 0.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 3.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
+		path.PushBack({ 0.0f, -0.5f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
+		path.PushBack({ 0.0f, 1.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
 		path.PushBack({ 0.0f, -1.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
+		path.PushBack({ 0.0f, 0.5f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
+		path.PushBack({ 0.0f, -1.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
+		path.PushBack({ 0.0f, 2.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
+		path.PushBack({ 0.0f, 0.5f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
+		path.PushBack({ 0.0f, -1.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
 		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
 		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
+		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
+		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &stopmazurka);
 		break;
 	case 2:
 		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
@@ -158,6 +172,12 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, -0.5f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
@@ -170,23 +190,17 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -0.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, -1.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.5f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, -0.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 1.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, -1.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		break;
 	case 4:
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 1.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -0.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
@@ -194,7 +208,7 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -1.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, 0.5f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 1.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
@@ -208,7 +222,7 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 1.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
-		path.PushBack({ 0.0f, -1.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, -2.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 48, &mazurka);
 		path.PushBack({ 0.0f, 1.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
@@ -218,7 +232,7 @@ Mazurka::Mazurka(int x, int y, int subtype) :Enemy(x, y, subtype)
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 75, &mazurka);
-		path.PushBack({ 0.0f, 3.0f }, 100, &mazurka);
+		path.PushBack({ 0.0f, 2.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
 		path.PushBack({ 0.0f, -1.5f }, 100, &mazurka);
 		path.PushBack({ 0.0f, 0.0f }, 100, &mazurka);
@@ -270,7 +284,7 @@ void Mazurka::Shoot()
 	float distance = position.DistanceTo(App->player->position);
 	next_shoot = SDL_GetTicks();
 
-	if (next_shoot - last_shoot > 1800 && distance <350)
+	if (next_shoot - last_shoot > 1200 && distance <350)
 	{
 		if (dx > 0 && dy > 0 && angle > 0 && angle<11.25)
 		{
@@ -300,7 +314,7 @@ void Mazurka::Shoot()
 		}
 		else if (dx < 0 && dy>0 && angle<168.75 && angle>146.25)
 		{
-			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x - 5, position.y + 17, { -2, +1 }, { 0, 0, 12, 12}, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->Big_Tur_Laser, position.x - 5, position.y + 17, { -2, +1 }, { 0, 0, 12, 12 }, COLLIDER_ENEMY_SHOT);
 		}
 		else if (dx < 0 && (angle<146.25) && (angle>123.75))
 		{
@@ -364,6 +378,7 @@ void Mazurka::Shoot()
 }
 
 
+
 void Mazurka::Draw()
 {
 	// Collider ----------------------------------------------------------
@@ -374,8 +389,8 @@ void Mazurka::Draw()
 	// Green blit --------------------------------------------------------
 
 	if (hit == false && lives <= 36 && lives > 0)
-		App->render->Blit(App->enemies->sprites, position.x, position.y - 30, &hit2.GetCurrentFrame(), -1.0f);
-	else if (hit == false && lives > 36) 
+		App->render->Blit(App->enemies->sprites, position.x, position.y, &hit2.GetCurrentFrame(), -1.0f);
+	else if (hit == false && lives > 36)
 		App->render->Blit(App->enemies->sprites, position.x, position.y, &mazurka.GetCurrentFrame(), -1.0f);
 	else
 	{

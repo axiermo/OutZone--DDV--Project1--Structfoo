@@ -619,10 +619,11 @@ update_status ModuleLevel1b::Update()
 	{
 		wave36 = false;
 		//Boss
-		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 0, -3747, 1);
-		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 64, -3647, 3);
-		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 128, -3747, 2);
-		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 192, -3647, 4);
+		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 1, -3747, 1);
+		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 61, -3647, 3);
+		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 119, -3747, 2);
+		App->enemies->AddEnemy(ENEMY_TYPES::MAZURKA, 180, -3647, 4);
+
 	}
 
 	return UPDATE_CONTINUE;
