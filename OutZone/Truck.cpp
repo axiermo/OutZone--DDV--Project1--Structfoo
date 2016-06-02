@@ -2,7 +2,7 @@
 #include "Truck.h"
 #include "ModuleCollision.h"
 #include "Path.h"
-#include"p2Point.h"
+#include "p2Point.h"
 #include "ModuleCollision.h"
 #include "ModulePlayer.h"
 #include "ModuleRender.h"
@@ -10,6 +10,7 @@
 #include "ModuleEnemies.h"
 #include "ModuleTextures.h"
 #include "ModuleFonts.h"
+#include "ModulePaint.h"
 #include "SDL/include/SDL_timer.h"
 #define PI 3.1415926
 
@@ -44,6 +45,8 @@ Truck::Truck(int x, int y, int subtype) : Enemy(x, y, subtype)
 
 	original_pos.x = x;
 	original_pos.y = y;
+
+	position2 = position;
 }
 
 void Truck::SelectAnimation(Directions direction)
@@ -87,6 +90,12 @@ void Truck::Draw()
 	else
 		collider->rect.h = 1;
 		
+	if (position2.y + 24 == position.y && position.y > -3000)
+	{
+		App->paint->AddPaint(App->paint->truck_mark, position.x, position.y);
+		position2.y = position.y;
+	}
+
 
 	// Green blit --------------------------------
 

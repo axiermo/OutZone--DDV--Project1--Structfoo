@@ -33,6 +33,8 @@ public:
 	uint next_shoot;
 	uint last_shoot;
 
+	iPoint position2;
+
 	void Move();
 	void Draw();
 };

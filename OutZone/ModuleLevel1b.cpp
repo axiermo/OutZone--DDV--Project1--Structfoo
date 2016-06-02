@@ -249,7 +249,7 @@ bool ModuleLevel1b::Start()
 
 	lborder = App->collision->AddCollider({ -36, -3850, 1, 4180 }, COLLIDER_BORDER);
 	rborder = App->collision->AddCollider({ 292, -3850, 1, 4180 }, COLLIDER_BORDER);
-	sborder = App->collision->AddCollider({ App->player->position.x - 300, App->player->position.y + 300, 1000, 1 }, COLLIDER_BORDER);
+	sborder = App->collision->AddCollider({ App->player->position.x - 300, App->player->position.y + 500, 1000, 1 }, COLLIDER_BORDER);
 	nborder = App->collision->AddCollider({ 0, 0, SCREEN_WIDTH, 20 }, COLLIDER_BORDER_TOP);
 
 	return ret;
@@ -276,7 +276,7 @@ update_status ModuleLevel1b::Update()
 	App->render->Blit(graphics, 0, -3850, &World1, -1.0f, true);
 
 	if(App->player->position.y > -3620) 
-			sborder->SetPos(App->player->position.x - 300, App->player->position.y + 200);
+			sborder->SetPos(App->player->position.x - 300, App->player->position.y + 500);
 			nborder->SetPos(0, App->render->camera.y / -2);
 
 	if (App->player->destroyed) //change to 0 lives
@@ -430,7 +430,7 @@ update_status ModuleLevel1b::Update()
 			App->enemies->AddEnemy(ENEMY_TYPES::SOLDIER1, 60, -935, 26);
 			App->enemies->AddEnemy(ENEMY_TYPES::REDSOLDIER, 60, -935, 26); // Red soldier
 
-			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 35, -943, 2);
+			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 38, -943, 2);
 		}
 		if ((App->player->position.y) < -900 && wave16)
 		{
@@ -564,7 +564,7 @@ update_status ModuleLevel1b::Update()
 			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 200, -2760, 6);
 			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 175, -2760, 5);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 165, -2800, 1);
+			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 167, -2800, 1);
 
 			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 80, -2770, 2);
 			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 120, -2770, 2);
@@ -578,7 +578,7 @@ update_status ModuleLevel1b::Update()
 			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 10, -2960, 10);
 			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 50, -2960, 9);
 
-			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 10, -3000, 1);
+			App->enemies->AddEnemy(ENEMY_TYPES::TRUCK, 6, -3000, 1);
 
 			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 90, -2970, 2);
 			App->enemies->AddEnemy(ENEMY_TYPES::BLUESOLDIER, 130, -2970, 2);
