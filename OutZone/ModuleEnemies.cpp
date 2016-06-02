@@ -311,7 +311,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			}
 			if (c2->type == COLLIDER_BORDER)
 			{
-				if (c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_DEAD || c1->type == COLLIDER_TRUCK || c1->type == COLLIDER_DOOR)
+				if (c1->type == COLLIDER_TURRET || c1->type == COLLIDER_ENEMY || c1->type == COLLIDER_RED_SOLDIER|| c1->type == COLLIDER_BIG_TURRET || c1->type == COLLIDER_DEAD || c1->type == COLLIDER_TRUCK || c1->type == COLLIDER_DOOR)
 				{
 					delete enemies[i];
 					enemies[i] = nullptr;
