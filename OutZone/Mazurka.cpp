@@ -389,12 +389,16 @@ void Mazurka::Draw()
 	// Green blit --------------------------------------------------------
 
 	if (hit == false && lives <= 36 && lives > 0)
-		App->render->Blit(App->enemies->sprites, position.x, position.y, &hit2.GetCurrentFrame(), -1.0f);
+		App->render->Blit(App->enemies->sprites, position.x, position.y - 30, &hit2.GetCurrentFrame(), -1.0f);
 	else if (hit == false && lives > 36)
 		App->render->Blit(App->enemies->sprites, position.x, position.y, &mazurka.GetCurrentFrame(), -1.0f);
 	else
 	{
-		App->render->Blit(App->enemies->sprites2, position.x, position.y, &mazurka.GetActualFrame(), -1.0f);
+		if (lives > 36)
+			App->render->Blit(App->enemies->sprites2, position.x, position.y, &mazurka.GetActualFrame(), -1.0f);
+		else
+			App->render->Blit(App->enemies->sprites2, position.x, position.y - 30, &hit2.GetActualFrame(), -1.0f);
+
 		t++;
 
 		if (t == 3)

@@ -308,7 +308,7 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_UP)
 	{
-		if (App->player->bombs > 0)
+		if (App->player->bombs > 0 && App->scene_level1b->t2 >= 100)
 		{
 			App->explosion->AddExplosion(App->explosion->Airstrike, App->render->camera.x, (-App->render->camera.y * 2 / 4), { 0, 0 }, { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, COLLIDER_EXPLOSION);
 			App->player->bombs--;

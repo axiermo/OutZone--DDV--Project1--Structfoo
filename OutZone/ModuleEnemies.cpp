@@ -293,7 +293,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						{
 							App->audio->PlayFX(big_death);
 							App->explosion->AddExplosion(App->explosion->Truck_explosion, enemies[i]->position.x - 20, enemies[i]->position.y - 10, { 0, 0 }, { 0, 0, 100, 150 }, COLLIDER_EXPLOSION);
-							App->paint->AddPaint(App->paint->truck_hole, enemies[i]->position.x, enemies[i]->position.y);
+							App->paint->AddPaint(App->paint->truck_hole, enemies[i]->position.x - 10, enemies[i]->position.y);
 							delete enemies[i];
 							enemies[i] = nullptr;
 							App->player->score += 1770;
